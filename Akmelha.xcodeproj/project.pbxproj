@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
+		1D33B3B5294575E800D5BD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B4294575E800D5BD45 /* Assets.xcassets */; };
+		1D33B3B8294575E800D5BD45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */; };
+		1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3C02945765000D5BD45 /* TeacherTabBar.swift */; };
+		1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3C22945766600D5BD45 /* TeacherSubjects.swift */; };
+		1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3C42945767700D5BD45 /* TeacherCalendar.swift */; };
+		1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3C62945768100D5BD45 /* TeacherCards.swift */; };
+		1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3C8294576D500D5BD45 /* InsideTeacherSubject.swift */; };
+		1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3CA294576EB00D5BD45 /* TeacherTasks.swift */; };
+		1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3CC294576F600D5BD45 /* TeacherReviews.swift */; };
+		1D33B3CF2945770C00D5BD45 /* AboutTeacherSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */; };
+		1D33B3D12945773600D5BD45 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3D02945773600D5BD45 /* TextView.swift */; };
+		1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3D22945774200D5BD45 /* PickerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkmelhaApp.swift; sourceTree = "<group>"; };
+		1D33B3B4294575E800D5BD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		1D33B3C02945765000D5BD45 /* TeacherTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTabBar.swift; sourceTree = "<group>"; };
+		1D33B3C22945766600D5BD45 /* TeacherSubjects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSubjects.swift; sourceTree = "<group>"; };
+		1D33B3C42945767700D5BD45 /* TeacherCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCalendar.swift; sourceTree = "<group>"; };
+		1D33B3C62945768100D5BD45 /* TeacherCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCards.swift; sourceTree = "<group>"; };
+		1D33B3C8294576D500D5BD45 /* InsideTeacherSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideTeacherSubject.swift; sourceTree = "<group>"; };
+		1D33B3CA294576EB00D5BD45 /* TeacherTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherTasks.swift; sourceTree = "<group>"; };
+		1D33B3CC294576F600D5BD45 /* TeacherReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherReviews.swift; sourceTree = "<group>"; };
+		1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTeacherSubject.swift; sourceTree = "<group>"; };
+		1D33B3D02945773600D5BD45 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		1D33B3D22945774200D5BD45 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D33B3AA294575E500D5BD45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D33B3A4294575E500D5BD45 = {
+			isa = PBXGroup;
+			children = (
+				1D33B3AF294575E500D5BD45 /* Akmelha */,
+				1D33B3AE294575E500D5BD45 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D33B3AE294575E500D5BD45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3AD294575E500D5BD45 /* Akmelha.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D33B3AF294575E500D5BD45 /* Akmelha */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */,
+				1D33B3D52945790E00D5BD45 /* Teacher */,
+				1D33B3D4294577FC00D5BD45 /* Extensions */,
+				1D33B3B4294575E800D5BD45 /* Assets.xcassets */,
+				1D33B3B6294575E800D5BD45 /* Preview Content */,
+			);
+			path = Akmelha;
+			sourceTree = "<group>";
+		};
+		1D33B3B6294575E800D5BD45 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		1D33B3D4294577FC00D5BD45 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3D02945773600D5BD45 /* TextView.swift */,
+				1D33B3D22945774200D5BD45 /* PickerView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1D33B3D52945790E00D5BD45 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3C02945765000D5BD45 /* TeacherTabBar.swift */,
+				1D33B3D82945798100D5BD45 /* TeacherCardsTab */,
+				1D33B3D72945795800D5BD45 /* TeacherCalendarTab */,
+				1D33B3D62945793500D5BD45 /* TecherSubjectsTab */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		1D33B3D62945793500D5BD45 /* TecherSubjectsTab */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3C22945766600D5BD45 /* TeacherSubjects.swift */,
+				1D33B3C8294576D500D5BD45 /* InsideTeacherSubject.swift */,
+				1D33B3CA294576EB00D5BD45 /* TeacherTasks.swift */,
+				1D33B3CC294576F600D5BD45 /* TeacherReviews.swift */,
+				1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */,
+			);
+			path = TecherSubjectsTab;
+			sourceTree = "<group>";
+		};
+		1D33B3D72945795800D5BD45 /* TeacherCalendarTab */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3C42945767700D5BD45 /* TeacherCalendar.swift */,
+			);
+			path = TeacherCalendarTab;
+			sourceTree = "<group>";
+		};
+		1D33B3D82945798100D5BD45 /* TeacherCardsTab */ = {
+			isa = PBXGroup;
+			children = (
+				1D33B3C62945768100D5BD45 /* TeacherCards.swift */,
+			);
+			path = TeacherCardsTab;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D33B3AC294575E500D5BD45 /* Akmelha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D33B3BB294575E800D5BD45 /* Build configuration list for PBXNativeTarget "Akmelha" */;
+			buildPhases = (
+				1D33B3A9294575E500D5BD45 /* Sources */,
+				1D33B3AA294575E500D5BD45 /* Frameworks */,
+				1D33B3AB294575E500D5BD45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Akmelha;
+			productName = Akmelha;
+			productReference = 1D33B3AD294575E500D5BD45 /* Akmelha.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D33B3A5294575E500D5BD45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					1D33B3AC294575E500D5BD45 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 1D33B3A8294575E500D5BD45 /* Build configuration list for PBXProject "Akmelha" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = ar;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				ar,
+				Base,
+			);
+			mainGroup = 1D33B3A4294575E500D5BD45;
+			productRefGroup = 1D33B3AE294575E500D5BD45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D33B3AC294575E500D5BD45 /* Akmelha */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D33B3AB294575E500D5BD45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D33B3B8294575E800D5BD45 /* Preview Assets.xcassets in Resources */,
+				1D33B3B5294575E800D5BD45 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D33B3A9294575E500D5BD45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
+				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
+				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
+				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
+				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
+				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
+				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
+				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
+				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
+				1D33B3CF2945770C00D5BD45 /* AboutTeacherSubject.swift in Sources */,
+				1D33B3D12945773600D5BD45 /* TextView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D33B3B9294575E800D5BD45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1D33B3BA294575E800D5BD45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D33B3BC294575E800D5BD45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
+				DEVELOPMENT_TEAM = 36Z9V6BZRF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danya.Akmelha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D33B3BD294575E800D5BD45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
+				DEVELOPMENT_TEAM = 36Z9V6BZRF;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danya.Akmelha;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D33B3A8294575E500D5BD45 /* Build configuration list for PBXProject "Akmelha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D33B3B9294575E800D5BD45 /* Debug */,
+				1D33B3BA294575E800D5BD45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D33B3BB294575E800D5BD45 /* Build configuration list for PBXNativeTarget "Akmelha" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D33B3BC294575E800D5BD45 /* Debug */,
+				1D33B3BD294575E800D5BD45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1D33B3A5294575E500D5BD45 /* Project object */;
+}
