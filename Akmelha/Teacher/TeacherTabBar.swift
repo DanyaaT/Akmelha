@@ -63,7 +63,7 @@ struct TeacherTabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
   static var previews: some View {
-    TeacherTabBar()
+    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
   }
 }
 

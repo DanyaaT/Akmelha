@@ -15,6 +15,6 @@ struct TeacherCards: View {
 
 struct TeacherCards_Previews: PreviewProvider {
     static var previews: some View {
-        TeacherCards()
+        TeacherCards().environment(\.layoutDirection, .rightToLeft)
     }
 }

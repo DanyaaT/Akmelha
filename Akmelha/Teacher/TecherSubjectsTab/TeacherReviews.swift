@@ -15,6 +15,6 @@ struct TeacherReviews: View {
 
 struct TeacherReviews_Previews: PreviewProvider {
     static var previews: some View {
-        TeacherReviews()
+        TeacherReviews().environment(\.layoutDirection, .rightToLeft)
     }
 }

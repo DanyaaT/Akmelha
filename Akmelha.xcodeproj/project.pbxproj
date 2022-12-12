@@ -171,10 +171,10 @@
 			};
 			buildConfigurationList = 1D33B3A8294575E500D5BD45 /* Build configuration list for PBXProject "Akmelha" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = ar;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				ar,
+				en,
 				Base,
 			);
 			mainGroup = 1D33B3A4294575E500D5BD45;

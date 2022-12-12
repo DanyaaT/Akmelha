@@ -18,6 +18,6 @@ struct TeacherSubjects: View {
 
 struct TeacherSubjects_Previews: PreviewProvider {
     static var previews: some View {
-        TeacherSubjects()
+        TeacherSubjects().environment(\.layoutDirection, .rightToLeft)
     }
 }

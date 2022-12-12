@@ -15,6 +15,6 @@ struct TeacherCalendar: View {
 
 struct TeacherCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        TeacherCalendar()
+        TeacherCalendar().environment(\.layoutDirection, .rightToLeft)
     }
 }

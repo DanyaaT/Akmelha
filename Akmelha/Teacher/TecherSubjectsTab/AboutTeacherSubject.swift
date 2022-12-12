@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AboutTeacherSubject: View {
-    @State var subjectDesc =  "مادة رياضيات للصف الخامس "
+    @State var subjectDesc =  ""
     @State var edit = false
     var body: some View {
         VStack(alignment: .leading){
@@ -20,8 +20,15 @@ struct AboutTeacherSubject: View {
                 Rectangle().frame(height: 1).foregroundColor(.gray)
             }.padding(.bottom)
            
+           
                 
-            TextField("الوصف", text: $subjectDesc).disabled(!edit).background(RoundedRectangle(cornerRadius: 8).stroke(.gray.opacity(0.4)).frame( height: 40).background(Color.white)).padding(.vertical)
+
+         
+                
+                TextField("الوصف", text: $subjectDesc).disabled(!edit).padding(.horizontal).background(RoundedRectangle(cornerRadius: 8).stroke(.gray.opacity(0.4)).frame( height: 50).background(Color("bg")))
+                                                                                                       
+            .padding(.vertical)
+            
             
             HStack(spacing: 2){
                 Text("معلم المادة")
@@ -80,6 +87,6 @@ struct AboutTeacherSubject: View {
 
 struct AboutSubject_Previews: PreviewProvider {
     static var previews: some View {
-        AboutTeacherSubject()
+        AboutTeacherSubject().environment(\.layoutDirection, .rightToLeft)
     }
 }

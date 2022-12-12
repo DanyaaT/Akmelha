@@ -17,7 +17,7 @@ struct AkmelhaApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            TeacherTabBar()
+            TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
         }
     }
 }
