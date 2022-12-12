@@ -80,7 +80,7 @@ struct AddTeacherTask: View{
                     }
                 }
             }
-      
+        .environment(\.layoutDirection,.rightToLeft)
         .navigationTitle("إضافة مهمة جديدة")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{

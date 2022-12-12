@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct AkmelhaApp: App {
-    
+
     init(){
         UITableView.appearance().backgroundColor = UIColor(named: "bg")
         UINavigationBar.appearance().tintColor = UIColor(named: "purple")
