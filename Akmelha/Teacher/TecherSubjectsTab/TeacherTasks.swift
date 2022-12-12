@@ -84,7 +84,7 @@ struct AddTeacherTask: View{
         .navigationTitle("إضافة مهمة جديدة")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar{
-            ToolbarItem(placement: .cancellationAction){
+            ToolbarItem(placement: .navigationBarTrailing){
                 Button(action: {showAddTaskSheet = false}){
                     Image(systemName: "xmark.circle").foregroundColor(.gray)
                 }

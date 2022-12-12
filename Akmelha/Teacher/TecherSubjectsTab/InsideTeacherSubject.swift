@@ -44,6 +44,7 @@ struct InsideTeacherSubject: View {
 
 struct InsideTeacherSubject_Previews: PreviewProvider {
     static var previews: some View {
-        InsideTeacherSubject().environment(\.layoutDirection, .rightToLeft)
+        InsideTeacherSubject()
+            .environment(\.layoutDirection, .rightToLeft)
     }
 }
