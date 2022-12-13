@@ -47,14 +47,15 @@ struct TeacherTabBar: View {
                     }.tag(TeacherTabs.البطاقات)
                 
             }
-            .accentColor(Color("purple"))
+           
             
             .navigationTitle(selectedTab.rawValue)
-            
+           
         
             
         }         .navigationViewStyle(.stack)
-         
+           
+            .tint(Color("purple"))
         
 
     }

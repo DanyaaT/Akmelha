@@ -40,7 +40,9 @@ struct TeacherTasks: View{
            Spacer()
         }
         .sheet(isPresented: $showAddTaskSheet){
-            AddTeacherTask(showAddTaskSheet: $showAddTaskSheet)
+          
+                AddTeacherTask(showAddTaskSheet: $showAddTaskSheet).presentationDetents([.medium])
+            
         }
     }
 }
@@ -68,8 +70,9 @@ struct AddTeacherTask: View{
             Form{
                 Section{
                 TextField("اسم المهمة", text: $taskName)
-                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
-                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
+//                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
+//                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
+                    TextField("اسم المهمة", text: $taskName).lineLimit(5)
                 
                 }
                 Section{
@@ -79,7 +82,11 @@ struct AddTeacherTask: View{
                     Stepper("\(taskPoints)", value: $taskPoints)
                     }
                 }
-            }
+            }.scrollContentBackground(.hidden)
+                .background(Color("bg"))
+            
+            
+            
         .environment(\.layoutDirection,.rightToLeft)
         .navigationTitle("إضافة مهمة جديدة")
         .navigationBarTitleDisplayMode(.inline)

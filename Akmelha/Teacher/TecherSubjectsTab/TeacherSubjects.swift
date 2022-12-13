@@ -137,7 +137,7 @@ struct TeacherSubjects: View {
         
                 .sheet(isPresented: $showSheet){
                     buttonSheetView(showSheet:$showSheet)
-//                        .presentationDetents([.medium])
+                       .presentationDetents([.medium])
                     
                 }
         }
