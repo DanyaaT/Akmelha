@@ -83,7 +83,7 @@ struct AddTeacherTask: View{
                     }
                 }
             }.scrollContentBackground(.hidden)
-                .background(Color("bg"))
+                .background(Color("sheet"))
             
             
             
