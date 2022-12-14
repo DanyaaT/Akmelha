@@ -72,7 +72,7 @@ struct AddTeacherTask: View{
                 TextField("اسم المهمة", text: $taskName)
 //                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
 //                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
-                    TextField("اسم المهمة", text: $taskName).lineLimit(5)
+                    TextField("وصف المهمة", text: $taskName).lineLimit(5)
                 
                 }
                 Section{

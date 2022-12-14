@@ -15,6 +15,7 @@ struct CornerRadiusShape: Shape {
         return Path(path.cgPath)
     }
 }
+
 struct CornerRadiusStyle: ViewModifier {
     var radius: CGFloat
     var corners: UIRectCorner
@@ -53,9 +54,9 @@ struct TeacherSubjects: View {
                             .font(.system(size: 40))
                             .foregroundColor(Color("title"))
                         
-                    }
+                    }// Vstack
                     
-                }
+                }//Zstack
                 
                 ZStack{
                     NavigationLink(destination:InsideTeacherSubject()) {
@@ -64,7 +65,7 @@ struct TeacherSubjects: View {
                         .foregroundColor(Color("pink"))
                         .cornerRadius(50)
                         .frame(height:61)
-                    }
+                    }//NavigationLink
                     .environment(\.layoutDirection,.rightToLeft)
                     .navigationBarHidden(true)
                     
@@ -90,11 +91,11 @@ struct TeacherSubjects: View {
                             .frame(width: 80, height: 80, alignment: .center)
                             .clipShape(Circle())
                         
-                    }// end h
+                    }// end Hstack
                     .padding(.leading)
                         
                
-                } // end z
+                } // end Zstack
                 .padding()
                 Spacer()
                 
@@ -109,7 +110,8 @@ struct TeacherSubjects: View {
                     Text("إضافة مادة")
                         .font(.system(size: 15))
                     
-                }
+                } // end Zstack
+                    
                     ZStack {
                         Rectangle()
                             .foregroundColor(Color("green"))
@@ -119,32 +121,25 @@ struct TeacherSubjects: View {
                         ZStack{
                             Button("+"){
                                 showSheet.toggle()
-                            }
+                            }// end Button
                             .font(.system(size: 30))
                             .foregroundColor(.white)
                             
-                        }
-                    }
+                        }// end Zstack
+                    }// end Zstack
                     Spacer()
                     
-                }
-                
-                //                .padding()// should i keep it or not?
-            } // end v
-        }//end z
-
-
-        
+                } //End Hstack
+            
+            } // end Vstack
+        }//end First Zstack
                 .sheet(isPresented: $showSheet){
                     buttonSheetView(showSheet:$showSheet)
                        .presentationDetents([.medium])
                     
-                }
-        }
-        
-        
-
-    }
+                } //End .sheet
+        }// end body
+    }//end struct
 
 
 
@@ -152,9 +147,9 @@ struct buttonSheetView:View{
 
 @Binding var showSheet : Bool
 @State var disc : String = ""
-@State var selectedCourse = 0
-@State var selectedLevel = 0
-@State var courses: [String] = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية المهنية","التربية الفنية","التفكير الناقد",]
+@State var selectedCourse = ""
+@State var selectedLevel = ""
+@State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية المهنية","التربية الفنية","التفكير الناقد",]
 @State var levels = ["الأول ابتدائي", "الثاني ابتدائي","الثالث ابتدائي", "الرابع ابتدائي"," الخامس ابتدائي"," السادس ابتدائي","الأول متوسط","الثاني متوسط","الثالث متوسط"]
 
 
@@ -167,36 +162,29 @@ var body: some View{
             Form {
                 //
                 Picker(selection: $selectedCourse, label: Text("اسم المادة")){
-                    ForEach(0..<courses.count){
-                        Text(self.courses[$0]).tag($0)
-                    }
-                }
-                //                Text("Selected color: \(selectedCourse)")
+                    Text("").tag("")
+                    ForEach(courses, id:\.self){ course in
+                        Text(course)
+                            .tag(course)
+                    }// foreach
+                }// end picker
                 
                 Section{
                     TextField("وصف المادة", text: $disc)
                 }
-                
                 Section{
                     Picker(selection: $selectedLevel, label: Text("الصف الدراسي")){
-                        ForEach(0..<levels.count){
-                            Text(self.levels[$0]).tag($0)
-                        }
-                    }
-                }
-                
-                //                Section{
-                //                    Picker(selection: $selectedLevel, label: Text("الصف الدراسي")){
-                //                        ForEach(levels,id:\.self){levels in
-                //                            Text(levels)
-                //                                .tag(levels)
-                //                        }
-                //                    }
-                //                }
-                
+                        Text("").tag("")
+                        ForEach(levels, id:\.self){ level in
+                            Text(level)
+                                .tag(level)
+                        } //foreach
+                    } // end picker
+                } // end section
             }//Form
-            
             .environment(\.layoutDirection,.rightToLeft)
+            .scrollContentBackground(.hidden)
+            .background(Color("sheet"))
             .navigationTitle("إضافة مادة جديدة")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
@@ -204,14 +192,13 @@ var body: some View{
                     Button(action:{showSheet=false}){
                         Image(systemName:"xmark.circle")
                             .foregroundColor(.gray)
-                    }
-                }
+                    }// end button
+                }// end toolbar item
                 
-            }
-            //            .padding()
-        }
+            }//end toolbar
+        }// end NavigationView
 
-    }
+    } // end first Vstack
     
     Button(action:{
         print("Submit button tapped")
@@ -222,23 +209,18 @@ var body: some View{
             .background(Color("green"))
             .foregroundColor(.white)
             .cornerRadius(10)
-        
-    }
-        
-        
-    )
 
-            
-            
-        }
-      
-    }
+        
 
-   
+    }// label
+    )// button
+    }// body
+    }// struct
+
+
 struct TeacherSubjects_Previews: PreviewProvider {
     static var previews: some View {
         TeacherSubjects()
             .environment(\.layoutDirection,.rightToLeft)
-
     }
 }

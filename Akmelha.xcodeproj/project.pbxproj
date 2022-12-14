@@ -99,9 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				1D33B3C02945765000D5BD45 /* TeacherTabBar.swift */,
-				1D33B3D82945798100D5BD45 /* TeacherCardsTab */,
-				1D33B3D72945795800D5BD45 /* TeacherCalendarTab */,
 				1D33B3D62945793500D5BD45 /* TecherSubjectsTab */,
+				1D33B3D82945798100D5BD45 /* TeacherCardsTab */,
 			);
 			path = Teacher;
 			sourceTree = "<group>";
@@ -109,6 +108,7 @@
 		1D33B3D62945793500D5BD45 /* TecherSubjectsTab */ = {
 			isa = PBXGroup;
 			children = (
+				1D33B3D72945795800D5BD45 /* TeacherCalendarTab */,
 				1D33B3C22945766600D5BD45 /* TeacherSubjects.swift */,
 				1D33B3C8294576D500D5BD45 /* InsideTeacherSubject.swift */,
 				1D33B3CA294576EB00D5BD45 /* TeacherTasks.swift */,
