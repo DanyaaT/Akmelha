@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07719D2E294C42530039707A /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2D294C42530039707A /* WelcomePage.swift */; };
+		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
+		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
 		1D33B3B5294575E800D5BD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B4294575E800D5BD45 /* Assets.xcassets */; };
 		1D33B3B8294575E800D5BD45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07719D2D294C42530039707A /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
+		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkmelhaApp.swift; sourceTree = "<group>"; };
 		1D33B3B4294575E800D5BD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,6 +56,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07719D2C294C415E0039707A /* Registration pages */ = {
+			isa = PBXGroup;
+			children = (
+				07719D2D294C42530039707A /* WelcomePage.swift */,
+				07719D2F294C428A0039707A /* logIN.swift */,
+				07719D31294C42B20039707A /* SignUP.swift */,
+			);
+			path = "Registration pages";
+			sourceTree = "<group>";
+		};
 		1D33B3A4294575E500D5BD45 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */,
+				07719D2C294C415E0039707A /* Registration pages */,
 				1D33B3D52945790E00D5BD45 /* Teacher */,
 				1D33B3D4294577FC00D5BD45 /* Extensions */,
 				1D33B3B4294575E800D5BD45 /* Assets.xcassets */,
@@ -205,14 +222,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
+				07719D32294C42B20039707A /* SignUP.swift in Sources */,
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
+				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
+				07719D2E294C42530039707A /* WelcomePage.swift in Sources */,
 				1D33B3CF2945770C00D5BD45 /* AboutTeacherSubject.swift in Sources */,
 				1D33B3D12945773600D5BD45 /* TextView.swift in Sources */,
 			);
