@@ -22,6 +22,8 @@ struct AkmelhaApp: App {
     @ObservedObject var dbCourseTasks: CourseTaskDB
     @ObservedObject var dbCourses: CourseDB
     @ObservedObject var dbEvents: EventDB
+    @StateObject var myEvents = EventStore(preview: true)
+
    
     
     init(){
@@ -39,7 +41,8 @@ struct AkmelhaApp: App {
                 .environmentObject(dbCourseTasks)
                 .environmentObject(dbCourses)
                 .environmentObject(dbEvents)
-                
+                .environmentObject(myEvents)
+
               
         }
     }

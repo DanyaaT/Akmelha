@@ -41,6 +41,15 @@
 		1DD94C69294E2A4B00AD8AC0 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD94C68294E2A4B00AD8AC0 /* FirebaseFunctions */; };
 		1DD94C6B294E2A4B00AD8AC0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD94C6A294E2A4B00AD8AC0 /* FirebaseStorage */; };
 		1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */; };
+		5BDEE08B294E6268006122DB /* Eventt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08A294E6268006122DB /* Eventt.swift */; };
+		5BDEE08D294E628E006122DB /* EventStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08C294E628E006122DB /* EventStore.swift */; };
+		5BDEE08F294E62AE006122DB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08E294E62AE006122DB /* Date.swift */; };
+		5BDEE091294E62FF006122DB /* EventFormType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE090294E62FF006122DB /* EventFormType.swift */; };
+		5BDEE093294E6320006122DB /* EventFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE092294E6320006122DB /* EventFormView.swift */; };
+		5BDEE095294E633D006122DB /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE094294E633D006122DB /* EventViewModel.swift */; };
+		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
+		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
+		5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE09A294E63CF006122DB /* DaysEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +79,15 @@
 		1DD94C55294E293300AD8AC0 /* EventDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDB.swift; sourceTree = "<group>"; };
 		1DD94C57294E298500AD8AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		5BDEE08A294E6268006122DB /* Eventt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Eventt.swift; sourceTree = "<group>"; };
+		5BDEE08C294E628E006122DB /* EventStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventStore.swift; sourceTree = "<group>"; };
+		5BDEE08E294E62AE006122DB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5BDEE090294E62FF006122DB /* EventFormType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFormType.swift; sourceTree = "<group>"; };
+		5BDEE092294E6320006122DB /* EventFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventFormView.swift; sourceTree = "<group>"; };
+		5BDEE094294E633D006122DB /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		5BDEE096294E6367006122DB /* calendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarView.swift; sourceTree = "<group>"; };
+		5BDEE098294E63AB006122DB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
+		5BDEE09A294E63CF006122DB /* DaysEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +164,7 @@
 			children = (
 				1D33B3D02945773600D5BD45 /* TextView.swift */,
 				1D33B3D22945774200D5BD45 /* PickerView.swift */,
+				5BDEE08E294E62AE006122DB /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,7 +195,12 @@
 		1D33B3D72945795800D5BD45 /* TeacherCalendarTab */ = {
 			isa = PBXGroup;
 			children = (
+				5BDEE089294E61B6006122DB /* EditUpdateView */,
+				5BDEE088294E61AC006122DB /* Models */,
 				1D33B3C42945767700D5BD45 /* TeacherCalendar.swift */,
+				5BDEE096294E6367006122DB /* calendarView.swift */,
+				5BDEE098294E63AB006122DB /* EventList.swift */,
+				5BDEE09A294E63CF006122DB /* DaysEvent.swift */,
 			);
 			path = TeacherCalendarTab;
 			sourceTree = "<group>";
@@ -210,6 +234,25 @@
 				1DD94C55294E293300AD8AC0 /* EventDB.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		5BDEE088294E61AC006122DB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5BDEE08A294E6268006122DB /* Eventt.swift */,
+				5BDEE08C294E628E006122DB /* EventStore.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5BDEE089294E61B6006122DB /* EditUpdateView */ = {
+			isa = PBXGroup;
+			children = (
+				5BDEE090294E62FF006122DB /* EventFormType.swift */,
+				5BDEE092294E6320006122DB /* EventFormView.swift */,
+				5BDEE094294E633D006122DB /* EventViewModel.swift */,
+			);
+			path = EditUpdateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,21 +342,30 @@
 			files = (
 				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
+				5BDEE08D294E628E006122DB /* EventStore.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
+				5BDEE095294E633D006122DB /* EventViewModel.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
+				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
+				5BDEE097294E6367006122DB /* calendarView.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
+				5BDEE08B294E6268006122DB /* Eventt.swift in Sources */,
 				1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */,
+				5BDEE093294E6320006122DB /* EventFormView.swift in Sources */,
+				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
 				1DD94C52294E28FB00AD8AC0 /* CourseTaskDB.swift in Sources */,
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
 				1DD94C54294E291600AD8AC0 /* CourseDB.swift in Sources */,
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
+				5BDEE091294E62FF006122DB /* EventFormType.swift in Sources */,
+				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
 				1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */,
 				07719D2E294C42530039707A /* WelcomePage.swift in Sources */,
