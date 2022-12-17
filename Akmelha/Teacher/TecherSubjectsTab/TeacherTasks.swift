@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TeacherTasks: View{
+    @EnvironmentObject var dbCourseTasks: CourseTaskDB
+    
     @State var pickerColor = "pink"
     @State var title = "الرياضيات"
     @State var showAddTaskSheet = false
@@ -18,10 +20,10 @@ struct TeacherTasks: View{
                         
                         ScrollView {
                             VStack{
-                            TeacherTaskCell()
-                            TeacherTaskCell()
-                            TeacherTaskCell()
-                        
+                                ForEach(dbCourseTasks.tasks.indices, id: \.self) {index in
+                                    TeacherTaskCell(task : dbCourseTasks.tasks[index])
+                                }
+                                
                             }
                         }
                         
@@ -50,21 +52,24 @@ struct TeacherTasks: View{
 
 struct TeacherTasks_Previews: PreviewProvider {
     static var previews: some View {
-        AddTeacherTask(showAddTaskSheet: .constant(true)).environment(\.layoutDirection, .rightToLeft)
+//        AddTeacherTask(showAddTaskSheet: .constant(true)).environment(\.layoutDirection, .rightToLeft)
+        TeacherTasks().environment(\.layoutDirection, .rightToLeft)
     }
 }
 
 
 
 struct AddTeacherTask: View{
+    @EnvironmentObject var dbCourseTasks: CourseTaskDB
     
     @Binding var showAddTaskSheet: Bool
     @State var taskName = ""
     @State var taskDesc = ""
-    @State var deadlineToggle = false
-    @State var points = 10
+    @State var taskCourse = "الرياضايات"
+    @State var taskDeadline = Date()
+      
     @State private var textHeight: CGFloat = 80
-    @State private var taskPoints = 10
+    @State private var taskScore = 10
     var body: some View{
         NavigationView{
             Form{
@@ -72,16 +77,41 @@ struct AddTeacherTask: View{
                 TextField("اسم المهمة", text: $taskName)
 //                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
 //                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
-                    TextField("وصف المهمة", text: $taskName).lineLimit(5)
+
+                    TextField("الوصف", text: $taskDesc).lineLimit(5)
+
                 
                 }
                 Section{
-                    Toggle("الموعد النهائي", isOn: $deadlineToggle)
+             
+                        
+                        DatePicker("الموعد النهائي",
+                                   selection: $taskDeadline,
+                                   displayedComponents: .date)
+                        
+                            .accentColor(Color("purple"))
+                    
                     HStack{
                         Text("النقاط المكتسبة:")
-                    Stepper("\(taskPoints)", value: $taskPoints)
+                    Stepper("\(taskScore)", value: $taskScore)
                     }
                 }
+                Button(action: {
+                    dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:taskCourse, taskDeadline: taskDeadline, taskScore: taskScore ))
+                    showAddTaskSheet = false
+                    
+                }){
+                    HStack{
+                        Spacer()
+                        Text("اضافة").font(.title2)
+                        Spacer()
+                    }
+                    
+                }
+                
+                
+                
+                
             }.scrollContentBackground(.hidden)
                 .background(Color("sheet"))
             
@@ -105,16 +135,10 @@ struct AddTeacherTask: View{
 
 
 
-
-
-
-
-
-
-
-
-
 struct TeacherTaskCell: View{
+    @EnvironmentObject var dbCourseTasks: CourseTaskDB
+    
+    var task: CourseTask
     @State var pickerColor = "pink"
     @State var title = "الرياضيات"
     var body: some View{
@@ -124,12 +148,12 @@ struct TeacherTaskCell: View{
             RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 95).background(Color.white).shadow(radius: 0.6)
             VStack{
                 HStack{
-                    Text(title).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                    Text(task.taskCourse ?? "").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                     Spacer()
-                    Text("الأثنين ٣/٤").foregroundColor(.gray)
+                    Text(task.taskDeadline ?? Date(), style: .date).foregroundColor(.gray)
                 }
                 HStack{
-                    Text("تمارين نهاية الفصل").font(.title3)
+                    Text(task.taskName ?? "").font(.title3)
                     Spacer()
                 }
                 VStack(alignment:.trailing){
@@ -142,5 +166,3 @@ struct TeacherTaskCell: View{
         }
     }
 }
-
-

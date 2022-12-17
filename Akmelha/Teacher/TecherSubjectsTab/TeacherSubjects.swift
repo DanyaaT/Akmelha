@@ -224,3 +224,58 @@ struct TeacherSubjects_Previews: PreviewProvider {
             .environment(\.layoutDirection,.rightToLeft)
     }
 }
+
+func courseColorAndImage(courseName: String) -> [String]{
+    var colorAndImage = [""]
+    var color = ""
+    var image = ""
+    
+    if courseName == "الرياضيات"{
+      color = "pink"
+      image = "math"
+    }
+   else if courseName == "العلوم"{
+      color = ""
+      image = ""
+    }
+    else if courseName == "لغتي الجميلة"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "لغتي الخالدة"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "الدراسات الإسلامية"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "اللغة الإنجليزية"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "الدراسات الاجتماعية"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "المهارات الرقمية"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "التربية المهنية"{
+       color = ""
+       image = ""
+     }
+    else if courseName == "التربية الفنية"{
+       color = ""
+       image = ""
+     }
+    else{
+        color = ""
+        image = ""
+    }
+    
+    colorAndImage = [color, image]
+    
+    return colorAndImage
+}
