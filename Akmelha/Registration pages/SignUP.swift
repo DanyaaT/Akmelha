@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct SignUP: View {
+    @EnvironmentObject var viewModel: AppViewModel
     
-    @State var Username: String = ""
+    @State var email: String = ""
     @State var password: String = ""
+    @State var confirmPassword: String = ""
     
     var body: some View {
         ZStack{
@@ -83,7 +88,8 @@ struct SignUP: View {
                     .padding(.top, -18.0)
                     .frame(width: 350, alignment: .trailing)
                 
-                TextField("البريد الإلكتروني", text: $Username)
+                TextField("البريد الإلكتروني", text: $email)
+                    .autocorrectionDisabled(true)
                     .padding()
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(50)
@@ -109,7 +115,7 @@ struct SignUP: View {
                     .frame(width: 350, alignment: .trailing)
                 
                 
-                TextField("تأكيد كلمة المرور", text: $password)
+                TextField("تأكيد كلمة المرور", text: $confirmPassword)
                     .padding()
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(50)
@@ -125,8 +131,8 @@ struct SignUP: View {
                 
                 Spacer()
                 
-                Button("تسجيل") {
-                    //her the acion
+                Button("انشاء حساب") {
+                    viewModel.signUp(email: email, password: password)
                 }
                 .foregroundColor(Color.gray)
                 .frame(width: 300, height: 50)
@@ -134,7 +140,7 @@ struct SignUP: View {
                 .cornerRadius(50)
                 .font(.system(size: 25))
             }
-        }
+        } .toolbar(.hidden)
     }
 }
 

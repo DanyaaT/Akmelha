@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct logIN: View {
+    @EnvironmentObject var viewModel: AppViewModel
     
-    @State var Username: String = ""
+    @State var email: String = ""
     @State var password: String = ""
+    
     
     var body: some View {
         ZStack{
@@ -85,7 +90,8 @@ struct logIN: View {
                     .font(.system(size: 20))
                     .frame(width: 350, alignment: .trailing)
 
-                TextField("البريد الإلكتروني", text: $Username)
+                TextField("البريد الإلكتروني", text: $email)
+                    .autocorrectionDisabled(true)
                     .padding()
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(50)
@@ -112,8 +118,9 @@ struct logIN: View {
                 
                 Spacer()
 
+                
                 Button("تسجيل") {
-                    //her the acion
+                    viewModel.signIn(email: email, password: password)
                 }
                 .foregroundColor(Color.gray)
                 .frame(width: 300, height: 50)
@@ -154,7 +161,9 @@ struct logIN: View {
             }
             
                 
-        }    }
+        } .toolbar(.hidden)
+        
+    }
 }
 
 struct logIN_Previews: PreviewProvider {

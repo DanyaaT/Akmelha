@@ -51,9 +51,11 @@ struct TeacherTasks: View{
 
 
 struct TeacherTasks_Previews: PreviewProvider {
+   
     static var previews: some View {
 //        AddTeacherTask(showAddTaskSheet: .constant(true)).environment(\.layoutDirection, .rightToLeft)
         TeacherTasks().environment(\.layoutDirection, .rightToLeft)
+           
     }
 }
 
