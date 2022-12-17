@@ -34,7 +34,7 @@ struct AkmelhaApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            SwiftUIView().environment(\.layoutDirection, .rightToLeft)
+            TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
                 .environmentObject(viewModel)
                 .environmentObject(dbCourseTasks)
                 .environmentObject(dbCourses)
