@@ -51,8 +51,7 @@ struct DaysEventsListView_Previews: PreviewProvider {
     }
     static var previews: some View {
         DaysEventsListView(dateSelected: .constant(dateComponents))
-            .environmentObject(EventStore(preview: true)
-            )
+            .environmentObject(EventStore(preview: true) )
     }
 }
 

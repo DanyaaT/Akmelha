@@ -23,15 +23,16 @@ struct EventFormView: View {
                 Form {
                     TextField("العنوان", text: $viewModel.note, axis: .vertical)
                         .focused($focus, equals: true)
-                    TextField("الوصف", text: $viewModel.note, axis: .vertical)
+                    
+                    TextField("الوصف", text: $viewModel.describtion, axis: .vertical)
                     Section {
                         DatePicker(selection: $viewModel.date , displayedComponents:[.date])
                             {
                             Text("التاريخ")
                             
-                            }.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
-                            .environment(\.locale, Locale.init(identifier: "ar_SA"))
-                            .tint(.gray)
+                            }//.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
+                            //.environment(\.locale, Locale.init(identifier: "ar_SA"))
+                            .tint(Color("purple"))
                     }
 
                     Section{
@@ -71,8 +72,7 @@ struct EventFormView: View {
                                 eventStore.update(event)
                             } else {
                                 // create new event
-                                let newEvent = Eventt(id: viewModel.id!,
-                                                     date: viewModel.date,
+                                let newEvent = Eventt(date: viewModel.date,
                                                      note: viewModel.note,
                                                      section: viewModel.section,
                                                      describtion: viewModel.describtion,
@@ -111,6 +111,6 @@ struct EventFormView_Previews: PreviewProvider {
         EventFormView(viewModel: EventFormViewModel())
             .environmentObject(EventStore())
             .environment(\.layoutDirection,.rightToLeft)
-
+            
     }
 }

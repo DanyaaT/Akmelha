@@ -50,5 +50,6 @@ struct EventLisr_Previews: PreviewProvider {
     static var previews: some View {
         EventList(event: event)
             .environment(\.layoutDirection, .rightToLeft)
+            
     }
 }

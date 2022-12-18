@@ -10,10 +10,11 @@ import SwiftUI
 struct TeacherCalendar: View {
     @State private var formType: EventFormType?
     @EnvironmentObject var eventStore: EventStore
-    @State private var dateSelected: DateComponents?
+    @State var dateSelected: DateComponents?
+   
     @State private var displayEvents = false
     var body: some View {
-     
+      
         ZStack{
             Color("bg").ignoresSafeArea()
 
@@ -33,6 +34,7 @@ struct TeacherCalendar: View {
                         .foregroundColor(Color("title"))
                 }//end overlay
                         ScrollView{
+                           
                             CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture),
                                          eventStore: eventStore,
                                          dateSelected: $dateSelected,
@@ -56,7 +58,7 @@ struct TeacherCalendar: View {
                                         } //Button
                                         .sheet(item: $formType) {$0}
 
-                            }//Hstack
+                            }.environment(\.layoutDirection, .rightToLeft)//Hstack
                             .padding(.top, -35.0)
                             
                         
@@ -64,7 +66,7 @@ struct TeacherCalendar: View {
                                     EventList(event: event)
                                  
                                 
-                            }
+                            }.environment(\.layoutDirection, .rightToLeft)
 
                                 .sheet(isPresented: $displayEvents) {
                                    DaysEventsListView(dateSelected: $dateSelected)
@@ -80,11 +82,24 @@ struct TeacherCalendar: View {
 
 
 struct TeacherCalendar_Previews: PreviewProvider {
-  
+    static var dateComponents: DateComponents {
+        
+        var dateComponents = Calendar.current.dateComponents(
+            [.month,
+             .day,
+             .year,
+             .hour,
+             .minute],
+            from: Date())
+        dateComponents.timeZone = TimeZone.current
+        dateComponents.calendar = Calendar(identifier: .gregorian)
+        return dateComponents
+    }
     static var previews: some View {
         
         TeacherCalendar()
-            .environment(\.layoutDirection, .rightToLeft)
+            //.environment(\.layoutDirection, .rightToLeft)
             .environmentObject(EventStore(preview: true))
+           
     }
 }

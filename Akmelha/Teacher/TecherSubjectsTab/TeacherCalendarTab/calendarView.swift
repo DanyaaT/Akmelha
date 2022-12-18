@@ -15,9 +15,9 @@ struct CalendarView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> some UICalendarView {
         let view = UICalendarView()
-        view.calendar = Calendar(identifier: .islamicUmmAlQura)
+        view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
-        view.locale = Locale(identifier: "ar")
+        //view.locale = Locale(identifier: "ar_SA")
         let dateSelection = UICalendarSelectionSingleDate(delegate: context.coordinator)
         view.selectionBehavior = dateSelection
         view.fontDesign = .default
