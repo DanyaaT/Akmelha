@@ -13,9 +13,9 @@ import FirebaseAuth
 struct SignUP: View {
     @EnvironmentObject var viewModel: AppViewModel
     
+    @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
-    @State var confirmPassword: String = ""
     
     var body: some View {
         ZStack{
@@ -82,14 +82,27 @@ struct SignUP: View {
                     .frame(width: 250, alignment: .center)
 
                 
-                Text("البريد الإلكتروني")
+                Text("الاسم")
                     .foregroundColor(Color.gray)
                     .font(.system(size: 20))
                     .padding(.top, -18.0)
                     .frame(width: 350, alignment: .trailing)
                 
-                TextField("البريد الإلكتروني", text: $email)
+                TextField("الاسم", text: $name)
                     .autocorrectionDisabled(true)
+                    .padding()
+                    .background(Color.black.opacity(0.05))
+                    .cornerRadius(50)
+                    .frame(width: 370, alignment: .center)
+                
+                Text("البريد الإلكتروني")
+                    .foregroundColor(Color.gray)
+                    .font(.system(size: 20))
+                    .padding(.top)
+                    .frame(width: 350, alignment: .trailing)
+                
+                
+                TextField("البريد الإلكتروني", text: $email)
                     .padding()
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(50)
@@ -103,19 +116,6 @@ struct SignUP: View {
                 
                 
                 TextField("كلمة المرور", text: $password)
-                    .padding()
-                    .background(Color.black.opacity(0.05))
-                    .cornerRadius(50)
-                    .frame(width: 370, alignment: .center)
-                
-                Text("تأكيد كلمة المرور")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 20))
-                    .padding(.top)
-                    .frame(width: 350, alignment: .trailing)
-                
-                
-                TextField("تأكيد كلمة المرور", text: $confirmPassword)
                     .padding()
                     .background(Color.black.opacity(0.05))
                     .cornerRadius(50)
