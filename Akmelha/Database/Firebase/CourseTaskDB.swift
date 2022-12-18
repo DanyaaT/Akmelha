@@ -27,7 +27,7 @@ class CourseTaskDB: ObservableObject {
                     do{
                         let x =  try document.data(as: CourseTask.self)
                         return x
-                    }
+                    } 
                     catch {
                         print(error)
                     }
