@@ -84,7 +84,7 @@ struct EventFormView: View {
                             Text(viewModel.updating ? "تحديث" :"اضافة")
                         }
                         .buttonStyle(.borderedProminent)
-                        .background(Color("add"))
+                        .background(Color("green"))
                         .foregroundColor(.white)
                         .cornerRadius(10)
                         .disabled(viewModel.incomplete)
