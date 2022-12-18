@@ -149,7 +149,7 @@ struct buttonSheetView:View{
 @State var disc : String = ""
 @State var selectedCourse = ""
 @State var selectedLevel = ""
-@State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية المهنية","التربية الفنية","التفكير الناقد",]
+@State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية الأسرية","التربية الفنية","التفكير الناقد",]
 @State var levels = ["الأول ابتدائي", "الثاني ابتدائي","الثالث ابتدائي", "الرابع ابتدائي"," الخامس ابتدائي"," السادس ابتدائي","الأول متوسط","الثاني متوسط","الثالث متوسط"]
 
 
@@ -199,21 +199,30 @@ var body: some View{
         }// end NavigationView
 
     } // end first Vstack
-    
-    Button(action:{
-        print("Submit button tapped")
-    }, label:{
-        Text("إضافة")
-            .padding()
-            .frame(height: 44)
-            .background(Color("green"))
-            .foregroundColor(.white)
-            .cornerRadius(10)
+    Button(action: {
+//        dbCourseTasks.addCourseTask(CourseTask(courseName: courseName, courseDesc: courseDesc, taskCourse:taskCourse, taskDeadline: taskDeadline, taskScore: taskScore ))
+        showSheet = false
+        
+    }){
+        HStack{
+            Spacer()
+            Text("اضافة").font(.title2)
+            Spacer()
+        }
+        
+    }
+//    Button(action:{
+//        print("Submit button tapped")
+//    }, label:{
+//        Text("إضافة")
+//            .padding()
+//            .frame(height: 44)
+//            .background(Color("green"))
+//            .foregroundColor(.white)
+//            .cornerRadius(10)
 
         
-
-    }// label
-    )// button
+//    )// button
     }// body
     }// struct
 
@@ -231,44 +240,48 @@ func courseColorAndImage(courseName: String) -> [String]{
     var image = ""
     
     if courseName == "الرياضيات"{
-      color = "pink"
+      color = "math"
       image = "math"
     }
    else if courseName == "العلوم"{
-      color = ""
-      image = ""
+      color = "science"
+      image = "science"
     }
     else if courseName == "لغتي الجميلة"{
-       color = ""
-       image = ""
+       color = "arabic"
+       image = "arabic"
      }
     else if courseName == "لغتي الخالدة"{
-       color = ""
-       image = ""
+       color = "arabic"
+       image = "arabic"
      }
     else if courseName == "الدراسات الإسلامية"{
-       color = ""
-       image = ""
+       color = "islamic"
+       image = "islamic"
      }
     else if courseName == "اللغة الإنجليزية"{
-       color = ""
-       image = ""
+       color = "english"
+       image = "english"
      }
     else if courseName == "الدراسات الاجتماعية"{
-       color = ""
-       image = ""
+       color = "geo"
+       image = "geo"
      }
     else if courseName == "المهارات الرقمية"{
-       color = ""
-       image = ""
+       color = "computer"
+       image = "computer"
      }
-    else if courseName == "التربية المهنية"{
-       color = ""
-       image = ""
+    else if courseName == "التربية الأسرية"{
+       color = "family"
+       image = "family"
      }
     else if courseName == "التربية الفنية"{
-       color = ""
-       image = ""
+       color = "art"
+       image = "art"
+     }
+    else if courseName == "التفكير الناقد"{
+       color = "think"
+       image = "think"
      }
     else{
         color = ""
