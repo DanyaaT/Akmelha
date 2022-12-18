@@ -99,7 +99,7 @@ struct TeacherCalendar_Previews: PreviewProvider {
     static var previews: some View {
         
         TeacherCalendar()
-            //.environment(\.layoutDirection, .rightToLeft)
+            .environment(\.layoutDirection, .leftToRight)
             .environmentObject(EventStore(preview: true))
            
     }

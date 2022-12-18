@@ -17,7 +17,7 @@ struct CalendarView: UIViewRepresentable {
         let view = UICalendarView()
         view.calendar = Calendar(identifier: .gregorian)
         view.availableDateRange = interval
-        //view.locale = Locale(identifier: "ar_SA")
+        view.locale = Locale(identifier: "ar_SA")
         let dateSelection = UICalendarSelectionSingleDate(delegate: context.coordinator)
         view.selectionBehavior = dateSelection
         view.fontDesign = .default
