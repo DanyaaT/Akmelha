@@ -17,7 +17,8 @@ import FirebaseAuth
 struct WelcomePage: View {
     @EnvironmentObject var viewModel: AppViewModel
     var body: some View {
-        
+        NavigationView{
+            
             ZStack{
                 Color("bg").ignoresSafeArea()
                 
@@ -45,15 +46,17 @@ struct WelcomePage: View {
                     
                     HStack{
                         
-                        Text("أكمِــ")
+                        Text("ـــلها")
                             .font(.system(size: 110))
                             .foregroundColor(Color(hue: 0.105, saturation: 0.021, brightness: 0.635))
+                        
                         Spacer()
                         
-                        
-                        Text("ــلها")
+                        Text("أكمِـــ")
                             .font(.system(size: 110))
                             .foregroundColor(Color(hue: 0.105, saturation: 0.021, brightness: 0.635))
+                        
+                        
                         
                         
                     }
@@ -75,39 +78,37 @@ struct WelcomePage: View {
                         
                         
                         NavigationLink(destination: SignUP()) {
-                        Text("حساب جديد")
-                        .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
-                        .frame(width: 300, height: 50)
-                        .background(Color("pickerBG"))
-                        .cornerRadius(50)
-                     }
+                            Text("حساب جديد")
+                                .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
+                                .frame(width: 300, height: 50)
+                                .background(Color("pickerBG"))
+                                .cornerRadius(50)
+                        }
                     }
                     
                     Spacer()
                     
                     
-                    NavigationLink(destination:logIN()){
-                        
-                    Text("تسجيل الدخول")
-                    .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
-                    .frame(width: 300, height: 50)
-                    .background(Color("pickerBG"))
-                    .cornerRadius(50)
-                         }
-                    Spacer()
-                    
-                    Spacer()
-                    Spacer()
-                    
-                    
-                    
-                    
+                    NavigationLink("تسجيل الدخول",destination: logIN())
+                        .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
+                        .frame(width: 300, height: 50)
+                        .background(Color("pickerBG"))
+                        .cornerRadius(50)
                 }
+                Spacer()
+                
+                Spacer()
+                Spacer()
+                
+                
+                
                 
             }
-            .toolbar(.hidden)
+            
+        }
+        .toolbar(.hidden)
         
-        
+    }
     }
 }
 
