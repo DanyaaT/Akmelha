@@ -43,6 +43,11 @@
 		1DD94C6B294E2A4B00AD8AC0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD94C6A294E2A4B00AD8AC0 /* FirebaseStorage */; };
 		1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */; };
 		5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D70D2950BCE5004BE379 /* subjectList.swift */; };
+		5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7102950E3B6004BE379 /* StudentTabBar.swift */; };
+		5B05D7172950E683004BE379 /* StudentGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7162950E683004BE379 /* StudentGameView.swift */; };
+		5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7182950E6BE004BE379 /* StudentCalendarView.swift */; };
+		5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */; };
+		5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71C2950E6F6004BE379 /* StudentTaskView.swift */; };
 		5BDEE08F294E62AE006122DB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08E294E62AE006122DB /* Date.swift */; };
 		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
 		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
@@ -78,6 +83,11 @@
 		1DD94C57294E298500AD8AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		5B05D70D2950BCE5004BE379 /* subjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subjectList.swift; sourceTree = "<group>"; };
+		5B05D7102950E3B6004BE379 /* StudentTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTabBar.swift; sourceTree = "<group>"; };
+		5B05D7162950E683004BE379 /* StudentGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGameView.swift; sourceTree = "<group>"; };
+		5B05D7182950E6BE004BE379 /* StudentCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCalendarView.swift; sourceTree = "<group>"; };
+		5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCourseView.swift; sourceTree = "<group>"; };
+		5B05D71C2950E6F6004BE379 /* StudentTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTaskView.swift; sourceTree = "<group>"; };
 		5BDEE08E294E62AE006122DB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5BDEE096294E6367006122DB /* calendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarView.swift; sourceTree = "<group>"; };
 		5BDEE098294E63AB006122DB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
@@ -136,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */,
+				5B05D70F2950E357004BE379 /* Student */,
 				07719D2C294C415E0039707A /* Registration pages */,
 				1D33B3D52945790E00D5BD45 /* Teacher */,
 				1DD94C47294E284B00AD8AC0 /* Database */,
@@ -230,6 +241,50 @@
 			path = Firebase;
 			sourceTree = "<group>";
 		};
+		5B05D70F2950E357004BE379 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				5B05D7152950E63D004BE379 /* StudentGame */,
+				5B05D7142950E61C004BE379 /* StudentCalendar */,
+				5B05D7132950E57D004BE379 /* StudentCourse */,
+				5B05D7122950E553004BE379 /* StudentTask */,
+				5B05D7102950E3B6004BE379 /* StudentTabBar.swift */,
+			);
+			path = Student;
+			sourceTree = "<group>";
+		};
+		5B05D7122950E553004BE379 /* StudentTask */ = {
+			isa = PBXGroup;
+			children = (
+				5B05D71C2950E6F6004BE379 /* StudentTaskView.swift */,
+			);
+			path = StudentTask;
+			sourceTree = "<group>";
+		};
+		5B05D7132950E57D004BE379 /* StudentCourse */ = {
+			isa = PBXGroup;
+			children = (
+				5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */,
+			);
+			path = StudentCourse;
+			sourceTree = "<group>";
+		};
+		5B05D7142950E61C004BE379 /* StudentCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				5B05D7182950E6BE004BE379 /* StudentCalendarView.swift */,
+			);
+			path = StudentCalendar;
+			sourceTree = "<group>";
+		};
+		5B05D7152950E63D004BE379 /* StudentGame */ = {
+			isa = PBXGroup;
+			children = (
+				5B05D7162950E683004BE379 /* StudentGameView.swift */,
+			);
+			path = StudentGame;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,18 +375,23 @@
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
 				07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */,
 				5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */,
+				5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */,
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
+				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
 				5BDEE097294E6367006122DB /* calendarView.swift in Sources */,
+				5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
+				5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */,
 				1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */,
 				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
+				5B05D7172950E683004BE379 /* StudentGameView.swift in Sources */,
 				1DD94C52294E28FB00AD8AC0 /* CourseTaskDB.swift in Sources */,
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
 				1DD94C54294E291600AD8AC0 /* CourseDB.swift in Sources */,
