@@ -101,7 +101,7 @@ struct TeacherCalendar: View {
                  .minute],
                 from: Date())
             dateComponents.timeZone = TimeZone.current
-            dateComponents.calendar = Calendar(identifier: .gregorian)
+            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
             return dateComponents
         }
         static var previews: some View {
@@ -142,8 +142,8 @@ struct TeacherCalendar: View {
                                 DatePicker(selection: $eventDate, displayedComponents:[.date])
                                 {
                                     Text("التاريخ")
-                                }//.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
-                                //.environment(\.locale, Locale.init(identifier: "ar_SA"))
+                                }.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
+                                .environment(\.locale, Locale.init(identifier: "ar_SA"))
                                 .tint(Color("purple"))
                             }
                             Section{

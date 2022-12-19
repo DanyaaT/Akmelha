@@ -24,8 +24,8 @@ class Event: Codable, Identifiable{
              .year],
             from: eventDate)
         dateComponents.timeZone = TimeZone.current
-        dateComponents.calendar = Calendar(identifier: .gregorian)
-        //dateComponents.calendar?.locale = Locale(identifier: "ar_SA")
+        dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
+        dateComponents.calendar?.locale = Locale(identifier: "ar_SA")
 
         return dateComponents
     }

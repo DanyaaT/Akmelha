@@ -9,20 +9,16 @@
 import Foundation
 
 extension Date {
-    func diff(numDays: Int) -> Date {
-        Calendar.current.date(byAdding: .day, value: numDays, to: self)!
-        
-    }
     
     
     var startOfDay: Date {
         Calendar(identifier: .islamicUmmAlQura).startOfDay(for: self)
         
     }
-    func convertDate() {
-        let dateFor = DateFormatter()
+    func convertDate(dateFor : DateFormatter) {
+
         
-        let hijriCalendar = Calendar.init(identifier: Calendar.Identifier.islamicCivil)
+        let hijriCalendar = Calendar.init(identifier: Calendar.Identifier.islamicUmmAlQura)
         dateFor.locale = Locale.init(identifier: "ar") // or "en" as you want to show numbers
         
         dateFor.calendar = hijriCalendar

@@ -46,7 +46,7 @@ struct DaysEventsListView_Previews: PreviewProvider {
              .minute],
             from: Date())
         dateComponents.timeZone = TimeZone.current
-        dateComponents.calendar = Calendar(identifier: .gregorian)
+        dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
         return dateComponents
     }
     static var previews: some View {
