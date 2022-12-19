@@ -188,7 +188,7 @@ struct TeacherCalendar: View {
                                         Text("اضافة").font(.title2)
                                         Spacer()
                                     }
-                                }
+                                }.tint(Color("green"))
                                 .buttonStyle(.borderedProminent)
                                 .foregroundColor(.white)
                                 .cornerRadius(10)

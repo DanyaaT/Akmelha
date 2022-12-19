@@ -176,9 +176,8 @@ var body: some View{
                             Text("اضافة").font(.title2)
                             Spacer()
                         }
-                    }
+                    }.tint(Color("green"))
                     .buttonStyle(.borderedProminent)
-                    .background(Color("green"))
                     .foregroundColor(.white)
                     .cornerRadius(10)
                

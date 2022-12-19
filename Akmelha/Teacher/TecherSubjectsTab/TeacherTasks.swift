@@ -114,8 +114,10 @@ struct AddTeacherTask: View{
                 
                 
                 
-            }.scrollContentBackground(.hidden)
+            } .scrollContentBackground(.hidden)
                 .background(Color("sheet"))
+                .tint(Color("green"))
+                .buttonStyle(.borderedProminent)
             
             
             
