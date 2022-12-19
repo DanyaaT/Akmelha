@@ -9,9 +9,9 @@ import SwiftUI
 
 struct EventList: View {
     @State var pickerColor = "pink"
-    let event: Eventt
+    let event: Event
     @State var showDetailedEvent = false
-    @State private var formType: EventFormType?
+
     var body: some View {
         Button {
             showDetailedEvent = true
@@ -20,19 +20,19 @@ struct EventList: View {
                 RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                 VStack{
                     HStack{
-                        Text(event.subject).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                        Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                         Spacer()
-                        Text(event.date.formatted(date: .abbreviated, time: .omitted))
+                        Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                             .foregroundColor(.gray)
                     }
                     HStack{
-                        Text(event.note).font(.title3).foregroundColor(.black)
+                        Text(event.eventName ?? "").font(.title3).foregroundColor(.black)
                         Spacer()
                     }
                     HStack{
                         Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                         Spacer()
-                        Text(event.section).foregroundColor(.gray)
+                        Text(event.eventSection ?? "").foregroundColor(.gray)
                     }
                         
 
@@ -53,8 +53,8 @@ struct DetailedEvent: View{
 
     
     @Binding var showDetailedEvent: Bool
-    let event : Eventt
-    @EnvironmentObject var eventStore: EventStore
+    let event : Event
+
     @State var pickerColor1 = "math"
     @State var edit = false
     @State var pickerColor = "arabic"
@@ -68,19 +68,20 @@ struct DetailedEvent: View{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                         VStack{
                             HStack{
-                                Text(event.subject).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor1)))
+                                Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor1)))
                                 Spacer()
-                                Text(event.date.formatted(date: .abbreviated, time: .omitted))
-                                    .foregroundColor(.gray)
+                                //Text(event.eventDate ?? Date().formatted(date: .abbreviated, time: .omitted))
+                                  //  .foregroundColor(.gray)
+                                Text(event.eventDate , style: .date).foregroundColor(.gray)
                             }
                             HStack{
-                                Text(event.note).font(.title3).foregroundColor(.black)
+                                Text(event.eventName ?? "").font(.title3).foregroundColor(.black)
                                 Spacer()
                             }
                             HStack{
                                 Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                                 Spacer()
-                                Text(event.section).foregroundColor(.gray)
+                                Text(event.eventSection ?? "").foregroundColor(.gray)
                             }
                             
                             
@@ -97,7 +98,7 @@ struct DetailedEvent: View{
                             HStack{
                                 Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                               
-                                Text(event.describtion)
+                                Text(event.eventDesc ?? "")
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
@@ -105,14 +106,14 @@ struct DetailedEvent: View{
                             HStack{
                                 Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                               
-                                Text(event.date.formatted(date: .abbreviated, time: .omitted))
+                                Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                             HStack{
                                 Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                               
-                                Text(event.section)
+                                Text(event.eventSection ?? "")
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
@@ -128,7 +129,7 @@ struct DetailedEvent: View{
                     VStack{
                     if edit{
                         Button(action:{
-                            eventStore.delete(event)
+                            //eventStore.delete(event)
                         }){
                             VStack{
                             HStack{
@@ -176,12 +177,3 @@ struct DetailedEvent: View{
         }
     }
     }
-
-struct EventLisr_Previews: PreviewProvider {
-    static let event =  Eventt(date: Date().diff(numDays: 0), note: "تسيليم واجب الرياضيات" ,section: "ثالث ابتدائي",describtion: "الحرص",subject: "رياضيات")
-    static var previews: some View {
-        EventList(event: event)
-            .environment(\.layoutDirection, .rightToLeft)
-            
-    }
-}

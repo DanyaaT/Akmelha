@@ -9,23 +9,23 @@
 import SwiftUI
 
 struct DaysEventsListView: View {
-    @EnvironmentObject var eventStore: EventStore
+
     @Binding var dateSelected: DateComponents?
-    @State private var formType: EventFormType?
+    @State private var formType:  EventFormView?
+    @EnvironmentObject var dbEvent: EventDB
     
     var body: some View {
         NavigationStack {
             Group {
                 if let dateSelected {
-                    let foundEvents = eventStore.events
-                        .filter {$0.date.startOfDay == dateSelected.date!.startOfDay}
-            
+                    let foundEvents = dbEvent.events
+                        .filter {$0.eventDate.startOfDay == dateSelected.date!.startOfDay}
+                    VStack{
                         ForEach(foundEvents) { event in
                             EventList(event: event)
-                                .sheet(item: $formType) { $0 }
+                        }.environment(\.layoutDirection,.rightToLeft)
                         }
-                        
-                    
+                       
                 }
             }
            
@@ -51,7 +51,7 @@ struct DaysEventsListView_Previews: PreviewProvider {
     }
     static var previews: some View {
         DaysEventsListView(dateSelected: .constant(dateComponents))
-            .environmentObject(EventStore(preview: true) )
+       
     }
 }
 

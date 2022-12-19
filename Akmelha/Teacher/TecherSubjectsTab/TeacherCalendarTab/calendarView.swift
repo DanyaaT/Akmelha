@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalendarView: UIViewRepresentable {
     let interval: DateInterval
-    @ObservedObject var eventStore: EventStore
+    @ObservedObject var dbEvent: EventDB
     @Binding var dateSelected: DateComponents?
     @Binding var displayEvents: Bool
     
@@ -25,27 +25,20 @@ struct CalendarView: UIViewRepresentable {
         return view
     }
     func makeCoordinator() -> Coordinator {
-        Coordinator(parent: self, eventStore: _eventStore)
+        Coordinator(parent: self, dbEvent: _dbEvent)
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let changedEvent = eventStore.changedEvent {
-            uiView.reloadDecorations(forDateComponents: [changedEvent.dateComponents], animated: true)
-            eventStore.changedEvent = nil
-        }
 
-        if let movedEvent = eventStore.movedEvent {
-            uiView.reloadDecorations(forDateComponents: [movedEvent.dateComponents], animated: true)
-            eventStore.movedEvent = nil
-        }
+
     }
     
     class Coordinator: NSObject, UICalendarSelectionSingleDateDelegate {
         var parent: CalendarView
-        @ObservedObject var eventStore: EventStore
-        init(parent: CalendarView, eventStore: ObservedObject<EventStore>) {
+        @ObservedObject var dbEvent: EventDB
+        init(parent: CalendarView, dbEvent: ObservedObject<EventDB>) {
             self.parent = parent
-            self._eventStore = eventStore
+            self._dbEvent = dbEvent
         }
         
         @MainActor
@@ -54,9 +47,9 @@ struct CalendarView: UIViewRepresentable {
             parent.dateSelected = dateComponents
             
             guard let dateComponents else { return }
-            let foundEvents = eventStore.events
+            let foundEvents = dbEvent.events
             
-                .filter {$0.date.startOfDay == dateComponents.date?.startOfDay}
+                .filter {$0.eventDate.startOfDay == dateComponents.date?.startOfDay}
             if !foundEvents.isEmpty {
                 parent.displayEvents.toggle()
             }
