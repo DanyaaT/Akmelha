@@ -48,6 +48,7 @@
 		5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7182950E6BE004BE379 /* StudentCalendarView.swift */; };
 		5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */; };
 		5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71C2950E6F6004BE379 /* StudentTaskView.swift */; };
+		5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71E2950EF43004BE379 /* TeacherProfile.swift */; };
 		5BDEE08F294E62AE006122DB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08E294E62AE006122DB /* Date.swift */; };
 		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
 		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
@@ -88,6 +89,7 @@
 		5B05D7182950E6BE004BE379 /* StudentCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCalendarView.swift; sourceTree = "<group>"; };
 		5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCourseView.swift; sourceTree = "<group>"; };
 		5B05D71C2950E6F6004BE379 /* StudentTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTaskView.swift; sourceTree = "<group>"; };
+		5B05D71E2950EF43004BE379 /* TeacherProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherProfile.swift; sourceTree = "<group>"; };
 		5BDEE08E294E62AE006122DB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5BDEE096294E6367006122DB /* calendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarView.swift; sourceTree = "<group>"; };
 		5BDEE098294E63AB006122DB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				1D33B3C02945765000D5BD45 /* TeacherTabBar.swift */,
 				1D33B3D62945793500D5BD45 /* TecherSubjectsTab */,
 				1D33B3D82945798100D5BD45 /* TeacherCardsTab */,
+				5B05D71E2950EF43004BE379 /* TeacherProfile.swift */,
 			);
 			path = Teacher;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
 				1DD94C54294E291600AD8AC0 /* CourseDB.swift in Sources */,
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
+				5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,

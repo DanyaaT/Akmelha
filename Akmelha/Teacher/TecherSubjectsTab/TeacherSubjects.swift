@@ -47,7 +47,16 @@ struct TeacherSubjects: View {
                         .foregroundColor(Color("top")).ignoresSafeArea()
                         .frame(height:99)
                     Spacer()
-                    
+                    HStack{
+                                            NavigationLink(destination:TeacherProfile()) {
+                                                Image("teacherProfile")
+                                                    .resizable()
+                                                    .frame(width: 64, height: 60)
+                                                    .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                                            } //NavigationLink
+                                            Spacer()
+                                        }// hstack
+                                        .padding()
                     VStack{
                         
                         

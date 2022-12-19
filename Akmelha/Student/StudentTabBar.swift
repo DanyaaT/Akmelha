@@ -64,7 +64,7 @@ struct StudentTabBar: View {
         }         .navigationViewStyle(.stack)
            
             .tint(Color("purple"))
-        
+            
 
     }
 }
