@@ -11,7 +11,7 @@ import SwiftUI
 struct DaysEventsListView: View {
 
     @Binding var dateSelected: DateComponents?
-    @State private var formType:  EventFormView?
+   
     @EnvironmentObject var dbEvent: EventDB
     
     var body: some View {

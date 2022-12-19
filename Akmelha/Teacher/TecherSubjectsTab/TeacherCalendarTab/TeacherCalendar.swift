@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeacherCalendar: View {
-
+    
     @State var dateSelected: DateComponents?
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
@@ -55,30 +55,33 @@ struct TeacherCalendar: View {
                                 .foregroundColor(Color("addEvent"))
                                 .frame(width: 38, height: 35)
                                 .padding()
-                        } //Button
-                        .sheet(isPresented: $showAddEventSheet){
-                            EventFormView(showAddEventSheet: $showAddEventSheet)
-                                .presentationDetents([.large])
-                            
-                        }.environment(\.layoutDirection, .rightToLeft)//Hstack
-                            .padding(.top, -35.0)
+                        }//Button
+                    } //Hstack
+                    
+                    .sheet(isPresented: $showAddEventSheet){
+                        EventFormView(showAddEventSheet: $showAddEventSheet)
+                            .presentationDetents([.large])
                         
-                        
-                      //  ForEach(eventStore.events.sorted {$0.date < $1.date }) { event in
-                          //  EventList(event: event)
-                        }
-                        
+                    }.environment(\.layoutDirection, .rightToLeft)
+                    
+                        .padding(.top, -35.0)
+                    
+                    
+                    //  ForEach(eventStore.events.sorted {$0.date < $1.date }) { event in
+                    //  EventList(event: event)
+                    
+                    
                     ForEach(dbEvent.events.indices, id: \.self) {index in
                         EventList(event : dbEvent.events[index])
                     }
-                        .environment(\.layoutDirection, .rightToLeft)
-                        
-                            .sheet(isPresented: $displayEvents) {
-                                DaysEventsListView(dateSelected: $dateSelected)
-                                    .presentationDetents([.medium])
-                            }
-                        
+                    .environment(\.layoutDirection, .rightToLeft)
+                    
+                    .sheet(isPresented: $displayEvents) {
+                        DaysEventsListView(dateSelected: $dateSelected)
+                            .presentationDetents([.medium])
                     }
+                    
+                    
                     
                 }//scrollView
             }//Vstack
@@ -105,7 +108,7 @@ struct TeacherCalendar: View {
             
             TeacherCalendar()
                 .environment(\.layoutDirection, .leftToRight)
-               
+            
             
         }
     }
@@ -127,77 +130,87 @@ struct TeacherCalendar: View {
         
         var body: some View {
             NavigationStack {
-                VStack {
-                    Form {
-                        TextField("العنوان", text: $eventName, axis: .vertical)
-                            .focused($focus, equals: true)
-                        
-                        TextField("الوصف", text: $eventDesc, axis: .vertical)
-                        Section {
-                            DatePicker(selection: $eventDate, displayedComponents:[.date])
-                            {
-                                Text("التاريخ")
-                                
-                            }//.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
-                            //.environment(\.locale, Locale.init(identifier: "ar_SA"))
-                            .tint(Color("purple"))
-                        }
-                        
-                        Section{
-                            Picker(selection: $eventSection, label: Text("الصف الدراسي")){
-                                Text("").tag("")
-                                ForEach(levels, id:\.self){ level in
-                                    Text(level)
-                                        .tag(level)
-                                } //foreach
-                            } // end picker
-                            
-                        }
-                        Section {
-                            Picker(selection: $eventCourse, label: Text("اسم المادة")){
-                                Text("").tag("")
-                                ForEach(courses, id:\.self){ course in
-                                    Text(course)
-                                        .tag(course)
-                                }// foreach
-                            }// end picker
-                        }
-                        
-                        
-                        
-                        Section(footer:
-                                    HStack {
-                            Spacer()
-                            Button {
-                                // create new event
-                                dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection ))
-                                //   eventStore.add(newEvent)
-                                
-                                dismiss()
-                            } label: {
-                                Text("اضافة")
+                
+                ZStack {
+                    VStack {
+                        Form {
+                            TextField("العنوان", text: $eventName, axis: .vertical)
+                                .focused($focus, equals: true)
+                            TextField("الوصف", text: $eventDesc, axis: .vertical)
+                            Section {
+                                DatePicker(selection: $eventDate, displayedComponents:[.date])
+                                {
+                                    Text("التاريخ")
+                                }//.environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
+                                //.environment(\.locale, Locale.init(identifier: "ar_SA"))
+                                .tint(Color("purple"))
                             }
-                            .buttonStyle(.borderedProminent)
-                            .background(Color("green"))
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            Spacer()
+                            Section{
+                                Picker(selection: $eventSection, label: Text("الصف الدراسي")){
+                                    Text("").tag("")
+                                    ForEach(levels, id:\.self){ level in
+                                        Text(level)
+                                            .tag(level)
+                                    } //foreach
+                                } // end picker
+                            }
+                            Section {
+                                Picker(selection: $eventCourse, label: Text("اسم المادة")){
+                                    Text("").tag("")
+                                    ForEach(courses, id:\.self){ course in
+                                        Text(course)
+                                            .tag(course)
+                                    }// foreach
+                                }// end picker
+                            }
+                            
+                            
+                            
+                            Section(footer:
+                                        HStack {
+                                Spacer()
+                                Button {
+                                    // create new event
+                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection ))
+                                    //   eventStore.add(newEvent)
+                                    
+                                    dismiss()
+                                } label: {
+                                    Text("اضافة")
+                                }
+                                .buttonStyle(.borderedProminent)
+                                .background(Color("green"))
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                Spacer()
+                            }
+                            ) {
+                                EmptyView()
+                            }
                         }
-                        ) {
-                            EmptyView()
+                        
+                        
+                    }
+                    
+                    .environment(\.layoutDirection,.rightToLeft)
+                    .navigationTitle("اضافة حدث جديد")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar{
+                        ToolbarItem(placement: .navigationBarTrailing){
+                            Button(action: {showAddEventSheet = false}){
+                                Image(systemName: "xmark.circle").foregroundColor(.gray)
+                            }
                         }
                     }
                     
-                }
-                .environment(\.layoutDirection,.rightToLeft)
-                .navigationTitle("اضافة حدث جديد")
-                .navigationBarTitleDisplayMode(.inline)
-                .onAppear {
-                    focus = true
+                    .onAppear {
+                        focus = true
+                    }
                 }
             }
         }
     }
     
-
-
+    
+    
+}
