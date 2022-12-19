@@ -59,7 +59,7 @@ struct TeacherCalendar: View {
                     } //Hstack
                     
                     .sheet(isPresented: $showAddEventSheet){
-                        EventFormView(showAddEventSheet: $showAddEventSheet)
+                        EventFormView(showAddEventSheet: $showAddEventSheet, showButtom :false)
                             .presentationDetents([.large])
                         
                     }.environment(\.layoutDirection, .rightToLeft)
@@ -126,18 +126,21 @@ struct TeacherCalendar: View {
         @State var eventSection = ""
         @State var eventCourse = ""
         @State var selectedCourse = 0
+        @State var showButtom: Bool
+        
         @EnvironmentObject var dbEvent: EventDB
         
         var body: some View {
             NavigationStack {
                 
                 ZStack {
-                    Color("sheet").ignoresSafeArea()
                     VStack {
                         Form {
                             TextField("العنوان", text: $eventName, axis: .vertical)
                                 .focused($focus, equals: true)
+                                .environment(\.layoutDirection, .rightToLeft)
                             TextField("الوصف", text: $eventDesc, axis: .vertical)
+                                .environment(\.layoutDirection, .rightToLeft)
                             Section {
                                 DatePicker(selection: $eventDate, displayedComponents:[.date])
                                 {
@@ -172,18 +175,25 @@ struct TeacherCalendar: View {
                                 Spacer()
                                 Button {
                                     // create new event
-                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection ))
-                                    //   eventStore.add(newEvent)
-                                    
+                                   // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
+                                        dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection ))
+                                       // showButtom = true
+                                    //}else{
+                                       // showButtom = false
+                                   // }
                                     dismiss()
                                 } label: {
-                                    Text("اضافة")
+                                    HStack{
+                                        Spacer()
+                                        Text("اضافة").font(.title2)
+                                        Spacer()
+                                    }
                                 }
                                 .buttonStyle(.borderedProminent)
-                                .background(Color("green"))
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
-                                Spacer()
+                                .disabled(showButtom)
+                
                             }
                             ) {
                                 EmptyView()
@@ -191,7 +201,8 @@ struct TeacherCalendar: View {
                         }
                         
                         
-                    }
+                    }.scrollContentBackground(.hidden)
+                        .background(Color("sheet"))
                     
                     .environment(\.layoutDirection,.rightToLeft)
                     .navigationTitle("اضافة حدث جديد")
