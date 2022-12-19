@@ -16,5 +16,7 @@ struct StudentTaskView: View {
 struct StudentTaskView_Previews: PreviewProvider {
     static var previews: some View {
         StudentTaskView()
+            .environment(\.layoutDirection,.rightToLeft)
+
     }
 }
