@@ -14,7 +14,6 @@ struct StudentCalendarView: View {
     @State private var displayEvents = false
     
     var body: some View {
-        
         ZStack{
             Color("bg").ignoresSafeArea()
             
@@ -25,16 +24,12 @@ struct StudentCalendarView: View {
                         .cornerRadius(radius:50, corners: [.bottomRight, .bottomLeft])
                         .foregroundColor(Color("top")).ignoresSafeArea()
                         .frame(height:99)
-                    
-                    
-                    
                     Text("\n"+"التقويم الدراسي")
                         .multilineTextAlignment(.center)
                         .font(.system(size: 40))
                         .foregroundColor(Color("title"))
-                }//end overlay
+                } .toolbar(.hidden) //end overlay
                 ScrollView{
-                    
                     CalendarView(interval: DateInterval(start: .distantPast, end: .distantFuture),
                                  dbEvent: dbEvent,
                                  dateSelected: $dateSelected,
@@ -46,54 +41,50 @@ struct StudentCalendarView: View {
                             .foregroundColor(Color("addEvent"))
                             .padding()
                         Spacer()
-                        Spacer()
-  
+                        Text("")
+                        
                     } //Hstack
                     
-                        
-                    }.environment(\.layoutDirection, .rightToLeft)
                     
-                        .padding(.top, -35.0)
+                    .environment(\.layoutDirection, .rightToLeft)
                     
-                    
-                    //  ForEach(eventStore.events.sorted {$0.date < $1.date }) { event in
-                    //  EventList(event: event)
-                    
-                    
+                    .padding(.top, -35.0)
                     ForEach(dbEvent.events.indices, id: \.self) {index in
-                        EventList(event : dbEvent.events[index])
+                        EventListStudent(event : dbEvent.events[index])
                     }
+                    
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .sheet(isPresented: $displayEvents) {
-                        DaysEventsListView(dateSelected: $dateSelected)
+                        DaysEventStudent(dateSelected: $dateSelected)
                             .presentationDetents([.medium])
                     }
-                    
                     
                     
                 }//scrollView
             }//Vstack
         }//Zstack
     }
-
-
-struct StudentCalendarView_Previews: PreviewProvider {
-    static var dateComponents: DateComponents {
-        
-        var dateComponents = Calendar.current.dateComponents(
-            [.month,
-             .day,
-             .year,
-             .hour,
-             .minute],
-            from: Date())
-        dateComponents.timeZone = TimeZone.current
-        dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
-        return dateComponents
-    }
-    static var previews: some View {
-        StudentCalendarView().environment(\.layoutDirection, .leftToRight)
-        
+    
+    
+    struct StudentCalendarView_Previews: PreviewProvider {
+        static var dateComponents: DateComponents {
+            
+            var dateComponents = Calendar.current.dateComponents(
+                [.month,
+                 .day,
+                 .year,
+                 .hour,
+                 .minute],
+                from: Date())
+            dateComponents.timeZone = TimeZone.current
+            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
+            return dateComponents
+        }
+        static var previews: some View {
+            StudentCalendarView()
+                .environment(\.layoutDirection, .rightToLeft)
+            
+        }
     }
 }
