@@ -48,7 +48,15 @@ class CourseDB: ObservableObject {
 
     }
     
-   
+    func deleteCourse(_ course :Course){
+        do{
+            var _ = try dbCourses.collection("Courses").document(course.id ?? "").delete()
+        }
+        catch{
+            fatalError("Unable to encode task: \(error.localizedDescription)")
+        }
+
+    }
 }
 
 

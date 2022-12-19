@@ -10,6 +10,7 @@ import SwiftUI
 struct TeacherReviews: View {
     @State private var searchText = ""
     @State var student = "نورة محمد"
+    let course : Course
 
     var body: some View {
         
@@ -26,7 +27,7 @@ struct TeacherReviews: View {
                 HStack{
                     
                     ZStack{
-                        NavigationLink(destination:InsideTeacherSubject()) {
+                        NavigationLink(destination:InsideTeacherSubject(course : course)) {
                             RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.1), lineWidth: 1).frame( height: 52).background(Color.white).shadow(radius:0.1)
                         }// end NavigationLink
                         .environment(\.layoutDirection,.rightToLeft)
@@ -57,12 +58,6 @@ struct TeacherReviews: View {
         
     }// body
 } // struct
-
-struct TeacherReviews_Previews: PreviewProvider {
-    static var previews: some View {
-        TeacherReviews().environment(\.layoutDirection, .rightToLeft)
-    }
-}
 
  
 //

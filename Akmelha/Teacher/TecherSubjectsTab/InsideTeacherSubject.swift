@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InsideTeacherSubject: View {
+    let course : Course
     @State var selectedSection = "المهام"
     @State var pickerColor = "pink"
     @State var title = "الرياضيات"
@@ -28,10 +29,10 @@ struct InsideTeacherSubject: View {
                 
             }
                 if selectedSection == "تقييم الطلاب"{
-                TeacherReviews()
+                TeacherReviews(course: course)
              }
                 if selectedSection == "عن المادة"{
-                 AboutTeacherSubject()
+                    AboutTeacherSubject(course : course)
           }
                 
             }.padding()
@@ -41,10 +42,3 @@ struct InsideTeacherSubject: View {
     }
   }
 
-
-struct InsideTeacherSubject_Previews: PreviewProvider {
-    static var previews: some View {
-        InsideTeacherSubject()
-            .environment(\.layoutDirection, .rightToLeft)
-    }
-}

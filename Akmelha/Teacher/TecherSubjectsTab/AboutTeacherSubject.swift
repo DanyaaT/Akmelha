@@ -10,6 +10,9 @@ import SwiftUI
 struct AboutTeacherSubject: View {
     @State var subjectDesc =  ""
     @State var edit = false
+    let course : Course
+    @EnvironmentObject var dbCourse: CourseDB
+    
     var body: some View {
         VStack(alignment: .leading){
          
@@ -43,7 +46,9 @@ struct AboutTeacherSubject: View {
             Spacer()
             VStack{
             if edit{
-                Button(action:{}){
+                Button(action:{
+                 dbCourse.deleteCourse(course)
+                }){
                     VStack{
                     HStack{
                         Spacer()
@@ -82,11 +87,5 @@ struct AboutTeacherSubject: View {
                 }
             }
          
-    }
-}
-
-struct AboutSubject_Previews: PreviewProvider {
-    static var previews: some View {
-        AboutTeacherSubject().environment(\.layoutDirection, .rightToLeft)
     }
 }

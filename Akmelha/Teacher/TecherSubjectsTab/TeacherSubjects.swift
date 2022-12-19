@@ -35,6 +35,7 @@ extension View {
 
 struct TeacherSubjects: View {
     @State private var showSheet = false
+    @EnvironmentObject var dbCourse: CourseDB
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -58,49 +59,18 @@ struct TeacherSubjects: View {
                     
                 }//Zstack
                 
-                ZStack{
-                    NavigationLink(destination:InsideTeacherSubject()) {
-                   
-                    Rectangle()
-                        .foregroundColor(Color("pink"))
-                        .cornerRadius(50)
-                        .frame(height:61)
-                    }//NavigationLink
-                    .environment(\.layoutDirection,.rightToLeft)
-                    .navigationBarHidden(true)
-                    
-                    HStack{
+                ScrollView {
+                    VStack{
+                        ForEach(dbCourse.courses.indices, id: \.self) {index in
+                            subjectList(course : dbCourse.courses[index])
+                        }
                         
-                        
-                        Text("الرياضيات")
-                            .font(.system(size: 25))
-                        
-                        
-                        Text("الثالث ابتدائي")
-                            .foregroundColor(.black)
-                            .font(.system(size: 12))
-                        Spacer()
-                        
-                        
-                    
-                        Image("math")
-                        
-                            .resizable()
-                            .overlay(Circle().stroke(Color("pink"), lineWidth: 15))
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 80, height: 80, alignment: .center)
-                            .clipShape(Circle())
-                        
-                    }// end Hstack
-                    .padding(.leading)
-                        
-               
-                } // end Zstack
-                .padding()
-                Spacer()
-                
-                
+                    }
+                }
+
+
                 HStack(spacing: -3){
+                    
                     ZStack {
                     Rectangle()
                         .foregroundColor(Color("green")).ignoresSafeArea()
@@ -149,6 +119,11 @@ struct buttonSheetView:View{
 @State var disc : String = ""
 @State var selectedCourse = ""
 @State var selectedLevel = ""
+@EnvironmentObject var dbCourse: CourseDB
+@State var courseColor = ""
+@State var courseImage = ""
+@State var courseTeacher = ""
+
 @State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية الأسرية","التربية الفنية","التفكير الناقد",]
 @State var levels = ["الأول ابتدائي", "الثاني ابتدائي","الثالث ابتدائي", "الرابع ابتدائي"," الخامس ابتدائي"," السادس ابتدائي","الأول متوسط","الثاني متوسط","الثالث متوسط"]
 
@@ -160,18 +135,10 @@ var body: some View{
     VStack{
         NavigationView{
             Form {
-                //
-                Picker(selection: $selectedCourse, label: Text("اسم المادة")){
-                    Text("").tag("")
-                    ForEach(courses, id:\.self){ course in
-                        Text(course)
-                            .tag(course)
-                    }// foreach
-                }// end picker
-                
-                Section{
-                    TextField("وصف المادة", text: $disc)
-                }
+
+                TextField("الوصف", text: $disc, axis: .vertical)
+                    .environment(\.layoutDirection, .rightToLeft)
+
                 Section{
                     Picker(selection: $selectedLevel, label: Text("الصف الدراسي")){
                         Text("").tag("")
@@ -180,8 +147,47 @@ var body: some View{
                                 .tag(level)
                         } //foreach
                     } // end picker
-                } // end section
-            }//Form
+                }
+                Section {
+                    Picker(selection: $selectedCourse, label: Text("اسم المادة")){
+                        Text("").tag("")
+                        ForEach(courses, id:\.self){ course in
+                            Text(course)
+                                .tag(course)
+                        }// foreach
+                    }// end picker
+                }
+                
+                
+                
+                Section(footer:
+                            HStack {
+                    Spacer()
+                    Button {
+                        courseColor = courseColorAndImage(courseName: selectedCourse)[0]
+                        courseImage = courseColorAndImage(courseName: selectedCourse)[1]
+                        
+                       dbCourse.addCourse(Course(courseTeacher:courseTeacher ,courseColor : courseColor , courseImage :courseImage ))
+                        showSheet = false
+                  
+                    } label: {
+                        HStack{
+                            Spacer()
+                            Text("اضافة").font(.title2)
+                            Spacer()
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .background(Color("green"))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+               
+    
+                }
+                ) {
+                    EmptyView()
+                }
+            }
             .environment(\.layoutDirection,.rightToLeft)
             .scrollContentBackground(.hidden)
             .background(Color("sheet"))
@@ -199,18 +205,7 @@ var body: some View{
         }// end NavigationView
 
     } // end first Vstack
-    Button(action: {
-//        dbCourseTasks.addCourseTask(CourseTask(courseName: courseName, courseDesc: courseDesc, taskCourse:taskCourse, taskDeadline: taskDeadline, taskScore: taskScore ))
-        showSheet = false
-        
-    }){
-        HStack{
-            Spacer()
-            Text("اضافة").font(.title2)
-            Spacer()
-        }
-        
-    }
+    
 //    Button(action:{
 //        print("Submit button tapped")
 //    }, label:{

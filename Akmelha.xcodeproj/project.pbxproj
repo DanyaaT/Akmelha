@@ -42,6 +42,7 @@
 		1DD94C69294E2A4B00AD8AC0 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD94C68294E2A4B00AD8AC0 /* FirebaseFunctions */; };
 		1DD94C6B294E2A4B00AD8AC0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 1DD94C6A294E2A4B00AD8AC0 /* FirebaseStorage */; };
 		1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */; };
+		5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D70D2950BCE5004BE379 /* subjectList.swift */; };
 		5BDEE08F294E62AE006122DB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08E294E62AE006122DB /* Date.swift */; };
 		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
 		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
@@ -76,6 +77,7 @@
 		1DD94C55294E293300AD8AC0 /* EventDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDB.swift; sourceTree = "<group>"; };
 		1DD94C57294E298500AD8AC0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1DD94C6C294E346400AD8AC0 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		5B05D70D2950BCE5004BE379 /* subjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = subjectList.swift; sourceTree = "<group>"; };
 		5BDEE08E294E62AE006122DB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5BDEE096294E6367006122DB /* calendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarView.swift; sourceTree = "<group>"; };
 		5BDEE098294E63AB006122DB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				1D33B3CA294576EB00D5BD45 /* TeacherTasks.swift */,
 				1D33B3CC294576F600D5BD45 /* TeacherReviews.swift */,
 				1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */,
+				5B05D70D2950BCE5004BE379 /* subjectList.swift */,
 			);
 			path = TecherSubjectsTab;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
 				07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */,
+				5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */,
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
