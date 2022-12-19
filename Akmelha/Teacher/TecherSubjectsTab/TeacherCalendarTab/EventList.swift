@@ -129,7 +129,6 @@ struct DetailedEvent: View{
                     VStack{
                     if edit{
                         Button(action:{
-                            //eventStore.delete(event)
                             dbEvent.deleteEvent(event)
                             
                         }){

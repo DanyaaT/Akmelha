@@ -132,6 +132,7 @@ struct TeacherCalendar: View {
             NavigationStack {
                 
                 ZStack {
+                    Color("sheet").ignoresSafeArea()
                     VStack {
                         Form {
                             TextField("العنوان", text: $eventName, axis: .vertical)
