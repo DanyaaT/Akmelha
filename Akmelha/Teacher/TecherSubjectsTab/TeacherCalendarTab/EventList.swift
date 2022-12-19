@@ -54,7 +54,7 @@ struct DetailedEvent: View{
     
     @Binding var showDetailedEvent: Bool
     let event : Event
-
+    @EnvironmentObject var dbEvent: EventDB
     @State var pickerColor1 = "math"
     @State var edit = false
     @State var pickerColor = "arabic"
@@ -130,6 +130,8 @@ struct DetailedEvent: View{
                     if edit{
                         Button(action:{
                             //eventStore.delete(event)
+                            dbEvent.deleteEvent(event)
+                            
                         }){
                             VStack{
                             HStack{

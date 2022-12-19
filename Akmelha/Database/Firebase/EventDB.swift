@@ -49,7 +49,16 @@ class EventDB: ObservableObject {
 
     }
     
-   
+    func deleteEvent(_ event :Event){
+        do{
+            var _ = try dbEvents.collection("Events").document(event.id ?? "").delete()
+        }
+        catch{
+            fatalError("Unable to encode task: \(error.localizedDescription)")
+        }
+
+    }
+
 }
 
 
