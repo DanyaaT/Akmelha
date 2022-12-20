@@ -9,7 +9,45 @@ import SwiftUI
 
 struct TaskStatus: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color("bg").ignoresSafeArea()
+            ScrollView {
+                
+                VStack {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.1), lineWidth: 1).frame( height: 60).background(Color.white).shadow(radius:0.1)
+                        HStack{
+                            ZStack {
+                                Circle()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(Color("checkColor"))
+                                    
+                                .padding(.horizontal)
+                                Image(systemName: "checkmark").foregroundColor(.white)
+                            }
+                            Text("١/٦ الاربعاء").font(.system(size: 20))
+                            Spacer()
+                        }.environment(\.layoutDirection, .rightToLeft)
+                    }
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.1), lineWidth: 1).frame( height: 60).background(Color.white).shadow(radius:0.1)
+                        HStack{
+                            ZStack {
+                                Circle().strokeBorder(.black, lineWidth: 1)
+                                    .frame(width: 30, height: 30)
+                                    
+                                    
+                                .padding(.horizontal)
+                                Image(systemName: "checkmark").foregroundColor(.white)
+                            }
+                            Text("١/٦ الاربعاء").font(.system(size: 20))
+                            Spacer()
+                        }.environment(\.layoutDirection, .rightToLeft)
+                    }
+
+                }
+            }
+        }
     }
 }
 
