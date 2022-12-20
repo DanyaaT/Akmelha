@@ -25,7 +25,7 @@ struct TaskStatus: View {
                                 .padding(.horizontal)
                                 Image(systemName: "checkmark").foregroundColor(.white)
                             }
-                            Text("١/٦ الاربعاء").font(.system(size: 20))
+                            Text("١/٦ الاربعاء").font(.system(size: 20)).foregroundColor(Color("title"))
                             Spacer()
                         }.environment(\.layoutDirection, .rightToLeft)
                     }
