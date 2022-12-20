@@ -51,8 +51,9 @@ struct EventList: View {
 
 struct DetailedEvent: View{
 
-    
+    @State private var showDeleteAlert = false
     @Binding var showDetailedEvent: Bool
+    @Environment(\.dismiss) var dismiss
     let event : Event
     @EnvironmentObject var dbEvent: EventDB
     @State var pickerColor1 = "math"
@@ -129,7 +130,7 @@ struct DetailedEvent: View{
                     VStack{
                     if edit{
                         Button(action:{
-                            dbEvent.deleteEvent(event)
+                            showDeleteAlert = true
                             
                         }){
                             VStack{
@@ -144,6 +145,21 @@ struct DetailedEvent: View{
                                 Spacer()
                             }
                             }
+                        }.alert( isPresented: $showDeleteAlert) {
+                            
+                            Alert(
+                                title: Text("حذف المادة؟"),
+                                message: Text(""),
+                                primaryButton: .destructive(Text("حذف"), action: {
+                                    dbEvent.deleteEvent(event)
+                                    dismiss()
+                                }),
+                                secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                                    
+                                    
+                                })
+                            )
+                            
                         }
                         
                     }

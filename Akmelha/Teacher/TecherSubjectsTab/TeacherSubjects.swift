@@ -48,15 +48,15 @@ struct TeacherSubjects: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                                            NavigationLink(destination:TeacherProfile()) {
-                                                Image("teacherProfile")
-                                                    .resizable()
-                                                    .frame(width: 64, height: 60)
-                                                    .overlay(Circle().stroke(Color("title"), lineWidth: 2))
-                                            } //NavigationLink
-                                            Spacer()
-                                        }// hstack
-                                        .padding()
+                        NavigationLink(destination:TeacherProfile()) {
+                            Image("teacherProfile")
+                                .resizable()
+                                .frame(width: 64, height: 60)
+                                .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                        } //NavigationLink
+                        Spacer()
+                    }// hstack
+                    .padding()
                     VStack{
                         
                         

@@ -39,6 +39,6 @@ struct subjectList: View {
                     .padding(.leading)
                   
                 } // end Zstack
-                .padding()
+                .padding(.horizontal)
     }
 }
