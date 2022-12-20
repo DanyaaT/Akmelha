@@ -1,9 +1,13 @@
 //
-//  logIN.swift
-//  Akmelha
+//  ContentView.swift
+//  welcomPages
 //
-//  Created by H on 22/05/1444 AH.
+//  Created by H on 17/05/1444 AH.
 //
+
+
+
+import SwiftUI
 
 import SwiftUI
 import Firebase
@@ -12,18 +16,17 @@ import FirebaseAuth
 
 struct logIN: View {
     @EnvironmentObject var viewModel: AppViewModel
-    
+
     @State var email: String = ""
     @State var password: String = ""
-    
-    
+
     var body: some View {
+        
         NavigationView{
-            
             ZStack{
                 Color("bg").ignoresSafeArea()
                 
-                VStack(spacing: -430.0){
+                VStack(spacing: -450.0){
                     
                     
                     
@@ -49,7 +52,7 @@ struct logIN: View {
                         .accessibilitySortPriority(1)
                         .font(.largeTitle)
                         .foregroundColor(Color(hue: 0.105, saturation: 0.155, brightness: 0.518))
-                        .frame(width: 350, alignment: .trailing)
+                        .frame(width: 350, alignment: .leading)
                     Spacer()
                     
                     
@@ -64,7 +67,8 @@ struct logIN: View {
                         .foregroundColor(Color(hue: 0.105, saturation: 0.186, brightness: 0.564))
                         .multilineTextAlignment(.center)
                         .accessibilityLabel("Label")
-                        .frame(width: 170, alignment: .trailing)
+                        .frame(width: 170, alignment: .leading)
+                        .shadow(radius: /*@START_MENU_TOKEN@*/19/*@END_MENU_TOKEN@*/)
                     
                     Spacer()
                     
@@ -90,10 +94,9 @@ struct logIN: View {
                     Text("البريد الإلكتروني")
                         .foregroundColor(Color.gray)
                         .font(.system(size: 20))
-                        .frame(width: 350, alignment: .trailing)
+                        .frame(width: 350, alignment: .leading)
                     
                     TextField("البريد الإلكتروني", text: $email)
-                        .autocorrectionDisabled(true)
                         .padding()
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(50)
@@ -102,7 +105,7 @@ struct logIN: View {
                     Text("كلمة المرور")
                         .foregroundColor(Color.gray)
                         .font(.system(size: 20))
-                        .frame(width: 350, alignment: .trailing)
+                        .frame(width: 350, alignment: .leading)
                     
                     
                     TextField("كلمة المرور", text: $password)
@@ -120,10 +123,8 @@ struct logIN: View {
                     
                     Spacer()
                     
-                    
                     Button("تسجيل") {
-                        viewModel.signIn(email: email, password: password)
-                    }
+                        viewModel.signIn(email: email, password: password)                    }
                     .foregroundColor(Color.gray)
                     .frame(width: 300, height: 50)
                     .background(Color("pickerBG"))
@@ -132,27 +133,32 @@ struct logIN: View {
                     
                     HStack{
                         
+                        Text("ليس لديك حساب؟")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 15))
+                        
                         NavigationLink("تسجيل جديد",destination: SignUP())
                             .foregroundColor(Color(hue: 1.0, saturation: 0.075, brightness: 0.706))
                             .font(.system(size: 15))
                         
-                        Text("ليس لديك حساب؟")
-                            .foregroundColor(Color.gray)
-                            .font(.system(size: 15))
+                 
                     }
                     
-                     
+                    
                     
                     
                     
                     HStack{
-                        NavigationLink("إعادة تعيين",destination: ResetPassword())
-                        .foregroundColor(Color(red: 0.708, green: 0.649, blue: 0.65))
-                        .font(.system(size: 15))
                         
                         Text("نسيت كلمة المرور؟")
                             .foregroundColor(Color.gray)
                             .font(.system(size: 15))
+                        
+                        NavigationLink("إعادة تعيين",destination: ResetPassword())
+                            .foregroundColor(Color(red: 0.708, green: 0.649, blue: 0.65))
+                            .font(.system(size: 15))
+                        
+                      
                         
                         
                     }
@@ -160,13 +166,25 @@ struct logIN: View {
                 }
                 
                 
-            } .toolbar(.hidden)
+            }
+        }.toolbar(.hidden)
+     
+        
+    }
+    
+    func login(){
+        Auth.auth().signIn(withEmail: email, password: password){
+            result, error in if error != nil {
+                print(error!.localizedDescription)
+            }
         }
     }
+
 }
+    
 
 struct logIN_Previews: PreviewProvider {
     static var previews: some View {
-        logIN()
+        logIN().environment(\.layoutDirection, .rightToLeft)
     }
 }

@@ -18,134 +18,164 @@ struct SignUP: View {
     @State var password: String = ""
     
     var body: some View {
-        ZStack{
-            Color("bg").ignoresSafeArea()
-            
-            VStack(spacing: -520.0){
-                
-                
-                
-                Image("oval").ignoresSafeArea()
-                Spacer()
-                
-                
-                Image("logo")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame( width: 300, height: 0, alignment: .bottom)
-                
-                Spacer()
-                
-                
-                
-            }
-            
-            VStack(spacing: -630){
-                
-                
-                Text("أكمِلها")
-                    .font(.system(size: 45))
-                    .accessibilitySortPriority(1)
-                    .font(.largeTitle)
-                    .foregroundColor(Color(hue: 0.105, saturation: 0.155, brightness: 0.518))
-                    .frame(width: 350, alignment: .trailing)
-                Spacer()
-                
-                
-                
-                Text("يرحب بك!")
-                
-                    .accessibilityHidden(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
-                    .fontWeight(.bold)
-                    .font(.system(size: 50))
-                    .lineLimit(nil)
-                    .font(.largeTitle)
-                    .foregroundColor(Color(hue: 0.105, saturation: 0.186, brightness: 0.564))
-                    .multilineTextAlignment(.center)
-                    .accessibilityLabel("Label")
-                    .frame(width: 220, alignment: .trailing)
-                
-                Spacer()
-                
-                
-            }
-            
-            VStack(alignment: .center){
-                
-                Spacer()
-             
+        NavigationView{
 
-                Text("تسجيل جديد")
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 30))
-                    .frame(width: 250, alignment: .center)
+            ZStack{
+                    Color("bg").ignoresSafeArea()
+                    
+                    VStack(spacing: -520.0){
+                        
+                        
+                        
+                        Image("oval").ignoresSafeArea()
+                        Spacer()
+                        
+                        
 
-                
-                Text("الاسم")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 20))
-                    .padding(.top, -18.0)
-                    .frame(width: 350, alignment: .trailing)
-                
-                TextField("الاسم", text: $name)
-                    .autocorrectionDisabled(true)
-                    .padding()
-                    .background(Color.black.opacity(0.05))
-                    .cornerRadius(50)
-                    .frame(width: 370, alignment: .center)
-                
-                Text("البريد الإلكتروني")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 20))
-                    .padding(.top)
-                    .frame(width: 350, alignment: .trailing)
-                
-                
-                TextField("البريد الإلكتروني", text: $email)
-                    .padding()
-                    .background(Color.black.opacity(0.05))
-                    .cornerRadius(50)
-                    .frame(width: 370, alignment: .center)
-                
-                Text("كلمة المرور")
-                    .foregroundColor(Color.gray)
-                    .font(.system(size: 20))
-                    .padding(.top)
-                    .frame(width: 350, alignment: .trailing)
-                
-                
-                TextField("كلمة المرور", text: $password)
-                    .padding()
-                    .background(Color.black.opacity(0.05))
-                    .cornerRadius(50)
-                    .frame(width: 370, alignment: .center)
-                
-                
-                
-            }
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .frame(width: 0.0, height: 620)
-            
-            VStack{
-                
-                Spacer()
-                
-                Button("انشاء حساب") {
+                        
+                        
+                        
+                    }
+                ScrollView {
+                    VStack(){
+                        
+                        
+                        Text("أكمِلها")
+                            .font(.system(size: 45))
+                            .accessibilitySortPriority(1)
+                            .font(.largeTitle)
+                            .foregroundColor(Color(hue: 0.105, saturation: 0.155, brightness: 0.518))
+                            .frame(width: 350, alignment: .leading)
+                        Spacer()
+                        
+                        
+                        
+                        Text("يرحب بك!")
+                        
+                            .accessibilityHidden(/*@START_MENU_TOKEN@*/false/*@END_MENU_TOKEN@*/)
+                            .fontWeight(.bold)
+                            .font(.system(size: 50))
+                            .lineLimit(nil)
+                            .font(.largeTitle)
+                            .foregroundColor(Color(hue: 0.105, saturation: 0.186, brightness: 0.564))
+                            .multilineTextAlignment(.center)
+                            .accessibilityLabel("Label")
+                            .frame(width: 220, alignment: .trailing)
+                            .shadow(radius: /*@START_MENU_TOKEN@*/19/*@END_MENU_TOKEN@*/)
+                        Spacer()
+                        
+                        Image("logo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .padding(.bottom, -250.0)
+                            .frame( width: 300, height: 0, alignment: .bottom)
+                        
+                        
+                        Spacer()
+                        
+                        
+                    }
+                    
+                    VStack(alignment: .center){
+                        
+                        Spacer()
+
+                        
+                        Text("تسجيل جديد")
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 30))
+                            .padding(.top)
+                            .frame(width: 250, alignment: .center)
+                        
+                        
+                        Text("الاسم")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 20))
+                            .padding(.top, -18.0)
+                            .frame(width: 350, alignment: .leading)
+                        
+                        TextField("الاسم", text: $name)
+                        
+                            .padding()
+                            .background(Color.black.opacity(0.05))
+                            .cornerRadius(20)
+                            .frame(width: 350,alignment: .leading)
+                        
+                        
+                        
+                        
+                        Text("البريد الإلكتروني")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 20))
+                            .padding(.top)
+                            .frame(width: 350, alignment: .leading)
+                        
+                        
+                        TextField("البريد الإلكتروني", text: $email)
+                            .padding()
+                            .background(Color.black.opacity(0.05))
+                            .cornerRadius(20)
+                            .frame(width: 350, alignment: .center)
+                        
+                        Text("كلمة المرور")
+                            .foregroundColor(Color.gray)
+                            .font(.system(size: 20))
+                            .padding(.top)
+                            .frame(width: 350, alignment: .leading)
+                        
+                        
+                        TextField("كلمة المرور", text: $password)
+                            .padding()
+                            .background(Color.black.opacity(0.05))
+                            .cornerRadius(20)
+                            .frame(width: 350, alignment: .center)
+                        
+                        
+                        
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .frame(width: 0.0, height: 570)
+                    
+                    VStack{
+                        
+                        Spacer()
+                        
+                        Button("تسجيل") {
                     viewModel.signUp(email: email, password: password)
+                        }
+                        .foregroundColor(Color.gray)
+                        .frame(width: 250, height: 50)
+                        .background(Color("pickerBG"))
+                        .cornerRadius(50)
+                        .font(.system(size: 20))
+                        
+                        
+                        
+                        HStack{
+                            Text( "لديك حساب؟")
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 15))
+                            
+                            NavigationLink("تسجيل الدخول",destination: logIN())
+                                .foregroundColor(Color(hue: 1.0, saturation: 0.075, brightness: 0.706))
+                                .font(.system(size: 15))
+                            
+                          
+                        }
+                        
+                        
+                    }
+                    
                 }
-                .foregroundColor(Color.gray)
-                .frame(width: 300, height: 50)
-                .background(Color("pickerBG"))
-                .cornerRadius(50)
-                .font(.system(size: 25))
+           
             }
-        } .toolbar(.hidden)
+        }.toolbar(.hidden)
     }
 }
 
 struct SignUP_Previews: PreviewProvider {
     static var previews: some View {
-        SignUP()
+        SignUP().environment(\.layoutDirection, .rightToLeft)
     }
 }

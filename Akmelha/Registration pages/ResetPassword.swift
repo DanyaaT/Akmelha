@@ -40,7 +40,7 @@ struct ResetPassword: View {
                     .accessibilitySortPriority(1)
                     .font(.largeTitle)
                     .foregroundColor(Color(hue: 0.105, saturation: 0.155, brightness: 0.518))
-                    .frame(width: 350, alignment: .trailing)
+                    .frame(width: 350, alignment: .leading)
                 Spacer()
                 
                 
@@ -55,7 +55,7 @@ struct ResetPassword: View {
                     .foregroundColor(Color(hue: 0.105, saturation: 0.186, brightness: 0.564))
                     .multilineTextAlignment(.center)
                     .accessibilityLabel("Label")
-                    .frame(width: 170, alignment: .trailing)
+                    .frame(width: 170, alignment: .leading)
                 
                 Spacer()
                 
@@ -83,7 +83,7 @@ struct ResetPassword: View {
                 Text("البريد الإلكتروني")
                     .foregroundColor(Color.gray)
                     .font(.system(size: 20))
-                    .frame(width: 350, alignment: .trailing)
+                    .frame(width: 350, alignment: .leading)
 
                 TextField("البريد الإلكتروني", text: $Email)
                     .padding()
@@ -96,7 +96,15 @@ struct ResetPassword: View {
 
                 HStack{
                     
-
+                    Button("إرسال") {
+                        //her the acion
+                    }
+                    .foregroundColor(Color.gray)
+                    .frame(width: 150, height: 50)
+                    .background(Color("pickerBG"))
+                    .cornerRadius(50)
+                    .font(.system(size: 25))
+                    
                     Button("تراجع") {
                         //her the acion
                     }
@@ -107,14 +115,7 @@ struct ResetPassword: View {
                     .font(.system(size: 25))
                     
 
-                    Button("إرسال") {
-                        //her the acion
-                    }
-                    .foregroundColor(Color.gray)
-                    .frame(width: 150, height: 50)
-                    .background(Color("pickerBG"))
-                    .cornerRadius(50)
-                    .font(.system(size: 25))
+                 
                 }
           
 
@@ -124,12 +125,12 @@ struct ResetPassword: View {
 
             }
             
-        }
+        }.toolbar(.hidden)
         }
 }
 
 struct ResetPassword_Previews: PreviewProvider {
     static var previews: some View {
-        ResetPassword()
+        ResetPassword().environment(\.layoutDirection, .rightToLeft)
     }
 }
