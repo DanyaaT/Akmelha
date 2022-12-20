@@ -136,7 +136,7 @@ struct StudentReviews: View {
         
         .sheet(isPresented: $showAddReviews){
             
-            AddReviewsSheet(showAddReviews: $showAddReviews).presentationDetents([.medium])
+            AddReviewsSheet(showAddReviews: $showAddReviews).presentationDetents([.fraction(0.4)])
             
         }
         
