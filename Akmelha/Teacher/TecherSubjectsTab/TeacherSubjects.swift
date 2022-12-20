@@ -105,7 +105,7 @@ struct TeacherSubjects: View {
                             .foregroundColor(.white)
                             
                         }// end Zstack
-                    }// end Zstack
+                    } // end Zstack
                     Spacer()
                     
                 } //End Hstack

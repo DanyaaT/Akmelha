@@ -84,17 +84,12 @@ struct DetailedEvent: View{
                                 Spacer()
                                 Text(event.eventSection ?? "").foregroundColor(.gray)
                             }
-                            
-                            
-                            
-                        }.padding()
-                        
-                        
+      
+                        }.padding()    
                     }.padding(.horizontal)
                      .environment(\.layoutDirection, .rightToLeft)
                     ZStack{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 180).background(Color.white).shadow(radius: 0.6)
-                       
                         VStack{
                             HStack{
                                 Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
@@ -118,52 +113,11 @@ struct DetailedEvent: View{
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
-                           
-                            
                         }.padding(.horizontal)
-                        
-                        
                     }.padding(.horizontal)
                      .environment(\.layoutDirection, .rightToLeft)
                         .navigationTitle("تفاصيل الحدث")
                         .navigationBarTitleDisplayMode(.inline)
-                    VStack{
-                    if edit{
-                        Button(action:{
-                            showDeleteAlert = true
-                            
-                        }){
-                            VStack{
-                            HStack{
-                                Spacer()
-                                Image(systemName: "trash").font(.title).foregroundColor(.red)
-                                Spacer()
-                            }
-                            HStack{
-                                Spacer()
-                                Text("حذف المادة").foregroundColor(.gray)
-                                Spacer()
-                            }
-                            }
-                        }.alert( isPresented: $showDeleteAlert) {
-                            
-                            Alert(
-                                title: Text("حذف المادة؟"),
-                                message: Text(""),
-                                primaryButton: .destructive(Text("حذف"), action: {
-                                    dbEvent.deleteEvent(event)
-                                    dismiss()
-                                }),
-                                secondaryButton: .cancel(Text("الغاء"), action: { // 1
-                                    
-                                    
-                                })
-                            )
-                            
-                        }
-                        
-                    }
-                    }
 
                         .toolbar{
                             ToolbarItem(placement: .navigationBarTrailing){
@@ -171,23 +125,29 @@ struct DetailedEvent: View{
                                     Image(systemName: "xmark.circle").foregroundColor(.gray)
                                 }
                             }
-                        }
-                        Spacer()
-                        .toolbar{
-                            ToolbarItem(placement: .navigationBarLeading){
-                                Button(action:{edit.toggle()}){
-                                    if !edit{
-                                        Text("تحرير").foregroundColor(Color("purple"))
-                                    }else{
-                                        Text("حفظ").foregroundColor(Color("purple"))
-                                        
-                                    }
+                            ToolbarItem(placement:.navigationBarLeading){
+                                Button(action: {showDeleteAlert = true}){
+                                    Image(systemName: "trash").foregroundColor(.red)
+                                 
+                                } .alert( isPresented: $showDeleteAlert) {
+                                    
+                                    Alert(
+                                        title: Text("حذف المهمة؟"),
+                                        message: Text(""),
+                                        primaryButton: .destructive(Text("حذف"), action: {
+                                            dbEvent.deleteEvent(event)
+                                        }),
+                                        secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                                            
+                                            
+                                        })
+                                    )
                                     
                                 }
-                                
+                            }
                             
                         }
-                    }
+      
                     
                 }
             }

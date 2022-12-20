@@ -284,7 +284,7 @@ struct TaecherTaskCard: View{
                     Button(action: {showDeleteAlert = true}){
                         Image(systemName: "trash").foregroundColor(.red)
                      
-                    }.alert( isPresented: $showDeleteAlert) {
+                    } .alert( isPresented: $showDeleteAlert) {
                         
                         Alert(
                             title: Text("حذف المهمة؟"),
