@@ -11,6 +11,7 @@
 		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
 		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
 		07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4682C294F0E60000A9B6A /* ResetPassword.swift */; };
+		07E0992129520C0500BE248A /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0992029520C0500BE248A /* UserType.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
 		1D33B3B5294575E800D5BD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B4294575E800D5BD45 /* Assets.xcassets */; };
 		1D33B3B8294575E800D5BD45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
 		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
 		07A4682C294F0E60000A9B6A /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		07E0992029520C0500BE248A /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkmelhaApp.swift; sourceTree = "<group>"; };
 		1D33B3B4294575E800D5BD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		07719D2C294C415E0039707A /* Registration pages */ = {
 			isa = PBXGroup;
 			children = (
+				07E0992029520C0500BE248A /* UserType.swift */,
 				07719D2D294C42530039707A /* WelcomePage.swift */,
 				07719D2F294C428A0039707A /* logIN.swift */,
 				07719D31294C42B20039707A /* SignUP.swift */,
@@ -396,6 +399,7 @@
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
 				5BDEE097294E6367006122DB /* calendarView.swift in Sources */,
 				5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */,
+				07E0992129520C0500BE248A /* UserType.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
