@@ -9,10 +9,39 @@ import SwiftUI
 
 struct StudentTaskView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Color("bg").ignoresSafeArea()
+            
+            VStack{
+                ZStack{
+                    Rectangle()
+                        .cornerRadius(radius:50, corners: [.bottomRight, .bottomLeft])
+                        .foregroundColor(Color("top")).ignoresSafeArea()
+                        .frame(height:99)
+                    Spacer()
+                    HStack{
+                        NavigationLink(destination:StudentProfile()) {
+                            Image("teacherProfile")
+                                .resizable()
+                                .frame(width: 64, height: 60)
+                                .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                        } //NavigationLink
+                        Spacer()
+                    }// hstack
+                    .padding()
+                    VStack{
+                        
+                        
+                        Text("\n"+"مهامي")
+                            .font(.system(size: 40))
+                            .foregroundColor(Color("title"))
+                    }// Vstack
+                }//Zstac
+                Spacer()
+            }
+        }
     }
 }
-
 struct StudentTaskView_Previews: PreviewProvider {
     static var previews: some View {
         StudentTaskView()
