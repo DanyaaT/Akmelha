@@ -19,20 +19,20 @@ struct InsideTeacherSubject: View {
             VStack{
                 HStack{
 
-                    Text(title).font(.title).background(Rectangle().frame( height: 13 ).foregroundColor(Color(pickerColor)))
+                    Text(course.courseName ?? "").font(.title).background(Rectangle().frame( height: 13 ).foregroundColor(Color(course.courseColor ?? "pink")))
                     Spacer()
                 }
-            PickerView(characters: ["المهام", "تقييم الطلاب","عن المادة"], selectedCharacter: $selectedSection, color: pickerColor)
+                PickerView(characters: ["المهام", "تقييم الطلاب","عن المادة"], selectedCharacter: $selectedSection, color: course.courseColor ?? "pink") 
                 Spacer()
             if selectedSection == "المهام"{
-                TeacherTasks()
+                TeacherTasks(course: course)
                 
             }
                 if selectedSection == "تقييم الطلاب"{
                 TeacherReviews(course: course)
              }
                 if selectedSection == "عن المادة"{
-                    AboutTeacherSubject(course : course)
+                    AboutTeacherSubject(subjectDesc: course.courseDesc ?? "", course : course)
           }
                 
             }.padding()

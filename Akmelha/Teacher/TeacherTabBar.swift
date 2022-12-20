@@ -17,7 +17,11 @@ struct TeacherTabBar: View {
 
     @State var selectedTab : TeacherTabs = .المواد
     
-   
+    init() {
+        
+        
+        UITabBar.appearance().backgroundColor = UIColor(.white)
+    }
     
     var body: some View {
    
@@ -31,6 +35,7 @@ struct TeacherTabBar: View {
                         Text("المواد")
                         
                     }.tag(TeacherTabs.المواد)
+         
                    
                 
                 TeacherCalendar()
@@ -39,12 +44,14 @@ struct TeacherTabBar: View {
                         Text("التقويم")
                         
                     }.tag(TeacherTabs.التقويم)
+                    .toolbarBackground(.white, for: .tabBar)
                 
                 TeacherCards()
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("البطاقات")
                     }.tag(TeacherTabs.البطاقات)
+                    
                 
             }
            

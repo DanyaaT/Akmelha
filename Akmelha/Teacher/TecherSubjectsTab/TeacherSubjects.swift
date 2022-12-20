@@ -39,7 +39,7 @@ struct TeacherSubjects: View {
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
-            
+           
             VStack{
                 ZStack{
                     Rectangle()
@@ -176,7 +176,7 @@ var body: some View{
                         courseColor = courseColorAndImage(courseName: selectedCourse)[0]
                         courseImage = courseColorAndImage(courseName: selectedCourse)[1]
                         
-                       dbCourse.addCourse(Course(courseTeacher:courseTeacher ,courseColor : courseColor , courseImage :courseImage ))
+                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: courseTeacher, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel))
                         showSheet = false
                   
                     } label: {

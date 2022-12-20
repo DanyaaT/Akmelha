@@ -57,6 +57,22 @@ class CourseDB: ObservableObject {
         }
 
     }
+    
+    
+    func changeCourseDescription( _ course :Course){
+        do {
+            guard let id = course.id else {return}                 //"name of feild": "new value"
+            try dbCourses.collection("Courses").document(id).setData(from: ["courseDesc": course.courseDesc],merge: true)
+        } catch {
+            print("Unable to encode task: \(error.localizedDescription)")
+        }
+
+
+    }
+    
+    
+    
+    
 }
 
 

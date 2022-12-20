@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AboutTeacherSubject: View {
+    @State private var showDeleteAlert = false
     @State var subjectDesc =  ""
     @State var edit = false
     let course : Course
     @EnvironmentObject var dbCourse: CourseDB
-    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         VStack(alignment: .leading){
          
@@ -47,7 +48,7 @@ struct AboutTeacherSubject: View {
             VStack{
             if edit{
                 Button(action:{
-                 dbCourse.deleteCourse(course)
+                    showDeleteAlert = true
                 }){
                     VStack{
                     HStack{
@@ -61,6 +62,21 @@ struct AboutTeacherSubject: View {
                         Spacer()
                     }
                     }
+                }.alert( isPresented: $showDeleteAlert) {
+                    
+                    Alert(
+                        title: Text("حذف المادة؟"),
+                        message: Text(""),
+                        primaryButton: .destructive(Text("حذف"), action: {
+                            dbCourse.deleteCourse(course)
+                            dismiss()
+                        }),
+                        secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                            
+                            
+                        })
+                    )
+                    
                 }
                 
             }
@@ -68,7 +84,11 @@ struct AboutTeacherSubject: View {
             
         }.toolbar{
             ToolbarItem(placement: .navigationBarTrailing){
-                Button(action:{edit.toggle()}){
+                Button(action:{edit.toggle()
+                    course.courseDesc = subjectDesc
+                    
+                    dbCourse.changeCourseDescription(course)
+                }){
                     if !edit{
                      
                            
@@ -79,7 +99,7 @@ struct AboutTeacherSubject: View {
                        
                           
                         Text("حفظ").foregroundColor(Color("purple"))
-                          
+                       
                      }
                         
                     }
