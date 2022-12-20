@@ -49,7 +49,7 @@ struct StudentCourseView: View {
                     Spacer()
                     HStack{
                         NavigationLink(destination:TeacherProfile()) {
-                            Image("teacherProfile")
+                            Image("StudentProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
                                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
@@ -63,11 +63,9 @@ struct StudentCourseView: View {
                         Text("\n"+"موادي")
                             .font(.system(size: 40))
                             .foregroundColor(Color("title"))
-                        
                     }// Vstack
-                    
                 }//Zstac
-                
+                Spacer()
                 HStack(spacing: -3){
                     
                     ZStack {
@@ -97,7 +95,6 @@ struct StudentCourseView: View {
                         }// end Zstack
                     }// end Zstack
                     Spacer()
-                    
                 } //End Hstack}
             }
         } // first z

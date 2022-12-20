@@ -55,6 +55,7 @@
 		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
 		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
 		5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE09A294E63CF006122DB /* DaysEvent.swift */; };
+		95923A1C2951BC7E00385ABA /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1B2951BC7E00385ABA /* StudentProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		5BDEE096294E6367006122DB /* calendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarView.swift; sourceTree = "<group>"; };
 		5BDEE098294E63AB006122DB /* EventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		5BDEE09A294E63CF006122DB /* DaysEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEvent.swift; sourceTree = "<group>"; };
+		95923A1B2951BC7E00385ABA /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 				5B05D7132950E57D004BE379 /* StudentCourse */,
 				5B05D7122950E553004BE379 /* StudentTask */,
 				5B05D7102950E3B6004BE379 /* StudentTabBar.swift */,
+				95923A1B2951BC7E00385ABA /* StudentProfile.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				07719D2E294C42530039707A /* WelcomePage.swift in Sources */,
 				1D33B3CF2945770C00D5BD45 /* AboutTeacherSubject.swift in Sources */,
 				1D33B3D12945773600D5BD45 /* TextView.swift in Sources */,
+				95923A1C2951BC7E00385ABA /* StudentProfile.swift in Sources */,
 				5B05D7252950F9E2004BE379 /* DaysEventStudent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
