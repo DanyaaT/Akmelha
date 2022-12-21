@@ -27,13 +27,14 @@ struct StudentProfile: View {
             
             Image(userImage)
                 .resizable()
-                .frame(width: 120, height: 120, alignment: .center)
+                .scaledToFit()
+                .frame(height: 100, alignment: .center)
                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
             
             Text("__________________________ ")
                 .foregroundColor(Color("title"))
             
-            VStack(spacing:0){
+            VStack(spacing:-10){
                 
                 HStack{
                     Text("الاسم")
@@ -147,6 +148,7 @@ struct StudentProfile: View {
 
         }// v
         .padding()
+        
 
         
     }

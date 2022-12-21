@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Neumorphic
 
 
 struct StudentGameView: View {
@@ -35,7 +36,7 @@ struct StudentGameView: View {
                         } // Vstack
                         
                     } //Zstac
-                    
+
                     ZStack {
                         Image("medal")
                             .resizable()
@@ -49,29 +50,38 @@ struct StudentGameView: View {
                     ScrollView {
                         
                         VStack(spacing:-90){
-                            HStack{
-                                Image("game1")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height:300)
-                                
-                                Image("game2")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height:300)
-                                
+                            HStack(spacing:-30){
+                                Button(action: {}){
+                                    Image("game1")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height:300)
+                                }
+                            
+                                Button(action: {}){
+                                    Image("game2")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height:300)
+                                }
                                 
                             }.padding(.horizontal)
-                            HStack{
-                                Image("game3")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height:300)
+                            
+                            HStack(spacing:-30){
+                                Button(action: {}){
+                                    Image("game3")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height:300)
+                                }
                                 
-                                Image("game4")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height:300)
+                                Button(action: {}){
+                                    Image("game4")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height:300)
+                                }
+                                
                             }.padding()
                             
                         }
@@ -119,3 +129,5 @@ struct StudentGameView_Previews: PreviewProvider {
         StudentGameView().environment(\.layoutDirection,.rightToLeft)
     }
 }
+
+
