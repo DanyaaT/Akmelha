@@ -187,7 +187,7 @@ struct SignUP: View {
                         Spacer()
                         
                         Button("تسجيل") {
-                    viewModel.signUp(email: email, password: password)
+                            createUser()
                         }
                         .foregroundColor(Color.gray)
                         .frame(width: 250, height: 50)
@@ -218,6 +218,18 @@ struct SignUP: View {
         }.toolbar(.hidden)
     }
     
+    private func createUser() {
+           Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in if error != nil  {
+                   Message = "المدخلات غير صحيحة"
+
+                   return
+               }
+               print("Successfully created account with ID: \(result?.user.uid ?? "")")
+               Message = ""
+
+           })
+       }
+   
    
 }
 
