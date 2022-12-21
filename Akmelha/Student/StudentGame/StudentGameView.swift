@@ -45,9 +45,9 @@ struct StudentGameView: View {
                         HStack{
                             ZStack {
                                 
-                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).softOuterShadow().frame(width : 143 , height: 165)
+                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).softOuterShadow().frame(width : 143 , height: 165)
                                 VStack{
-                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).frame(width : 143 , height: 143)
+                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).frame(width : 143 , height: 145)
                                  
                                 Text("٣٠")
                                 }
