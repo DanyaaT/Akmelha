@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "âPngtreeâ3d puzzel icon_8525642.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

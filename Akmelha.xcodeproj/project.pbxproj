@@ -54,6 +54,7 @@
 		5B05D7252950F9E2004BE379 /* DaysEventStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7242950F9E2004BE379 /* DaysEventStudent.swift */; };
 		5B59C76029522BC100F33DB0 /* insideTeacherReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */; };
 		5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C761295257D100F33DB0 /* TaskStatus.swift */; };
+		5B9C253A2952767300085157 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9C25392952767300085157 /* Neumorphic */; };
 		5BDEE08F294E62AE006122DB /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE08E294E62AE006122DB /* Date.swift */; };
 		5BDEE097294E6367006122DB /* calendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE096294E6367006122DB /* calendarView.swift */; };
 		5BDEE099294E63AB006122DB /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEE098294E63AB006122DB /* EventList.swift */; };
@@ -121,6 +122,7 @@
 				1DD94C67294E2A4B00AD8AC0 /* FirebaseFirestoreSwift in Frameworks */,
 				1DD94C65294E2A4B00AD8AC0 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				1DD94C63294E2A4B00AD8AC0 /* FirebaseFirestore in Frameworks */,
+				5B9C253A2952767300085157 /* Neumorphic in Frameworks */,
 				1DD94C5D294E2A4B00AD8AC0 /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -332,6 +334,7 @@
 				1DD94C66294E2A4B00AD8AC0 /* FirebaseFirestoreSwift */,
 				1DD94C68294E2A4B00AD8AC0 /* FirebaseFunctions */,
 				1DD94C6A294E2A4B00AD8AC0 /* FirebaseStorage */,
+				5B9C25392952767300085157 /* Neumorphic */,
 			);
 			productName = Akmelha;
 			productReference = 1D33B3AD294575E500D5BD45 /* Akmelha.app */;
@@ -363,6 +366,7 @@
 			mainGroup = 1D33B3A4294575E500D5BD45;
 			packageReferences = (
 				1DD94C59294E2A4B00AD8AC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5B9C25382952767300085157 /* XCRemoteSwiftPackageReference "neumorphic" */,
 			);
 			productRefGroup = 1D33B3AE294575E500D5BD45 /* Products */;
 			projectDirPath = "";
@@ -645,6 +649,14 @@
 				kind = branch;
 			};
 		};
+		5B9C25382952767300085157 /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic/";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -692,6 +704,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1DD94C59294E2A4B00AD8AC0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		5B9C25392952767300085157 /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B9C25382952767300085157 /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
