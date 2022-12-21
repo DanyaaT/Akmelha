@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import Neumorphic
+
+
 struct StudentGameView: View {
     var body: some View {
     
@@ -41,84 +42,42 @@ struct StudentGameView: View {
                             .scaledToFit()
                             .frame(height: 100)
                         .padding([.top, .leading], -25.0)
-                        Text("   20")
+                        Text("   ٢٠")
                     }
+                    
+                    
                     ScrollView {
- 
-                        HStack{
-                            ZStack {
+                        
+                        VStack(spacing:-90){
+                            HStack{
+                                Image("game1")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height:300)
                                 
-                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).softOuterShadow().frame( height: 165)
-                                VStack{
-                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).frame( height: 145)
-                                 
-                                Text("٣٠")
-                                }
-                                VStack{
-                                    
-                                    Image("XO")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 120)
-                                    Text("إكس- أو").padding(-13.0)
-                                  
-                                    Spacer()
-                                }
+                                Image("game2")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height:300)
                                 
+                                
+                            }.padding(.horizontal)
+                            HStack{
+                                Image("game3")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height:300)
+                                
+                                Image("game4")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height:300)
                             }.padding()
                             
-                            ZStack {
-                                
-                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("checkColor")).softOuterShadow().frame( height: 165)
-                                VStack{
-                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("islamic")).frame( height: 143)
-                                 Text("١٠٠")
-                                
-                                }
-                                VStack{
-                                    
-                                    Image("hh")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 120)
-                                    Text("ترتيب الأحجيات").padding(-13.0)
-                                  
-                                    Spacer()
-                                }
-                                
-                            }.padding()
-                            
-                            
-                        }.padding(.horizontal)
-                        HStack{
-                            ZStack {
-                                
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame( height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("math")).softOuterShadow().frame( height: 150)
-                                VStack {
-                                    Image(systemName: "lock.circle")
-                                        .resizable()
-                                        .foregroundColor(.gray)
-                                        .frame(width : 100 , height: 100)
-                                    Text("انتظرونا قريبًا")
-                                }
-                            }.padding()
-                            
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame( height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("arabic")).softOuterShadow().frame( height: 150)
-                                VStack {
-                                    Image(systemName: "lock.circle")
-                                        .resizable()
-                                        .foregroundColor(.gray)
-                                        .frame(width : 100 , height: 100)
-                                    Text("انتظرونا قريبًا")
-                                }
-                            }.padding()
-                            
-                        }.padding(.horizontal)
-                        Spacer()
-                    }
+                        }
+                    }// scroll
+                    
+                    
                     HStack(spacing: -3){
                         
                         ZStack {

@@ -36,15 +36,15 @@ struct AkmelhaApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
-                .environmentObject(viewModel)
-                .environmentObject(dbCourseTasks)
-                .environmentObject(dbCourses)
-                .environmentObject(dbEvents)
+//            TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
+//                .environmentObject(viewModel)
+//                .environmentObject(dbCourseTasks)
+//                .environmentObject(dbCourses)
+//                .environmentObject(dbEvents)
             
-           //
-           // StudentTabBar().environment(\.layoutDirection, .rightToLeft)
-             //  .environmentObject(dbEvents)
+           
+            StudentTabBar().environment(\.layoutDirection, .rightToLeft)
+               .environmentObject(dbEvents)
  
 //            SignUP().environment(\.layoutDirection, .rightToLeft)
 //               .environmentObject(dbEvents)

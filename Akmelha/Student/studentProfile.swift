@@ -19,7 +19,7 @@ struct StudentProfile: View {
     
     
     var body: some View {
-        VStack{
+        VStack(spacing:10){
             
             Text("الملف الشخصي")
                 .font(.system(size: 30))
@@ -33,7 +33,7 @@ struct StudentProfile: View {
             Text("__________________________ ")
                 .foregroundColor(Color("title"))
             
-            VStack{
+            VStack(spacing:0){
                 
                 HStack{
                     Text("الاسم")
@@ -126,7 +126,8 @@ struct StudentProfile: View {
                 }// h
                 .padding()
                 
-                
+                Spacer()
+
                 HStack{
                     //  Button(action:""){
                     Image("logOut")
@@ -140,13 +141,10 @@ struct StudentProfile: View {
                     Spacer()
                     
                 }// h
-                Spacer()
-                Spacer()
-
-                Spacer()
+             
                 
             }// v
-            
+
         }// v
         .padding()
 
