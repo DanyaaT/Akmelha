@@ -45,32 +45,42 @@ struct StudentGameView: View {
                         HStack{
                             ZStack {
                                 
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.main).softOuterShadow().frame(width : 150 , height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("science")).softOuterShadow().frame(width : 150 , height: 150)
-                                
+                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).softOuterShadow().frame(width : 143 , height: 165)
+                                VStack{
+                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).frame(width : 143 , height: 143)
+                                 
+                                Text("٣٠")
+                                }
                                 VStack{
                                     
                                     Image("XO")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 120)
-                                    Text("إكس- أو")
-                                    
-                                }.padding(.horizontal)
+                                    Text("إكس- أو").padding(-13.0)
+                                  
+                                    Spacer()
+                                }
                                 
                             }.padding()
                             
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame(width : 150 , height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("checkColor")).softOuterShadow().frame(width : 150 , height: 150)
                                 
+                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("checkColor")).softOuterShadow().frame(width : 143 , height: 165)
+                                VStack{
+                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("islamic")).frame(width : 143 , height: 143)
+                                 Text("١٠٠")
+                                
+                                }
                                 VStack{
                                     
                                     Image("hh")
                                         .resizable()
                                         .scaledToFit()
                                         .frame(height: 120)
-                                    Text("ترتيب الأحجيات")
+                                    Text("ترتيب الأحجيات").padding(-13.0)
+                                  
+                                    Spacer()
                                 }
                                 
                             }.padding()
