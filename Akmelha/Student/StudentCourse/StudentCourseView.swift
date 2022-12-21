@@ -65,6 +65,8 @@ struct StudentCourseView: View {
                             .foregroundColor(Color("title"))
                     }// Vstack
                 }//Zstac
+                .toolbar(.hidden) //end overlay
+                
                 Spacer()
                 HStack(spacing: -3){
                     

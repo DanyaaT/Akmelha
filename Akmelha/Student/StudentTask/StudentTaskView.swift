@@ -37,6 +37,7 @@ struct StudentTaskView: View {
                             .foregroundColor(Color("title"))
                     }// Vstack
                 }//Zstac
+                .toolbar(.hidden) //end overlay
                 Spacer()
             }
         }

@@ -36,7 +36,8 @@ struct StudentGameView: View {
                         } // Vstack
                         
                     } //Zstac
-
+                    .toolbar(.hidden) //end overlay
+                    
                     ZStack {
                         Image("medal")
                             .resizable()
