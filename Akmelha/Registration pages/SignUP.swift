@@ -187,8 +187,8 @@ struct SignUP: View {
                         Spacer()
                         
                         Button("تسجيل") {
-                            SIGN_UP()               }
-                        
+                    viewModel.signUp(email: email, password: password)
+                        }
                         .foregroundColor(Color.gray)
                         .frame(width: 250, height: 50)
                         .background(Color("pickerBG"))
@@ -217,19 +217,8 @@ struct SignUP: View {
             }
         }.toolbar(.hidden)
     }
-     
-    func SIGN_UP(){
-        Auth.auth().createUser(withEmail: email, password: password){
-            result, error in if error != nil {
-                print(error!.localizedDescription)
-                Message = "المدخلات غير صحيحة"
-            }
-            else{
-                Message = ""
-
-            }
-        }
-    }
+    
+   
 }
 
 struct SignUP_Previews: PreviewProvider {
