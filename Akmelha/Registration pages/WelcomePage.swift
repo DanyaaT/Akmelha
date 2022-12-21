@@ -69,7 +69,9 @@ struct WelcomePage: View {
                         Text("أكمِـلها")
                             .font(.system(size: 50))
                             .foregroundColor(Color(hue: 1.0, saturation: 0.015, brightness: 0.432))
-                            .background(Rectangle().frame( height: 13 ).foregroundColor(Color("pink")))
+                            .background(Rectangle().frame( width: 250,height: 13
+                                        )
+                                .cornerRadius(50).foregroundColor(Color(hue: 0.299, saturation: 0.057, brightness: 0.894)))
                         
                         Spacer()
                         Spacer()

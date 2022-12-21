@@ -17,7 +17,19 @@ struct SignUP: View {
     @State var email: String = ""
     @State var password: String = ""
     
-    var body: some View {
+    @State var emailIsValid: Bool = true
+
+    
+
+    public init(email: String = "")
+
+    {
+
+        self.email = email
+
+    }
+    
+    var body: some View { 
         NavigationView{
 
             ZStack{
@@ -105,18 +117,45 @@ struct SignUP: View {
                         
                         
                         
-                        Text("البريد الإلكتروني")
-                            .foregroundColor(Color.gray)
-                            .font(.system(size: 20))
-                            .padding(.top)
-                            .frame(width: 350, alignment: .leading)
+                        HStack(spacing: -350.0){
+                         
                         
+                            Text("البريد الإلكتروني")
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 20))
+                                .frame(width: 350, alignment: .leading)
+
+                            Text(emailIsValid ? "" : "* الإيميل غير صحيح")
+                            .foregroundColor(Color.red)
+                            .font(.system(size: 15))
+                            .frame(width: 350, alignment: .trailing)
+
+                            
+
+                        }
+                     
                         
                         TextField("البريد الإلكتروني", text: $email)
                             .padding()
                             .background(Color.black.opacity(0.05))
                             .cornerRadius(20)
                             .frame(width: 350, alignment: .center)
+                        
+                            .onChange(of: email) { newValue in
+
+                                if(newValue.range(of:"^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$", options: .regularExpression) != nil) {
+
+                                    self.emailIsValid = true
+
+
+                                } else {
+
+                                    self.emailIsValid = false
+
+
+                                }
+
+                            }
                         
                         Text("كلمة المرور")
                             .foregroundColor(Color.gray)
@@ -125,7 +164,7 @@ struct SignUP: View {
                             .frame(width: 350, alignment: .leading)
                         
                         
-                        TextField("كلمة المرور", text: $password)
+                        SecureField("كلمة المرور", text: $password)
                             .padding()
                             .background(Color.black.opacity(0.05))
                             .cornerRadius(20)
@@ -164,7 +203,7 @@ struct SignUP: View {
                           
                         }
                         
-                        
+                         
                     }
                     
                 }
