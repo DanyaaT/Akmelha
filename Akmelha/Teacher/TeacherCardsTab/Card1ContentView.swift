@@ -126,34 +126,34 @@ struct Card1ViewPDF: View {
       VStack{
           Spacer()
           HStack{
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
               
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
           }
           HStack{
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
               
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
           }
           HStack{
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
               
-              Image("blueCard2")
+              Image("blueCard")
                   .resizable()
                   .aspectRatio(contentMode: .fit)
                   .frame(width:150 , height: 250)
@@ -166,7 +166,7 @@ struct Card1ViewPDF: View {
 struct Card1View: View {
  var body: some View {
      
-     Image("blueCard2")
+     Image("blueCard")
          .resizable()
          .aspectRatio(contentMode: .fit)
          .frame(width:360 , height: 400)
