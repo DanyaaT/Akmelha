@@ -10,31 +10,54 @@ import SwiftUI
 struct TeacherCards: View {
     var body: some View {
         ZStack{
-            Color(red: 1.00, green: 1.00, blue: 0.98)
-                .ignoresSafeArea()
+            Color("bg").ignoresSafeArea()
+            
             NavigationView(){
             VStack{
-                Spacer()
-                AppBarView()
-                Spacer()
-                TitleView()
-                CardsView()
-                
                 ZStack{
+                    Spacer()
+                    
                     Rectangle()
-                        .frame( width: 390 ,height: 98)
-                        .foregroundColor(.white)
+                        .cornerRadius(radius:50, corners: [.bottomRight, .bottomLeft])
+                        .foregroundColor(Color("top")).ignoresSafeArea()
+                        .frame(height:99)
+                    
+                    Spacer()
+                    HStack{
+                        NavigationLink(destination:TeacherProfile()) {
+                            Image("teacherProfile")
+                                .resizable()
+                                .frame(width: 64, height: 60)
+                                .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                        } //NavigationLink
+                        Spacer()
+                    }// hstack
+                    .padding()
                     VStack{
-                      //   TapBar section //
+                        
+                        
+                        Text("\n"+"البطاقات")
+                            .multilineTextAlignment(.center)
+                            .font(.system(size: 40))
+                            .foregroundColor(Color("title"))
+                        
+                        
+                            
+                        
                     }
+                    
                 }
+               
+                CardsView()
+                Spacer()
                 
-                Rectangle()
-                    .frame( width: 290 ,height: 24)
-                    .foregroundColor(.white)
+                
+                
             }
-        }//nav
-        }    }
+        }.navigationBarTitle("", displayMode: .inline)
+        }
+        
+    }
 }
 
 struct TeacherCards_Previews: PreviewProvider {
@@ -46,51 +69,41 @@ struct TeacherCards_Previews: PreviewProvider {
 struct AppBarView: View {
     var body: some View {
         ZStack{
+            Spacer()
             
-            RoundedRectangle(cornerRadius:50)
-                .frame( width: 390 ,height: 135)
-                .foregroundColor(.init(red: 0.95, green: 0.94, blue: 0.91))
-                
+            Rectangle()
+                .cornerRadius(radius:50, corners: [.bottomRight, .bottomLeft])
+                .foregroundColor(Color("top")).ignoresSafeArea()
+                .frame(height:99)
             
-            
-            HStack {
-                
-                VStack {
-                    Image(systemName: "person.fill")
-                    
+            Spacer()
+            HStack{
+                NavigationLink(destination:TeacherProfile()) {
+                    Image("teacherProfile")
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 45, height: 40.83)
-                        .clipShape(Circle())
-                        .overlay(
-                            Circle().stroke(.gray, lineWidth: 1))
-                    .padding()
-                    
-                }
+                        .frame(width: 64, height: 60)
+                        .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                } //NavigationLink
                 Spacer()
+            }// hstack
+            .padding()
+            VStack{
+                
+                Text("\n")
+                
+                Text("\n"+"البطاقات التحفيزية")
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 40))
+                    .foregroundColor(Color("title"))
+                
             }
             
         }
+        
+        
     }
 }
-struct TitleView: View {
-    var body: some View {
-        ZStack {
-           
-                Rectangle()
-                .foregroundColor(.init(red: 0.54, green: 0.76, blue: 0.64 ,opacity: 0.25))
-                    .frame(width: 270 , height: 11)
-                    .cornerRadius(4)
-                    
 
-            Text("البطاقات التحفيزية")
-                .font(.system(size:40))
-                .foregroundColor(Color.gray)
-                .padding(.horizontal)
-                
-        }
-    }
-}
 
 
 struct CardsView: View {
@@ -133,6 +146,7 @@ struct CardsView: View {
                     VStack( spacing: 1){
                         NavigationLink {
                            Card3ContentView()
+                                
                         } label: {
                             Image("orangeCard")
                                 .resizable()
