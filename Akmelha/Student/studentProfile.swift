@@ -174,7 +174,7 @@ struct StudentProfile: View {
 
 struct StudentProfile_Previews: PreviewProvider {
     static var previews: some View {
-        TeacherProfile()
+        StudentProfile()
         .environment(\.layoutDirection,.rightToLeft)
 
     }
