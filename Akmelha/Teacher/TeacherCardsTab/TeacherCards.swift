@@ -12,7 +12,7 @@ struct TeacherCards: View {
         ZStack{
             Color("bg").ignoresSafeArea()
             
-            NavigationView(){
+           
             VStack{
                 ZStack{
                     Spacer()
@@ -54,8 +54,9 @@ struct TeacherCards: View {
                 
                 
             }
-        }.navigationBarTitle("", displayMode: .inline)
-        }
+       
+        }.navigationTitle("")
+            .navigationBarTitleDisplayMode(.inline)
         
     }
 }
