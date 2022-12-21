@@ -32,11 +32,14 @@ struct StudentGameView: View {
                         } // Vstack
                         
                     } //Zstac
-                    Image("medal")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 100)
+                    ZStack {
+                        Image("medal")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 100)
                         .padding([.top, .leading], -25.0)
+                        Text("   20")
+                    }
                     ScrollView {
  
                         HStack{
