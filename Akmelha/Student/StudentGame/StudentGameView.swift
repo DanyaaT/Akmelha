@@ -9,10 +9,10 @@ import SwiftUI
 import Neumorphic
 struct StudentGameView: View {
     var body: some View {
-      
+    
             ZStack{
                 Color("bg").ignoresSafeArea()
-                
+               
                 VStack{
                     
                     ZStack{
@@ -22,6 +22,7 @@ struct StudentGameView: View {
                             .frame(height:99)
 
                         Spacer()
+                        
                         VStack{
                             HStack{
                                 Text("\n"+"الألعاب")
@@ -29,9 +30,11 @@ struct StudentGameView: View {
                                     .foregroundColor(Color("title"))
                                 
                             }
+                            
                         } // Vstack
                         
                     } //Zstac
+                    
                     ZStack {
                         Image("medal")
                             .resizable()
@@ -45,9 +48,9 @@ struct StudentGameView: View {
                         HStack{
                             ZStack {
                                 
-                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).softOuterShadow().frame(width : 143 , height: 165)
+                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("science")).softOuterShadow().frame( height: 165)
                                 VStack{
-                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).frame(width : 143 , height: 145)
+                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("lightblue")).frame( height: 145)
                                  
                                 Text("٣٠")
                                 }
@@ -66,9 +69,9 @@ struct StudentGameView: View {
                             
                             ZStack {
                                 
-                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("checkColor")).softOuterShadow().frame(width : 143 , height: 165)
+                                RoundedRectangle(cornerRadius: 17).foregroundColor(Color("checkColor")).softOuterShadow().frame( height: 165)
                                 VStack{
-                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("islamic")).frame(width : 143 , height: 143)
+                                    RoundedRectangle(cornerRadius: 17).foregroundColor(Color("islamic")).frame( height: 143)
                                  Text("١٠٠")
                                 
                                 }
@@ -86,12 +89,12 @@ struct StudentGameView: View {
                             }.padding()
                             
                             
-                        }
+                        }.padding(.horizontal)
                         HStack{
                             ZStack {
                                 
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame(width : 150 , height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("math")).softOuterShadow().frame(width : 150 , height: 150)
+                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame( height: 150)
+                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("math")).softOuterShadow().frame( height: 150)
                                 VStack {
                                     Image(systemName: "lock.circle")
                                         .resizable()
@@ -102,8 +105,8 @@ struct StudentGameView: View {
                             }.padding()
                             
                             ZStack {
-                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame(width : 150 , height: 150)
-                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("arabic")).softOuterShadow().frame(width : 150 , height: 150)
+                                RoundedRectangle(cornerRadius: 20).fill(Color.Neumorphic.darkShadow).softOuterShadow().frame( height: 150)
+                                RoundedRectangle(cornerRadius: 20).foregroundColor(Color("arabic")).softOuterShadow().frame( height: 150)
                                 VStack {
                                     Image(systemName: "lock.circle")
                                         .resizable()
@@ -113,7 +116,7 @@ struct StudentGameView: View {
                                 }
                             }.padding()
                             
-                        }
+                        }.padding(.horizontal)
                         Spacer()
                     }
                     HStack(spacing: -3){
