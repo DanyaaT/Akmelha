@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct StudentProfile: View {
-    @State var TeacherName =  ""
-    @State var TeacherEmail =  ""
+    @State var StudentName =  ""
+    @State var StudentEmail =  ""
     @State var edit = false
+    @State var userImage = "teacherProfile"
+    @State var images = ["girl1","girl2","girl3","boy1","boy2","boy3"]
+    @State var selectedImage =  ""
+    
     
     
     
     var body: some View {
         VStack{
-
-          
-        
-
+            
             Text("الملف الشخصي")
                 .font(.system(size: 30))
                 .foregroundColor(Color("title"))
             
-            Image("teacherProfile")
+            Image(userImage)
                 .resizable()
                 .frame(width: 120, height: 120, alignment: .center)
                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
@@ -32,7 +33,6 @@ struct StudentProfile: View {
             Text("__________________________ ")
                 .foregroundColor(Color("title"))
             
-            Spacer()
             VStack{
                 
                 HStack{
@@ -45,7 +45,7 @@ struct StudentProfile: View {
                 
                 HStack{
                     ZStack{
-                        TextField(TeacherName, text: $TeacherName).disabled(!edit).padding(.horizontal).background(RoundedRectangle(cornerRadius: 8).stroke(.gray.opacity(0.4)).frame( height: 50).background(Color("bg")))
+                        TextField(StudentName, text: $StudentName).disabled(!edit).padding(.horizontal).background(RoundedRectangle(cornerRadius: 8).stroke(.gray.opacity(0.4)).frame( height: 50).background(Color("bg")))
                             .padding()
                         
                         
@@ -59,7 +59,7 @@ struct StudentProfile: View {
                                         .frame(width: 18, height: 18)
                                         .padding()
                                         .padding()
-
+                                    
                                 }else{
                                     
                                     Text("حفظ").foregroundColor(.gray)
@@ -77,23 +77,55 @@ struct StudentProfile: View {
                     Text("البريد الإلكتروني")
                         .font(.system(size: 20))
                         .foregroundColor(Color("title"))
-                        Spacer()
+                    Spacer()
                 }.padding()
-
                 
-                TextField(TeacherEmail, text: $TeacherEmail)
+                
+                TextField(StudentEmail, text: $StudentEmail)
                     .disabled(true)
                     .background(RoundedRectangle(cornerRadius: 8).stroke(.gray.opacity(0.4)).frame( height: 50).background(Color("bg")))
                     .padding()
                 
                 
-                Spacer()
-                Spacer()
-                Spacer()
-                Spacer()
-              
+                //                Spacer()
+                //                Spacer()
+                //                Spacer()
+                //                Spacer()
                 
-
+                HStack{
+                    Text("صورة الملف الشخصي")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color("title"))
+                    Spacer()
+                }.padding()
+                
+                HStack{
+                    
+                    ForEach(images, id:\.self){image in
+                        Button(action:{
+                            selectedImage = image
+                            userImage = selectedImage
+                        }){
+                            
+                            if image == selectedImage{
+                                Image(image)
+                                    .resizable()
+                                    .frame(width: 67, height: 69, alignment: .center)
+                                    .overlay(Circle().stroke(Color(.red), lineWidth: 2))
+                                
+                            }
+                            else{
+                                Image(image)
+                                    .resizable()
+                                    .frame(width: 67, height: 69, alignment: .center)
+                                    .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                                
+                            }
+                        }
+                    }
+                }// h
+                .padding()
+                
                 
                 HStack{
                     //  Button(action:""){
@@ -107,21 +139,22 @@ struct StudentProfile: View {
                     
                     Spacer()
                     
-                    
-                    
-                }
+                }// h
+                Spacer()
+                Spacer()
+
                 Spacer()
                 
-            }
-            .padding()
+            }// v
             
         }// v
         .padding()
 
+        
+    }
+        
     }
     
-}
-
 
 
 
