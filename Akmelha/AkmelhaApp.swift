@@ -46,7 +46,7 @@ struct AkmelhaApp: App {
            // StudentTabBar().environment(\.layoutDirection, .rightToLeft)
              //  .environmentObject(dbEvents)
  
-            TeacherCards().environment(\.layoutDirection, .rightToLeft)
+             TeacherCards().environment(\.layoutDirection, .rightToLeft)
                .environmentObject(dbEvents)
               
         }

@@ -25,7 +25,7 @@ struct TeacherCards: View {
                         .frame( width: 390 ,height: 98)
                         .foregroundColor(.white)
                     VStack{
-                      //  TapBar section //
+                      //   TapBar section //
                     }
                 }
                 
@@ -164,4 +164,5 @@ struct CardsView: View {
         }
          
         }
+
 

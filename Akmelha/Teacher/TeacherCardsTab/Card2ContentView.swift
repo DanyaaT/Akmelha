@@ -173,3 +173,4 @@ struct Card2View: View {
  }
 }
 
+
