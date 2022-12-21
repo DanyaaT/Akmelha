@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct ResetPassword: View {
     @State var email: String = ""
+    @State var Message: String = ""
 
     @State var emailIsValid: Bool = true
 
@@ -130,15 +134,18 @@ struct ResetPassword: View {
                             }
 
                         }
-                    
+
+                    Text(Message)
+                        .foregroundColor(Color.red)
+                        .font(.system(size: 15))
+                        .frame(width: 350, alignment: .leading)
                     
                     Spacer()
                     
                     HStack{
                         
                         Button("إرسال") {
-                            //her the acion
-                        }
+                            resetPassword()        }
                         .foregroundColor(Color.gray)
                         .frame(width: 150, height: 50)
                         .background(Color("pickerBG"))
@@ -166,7 +173,17 @@ struct ResetPassword: View {
             }
             
         }.toolbar(.hidden)
-        
+         
+    }
+    
+    func resetPassword(){
+        Auth.auth().sendPasswordReset(withEmail: email) { error
+            in if error != nil {
+                Message = " البريد الالكتروني غير مسجل مسبقًا"
+                print(error!.localizedDescription)
+            } else{
+                Message = "تم ارسال رابط إعادة التعيين على الايميل"
+            }        }
     }
 }
 
@@ -175,3 +192,5 @@ struct ResetPassword_Previews: PreviewProvider {
         ResetPassword().environment(\.layoutDirection, .rightToLeft)
     }
 }
+ 
+ 

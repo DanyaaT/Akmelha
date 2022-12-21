@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 import Firebase
 import FirebaseCore
 import FirebaseAuth
@@ -16,7 +17,8 @@ struct SignUP: View {
     @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
-    
+    @State var Message: String = ""
+
     @State var emailIsValid: Bool = true
 
     
@@ -170,6 +172,10 @@ struct SignUP: View {
                             .cornerRadius(20)
                             .frame(width: 350, alignment: .center)
                         
+                        Text(Message)
+                            .foregroundColor(Color.red)
+                            .font(.system(size: 15))
+                            .frame(width: 350, alignment: .leading)
                         
                         
                     }
@@ -181,8 +187,8 @@ struct SignUP: View {
                         Spacer()
                         
                         Button("تسجيل") {
-                    viewModel.signUp(email: email, password: password)
-                        }
+                            SIGN_UP()               }
+                        
                         .foregroundColor(Color.gray)
                         .frame(width: 250, height: 50)
                         .background(Color("pickerBG"))
@@ -210,6 +216,19 @@ struct SignUP: View {
            
             }
         }.toolbar(.hidden)
+    }
+     
+    func SIGN_UP(){
+        Auth.auth().createUser(withEmail: email, password: password){
+            result, error in if error != nil {
+                print(error!.localizedDescription)
+                Message = "المدخلات غير صحيحة"
+            }
+            else{
+                Message = ""
+
+            }
+        }
     }
 }
 

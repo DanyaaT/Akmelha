@@ -7,19 +7,19 @@
 
 
 
-import SwiftUI
 
 import SwiftUI
+
 import Firebase
 import FirebaseCore
 import FirebaseAuth
 
 struct logIN: View {
-    @EnvironmentObject var viewModel: AppViewModel
 
     @State var email: String = ""
     @State var password: String = ""
-    
+    @State var Message: String = ""
+
     
     @State var emailIsValid: Bool = true
 
@@ -155,6 +155,11 @@ struct logIN: View {
                         .cornerRadius(50)
                         .frame(width: 370, alignment: .center)
                     
+                    Text(Message)
+                        .foregroundColor(Color.red)
+                        .font(.system(size: 15))
+                        .frame(width: 350, alignment: .leading)
+                    
                 }
                 
                 .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
@@ -165,7 +170,7 @@ struct logIN: View {
                     Spacer()
                     
                     Button("تسجيل") {
-                        viewModel.signIn(email: email, password: password)                    }
+                        login()                    }
                     .foregroundColor(Color.gray)
                     .frame(width: 300, height: 50)
                     .background(Color("pickerBG"))
@@ -217,6 +222,11 @@ struct logIN: View {
         Auth.auth().signIn(withEmail: email, password: password){
             result, error in if error != nil {
                 print(error!.localizedDescription)
+                Message = "المدخلات غير صحيحة"
+            }
+            else{
+                Message = ""
+
             }
         }
     }
