@@ -114,6 +114,7 @@ struct StudentProfile: View {
                                     .frame(width: 67, height: 69, alignment: .center)
                                     .overlay(Circle().stroke(Color(.red), lineWidth: 2))
                                 
+                                
                             }
                             else{
                                 Image(image)
@@ -122,7 +123,9 @@ struct StudentProfile: View {
                                     .overlay(Circle().stroke(Color("title"), lineWidth: 2))
                                 
                             }
+                                
                         }
+                        
                     }
                 }// h
                 .padding()

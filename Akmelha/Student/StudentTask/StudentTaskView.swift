@@ -20,7 +20,7 @@ struct StudentTaskView: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:StudentProfile()) {
+                        NavigationLink(destination:test_slider()) {
                             Image("teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
