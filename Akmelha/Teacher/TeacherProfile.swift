@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TeacherProfile: View {
+    @EnvironmentObject var viewModel: AppViewModel
     @State var TeacherName =  ""
     @State var TeacherEmail =  ""
     @State var edit = false
@@ -95,21 +96,22 @@ struct TeacherProfile: View {
                 
 
                 
-                HStack{
-                    //  Button(action:""){
-                    Image("logOut")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                    
-                    Text("تسجيل الخروج")
-                        .font(.system(size: 19))
-                        .foregroundColor(Color("title"))
-                    
-                    Spacer()
-                    
-                    
-                    
-                }
+              Button(action: {viewModel.signOut()}){
+                    HStack{
+                       
+                        Image("logOut")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                        
+                        Text("تسجيل الخروج")
+                            .font(.system(size: 19))
+                            .foregroundColor(Color("title"))
+                        
+                        Spacer()
+                        
+                        
+                    }
+                    }
                 Spacer()
                 
             }

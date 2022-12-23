@@ -7,7 +7,6 @@
 
 
 
-
 import SwiftUI
 
 import Firebase
@@ -19,7 +18,10 @@ struct logIN: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var Message: String = ""
-
+    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var dbUsers: UserDB
+    @State var goToStudent = false
+    @State var goToTeacher = false
     
     @State var emailIsValid: Bool = true
 
@@ -170,7 +172,20 @@ struct logIN: View {
                     Spacer()
                     
                     Button("تسجيل") {
-                        login()                    }
+                        viewModel.signIn(email: email, password: password)
+                            let id = Auth.auth().currentUser?.uid
+                        let userType = userType(id: id ?? "", users: dbUsers.users)
+                            if userType == "S"{
+                                goToStudent = true
+                                
+                                
+                            }else  if userType == "T"{
+                                goToTeacher = true
+                                
+                            }
+                        
+                        
+                    }
                     .foregroundColor(Color.gray)
                     .frame(width: 300, height: 50)
                     .background(Color("pickerBG"))
@@ -183,7 +198,7 @@ struct logIN: View {
                             .foregroundColor(Color.gray)
                             .font(.system(size: 15))
                         
-                        NavigationLink("تسجيل جديد",destination: SignUP())
+                        NavigationLink("تسجيل جديد",destination: UserType())
                             .foregroundColor(Color(hue: 1.0, saturation: 0.075, brightness: 0.706))
                             .font(.system(size: 15))
                         
@@ -211,8 +226,11 @@ struct logIN: View {
                     
                 }
                 
-                
+                NavigationLink("", destination: StudentTabBar(), isActive: $goToStudent)
+                 
+                 NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
             }
+           
         }.toolbar(.hidden)
      
         

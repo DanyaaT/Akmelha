@@ -79,7 +79,7 @@ struct WelcomePage: View {
                         
                         
                         
-                        NavigationLink(destination: SignUP()) {
+                        NavigationLink(destination: UserType()) {
                             Text("حساب جديد")
                                 .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
                                 .frame(width: 300, height: 50)

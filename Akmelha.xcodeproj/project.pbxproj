@@ -25,6 +25,8 @@
 		1D33B3CF2945770C00D5BD45 /* AboutTeacherSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */; };
 		1D33B3D12945773600D5BD45 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3D02945773600D5BD45 /* TextView.swift */; };
 		1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3D22945774200D5BD45 /* PickerView.swift */; };
+		1D7337C62955C22A00581328 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7337C52955C22A00581328 /* UserDB.swift */; };
+		1D7337C82955C24200581328 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7337C72955C24200581328 /* User.swift */; };
 		1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C48294E287100AD8AC0 /* CourseTask.swift */; };
 		1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C4A294E289200AD8AC0 /* Course.swift */; };
 		1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C4C294E28AA00AD8AC0 /* Event.swift */; };
@@ -88,6 +90,8 @@
 		1D33B3CE2945770C00D5BD45 /* AboutTeacherSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTeacherSubject.swift; sourceTree = "<group>"; };
 		1D33B3D02945773600D5BD45 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		1D33B3D22945774200D5BD45 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		1D7337C52955C22A00581328 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		1D7337C72955C24200581328 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1DD94C48294E287100AD8AC0 /* CourseTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTask.swift; sourceTree = "<group>"; };
 		1DD94C4A294E289200AD8AC0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1DD94C4C294E28AA00AD8AC0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 				1DD94C4A294E289200AD8AC0 /* Course.swift */,
 				1DD94C4C294E28AA00AD8AC0 /* Event.swift */,
 				1DD94C4E294E28C200AD8AC0 /* CardScore.swift */,
+				1D7337C72955C24200581328 /* User.swift */,
 				1DD94C50294E28D900AD8AC0 /* Firebase */,
 			);
 			path = Database;
@@ -274,6 +279,7 @@
 				1DD94C51294E28FB00AD8AC0 /* CourseTaskDB.swift */,
 				1DD94C53294E291600AD8AC0 /* CourseDB.swift */,
 				1DD94C55294E293300AD8AC0 /* EventDB.swift */,
+				1D7337C52955C22A00581328 /* UserDB.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -433,6 +439,7 @@
 				DBB1BF94295322A000D447BE /* ShareSheet.swift in Sources */,
 				5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */,
 				07E0992129520C0500BE248A /* UserType.swift in Sources */,
+				1D7337C82955C24200581328 /* User.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
@@ -449,6 +456,7 @@
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
+				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
 				1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */,

@@ -15,41 +15,55 @@ import FirebaseAuth
 
 struct AkmelhaApp: App {
     
-   
+    
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @ObservedObject var viewModel: AppViewModel
+    @ObservedObject var dbUsers: UserDB
     @ObservedObject var dbCourseTasks: CourseTaskDB
     @ObservedObject var dbCourses: CourseDB
     @ObservedObject var dbEvents: EventDB
-   
+    
+ 
 
    
     
     init(){
+        
         FirebaseApp.configure()
         viewModel = AppViewModel()
         dbCourseTasks = CourseTaskDB()
         dbCourses = CourseDB()
         dbEvents = EventDB()
+        dbUsers = UserDB()
+        
+        UITabBar.appearance().backgroundColor = UIColor(.white)
      
     }
     var body: some Scene {
         WindowGroup {
-//            TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
-//                .environmentObject(viewModel)
-//                .environmentObject(dbCourseTasks)
-//                .environmentObject(dbCourses)
-//                .environmentObject(dbEvents)
-            
-           
-            StudentTabBar().environment(\.layoutDirection, .rightToLeft)
-               .environmentObject(dbEvents)
+          
+            SwiftUIView().environment(\.layoutDirection, .rightToLeft)
+                    .environmentObject(viewModel)
+                    .environmentObject(dbCourseTasks)
+                    .environmentObject(dbCourses)
+                    .environmentObject(dbEvents)
+                    .environmentObject(dbUsers)
+//
+//                WelcomePage().environment(\.layoutDirection, .rightToLeft)
+//                    .environmentObject(viewModel)
+//                    .environmentObject(dbCourseTasks)
+//                    .environmentObject(dbCourses)
+//                    .environmentObject(dbEvents)
+//                    .environmentObject(dbUsers)
+            }
+//            StudentTabBar().environment(\.layoutDirection, .rightToLeft)
+//               .environmentObject(dbEvents)
  
 //            SignUP().environment(\.layoutDirection, .rightToLeft)
 //               .environmentObject(dbEvents)
               
-        }
+        
     }
 }
 

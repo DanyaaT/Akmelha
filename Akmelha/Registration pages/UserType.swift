@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct UserType: View {
+    @State var userType = ""
     var body: some View {
-        NavigationView{
-            
+      
+           
             
             
             ZStack{
@@ -40,7 +41,7 @@ struct UserType: View {
                     HStack{
                             
                             
-                            NavigationLink("طالب",destination: WelcomePage())
+                        NavigationLink("طالب",destination: SignUP(userType: "S"))
                                 .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
                                 .frame(width: 160, height: 220)
                                 .background(Color("pickerBG"))
@@ -54,7 +55,7 @@ struct UserType: View {
                         
                         
                         
-                        NavigationLink("معلم",destination: WelcomePage())
+                        NavigationLink("معلم",destination: SignUP(userType: "T"))
                             .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
                             .frame(width: 160, height: 220)
                             .background(Color("pickerBG"))
@@ -72,7 +73,7 @@ struct UserType: View {
 
                  
             }
-        }
+        
         }
 }
 

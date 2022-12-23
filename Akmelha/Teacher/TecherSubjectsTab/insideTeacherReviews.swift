@@ -142,10 +142,11 @@ struct StudentReviews: View {
         
     }
 }
-    struct AddReviewsSheet: View {
-        @Binding var showAddReviews : Bool
-        @State var review = ""
-        var body: some View {
+struct AddReviewsSheet: View {
+    @Binding var showAddReviews : Bool
+    @State var review = ""
+    var body: some View {
+        NavigationView{
             ZStack{
                 Form{
                     Section{
@@ -172,19 +173,18 @@ struct StudentReviews: View {
                     }
                     ) { EmptyView()}
                 }.scrollContentBackground(.hidden)
-                .background(Color("sheet"))
-                .navigationTitle("اضافة تقييم جديد")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar{
-                    ToolbarItem(placement:.navigationBarTrailing){
-                        Button(action:{showAddReviews=false}){
-                            Image(systemName:"xmark.circle")
-                                .foregroundColor(.gray)
-                        } // end button
-                    } // end toolbar item
-                }
+                    .background(Color("sheet"))
+            }.navigationTitle("اضافة تقييم جديد")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+                ToolbarItem(placement:.navigationBarTrailing){
+                    Button(action:{showAddReviews=false}){
+                        Image(systemName:"xmark.circle")
+                            .foregroundColor(.gray)
+                    } // end button
+                } // end toolbar item
             }
         }
-        
     }
-
+    
+}

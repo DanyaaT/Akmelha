@@ -13,25 +13,29 @@ import FirebaseAuth
 
 struct SignUP: View {
     @EnvironmentObject var viewModel: AppViewModel
-    
+    @EnvironmentObject var dbUsers: UserDB
+    @State var userType = ""
     @State var name: String = ""
     @State var email: String = ""
     @State var password: String = ""
     @State var Message: String = ""
+    @State var goToStudent = false
+    @State var goToTeacher = false
+    var new = true
 
     @State var emailIsValid: Bool = true
 
     
 
-    public init(email: String = "")
-
-    {
-
-        self.email = email
-
-    }
+//    public init(email: String = "")
+//
+//    {
+//
+//        self.email = email
+//
+//    }
     
-    var body: some View { 
+    var body: some View {
         NavigationView{
 
             ZStack{
@@ -52,7 +56,7 @@ struct SignUP: View {
                     }
                 ScrollView {
                     VStack(){
-                        
+              
                         
                         Text("أكمِلها")
                             .font(.system(size: 45))
@@ -187,7 +191,17 @@ struct SignUP: View {
                         Spacer()
                         
                         Button("تسجيل") {
-                            createUser()
+                            
+                            viewModel.signUp(email: email, password: password, name:name, userType: userType)
+                                if userType == "S"{
+                                    goToStudent = true
+                                    
+                            }
+                           
+                                if userType == "T"{
+                                    goToTeacher = true
+                               
+                            }
                         }
                         .foregroundColor(Color.gray)
                         .frame(width: 250, height: 50)
@@ -213,7 +227,10 @@ struct SignUP: View {
                     }
                     
                 }
-           
+              
+               NavigationLink("", destination: StudentTabBar(), isActive: $goToStudent)
+                
+                NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
             }
         }.toolbar(.hidden)
     }
@@ -238,3 +255,6 @@ struct SignUP_Previews: PreviewProvider {
         SignUP().environment(\.layoutDirection, .rightToLeft)
     }
 }
+
+
+
