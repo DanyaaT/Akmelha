@@ -10,6 +10,9 @@
 		07719D2E294C42530039707A /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2D294C42530039707A /* WelcomePage.swift */; };
 		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
 		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
+		078453F72956222200185A93 /* AllTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453F62956222200185A93 /* AllTask.swift */; };
+		078453F92956233E00185A93 /* completedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453F82956233E00185A93 /* completedTasks.swift */; };
+		078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453FA2956236100185A93 /* IncompleteTasks.swift */; };
 		07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4682C294F0E60000A9B6A /* ResetPassword.swift */; };
 		07E0992129520C0500BE248A /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0992029520C0500BE248A /* UserType.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
@@ -74,6 +77,9 @@
 		07719D2D294C42530039707A /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
 		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
+		078453F62956222200185A93 /* AllTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTask.swift; sourceTree = "<group>"; };
+		078453F82956233E00185A93 /* completedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completedTasks.swift; sourceTree = "<group>"; };
+		078453FA2956236100185A93 /* IncompleteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncompleteTasks.swift; sourceTree = "<group>"; };
 		07A4682C294F0E60000A9B6A /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
 		07E0992029520C0500BE248A /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -294,6 +300,9 @@
 				5B05D7102950E3B6004BE379 /* StudentTabBar.swift */,
 				95923A1B2951BC7E00385ABA /* StudentProfile.swift */,
 				95923A1D29556F9000385ABA /* test slider.swift */,
+				078453F62956222200185A93 /* AllTask.swift */,
+				078453F82956233E00185A93 /* completedTasks.swift */,
+				078453FA2956236100185A93 /* IncompleteTasks.swift */,
 			);
 			path = Student;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */,
 				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
@@ -427,6 +437,7 @@
 				5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */,
 				5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */,
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
+				078453F92956233E00185A93 /* completedTasks.swift in Sources */,
 				DBB1BF8C2953225F00D447BE /* Card1ContentView.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
@@ -456,6 +467,7 @@
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
+				078453F72956222200185A93 /* AllTask.swift in Sources */,
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,

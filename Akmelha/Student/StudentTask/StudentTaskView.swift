@@ -7,7 +7,13 @@
 
 import SwiftUI
 
+
+
+
 struct StudentTaskView: View {
+    @State var selectedSection = "الكل"
+    @State var pickerColor = "pink"
+    
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -27,6 +33,29 @@ struct StudentTaskView: View {
                                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
                         } //NavigationLink
                         Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+                        Spacer()
+
+                         
+                        Image("bell")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 25,height: 70 )
+                            .padding([.top, .trailing], -40)
+                            .padding(.trailing)
+                        ZStack{
+                            Image("medal")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80,height: 70 )
+                                .padding([.top, .trailing], -25.0)
+                            Text("٢٠")
+                                .padding(.leading, 28)
+                            
+                        }// zstack
+                        Spacer()
                     }// hstack
                     .padding()
                     VStack{
@@ -37,11 +66,27 @@ struct StudentTaskView: View {
                             .foregroundColor(Color("title"))
                     }// Vstack
                 }//Zstac
-                .toolbar(.hidden) //end overlay
-                Spacer()
-            }
+                
+
+               
+                PickerView(characters: ["الكل", "مكتملة","غير مكتملة"], selectedCharacter: $selectedSection)
+                if selectedSection == "الكل"{
+                 AllTask()
+                }
+                    if selectedSection == "مكتملة"{
+                 completedTasks()
+                 }
+                    if selectedSection == "غير مكتملة"{
+                IncompleteTasks()
+              }
+                
+              
+                    
+                
+            }.toolbar(.hidden) //end overlay
         }
     }
+    
 }
 struct StudentTaskView_Previews: PreviewProvider {
     static var previews: some View {
