@@ -36,7 +36,10 @@ extension View {
 struct TeacherSubjects: View {
     @State private var showSheet = false
     @EnvironmentObject var dbCourse: CourseDB
+   
+    
     var body: some View {
+     
         ZStack{
             Color("bg").ignoresSafeArea()
            
@@ -100,6 +103,7 @@ struct TeacherSubjects: View {
                         ZStack{
                             Button("+"){
                                 showSheet.toggle()
+                               
                             }// end Button
                             .font(.system(size: 30))
                             .foregroundColor(.white)
@@ -123,7 +127,7 @@ struct TeacherSubjects: View {
 
 
 struct buttonSheetView:View{
-
+@EnvironmentObject var dbRandomId: RandomIdGenerator
 @Binding var showSheet : Bool
 @State var disc : String = ""
 @State var selectedCourse = ""
@@ -173,10 +177,11 @@ var body: some View{
                             HStack {
                     Spacer()
                     Button {
-                        courseColor = courseColorAndImage(courseName: selectedCourse)[0]
+                      courseColor = courseColorAndImage(courseName: selectedCourse)[0]
                         courseImage = courseColorAndImage(courseName: selectedCourse)[1]
                         
-                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: courseTeacher, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel))
+                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: courseTeacher, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel, courseNumber: dbRandomId.randomIds[0].number))
+                        dbRandomId.incrementCounter()
                         showSheet = false
                   
                     } label: {

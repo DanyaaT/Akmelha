@@ -23,7 +23,7 @@ struct AkmelhaApp: App {
     @ObservedObject var dbCourseTasks: CourseTaskDB
     @ObservedObject var dbCourses: CourseDB
     @ObservedObject var dbEvents: EventDB
-    
+    @ObservedObject var dbRandomId: RandomIdGenerator
  
 
    
@@ -36,7 +36,8 @@ struct AkmelhaApp: App {
         dbCourses = CourseDB()
         dbEvents = EventDB()
         dbUsers = UserDB()
-        
+        dbRandomId = RandomIdGenerator()
+     
         UITabBar.appearance().backgroundColor = UIColor(.white)
      
     }
@@ -49,6 +50,7 @@ struct AkmelhaApp: App {
                     .environmentObject(dbCourses)
                     .environmentObject(dbEvents)
                     .environmentObject(dbUsers)
+                    .environmentObject(dbRandomId)
 //
 //                WelcomePage().environment(\.layoutDirection, .rightToLeft)
 //                    .environmentObject(viewModel)

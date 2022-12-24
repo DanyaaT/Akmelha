@@ -30,6 +30,7 @@
 		1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3D22945774200D5BD45 /* PickerView.swift */; };
 		1D7337C62955C22A00581328 /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7337C52955C22A00581328 /* UserDB.swift */; };
 		1D7337C82955C24200581328 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7337C72955C24200581328 /* User.swift */; };
+		1D7337CA29567DDC00581328 /* RandomIdGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7337C929567DDC00581328 /* RandomIdGenerator.swift */; };
 		1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C48294E287100AD8AC0 /* CourseTask.swift */; };
 		1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C4A294E289200AD8AC0 /* Course.swift */; };
 		1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD94C4C294E28AA00AD8AC0 /* Event.swift */; };
@@ -98,6 +99,7 @@
 		1D33B3D22945774200D5BD45 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		1D7337C52955C22A00581328 /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		1D7337C72955C24200581328 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1D7337C929567DDC00581328 /* RandomIdGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomIdGenerator.swift; sourceTree = "<group>"; };
 		1DD94C48294E287100AD8AC0 /* CourseTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTask.swift; sourceTree = "<group>"; };
 		1DD94C4A294E289200AD8AC0 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		1DD94C4C294E28AA00AD8AC0 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				1DD94C53294E291600AD8AC0 /* CourseDB.swift */,
 				1DD94C55294E293300AD8AC0 /* EventDB.swift */,
 				1D7337C52955C22A00581328 /* UserDB.swift */,
+				1D7337C929567DDC00581328 /* RandomIdGenerator.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				DBB1BF922953228800D447BE /* Card4ContentView.swift in Sources */,
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
 				5BDEE097294E6367006122DB /* calendarView.swift in Sources */,
+				1D7337CA29567DDC00581328 /* RandomIdGenerator.swift in Sources */,
 				DBB1BF94295322A000D447BE /* ShareSheet.swift in Sources */,
 				5B05D7192950E6BE004BE379 /* StudentCalendarView.swift in Sources */,
 				07E0992129520C0500BE248A /* UserType.swift in Sources */,

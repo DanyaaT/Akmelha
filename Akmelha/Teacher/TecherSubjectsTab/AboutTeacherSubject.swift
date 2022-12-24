@@ -11,7 +11,7 @@ struct AboutTeacherSubject: View {
     @State private var showDeleteAlert = false
     @State var subjectDesc =  ""
     @State var edit = false
-    let course : Course
+    var course : Course
     @EnvironmentObject var dbCourse: CourseDB
     @Environment(\.dismiss) var dismiss
     var body: some View {
@@ -43,7 +43,8 @@ struct AboutTeacherSubject: View {
                 Text("الرقم التعريفي")
                 Rectangle().frame(height: 1).foregroundColor(.gray)
             }.padding(.vertical)
-            Text("441g34662hh78").padding(.vertical)
+            
+            Text(String(course.courseNumber ?? 0)).padding(.vertical)
             Spacer()
             VStack{
             if edit{
