@@ -24,7 +24,7 @@ struct AllTask: View {
                     .foregroundColor(Color("title"))
                 
                 
-            }
+            }.padding(.horizontal)
             
             Button {
                 
@@ -122,7 +122,7 @@ struct AllTask: View {
                     .foregroundColor(Color("title"))
                 
                 
-            }
+            }.padding(.horizontal)
             
             Button {
                 

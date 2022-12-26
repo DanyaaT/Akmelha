@@ -69,7 +69,7 @@ struct StudentTaskView: View {
                 
 
                
-                PickerView(characters: ["الكل", "مكتملة","غير مكتملة"], selectedCharacter: $selectedSection)
+                PickerView(characters: ["الكل", "مكتملة","غير مكتملة"], selectedCharacter: $selectedSection).padding(.horizontal                                                    )
                 if selectedSection == "الكل"{
                  AllTask()
                 }
