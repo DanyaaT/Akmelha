@@ -12,7 +12,7 @@ struct insideTeacherReviews: View {
     @State var selectedSection = "تقييم الطالب"
     @State var pickerColor = "pink"
     @State private var showDeleteAlert = false
-    //  var course : Course
+    var course : Course
     var body: some View {
 
             ZStack {
@@ -31,25 +31,19 @@ struct insideTeacherReviews: View {
                         Spacer()
                     }.padding(.leading)
                     
-                    PickerView(characters: ["تقييم الطالب","حالة المهام المسندة"], selectedCharacter: $selectedSection, color: "pink").padding(.vertical)
+                    PickerView(characters: ["تقييم الطالب","حالة المهام المسندة"], selectedCharacter: $selectedSection, color: course.courseColor ?? "pink").padding(.vertical)
                     Spacer()
                           if selectedSection == "حالة المهام المسندة" {
                               TaskStatus()
                               
                           }
                           if selectedSection == "تقييم الطالب"{
-                              StudentReviews()
+                              StudentReviews(course : course)
                          
                       }
                 }
             }.padding(.horizontal)
 
-        }
-    }
-    
-    struct insideTeacherReviews_Previews: PreviewProvider {
-        static var previews: some View {
-            insideTeacherReviews().environment(\.layoutDirection, .rightToLeft)
         }
     }
     
@@ -59,47 +53,20 @@ struct StudentReviews: View {
     @State var pickerColor = "pink"
     @State private var showDeleteAlert = false
     @State private var showAddReviews = false
-    //  var course : Course
+    @EnvironmentObject var dbCourseReviews: CourseReviewDB
+    var course : Course
     var body: some View {
         ZStack {
             Color("bg").ignoresSafeArea()
             ScrollView {
                 VStack{
-                    HStack{
-                        Circle()
-                            .frame(width: 30, height: 20)
-                            .foregroundColor(Color("arabic"))
-                        Text("١/٦ الاربعاء").font(.system(size: 15)).foregroundColor(Color("purple"))
-                        Rectangle().frame(height: 1).foregroundColor(.gray)
+                    
+                    ForEach(dbCourseReviews.reviews.indices, id: \.self) {index in
+                        if(dbCourseReviews.reviews[index].reviewCourse == course.id){
+                            ReviewtList(course:course, review : dbCourseReviews.reviews[index])
+                        }
                     }
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 90).background(Color.white).shadow(radius: 0.6)
-                        VStack{
-                            HStack{
-                                Spacer()
-                                Button(action: {showDeleteAlert = true}){
-                                    Image(systemName: "trash").foregroundColor(.red)
-                                } .alert( isPresented: $showDeleteAlert) {
-                                    Alert(
-                                        title: Text("حذف التقييم ؟"),
-                                        message: Text(""),
-                                        primaryButton: .destructive(Text("حذف"), action: {
-                                            //  dbEvent.deleteEvent(event)
-                                        }),
-                                        secondaryButton: .cancel(Text("الغاء"), action: { // 1
-                                        })
-                                    )
-                                }
-                            }
-                            HStack{
-                                Text("مستوى الطالب في تقدم ملحوظ بارك الله فيك").font(.system(size :19)).foregroundColor(.black)
-                                Spacer()
-                            }
-                            Spacer()
-                        }.padding()
-                    }.padding(.vertical)
-                        .environment(\.layoutDirection, .rightToLeft)
-                }.padding(.vertical)
+                }
             }
         }
         HStack(spacing: -3){
@@ -136,7 +103,7 @@ struct StudentReviews: View {
         
         .sheet(isPresented: $showAddReviews){
             
-            AddReviewsSheet(showAddReviews: $showAddReviews).presentationDetents([.fraction(0.4)])
+            AddReviewsSheet(showAddReviews: $showAddReviews , course: course).presentationDetents([.fraction(0.4)])
             
         }
         
@@ -145,6 +112,8 @@ struct StudentReviews: View {
 struct AddReviewsSheet: View {
     @Binding var showAddReviews : Bool
     @State var review = ""
+    @EnvironmentObject var dbCourseReviews: CourseReviewDB
+    var course : Course
     var body: some View {
         NavigationView{
             ZStack{
@@ -158,6 +127,8 @@ struct AddReviewsSheet: View {
                         Spacer()
                         Button {
                             //action
+                            dbCourseReviews.addCourseReview(CourseReview (reviewDesc:review , reviewCourse: course.id , reviewDate: Date.now))
+
                             showAddReviews = false
                             
                         } label: {

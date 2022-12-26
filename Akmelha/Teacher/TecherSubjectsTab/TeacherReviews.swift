@@ -18,7 +18,7 @@ struct TeacherReviews: View {
                 VStack{
                     ZStack(alignment: .bottom){
                             ZStack{
-                                NavigationLink(destination:insideTeacherReviews()) {
+                                NavigationLink(destination:insideTeacherReviews(course : course)) {
                                 RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.1), lineWidth: 1).frame( height: 58).background(Color.white).shadow(radius:0.1)
                                  } // end NavigationLink
                                 HStack{
