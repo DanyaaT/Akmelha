@@ -52,13 +52,16 @@ struct StudentGameView: View {
                         
                         VStack(spacing:-90){
                             HStack(spacing:-30){
-                                Button(action: {}){
-                                    Image("game1")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height:300)
+                                
+                                NavigationLink(destination:XOView()) {
+                                    
+                                        Image("game1")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(height:300)
+                                    
                                 }
-                            
+                                
                                 Button(action: {}){
                                     Image("game2")
                                         .resizable()

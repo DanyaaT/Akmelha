@@ -44,14 +44,13 @@ struct AkmelhaApp: App {
     var body: some Scene {
         WindowGroup {
           
-            SwiftUIView().environment(\.layoutDirection, .rightToLeft)
-                    .environmentObject(viewModel)
-                    .environmentObject(dbCourseTasks)
-                    .environmentObject(dbCourses)
-                    .environmentObject(dbEvents)
-                    .environmentObject(dbUsers)
-                    .environmentObject(dbRandomId)
-                    .environmentObject(dbCourseReviews)
+//            SwiftUIView().environment(\.layoutDirection, .rightToLeft)
+//                    .environmentObject(viewModel)
+//                    .environmentObject(dbCourseTasks)
+//                    .environmentObject(dbCourses)
+//                    .environmentObject(dbEvents)
+//                    .environmentObject(dbUsers)
+//                    .environmentObject(dbRandomId)
 //
 //                WelcomePage().environment(\.layoutDirection, .rightToLeft)
 //                    .environmentObject(viewModel)
@@ -59,9 +58,10 @@ struct AkmelhaApp: App {
 //                    .environmentObject(dbCourses)
 //                    .environmentObject(dbEvents)
 //                    .environmentObject(dbUsers)
+            StudentTabBar().environment(\.layoutDirection, .rightToLeft)
+               .environmentObject(dbEvents)
             }
-//            StudentTabBar().environment(\.layoutDirection, .rightToLeft)
-//               .environmentObject(dbEvents)
+           
  
 //            SignUP().environment(\.layoutDirection, .rightToLeft)
 //               .environmentObject(dbEvents)

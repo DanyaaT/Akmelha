@@ -70,6 +70,9 @@
 		5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEFD1C295A521700B79135 /* ReviewList.swift */; };
 		95923A1C2951BC7E00385ABA /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1B2951BC7E00385ABA /* StudentProfile.swift */; };
 		95923A1E29556F9100385ABA /* test slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1D29556F9000385ABA /* test slider.swift */; };
+		95923A20295B622900385ABA /* XOViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1F295B622800385ABA /* XOViewModel.swift */; };
+		95923A22295B627700385ABA /* XOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A21295B627700385ABA /* XOView.swift */; };
+		95923A24295B62CE00385ABA /* XOalerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A23295B62CE00385ABA /* XOalerts.swift */; };
 		DBB1BF8C2953225F00D447BE /* Card1ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1BF8B2953225F00D447BE /* Card1ContentView.swift */; };
 		DBB1BF8E2953226C00D447BE /* Card2ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1BF8D2953226C00D447BE /* Card2ContentView.swift */; };
 		DBB1BF902953227E00D447BE /* Card3ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB1BF8F2953227E00D447BE /* Card3ContentView.swift */; };
@@ -132,6 +135,9 @@
 		5BFEFD1C295A521700B79135 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
 		95923A1B2951BC7E00385ABA /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
 		95923A1D29556F9000385ABA /* test slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "test slider.swift"; sourceTree = "<group>"; };
+		95923A1F295B622800385ABA /* XOViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOViewModel.swift; sourceTree = "<group>"; };
+		95923A21295B627700385ABA /* XOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOView.swift; sourceTree = "<group>"; };
+		95923A23295B62CE00385ABA /* XOalerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOalerts.swift; sourceTree = "<group>"; };
 		DBB1BF8B2953225F00D447BE /* Card1ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card1ContentView.swift; sourceTree = "<group>"; };
 		DBB1BF8D2953226C00D447BE /* Card2ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card2ContentView.swift; sourceTree = "<group>"; };
 		DBB1BF8F2953227E00D447BE /* Card3ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card3ContentView.swift; sourceTree = "<group>"; };
@@ -349,6 +355,9 @@
 			isa = PBXGroup;
 			children = (
 				5B05D7162950E683004BE379 /* StudentGameView.swift */,
+				95923A1F295B622800385ABA /* XOViewModel.swift */,
+				95923A21295B627700385ABA /* XOView.swift */,
+				95923A23295B62CE00385ABA /* XOalerts.swift */,
 			);
 			path = StudentGame;
 			sourceTree = "<group>";
@@ -445,6 +454,7 @@
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
 				DBB1BF902953227E00D447BE /* Card3ContentView.swift in Sources */,
+				95923A22295B627700385ABA /* XOView.swift in Sources */,
 				07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */,
 				5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */,
 				5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */,
@@ -455,6 +465,7 @@
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
+				95923A20295B622900385ABA /* XOViewModel.swift in Sources */,
 				95923A1E29556F9100385ABA /* test slider.swift in Sources */,
 				5BFEFD1B295A4D6A00B79135 /* CourseReview.swift in Sources */,
 				DBB1BF922953228800D447BE /* Card4ContentView.swift in Sources */,
@@ -485,6 +496,7 @@
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
 				5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
+				95923A24295B62CE00385ABA /* XOalerts.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
 				1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */,
 				07719D2E294C42530039707A /* WelcomePage.swift in Sources */,
