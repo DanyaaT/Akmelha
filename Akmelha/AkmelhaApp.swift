@@ -25,6 +25,7 @@ struct AkmelhaApp: App {
     @ObservedObject var dbEvents: EventDB
     @ObservedObject var dbRandomId: RandomIdGenerator
     @ObservedObject var dbCourseReviews: CourseReviewDB
+    @ObservedObject var dbStudentOwnTasks: StudentOwnTaskDB
 
    
     
@@ -38,6 +39,7 @@ struct AkmelhaApp: App {
         dbUsers = UserDB()
         dbRandomId = RandomIdGenerator()
         dbCourseReviews = CourseReviewDB()
+        dbStudentOwnTasks = StudentOwnTaskDB()
         UITabBar.appearance().backgroundColor = UIColor(.white)
      
     }
@@ -51,6 +53,7 @@ struct AkmelhaApp: App {
                     .environmentObject(dbEvents)
                     .environmentObject(dbUsers)
                     .environmentObject(dbRandomId)
+                    .environmentObject(dbStudentOwnTasks)
 
 //                WelcomePage().environment(\.layoutDirection, .rightToLeft)
 //                    .environmentObject(viewModel)
@@ -60,8 +63,8 @@ struct AkmelhaApp: App {
 //                    .environmentObject(dbUsers)
             
             }
-        StudentTabBar().environment(\.layoutDirection, .rightToLeft)
-           .environmentObject(dbEvents)
+       // StudentTabBar().environment(\.layoutDirection, .rightToLeft)
+       //    .environmentObject(dbEvents)
            
  
 //            SignUP().environment(\.layoutDirection, .rightToLeft)

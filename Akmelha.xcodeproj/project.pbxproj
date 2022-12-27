@@ -58,6 +58,8 @@
 		5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D71E2950EF43004BE379 /* TeacherProfile.swift */; };
 		5B05D7232950F898004BE379 /* EventListStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7222950F898004BE379 /* EventListStudent.swift */; };
 		5B05D7252950F9E2004BE379 /* DaysEventStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7242950F9E2004BE379 /* DaysEventStudent.swift */; };
+		5B23A6C9295B8C7300BD599E /* StudentOwnTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23A6C8295B8C7300BD599E /* StudentOwnTask.swift */; };
+		5B23A6CB295B8D1B00BD599E /* StudentOwnTaskDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */; };
 		5B59C76029522BC100F33DB0 /* insideTeacherReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */; };
 		5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C761295257D100F33DB0 /* TaskStatus.swift */; };
 		5B9C253A2952767300085157 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9C25392952767300085157 /* Neumorphic */; };
@@ -124,6 +126,8 @@
 		5B05D71E2950EF43004BE379 /* TeacherProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherProfile.swift; sourceTree = "<group>"; };
 		5B05D7222950F898004BE379 /* EventListStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListStudent.swift; sourceTree = "<group>"; };
 		5B05D7242950F9E2004BE379 /* DaysEventStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEventStudent.swift; sourceTree = "<group>"; };
+		5B23A6C8295B8C7300BD599E /* StudentOwnTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOwnTask.swift; sourceTree = "<group>"; };
+		5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOwnTaskDB.swift; sourceTree = "<group>"; };
 		5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insideTeacherReviews.swift; sourceTree = "<group>"; };
 		5B59C761295257D100F33DB0 /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		5BDEE08E294E62AE006122DB /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -289,6 +293,7 @@
 				1DD94C4E294E28C200AD8AC0 /* CardScore.swift */,
 				1D7337C72955C24200581328 /* User.swift */,
 				5BFEFD1A295A4D6A00B79135 /* CourseReview.swift */,
+				5B23A6C8295B8C7300BD599E /* StudentOwnTask.swift */,
 				1DD94C50294E28D900AD8AC0 /* Firebase */,
 			);
 			path = Database;
@@ -304,6 +309,7 @@
 				1D7337C52955C22A00581328 /* UserDB.swift */,
 				1D7337C929567DDC00581328 /* RandomIdGenerator.swift */,
 				5BFEFD18295A4BCC00B79135 /* CourseReviewDB.swift */,
+				5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -478,6 +484,7 @@
 				1D7337C82955C24200581328 /* User.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
+				5B23A6CB295B8D1B00BD599E /* StudentOwnTaskDB.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
 				5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */,
@@ -486,6 +493,7 @@
 				5B05D7232950F898004BE379 /* EventListStudent.swift in Sources */,
 				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
 				5B05D7172950E683004BE379 /* StudentGameView.swift in Sources */,
+				5B23A6C9295B8C7300BD599E /* StudentOwnTask.swift in Sources */,
 				1DD94C52294E28FB00AD8AC0 /* CourseTaskDB.swift in Sources */,
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
 				1DD94C54294E291600AD8AC0 /* CourseDB.swift in Sources */,
