@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct TeacherProfile: View {
     @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var dbUsers: UserDB
     @State var TeacherName =  ""
     @State var TeacherEmail =  ""
     @State var edit = false
     
+    let id = Auth.auth().currentUser?.uid
     
     
     var body: some View {
+       
         VStack{
 
           
@@ -52,7 +58,9 @@ struct TeacherProfile: View {
                         
                         HStack{
                             Spacer()
-                            Button(action:{edit.toggle()}){
+                            Button(action:{edit.toggle()
+                                dbUsers.changeUserName(id ?? "", userName: TeacherName )
+                            }){
                                 if !edit{
                                     
                                     Image("edit")
@@ -119,7 +127,11 @@ struct TeacherProfile: View {
             
         }// v
         .padding()
-
+        .onAppear{
+            TeacherName = userNameAndEmail(id: id ?? "" ,users:dbUsers.users)[0]
+            TeacherEmail = userNameAndEmail(id: id ?? "" ,users:dbUsers.users)[1]
+            
+        }
     }
     
 }

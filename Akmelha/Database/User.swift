@@ -39,3 +39,30 @@ class User: Codable, Identifiable{
     }
 }
 
+
+func userName(id: String, users: [User]) -> String{
+        var userName = ""
+        for user in users{
+            if user.id == id {
+             
+                userName = user.userName ?? ""
+            }
+        }
+      
+       return userName
+    }
+
+func userNameAndEmail(id: String, users: [User]) -> [String]{
+        var userName = ""
+        var userEmail = ""
+        for user in users{
+            if user.id == id {
+             
+                userName = user.userName ?? ""
+                userEmail = user.userEmail ?? ""
+                
+            }
+        }
+      
+       return [userName,userEmail]
+    }

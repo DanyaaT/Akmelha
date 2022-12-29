@@ -19,8 +19,9 @@ class Course: Codable, Identifiable{
     var courseColor: String?
     var courseImage: String?
     var courseNumber: Int?
+    var coureseStudents: [String]?
     
-    init(courseName: String? = "", courseDesc: String? = "", courseTeacher: String? = "", courseColor: String? = "", courseImage: String? = "" , courseLevel :  String? = "", courseNumber: Int? = 0 ) {
+    init(courseName: String? = "", courseDesc: String? = "", courseTeacher: String? = "", courseColor: String? = "", courseImage: String? = "" , courseLevel :  String? = "", courseNumber: Int? = 0,   coureseStudents: [String]? = [""] ) {
         self.courseName = courseName
         self.courseDesc = courseDesc
         self.courseTeacher = courseTeacher
@@ -28,5 +29,6 @@ class Course: Codable, Identifiable{
         self.courseImage = courseImage
         self.courseLevel = courseLevel
         self.courseNumber = courseNumber
+        self.coureseStudents = coureseStudents
     }
 }

@@ -53,6 +53,7 @@ struct AkmelhaApp: App {
                     .environmentObject(dbEvents)
                     .environmentObject(dbUsers)
                     .environmentObject(dbRandomId)
+                    .environmentObject(dbCourseReviews)
                     .environmentObject(dbStudentOwnTasks)
 
 //                WelcomePage().environment(\.layoutDirection, .rightToLeft)

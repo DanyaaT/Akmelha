@@ -10,7 +10,7 @@ import SwiftUI
 struct insideTeacherReviews: View {
     @State var student = "ريما محمد"
     @State var selectedSection = "تقييم الطالب"
-    @State var pickerColor = "pink"
+ 
     @State private var showDeleteAlert = false
     var course : Course
     var body: some View {

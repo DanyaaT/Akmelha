@@ -6,6 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
+
 struct CornerRadiusShape: Shape {
     var radius = CGFloat.infinity
     var corners = UIRectCorner.allCorners
@@ -73,8 +77,11 @@ struct TeacherSubjects: View {
                 
                 ScrollView {
                     VStack{
+                        let id = Auth.auth().currentUser?.uid
                         ForEach(dbCourse.courses.indices, id: \.self) {index in
-                            subjectList(course : dbCourse.courses[index])
+                            if ( dbCourse.courses[index].courseTeacher == id ){
+                                subjectList(course : dbCourse.courses[index])
+                            }
                         }
                         
                     }
@@ -139,7 +146,7 @@ struct buttonSheetView:View{
 
 @State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية الأسرية","التربية الفنية","التفكير الناقد",]
 @State var levels = ["الأول ابتدائي", "الثاني ابتدائي","الثالث ابتدائي", "الرابع ابتدائي"," الخامس ابتدائي"," السادس ابتدائي","الأول متوسط","الثاني متوسط","الثالث متوسط"]
-
+let id = Auth.auth().currentUser?.uid
 
 
 
@@ -177,10 +184,11 @@ var body: some View{
                             HStack {
                     Spacer()
                     Button {
+                        
                       courseColor = courseColorAndImage(courseName: selectedCourse)[0]
                         courseImage = courseColorAndImage(courseName: selectedCourse)[1]
                         
-                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: courseTeacher, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel, courseNumber: dbRandomId.randomIds[0].number))
+                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: id, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel, courseNumber: dbRandomId.randomIds[0].number, coureseStudents : []))
                         dbRandomId.incrementCounter()
                         showSheet = false
                   

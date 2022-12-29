@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
+
 
 struct AboutTeacherSubject: View {
+    @EnvironmentObject var dbUsers: UserDB
     @State private var showDeleteAlert = false
     @State var subjectDesc =  ""
     @State var edit = false
     var course : Course
     @EnvironmentObject var dbCourse: CourseDB
     @Environment(\.dismiss) var dismiss
+    let id = Auth.auth().currentUser?.uid
+    
     var body: some View {
         VStack(alignment: .leading){
          
@@ -38,7 +45,7 @@ struct AboutTeacherSubject: View {
                 Text("معلم المادة")
                 Rectangle().frame(height: 1).foregroundColor(.gray)
             }.padding(.vertical)
-            Text("الأستادة/ جواهر محمد").padding(.vertical)
+            Text(userName(id:id ?? "" ,users:dbUsers.users)).padding(.vertical)
             HStack(spacing: 2){
                 Text("الرقم التعريفي")
                 Rectangle().frame(height: 1).foregroundColor(.gray)
