@@ -258,9 +258,13 @@ struct StudentTask: View {
                 
                 HStack{
                     ZStack {
-                        
-                        Circle().strokeBorder(.black, lineWidth: 1)
-                            .frame(width: 30, height: 30)
+                        Button{
+                          //action
+                        }
+                    label: {
+                            Circle().strokeBorder(.black, lineWidth: 1)
+                                .frame(width: 30, height: 30)
+                        }
                         
                     }
                     
