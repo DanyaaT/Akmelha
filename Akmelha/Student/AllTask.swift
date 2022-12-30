@@ -198,7 +198,7 @@ var body: some View{
                             HStack {
                     Spacer()
                     Button {
-                        dbStudentOwnTasks.addStudentOwnTasks(StudentOwnTask(taskName: taskName, taskDesc: disc,taskScore: taskScore ))
+                        dbStudentOwnTasks.addStudentOwnTasks(StudentOwnTask(taskName: taskName, taskDesc: disc,taskScore: taskScore, iscomleted: false ))
                         showSheet = false
                   
                     } label: {
@@ -243,7 +243,8 @@ var body: some View{
 
 struct StudentTask: View {
     @State var showTaskCardSheet = false
-    let task :StudentOwnTask
+    var task :StudentOwnTask
+    
     var body: some View {
         Button {
             showTaskCardSheet = true
@@ -259,11 +260,12 @@ struct StudentTask: View {
                 HStack{
                     ZStack {
                         Button{
-                          //action
+                          //  task.iscomleted?.toggle()
                         }
                     label: {
-                            Circle().strokeBorder(.black, lineWidth: 1)
-                                .frame(width: 30, height: 30)
+                      //  task.iscomleted! ? Image(systemName: "checkmark.circle.fill") : Image(systemName: "circle")
+                        Circle().strokeBorder(.black, lineWidth: 1)
+                               .frame(width: 30, height: 30)
                         }
                         
                     }
