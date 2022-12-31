@@ -37,7 +37,7 @@ struct NotificationView: View {
                         Rectangle()
                             .foregroundColor(Color(hue: 1.0, saturation: 0.012, brightness: 0.91))
                             .cornerRadius(10)
-                            .frame( height: 50)
+                            .frame( height: 43)
                         
                             
                             HStack{
@@ -60,7 +60,7 @@ struct NotificationView: View {
                     // The alarm
                     
                     ZStack{
-                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 100).background(Color.white).shadow(radius: 0.6)
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 80).background(Color.white).shadow(radius: 0.6)
                         VStack{
                        
                             HStack{
@@ -85,7 +85,7 @@ struct NotificationView: View {
 
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 10) .foregroundColor(Color(hue: 1.0, saturation: 0.012, brightness: 0.91))
-                                            .frame( width: 50,height: 100,alignment: .trailing)
+                                            .frame( width: 50,height: 80,alignment: .trailing)
                                         VStack{
                                             Image("alarm")
                                                 .frame(width: 50)
@@ -100,7 +100,7 @@ struct NotificationView: View {
                     }.padding(.horizontal)
                     
                     ZStack{
-                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 100).background(Color.white).shadow(radius: 0.6)
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 80).background(Color.white).shadow(radius: 0.6)
                         VStack{
                        
                             HStack{
@@ -125,7 +125,7 @@ struct NotificationView: View {
 
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 10) .foregroundColor(Color(hue: 1.0, saturation: 0.012, brightness: 0.91))
-                                            .frame( width: 50,height: 100,alignment: .trailing)
+                                            .frame( width: 50,height: 80,alignment: .trailing)
                                         VStack{
                                             Image("alarm")
                                                 .frame(width: 50)
@@ -143,7 +143,7 @@ struct NotificationView: View {
                         Rectangle()
                             .foregroundColor(Color(hue: 1.0, saturation: 0.012, brightness: 0.91))
                             .cornerRadius(10)
-                            .frame( height: 50)
+                            .frame( height: 43)
                         
                             
                             HStack{
@@ -164,7 +164,7 @@ struct NotificationView: View {
                     }.padding(.horizontal)
                     
                     ZStack{
-                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 100).background(Color.white).shadow(radius: 0.6)
+                        RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 80).background(Color.white).shadow(radius: 0.6)
                         VStack{
                        
                             HStack{
@@ -189,7 +189,7 @@ struct NotificationView: View {
 
                                     ZStack{
                                         RoundedRectangle(cornerRadius: 10) .foregroundColor(Color(hue: 1.0, saturation: 0.012, brightness: 0.91))
-                                            .frame( width: 50,height: 100,alignment: .trailing)
+                                            .frame( width: 50,height: 80,alignment: .trailing)
                                         VStack{
                                             Image("alarm")
                                                 .frame(width: 50)
