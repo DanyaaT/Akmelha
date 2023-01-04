@@ -22,7 +22,6 @@ struct logIN: View {
     @EnvironmentObject var dbUsers: UserDB
     @State var goToStudent = false
     @State var goToTeacher = false
-    
     @State var emailIsValid: Bool = true
 
     
