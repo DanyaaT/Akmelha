@@ -40,6 +40,7 @@ extension View {
 struct StudentCourseView: View {
     var user: User
     @EnvironmentObject var dbCourse: CourseDB
+    @EnvironmentObject var dbUsers: UserDB
     @State private var showSheet = false
     
     var body: some View {
@@ -140,7 +141,7 @@ func studentCourses(studentCourses: [String], courses: [Course]) -> [Course]{
                 }
             }
         
-        
+            array.remove(at: 0)
     }
     return array
 }
@@ -150,6 +151,7 @@ func studentCourses(studentCourses: [String], courses: [Course]) -> [Course]{
 struct addCourseSheetView:View{
 var user: User
 @EnvironmentObject var dbCourse: CourseDB
+@EnvironmentObject var dbUsers: UserDB
 @Binding var showSheet : Bool
 @State var number : String = ""
 @State var found = ""
@@ -173,6 +175,8 @@ var user: User
                                 course.coureseStudents?.append(user.id ?? "")
                                 user.studentCourses.append(course.id ?? "")
                                 showSheet=false
+                                dbUsers.addStudentCourse(user)
+                                dbCourse.addCoursesStudents(course)
                                 
                             }else{
                                 found = "الرقم التعريفي غير صحيح"
