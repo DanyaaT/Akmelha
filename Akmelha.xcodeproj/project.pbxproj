@@ -14,6 +14,7 @@
 		078453F92956233E00185A93 /* completedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453F82956233E00185A93 /* completedTasks.swift */; };
 		078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453FA2956236100185A93 /* IncompleteTasks.swift */; };
 		07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4682C294F0E60000A9B6A /* ResetPassword.swift */; };
+		07BB68AE29680DEB00EB0D4B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */; };
 		07E0992129520C0500BE248A /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0992029520C0500BE248A /* UserType.swift */; };
 		07F4D5FE295F1A4B00A7B7F1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
@@ -91,6 +92,7 @@
 		078453F82956233E00185A93 /* completedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completedTasks.swift; sourceTree = "<group>"; };
 		078453FA2956236100185A93 /* IncompleteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncompleteTasks.swift; sourceTree = "<group>"; };
 		07A4682C294F0E60000A9B6A /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
+		07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		07E0992029520C0500BE248A /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,6 +369,7 @@
 				95923A1F295B622800385ABA /* XOViewModel.swift */,
 				95923A21295B627700385ABA /* XOView.swift */,
 				95923A23295B62CE00385ABA /* XOalerts.swift */,
+				07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */,
 			);
 			path = StudentGame;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
 				5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */,
 				5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */,
+				07BB68AE29680DEB00EB0D4B /* CameraViewModel.swift in Sources */,
 				1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */,
 				5B05D7232950F898004BE379 /* EventListStudent.swift in Sources */,
 				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
@@ -649,9 +653,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = 36Z9V6BZRF;
+				DEVELOPMENT_TEAM = 6BV544BNWW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To Save Image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -680,9 +685,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = 36Z9V6BZRF;
+				DEVELOPMENT_TEAM = 6BV544BNWW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To Save Image";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
