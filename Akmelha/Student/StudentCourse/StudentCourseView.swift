@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct CornerRadiusShapee: Shape {
     var radius = CGFloat.infinity
@@ -35,7 +38,10 @@ extension View {
 
 
 struct StudentCourseView: View {
+    var user: User
+    @EnvironmentObject var dbCourse: CourseDB
     @State private var showSheet = false
+    
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -63,9 +69,23 @@ struct StudentCourseView: View {
                         Text("\n"+"موادي")
                             .font(.system(size: 40))
                             .foregroundColor(Color("title"))
+                        
+                      
                     }// Vstack
                 }//Zstac
                 .toolbar(.hidden) //end overlay
+                
+                
+                ScrollView {
+                    VStack{
+                        ForEach(studentCourses(studentCourses: user.studentCourses, courses: dbCourse.courses).indices, id: \.self) {index in
+                            
+                            subjectCell(course:studentCourses(studentCourses: user.studentCourses, courses: dbCourse.courses)[index])
+                        }
+                      
+                            
+                    }
+                }
                 
                 Spacer()
                 HStack(spacing: -3){
@@ -101,7 +121,7 @@ struct StudentCourseView: View {
             }
         } // first z
         .sheet(isPresented: $showSheet){
-            addCourseSheetView(showSheet:$showSheet)
+            addCourseSheetView(user: user,showSheet:$showSheet)
                 .presentationDetents([.fraction(0.3)])
             
         }
@@ -109,19 +129,75 @@ struct StudentCourseView: View {
     
 }
 
+func studentCourses(studentCourses: [String], courses: [Course]) -> [Course]{
+ 
+    var array : [Course] = [Course()]
+        for i in studentCourses{
+            for j in courses{
+                if i == j.id{
+                    array.append(j)
+                    break
+                }
+            }
+        
+        
+    }
+    return array
+}
 
 
     
 struct addCourseSheetView:View{
+var user: User
+@EnvironmentObject var dbCourse: CourseDB
 @Binding var showSheet : Bool
-@State var id : String = ""
+@State var number : String = ""
+@State var found = ""
 
+    
     var body: some View{
         NavigationView{
             
-            Form {
-                TextField("الرقم التعريفي", text: $id)
-                    .environment(\.layoutDirection, .rightToLeft)
+            Form{
+                Section(header:Text(found).foregroundColor(.red)){
+                    
+                    TextField("الرقم التعريفي", text: $number)
+                        .environment(\.layoutDirection, .rightToLeft)
+                }
+                Section(footer:
+                            HStack {
+                    Spacer()
+                    Button {
+                        for course in dbCourse.courses{
+                            if course.courseNumber?.description == number{
+                                course.coureseStudents?.append(user.id ?? "")
+                                user.studentCourses.append(course.id ?? "")
+                                showSheet=false
+                                
+                            }else{
+                                found = "الرقم التعريفي غير صحيح"
+                                
+                            }
+                        }
+                      
+                    } label: {
+                        HStack{
+                            Spacer()
+                            Text("اضافة").font(.title2)
+                            Spacer()
+                        }
+                    }.tint(Color("green"))
+                    .buttonStyle(.borderedProminent)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+               
+    
+                }
+                ) {
+                    EmptyView()
+                }
+                
+                
             }
             .environment(\.layoutDirection,.rightToLeft)
             .scrollContentBackground(.hidden)
@@ -147,21 +223,56 @@ struct addCourseSheetView:View{
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+struct subjectCell: View {
+    let course: Course
+    var body: some View {
 
-struct StudentCourseView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudentCourseView()
-            .environment(\.layoutDirection,.rightToLeft)
-
+                ZStack{
+//                    NavigationLink(destination:InsideTeacherSubject(course: course)) {
+                                    Rectangle()
+                            .foregroundColor(Color(course.courseColor ?? ""))
+                            .cornerRadius(50)
+                            .frame(height:61)
+                 //   }//NavigationLink
+                    .environment(\.layoutDirection,.rightToLeft)
+                    .navigationBarHidden(true)
+                    
+                    HStack{
+                        Text(course.courseName ?? "")
+                            .font(.system(size: 25))
+                       Text(course.courseLevel ?? "")
+                            .foregroundColor(.black)
+                            .font(.system(size: 12))
+                        Spacer()
+                       Image(course.courseImage ?? "")
+                            .resizable()
+                            .overlay(Circle().stroke(Color(course.courseColor ?? ""), lineWidth: 15))
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 80, height: 80, alignment: .center)
+                            .clipShape(Circle())
+                        
+                    }// end Hstack
+                    .padding(.leading)
+                  
+                } // end Zstack
+                .padding(.horizontal)
     }
 }
 
+    
+    
+    
+    
+    
+    
+    
+    
+//
+//struct StudentCourseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudentCourseView()
+//            .environment(\.layoutDirection,.rightToLeft)
+//
+//    }
+//}
+//

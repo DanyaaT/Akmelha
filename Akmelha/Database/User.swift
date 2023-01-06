@@ -16,15 +16,18 @@ class User: Codable, Identifiable{
     var userName: String?
     var userType: String?
     var studentCredit: Int?
+    var studentCourses: [String]
+    var studentImage: String?
     
-    
-    init( userEmail: String? = "", userPassword :String? = "", userName: String? = "",  userType: String? = "",studentCredit: Int? = 0){
+    init( userEmail: String? = "", userPassword :String? = "", userName: String? = "",  userType: String? = "",studentCredit: Int? = 0, studentCourses: [String], studentImage: String?){
        
         self.userEmail = userEmail
         self.userPassword = userPassword
         self.userName = userName
         self.userType = userType
         self.studentCredit = studentCredit
+        self.studentCourses = studentCourses
+        self.studentImage = studentImage
        
     }
     
@@ -34,6 +37,7 @@ class User: Codable, Identifiable{
         self.userPassword = userPassword
         self.userName = userName
         self.userType = userType
+        self.studentCourses = [""]
      
        
     }
