@@ -16,10 +16,10 @@ struct CameraViewModel: View {
         ZStack{
             Color("bg").ignoresSafeArea()
             VStack{
-                Rectangle().ignoresSafeArea()
-                    .cornerRadius(50)
+                Rectangle()
+                    .cornerRadius(radius:50, corners: [.bottomRight, .bottomLeft])
                     .foregroundColor(Color("top")).ignoresSafeArea()
-                    .frame(height:80)
+                    .frame(height:40)
                 Spacer()
               
 
