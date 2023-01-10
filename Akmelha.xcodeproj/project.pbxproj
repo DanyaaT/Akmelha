@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07243B03296DFEE700F66F0E /* Camera_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B02296DFEE700F66F0E /* Camera_View.swift */; };
+		07243B05296DFF3900F66F0E /* PhotoLibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B04296DFF3900F66F0E /* PhotoLibraryViewModel.swift */; };
+		07243B07296DFF6D00F66F0E /* ObjectRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B06296DFF6D00F66F0E /* ObjectRecognizer.swift */; };
+		07243B09296DFF8C00F66F0E /* GeometryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B08296DFF8C00F66F0E /* GeometryUtils.swift */; };
+		07243B0B296DFFB600F66F0E /* OrientationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B0A296DFFB600F66F0E /* OrientationUtils.swift */; };
+		07243B0D296DFFD200F66F0E /* ImageOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B0C296DFFD200F66F0E /* ImageOverlayView.swift */; };
+		07243B0F296DFFF200F66F0E /* ImageOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */; };
+		07243B11296E006B00F66F0E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B10296E006B00F66F0E /* CameraView.swift */; };
+		07243B13296E008500F66F0E /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B12296E008500F66F0E /* LiveCameraViewController.swift */; };
+		07243B15296E00A200F66F0E /* PhotoLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B14296E00A200F66F0E /* PhotoLibraryView.swift */; };
+		07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B16296E00C900F66F0E /* PhotoPicker.swift */; };
+		07243B19296E00FE00F66F0E /* cardsDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */; };
 		07719D2E294C42530039707A /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2D294C42530039707A /* WelcomePage.swift */; };
 		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
 		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
@@ -14,7 +26,6 @@
 		078453F92956233E00185A93 /* completedTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453F82956233E00185A93 /* completedTasks.swift */; };
 		078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078453FA2956236100185A93 /* IncompleteTasks.swift */; };
 		07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A4682C294F0E60000A9B6A /* ResetPassword.swift */; };
-		07BB68AE29680DEB00EB0D4B /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */; };
 		07E0992129520C0500BE248A /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0992029520C0500BE248A /* UserType.swift */; };
 		07F4D5FE295F1A4B00A7B7F1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
@@ -85,6 +96,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07243B02296DFEE700F66F0E /* Camera_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera_View.swift; sourceTree = "<group>"; };
+		07243B04296DFF3900F66F0E /* PhotoLibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewModel.swift; sourceTree = "<group>"; };
+		07243B06296DFF6D00F66F0E /* ObjectRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectRecognizer.swift; sourceTree = "<group>"; };
+		07243B08296DFF8C00F66F0E /* GeometryUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryUtils.swift; sourceTree = "<group>"; };
+		07243B0A296DFFB600F66F0E /* OrientationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationUtils.swift; sourceTree = "<group>"; };
+		07243B0C296DFFD200F66F0E /* ImageOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayView.swift; sourceTree = "<group>"; };
+		07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayViewController.swift; sourceTree = "<group>"; };
+		07243B10296E006B00F66F0E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		07243B12296E008500F66F0E /* LiveCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCameraViewController.swift; sourceTree = "<group>"; };
+		07243B14296E00A200F66F0E /* PhotoLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryView.swift; sourceTree = "<group>"; };
+		07243B16296E00C900F66F0E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "cardsDetector 1.mlmodel"; path = "../../../../../cardsDetector 1.mlmodel"; sourceTree = "<group>"; };
 		07719D2D294C42530039707A /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
 		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
@@ -92,7 +115,6 @@
 		078453F82956233E00185A93 /* completedTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completedTasks.swift; sourceTree = "<group>"; };
 		078453FA2956236100185A93 /* IncompleteTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncompleteTasks.swift; sourceTree = "<group>"; };
 		07A4682C294F0E60000A9B6A /* ResetPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassword.swift; sourceTree = "<group>"; };
-		07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		07E0992029520C0500BE248A /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +196,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07243B01296DFDF900F66F0E /* Camera_View */ = {
+			isa = PBXGroup;
+			children = (
+				07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */,
+				07243B02296DFEE700F66F0E /* Camera_View.swift */,
+				07243B04296DFF3900F66F0E /* PhotoLibraryViewModel.swift */,
+				07243B06296DFF6D00F66F0E /* ObjectRecognizer.swift */,
+				07243B08296DFF8C00F66F0E /* GeometryUtils.swift */,
+				07243B0A296DFFB600F66F0E /* OrientationUtils.swift */,
+				07243B0C296DFFD200F66F0E /* ImageOverlayView.swift */,
+				07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */,
+				07243B10296E006B00F66F0E /* CameraView.swift */,
+				07243B12296E008500F66F0E /* LiveCameraViewController.swift */,
+				07243B14296E00A200F66F0E /* PhotoLibraryView.swift */,
+				07243B16296E00C900F66F0E /* PhotoPicker.swift */,
+			);
+			path = Camera_View;
+			sourceTree = "<group>";
+		};
 		07719D2C294C415E0039707A /* Registration pages */ = {
 			isa = PBXGroup;
 			children = (
@@ -365,11 +406,11 @@
 		5B05D7152950E63D004BE379 /* StudentGame */ = {
 			isa = PBXGroup;
 			children = (
+				07243B01296DFDF900F66F0E /* Camera_View */,
 				5B05D7162950E683004BE379 /* StudentGameView.swift */,
 				95923A1F295B622800385ABA /* XOViewModel.swift */,
 				95923A21295B627700385ABA /* XOView.swift */,
 				95923A23295B62CE00385ABA /* XOalerts.swift */,
-				07BB68AD29680DEB00EB0D4B /* CameraViewModel.swift */,
 			);
 			path = StudentGame;
 			sourceTree = "<group>";
@@ -464,10 +505,12 @@
 				078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */,
 				07F4D5FE295F1A4B00A7B7F1 /* NotificationView.swift in Sources */,
 				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
+				07243B05296DFF3900F66F0E /* PhotoLibraryViewModel.swift in Sources */,
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* SwiftUIView.swift in Sources */,
 				DBB1BF902953227E00D447BE /* Card3ContentView.swift in Sources */,
 				95923A22295B627700385ABA /* XOView.swift in Sources */,
+				07243B03296DFEE700F66F0E /* Camera_View.swift in Sources */,
 				07A4682D294F0E60000A9B6A /* ResetPassword.swift in Sources */,
 				5B05D70E2950BCE5004BE379 /* subjectList.swift in Sources */,
 				5B05D71B2950E6DC004BE379 /* StudentCourseView.swift in Sources */,
@@ -477,10 +520,14 @@
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
+				07243B11296E006B00F66F0E /* CameraView.swift in Sources */,
+				07243B19296E00FE00F66F0E /* cardsDetector 1.mlmodel in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
+				07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */,
 				95923A20295B622900385ABA /* XOViewModel.swift in Sources */,
 				95923A1E29556F9100385ABA /* test slider.swift in Sources */,
 				5BFEFD1B295A4D6A00B79135 /* CourseReview.swift in Sources */,
+				07243B09296DFF8C00F66F0E /* GeometryUtils.swift in Sources */,
 				DBB1BF922953228800D447BE /* Card4ContentView.swift in Sources */,
 				1D33B3C32945766600D5BD45 /* TeacherSubjects.swift in Sources */,
 				5BDEE097294E6367006122DB /* calendarView.swift in Sources */,
@@ -491,25 +538,30 @@
 				1D7337C82955C24200581328 /* User.swift in Sources */,
 				1D33B3C72945768100D5BD45 /* TeacherCards.swift in Sources */,
 				1D33B3D32945774200D5BD45 /* PickerView.swift in Sources */,
+				07243B07296DFF6D00F66F0E /* ObjectRecognizer.swift in Sources */,
+				07243B0B296DFFB600F66F0E /* OrientationUtils.swift in Sources */,
 				5B23A6CB295B8D1B00BD599E /* StudentOwnTaskDB.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
+				07243B0F296DFFF200F66F0E /* ImageOverlayViewController.swift in Sources */,
 				5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */,
 				5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */,
-				07BB68AE29680DEB00EB0D4B /* CameraViewModel.swift in Sources */,
 				1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */,
 				5B05D7232950F898004BE379 /* EventListStudent.swift in Sources */,
 				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
+				07243B13296E008500F66F0E /* LiveCameraViewController.swift in Sources */,
 				5B05D7172950E683004BE379 /* StudentGameView.swift in Sources */,
 				5B23A6C9295B8C7300BD599E /* StudentOwnTask.swift in Sources */,
 				1DD94C52294E28FB00AD8AC0 /* CourseTaskDB.swift in Sources */,
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
 				1DD94C54294E291600AD8AC0 /* CourseDB.swift in Sources */,
+				07243B0D296DFFD200F66F0E /* ImageOverlayView.swift in Sources */,
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
 				078453F72956222200185A93 /* AllTask.swift in Sources */,
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
+				07243B15296E00A200F66F0E /* PhotoLibraryView.swift in Sources */,
 				5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				95923A24295B62CE00385ABA /* XOalerts.swift in Sources */,

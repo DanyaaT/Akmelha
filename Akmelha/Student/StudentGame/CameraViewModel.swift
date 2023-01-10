@@ -23,7 +23,7 @@ struct CameraViewModel: View {
                 Spacer()
               
 
-                
+                 
                 Text("وجه الكاميرا نحو بطاقة النقاط")
                     .font(.system(size: 35))
                     .foregroundColor(Color("title"))
