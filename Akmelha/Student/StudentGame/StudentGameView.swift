@@ -113,7 +113,7 @@ struct StudentGameView: View {
                             
                             ZStack{
                                 
-                                NavigationLink("+",destination:  CameraViewModel())
+                                NavigationLink("+",destination:  Camera_View())
                                     .font(.system(size: 30))
                                     .foregroundColor(Color.white)
 //                                Button("+"){
