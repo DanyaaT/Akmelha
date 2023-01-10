@@ -227,10 +227,10 @@ struct SignUP: View {
                     }
                     
                 }
-              
-               NavigationLink("", destination: StudentTabBar(), isActive: $goToStudent)
-                
-                NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
+//
+//               NavigationLink("", destination: StudentTabBar(), isActive: $goToStudent)
+//
+//                NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
             }
         }.toolbar(.hidden)
     }

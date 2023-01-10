@@ -15,11 +15,9 @@ enum StudentTabs: String{
 }
 
 struct StudentTabBar: View {
-
+    var user: User
     @State var selectedTab : StudentTabs = .المهام
-    
-   
-    
+        
     var body: some View {
    
         NavigationView{
@@ -33,7 +31,7 @@ struct StudentTabBar: View {
                         
                     }.tag(StudentTabs.المهام)
                    
-                StudentCourseView()
+                StudentCourseView(user: user)
                     .tabItem{
                         Image(systemName: "doc.text.image")
                         Text("المواد")
@@ -41,7 +39,7 @@ struct StudentTabBar: View {
                     }.tag(StudentTabs.المواد)
                    
                 
-               StudentCalendarView()
+                StudentCalendarView()
                     .tabItem{
                         Image(systemName: "align.vertical.top")
                         Text("التقويم")

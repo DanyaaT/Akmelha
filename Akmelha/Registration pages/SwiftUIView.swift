@@ -45,7 +45,7 @@ class AppViewModel: ObservableObject{
                 self?.signedIn = true
                 if userType == "S"{
                     
-                    self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType, studentCredit: 0 ))
+                    self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType, studentCredit: 0, studentCourses: [""], studentImage: "teacherProfile" ))
                 }
                 if userType == "T"{
                     self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType))
@@ -78,12 +78,12 @@ struct SwiftUIView: View {
         
         if isActiveSignIn && viewModel.isSignedIn{
             let id = Auth.auth().currentUser?.uid
-            let userType = userType(id: id ?? "", users: dbUsers.users)
-            if userType == "S"{
-                StudentTabBar()
+            let user = user(id: id ?? "", users: dbUsers.users)
+            if user.userType == "S"{
+                StudentTabBar(user: user)
                 
                 
-            }else  if userType == "T"{
+            }else  if user.userType == "T"{
                 TeacherTabBar()
             }
             
@@ -109,16 +109,18 @@ struct SwiftUIView: View {
     }
 }
     
-func userType(id: String, users: [User]) -> String{
+func user(id: String, users: [User]) -> User{
+    var user : User = User()
         var userType = ""
-        for user in users{
-            if user.id == id {
+        for i in users{
+            if i.id == id {
+                user  = i
                 print("id: "+id)
                 userType = user.userType ?? ""
             }
         }
         print("usertype is: "+userType)
-       return userType
+       return user
     }
 
 

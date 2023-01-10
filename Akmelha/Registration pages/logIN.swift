@@ -22,10 +22,9 @@ struct logIN: View {
     @EnvironmentObject var dbUsers: UserDB
     @State var goToStudent = false
     @State var goToTeacher = false
-    
     @State var emailIsValid: Bool = true
 
-    
+    let id = Auth.auth().currentUser?.uid
 
     public init(email: String = "")
 
@@ -173,13 +172,13 @@ struct logIN: View {
                     
                     Button("تسجيل") {
                         viewModel.signIn(email: email, password: password)
-                            let id = Auth.auth().currentUser?.uid
-                        let userType = userType(id: id ?? "", users: dbUsers.users)
-                            if userType == "S"{
+                           
+                        let user = user(id: id ?? "", users: dbUsers.users)
+                        if user.userType == "S"{
                                 goToStudent = true
                                 
                                 
-                            }else  if userType == "T"{
+                        }else  if user.userType == "T"{
                                 goToTeacher = true
                                 
                             }
@@ -225,8 +224,8 @@ struct logIN: View {
                     }
                     
                 }
-                
-                NavigationLink("", destination: StudentTabBar(), isActive: $goToStudent)
+            
+                NavigationLink("", destination: StudentTabBar(user: user(id: id ?? "", users: dbUsers.users)), isActive: $goToStudent)
                  
                  NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
             }

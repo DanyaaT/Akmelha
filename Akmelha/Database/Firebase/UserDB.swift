@@ -87,5 +87,16 @@ class UserDB: ObservableObject {
         
         
     }
+    
+    func addStudentCourse( _ user :User){
+        do {
+            guard let id = user.id else {return}
+            try dbUsers.collection("Users").document(id).setData(from: ["studentCourses": user.studentCourses],merge: true)
+        } catch {
+            print("Unable to encode task: \(error.localizedDescription)")
+        }
+        
+        
+    }
 }
 

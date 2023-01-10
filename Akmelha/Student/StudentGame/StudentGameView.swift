@@ -112,11 +112,15 @@ struct StudentGameView: View {
                                 .cornerRadius(21.8)
                             
                             ZStack{
-                                Button("+"){
-                                  //action
-                                }// end Button
-                                .font(.system(size: 30))
-                                .foregroundColor(.white)
+                                
+                                NavigationLink("+",destination:  CameraViewModel())
+                                    .font(.system(size: 30))
+                                    .foregroundColor(Color.white)
+//                                Button("+"){
+//                                  //action
+//                                }// end Button
+//                                .font(.system(size: 30))
+//                                .foregroundColor(.white)
                                 
                             }// end Zstack
                         }// end Zstack

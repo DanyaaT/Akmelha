@@ -10,6 +10,7 @@ import SwiftUI
 struct EventList: View {
     @State var pickerColor = "pink"
     let event: Event
+    //let course: Course
     @State var showDetailedEvent = false
 
     var body: some View {

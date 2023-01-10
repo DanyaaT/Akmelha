@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct TeacherCalendar: View {
     
@@ -128,8 +131,6 @@ struct TeacherCalendar: View {
         }
     }
     struct EventFormView: View {
-        
-        //@EnvironmentObject var eventStore: EventStore
         @Binding var showAddEventSheet: Bool
         @Environment(\.dismiss) var dismiss
         @FocusState private var focus: Bool?
@@ -142,7 +143,7 @@ struct TeacherCalendar: View {
         @State var eventCourse = ""
         @State var selectedCourse = 0
         @State var showButtom: Bool
-        
+        @EnvironmentObject var dbCourse: CourseDB
         @EnvironmentObject var dbEvent: EventDB
         
         var body: some View {
@@ -167,20 +168,31 @@ struct TeacherCalendar: View {
                             Section{
                                 Picker(selection: $eventSection, label: Text("الصف الدراسي")){
                                     Text("").tag("")
-                                    ForEach(levels, id:\.self){ level in
-                                        Text(level)
-                                            .tag(level)
-                                    } //foreach
+                                    let id = Auth.auth().currentUser?.uid
+                                    ForEach(dbCourse.courses.indices, id: \.self) {index in
+                                        if ( dbCourse.courses[index].courseTeacher == id ){
+                                            Text(dbCourse.courses[index].courseLevel ?? "")
+                                                .tag(dbCourse.courses[index].courseName ?? "")
+                                        }
+                                    }
                                 } // end picker
                             }
                             Section {
                                 Picker(selection: $eventCourse, label: Text("اسم المادة")){
                                     Text("").tag("")
-                                    ForEach(courses, id:\.self){ course in
-                                        Text(course)
-                                            .tag(course)
-                                    }// foreach
-                                }// end picker
+                                    
+                                    let id = Auth.auth().currentUser?.uid
+                                    ForEach(dbCourse.courses.indices, id: \.self) {index in
+                                        if ( dbCourse.courses[index].courseTeacher == id ){
+                                            Text(dbCourse.courses[index].courseName ?? "")
+                                                .tag(dbCourse.courses[index].courseName ?? "")
+                                        }
+                                    }
+                                   // ForEach(courses, id:\.self){ course in
+                                       // Text(course)
+                                          //  .tag(course)
+                                 //   }// foreach
+                                } // end picker
                             }
                             
                             
