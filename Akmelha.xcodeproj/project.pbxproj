@@ -16,8 +16,6 @@
 		07243B0F296DFFF200F66F0E /* ImageOverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */; };
 		07243B11296E006B00F66F0E /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B10296E006B00F66F0E /* CameraView.swift */; };
 		07243B13296E008500F66F0E /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B12296E008500F66F0E /* LiveCameraViewController.swift */; };
-		07243B15296E00A200F66F0E /* PhotoLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B14296E00A200F66F0E /* PhotoLibraryView.swift */; };
-		07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B16296E00C900F66F0E /* PhotoPicker.swift */; };
 		07719D2E294C42530039707A /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2D294C42530039707A /* WelcomePage.swift */; };
 		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
 		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
@@ -105,8 +103,6 @@
 		07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageOverlayViewController.swift; sourceTree = "<group>"; };
 		07243B10296E006B00F66F0E /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		07243B12296E008500F66F0E /* LiveCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCameraViewController.swift; sourceTree = "<group>"; };
-		07243B14296E00A200F66F0E /* PhotoLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryView.swift; sourceTree = "<group>"; };
-		07243B16296E00C900F66F0E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		07719D2D294C42530039707A /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
 		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
@@ -209,8 +205,6 @@
 				07243B0E296DFFF200F66F0E /* ImageOverlayViewController.swift */,
 				07243B10296E006B00F66F0E /* CameraView.swift */,
 				07243B12296E008500F66F0E /* LiveCameraViewController.swift */,
-				07243B14296E00A200F66F0E /* PhotoLibraryView.swift */,
-				07243B16296E00C900F66F0E /* PhotoPicker.swift */,
 			);
 			path = Camera_View;
 			sourceTree = "<group>";
@@ -523,7 +517,6 @@
 				07243B11296E006B00F66F0E /* CameraView.swift in Sources */,
 				95577961296F3CF6001DA65B /* cardsDetector 1.mlmodel in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
-				07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */,
 				95923A20295B622900385ABA /* XOViewModel.swift in Sources */,
 				95923A1E29556F9100385ABA /* test slider.swift in Sources */,
 				5BFEFD1B295A4D6A00B79135 /* CourseReview.swift in Sources */,
@@ -561,7 +554,6 @@
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
 				078453F72956222200185A93 /* AllTask.swift in Sources */,
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
-				07243B15296E00A200F66F0E /* PhotoLibraryView.swift in Sources */,
 				5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
 				95923A24295B62CE00385ABA /* XOalerts.swift in Sources */,
