@@ -18,7 +18,6 @@
 		07243B13296E008500F66F0E /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B12296E008500F66F0E /* LiveCameraViewController.swift */; };
 		07243B15296E00A200F66F0E /* PhotoLibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B14296E00A200F66F0E /* PhotoLibraryView.swift */; };
 		07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07243B16296E00C900F66F0E /* PhotoPicker.swift */; };
-		07243B19296E00FE00F66F0E /* cardsDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */; };
 		07719D2E294C42530039707A /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2D294C42530039707A /* WelcomePage.swift */; };
 		07719D30294C428A0039707A /* logIN.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D2F294C428A0039707A /* logIN.swift */; };
 		07719D32294C42B20039707A /* SignUP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07719D31294C42B20039707A /* SignUP.swift */; };
@@ -83,6 +82,7 @@
 		5BFEFD19295A4BCC00B79135 /* CourseReviewDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEFD18295A4BCC00B79135 /* CourseReviewDB.swift */; };
 		5BFEFD1B295A4D6A00B79135 /* CourseReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEFD1A295A4D6A00B79135 /* CourseReview.swift */; };
 		5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BFEFD1C295A521700B79135 /* ReviewList.swift */; };
+		95577961296F3CF6001DA65B /* cardsDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 95577960296F3CF5001DA65B /* cardsDetector 1.mlmodel */; };
 		95923A1C2951BC7E00385ABA /* StudentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1B2951BC7E00385ABA /* StudentProfile.swift */; };
 		95923A1E29556F9100385ABA /* test slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1D29556F9000385ABA /* test slider.swift */; };
 		95923A20295B622900385ABA /* XOViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95923A1F295B622800385ABA /* XOViewModel.swift */; };
@@ -107,7 +107,6 @@
 		07243B12296E008500F66F0E /* LiveCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCameraViewController.swift; sourceTree = "<group>"; };
 		07243B14296E00A200F66F0E /* PhotoLibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryView.swift; sourceTree = "<group>"; };
 		07243B16296E00C900F66F0E /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
-		07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = "cardsDetector 1.mlmodel"; path = "../../../../../cardsDetector 1.mlmodel"; sourceTree = "<group>"; };
 		07719D2D294C42530039707A /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		07719D2F294C428A0039707A /* logIN.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logIN.swift; sourceTree = "<group>"; };
 		07719D31294C42B20039707A /* SignUP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUP.swift; sourceTree = "<group>"; };
@@ -163,6 +162,7 @@
 		5BFEFD18295A4BCC00B79135 /* CourseReviewDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseReviewDB.swift; sourceTree = "<group>"; };
 		5BFEFD1A295A4D6A00B79135 /* CourseReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseReview.swift; sourceTree = "<group>"; };
 		5BFEFD1C295A521700B79135 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
+		95577960296F3CF5001DA65B /* cardsDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "cardsDetector 1.mlmodel"; sourceTree = "<group>"; };
 		95923A1B2951BC7E00385ABA /* StudentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentProfile.swift; sourceTree = "<group>"; };
 		95923A1D29556F9000385ABA /* test slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "test slider.swift"; sourceTree = "<group>"; };
 		95923A1F295B622800385ABA /* XOViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XOViewModel.swift; sourceTree = "<group>"; };
@@ -199,8 +199,8 @@
 		07243B01296DFDF900F66F0E /* Camera_View */ = {
 			isa = PBXGroup;
 			children = (
-				07243B18296E00FE00F66F0E /* cardsDetector 1.mlmodel */,
 				07243B02296DFEE700F66F0E /* Camera_View.swift */,
+				95577960296F3CF5001DA65B /* cardsDetector 1.mlmodel */,
 				07243B04296DFF3900F66F0E /* PhotoLibraryViewModel.swift */,
 				07243B06296DFF6D00F66F0E /* ObjectRecognizer.swift */,
 				07243B08296DFF8C00F66F0E /* GeometryUtils.swift */,
@@ -521,7 +521,7 @@
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
 				07243B11296E006B00F66F0E /* CameraView.swift in Sources */,
-				07243B19296E00FE00F66F0E /* cardsDetector 1.mlmodel in Sources */,
+				95577961296F3CF6001DA65B /* cardsDetector 1.mlmodel in Sources */,
 				1D33B3CB294576EB00D5BD45 /* TeacherTasks.swift in Sources */,
 				07243B17296E00C900F66F0E /* PhotoPicker.swift in Sources */,
 				95923A20295B622900385ABA /* XOViewModel.swift in Sources */,
@@ -705,7 +705,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = 6BV544BNWW;
+				DEVELOPMENT_TEAM = QFQWU866QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -721,7 +721,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danya.Akmelha;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyya.Akmelha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -737,7 +737,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = 6BV544BNWW;
+				DEVELOPMENT_TEAM = QFQWU866QR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -753,7 +753,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danya.Akmelha;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyya.Akmelha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

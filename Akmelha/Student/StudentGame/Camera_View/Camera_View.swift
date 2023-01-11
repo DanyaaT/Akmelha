@@ -10,17 +10,19 @@ struct Camera_View: View {
                 Rectangle().ignoresSafeArea()
                     .cornerRadius(50)
                     .foregroundColor(Color("top")).ignoresSafeArea()
-                    .frame(height:80)
+                    .frame(height:50)
                 Spacer()
-              
+                Spacer()
 
+
+                HStack{
+                    Text("وجه الكاميرا نحو بطاقة النقاط")
+                        .font(.system(size: 30))
+                        .foregroundColor(Color("title"))
+                        .frame(alignment: .center)
+                }
+                .padding()
                 
-                Text("وجه الكاميرا نحو بطاقة النقاط")
-                    .font(.system(size: 35))
-                    .foregroundColor(Color("title"))
-                    .frame(alignment: .center)
-                Spacer()
-
                 ZStack{
                     Rectangle()
                         .frame(width: 350,height:450)
@@ -35,6 +37,7 @@ struct Camera_View: View {
 
                     
                 }
+                .padding()
                 Spacer()
 
                Spacer()

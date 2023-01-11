@@ -100,7 +100,7 @@ struct StudentGameView: View {
                                 .cornerRadius(3)
                                 .frame(width: 98,height:29, alignment: .bottomLeading)
                             
-                            Text("اضافة نقاط")
+                            Text("إضافة نقاط")
                                 .font(.system(size: 15))
                             
                         } // end Zstack
