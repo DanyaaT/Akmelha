@@ -3,6 +3,7 @@
 import SwiftUI
 
 struct Camera_View: View {
+
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -40,9 +41,27 @@ struct Camera_View: View {
                 .padding()
                 Spacer()
 
-               Spacer()
+              
                 
-            }    }
+        
+                Button {
+             
+                    
+                  
+                } label: {
+                    HStack{
+                        Spacer()
+                        Text("إضافة النقاط").font(.title2)
+                        Spacer()
+                    }
+                }.padding()
+                .tint(Color("green"))
+                .buttonStyle(.borderedProminent)
+                .foregroundColor(.white)
+                .cornerRadius(10)
+            }
+            
+        }
         
 
     }

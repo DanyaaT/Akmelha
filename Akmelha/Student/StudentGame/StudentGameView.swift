@@ -10,6 +10,8 @@ import Neumorphic
 
 
 struct StudentGameView: View {
+    @State var scores = "   20"
+
     var body: some View {
     
             ZStack{
@@ -44,7 +46,7 @@ struct StudentGameView: View {
                             .scaledToFit()
                             .frame(height: 100)
                         .padding([.top, .leading], -25.0)
-                        Text("   ٢٠")
+                        Text(scores)
                     }
                     
                     

@@ -38,7 +38,7 @@ class GeometryUtils {
         let objectsLayer = CALayer()
         objectsLayer.frame = frame
         
-        let color = CGColor(red: 1.0, green: 1.0, blue: 0.0, alpha: 0.4)
+        let color = CGColor(red: 1, green: 0.8902, blue: 0.4588, alpha: 0.4)
         
         for object in objects {
             let rect = GeometryUtils.boundingBox(forRecognizedRect: object.bounds,
@@ -46,9 +46,13 @@ class GeometryUtils {
             
             let layer = GeometryUtils.createRectLayerWithBounds(rect, color: color)
 
-            let textLayer = GeometryUtils.createTextLayerWithBounds(layer.bounds,
-                                                                    text: object.label)
-            layer.addSublayer(textLayer)
+            let textLayer = GeometryUtils.createTextLayerWithBounds(layer.bounds,text: object.label)
+//            if textLayer== "blue"{
+//                scores+=10
+//            }
+            
+            // شلت اسم البطاقة من الكاميرا
+//            layer.addSublayer(textLayer)
             objectsLayer.addSublayer(layer)
         }
         
@@ -57,18 +61,19 @@ class GeometryUtils {
     
     static func createTextLayerWithBounds(_ bounds: CGRect, text: String) -> CATextLayer {
         let textLayer = CATextLayer()
-        let formattedString = NSMutableAttributedString(string: text)
-        let largeFont = UIFont(name: "Helvetica", size: 18.0)!
-        formattedString.addAttributes([NSAttributedString.Key.font: largeFont], range: NSRange(location: 0, length: text.count))
-        textLayer.string = formattedString
-        textLayer.bounds = CGRect(x: 0, y: 0, width: bounds.size.height - 10, height: bounds.size.width - 10)
-        textLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
-        textLayer.shadowOpacity = 0.7
-        textLayer.shadowOffset = CGSize(width: 2, height: 2)
-        textLayer.foregroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.0, 0.0, 0.0, 1.0])
-        textLayer.contentsScale = 2.0 // 2.0 for retina display
+//        let formattedString = NSMutableAttributedString(string: text)
+//        let largeFont = UIFont(name: "Helvetica", size: 18.0)!
+//        formattedString.addAttributes([NSAttributedString.Key.font: largeFont], range: NSRange(location: 0, length: text.count))
+//        textLayer.string = formattedString
+//        textLayer.bounds = CGRect(x: 0, y: 0, width: bounds.size.height - 10, height: bounds.size.width - 10)
+//        textLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
+//        textLayer.shadowOpacity = 0.7
+//        textLayer.shadowOffset = CGSize(width: 2, height: 2)
+//        textLayer.foregroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [0.0, 0.0, 0.0, 1.0])
+//        textLayer.contentsScale = 2.0 // 2.0 for retina display
         return textLayer
     }
+    
     
     /// works for sizeAspectFit
     static func imageFrameInView(imageSize:CGSize, viewSize:CGSize) -> CGRect {
