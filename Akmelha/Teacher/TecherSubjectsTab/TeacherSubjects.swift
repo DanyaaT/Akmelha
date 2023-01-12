@@ -38,6 +38,7 @@ extension View {
 
 
 struct TeacherSubjects: View {
+    var user: User
     @State private var showSheet = false
     @EnvironmentObject var dbCourse: CourseDB
    
@@ -55,7 +56,7 @@ struct TeacherSubjects: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:TeacherProfile()) {
+                        NavigationLink(destination:TeacherProfile(user:user)) {
                             Image("teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
@@ -123,6 +124,7 @@ struct TeacherSubjects: View {
             
             } // end Vstack
         }//end First Zstack
+        .toolbar(.hidden)
                 .sheet(isPresented: $showSheet){
                     buttonSheetView(showSheet:$showSheet)
                        .presentationDetents([.medium])
@@ -243,12 +245,12 @@ var body: some View{
     }// struct
 
 
-struct TeacherSubjects_Previews: PreviewProvider {
-    static var previews: some View {
-        TeacherSubjects()
-            .environment(\.layoutDirection,.rightToLeft)
-    }
-}
+//struct TeacherSubjects_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TeacherSubjects()
+//            .environment(\.layoutDirection,.rightToLeft)
+//    }
+//}
 
 func courseColorAndImage(courseName: String) -> [String]{
     var colorAndImage = [""]

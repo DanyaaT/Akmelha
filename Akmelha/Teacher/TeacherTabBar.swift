@@ -14,14 +14,10 @@ enum TeacherTabs: String{
 }
 
 struct TeacherTabBar: View {
-
+    var user: User
     @State var selectedTab : TeacherTabs = .المواد
     
-    init() {
-        
-        
-        UITabBar.appearance().backgroundColor = UIColor(.white)
-    }
+   
     
     var body: some View {
    
@@ -29,7 +25,7 @@ struct TeacherTabBar: View {
 
             TabView(selection: $selectedTab){
                 
-                TeacherSubjects()
+                TeacherSubjects(user: user)
                     .tabItem{
                         Image(systemName: "doc.text.image")
                         Text("المواد")
@@ -38,7 +34,7 @@ struct TeacherTabBar: View {
          
                    
                 
-                TeacherCalendar()
+                TeacherCalendar(user: user)
                     .tabItem{
                         Image(systemName: "align.vertical.top")
                         Text("التقويم")
@@ -46,7 +42,7 @@ struct TeacherTabBar: View {
                     }.tag(TeacherTabs.التقويم)
                     .toolbarBackground(.white, for: .tabBar)
                 
-                TeacherCards()
+                TeacherCards(user: user)
                     .tabItem{
                         Image(systemName: "calendar")
                         Text("البطاقات")
@@ -69,9 +65,9 @@ struct TeacherTabBar: View {
 }
 
 
-struct TabBar_Previews: PreviewProvider {
-  static var previews: some View {
-    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
-  }
-}
+//struct TabBar_Previews: PreviewProvider {
+//  static var previews: some View {
+//    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
+//  }
+//}
 

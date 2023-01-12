@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 
 struct TeacherProfile: View {
+    var user: User
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var dbUsers: UserDB
     @State var TeacherName =  ""
@@ -59,7 +60,9 @@ struct TeacherProfile: View {
                         HStack{
                             Spacer()
                             Button(action:{edit.toggle()
-                                dbUsers.changeUserName(id ?? "", userName: TeacherName )
+                                user.userName = TeacherName
+                                dbUsers.changeUserName(user)
+
                             }){
                                 if !edit{
                                     
@@ -128,8 +131,8 @@ struct TeacherProfile: View {
         }// v
         .padding()
         .onAppear{
-            TeacherName = userNameAndEmail(id: id ?? "" ,users:dbUsers.users)[0]
-            TeacherEmail = userNameAndEmail(id: id ?? "" ,users:dbUsers.users)[1]
+            TeacherName = user.userName ?? ""
+            TeacherEmail = user.userEmail ?? ""
             
         }
     }
@@ -153,10 +156,10 @@ struct TeacherProfile: View {
 
 
 
-struct TeacherProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        TeacherProfile()
-        .environment(\.layoutDirection,.rightToLeft)
-
-    }
-}
+//struct TeacherProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TeacherProfile()
+//        .environment(\.layoutDirection,.rightToLeft)
+//
+//    }
+//}

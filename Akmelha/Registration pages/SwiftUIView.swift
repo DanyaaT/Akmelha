@@ -45,7 +45,7 @@ class AppViewModel: ObservableObject{
                 self?.signedIn = true
                 if userType == "S"{
                     
-                    self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType, studentCredit: 0, studentCourses: [""], studentImage: "teacherProfile" ))
+                    self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType, studentCredit: 0, studentCourses: [], studentImage: "teacherProfile" ))
                 }
                 if userType == "T"{
                     self?.dbUsers.addUser(User(userEmail: email, userPassword: password, userName: name, userType: userType))
@@ -84,7 +84,7 @@ struct SwiftUIView: View {
                 
                 
             }else  if user.userType == "T"{
-                TeacherTabBar()
+                TeacherTabBar(user: user)
             }
             
         }else if viewModel.isSignedIn{

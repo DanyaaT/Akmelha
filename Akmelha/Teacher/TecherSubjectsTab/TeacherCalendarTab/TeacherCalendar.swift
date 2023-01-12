@@ -11,7 +11,7 @@ import FirebaseCore
 import FirebaseAuth
 
 struct TeacherCalendar: View {
-    
+    var user: User
     @State var dateSelected: DateComponents?
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
@@ -30,7 +30,7 @@ struct TeacherCalendar: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:TeacherProfile()) {
+                        NavigationLink(destination:TeacherProfile(user: user)) {
                             Image("teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
@@ -104,32 +104,33 @@ struct TeacherCalendar: View {
                 }//scrollView
             }//Vstack
         }//Zstack
+        .toolbar(.hidden)
     }
     
     
     
-    struct TeacherCalendar_Previews: PreviewProvider {
-        static var dateComponents: DateComponents {
-            
-            var dateComponents = Calendar.current.dateComponents(
-                [.month,
-                 .day,
-                 .year,
-                 .hour,
-                 .minute],
-                from: Date())
-            dateComponents.timeZone = TimeZone.current
-            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
-            return dateComponents
-        }
-        static var previews: some View {
-            
-            TeacherCalendar()
-                .environment(\.layoutDirection, .leftToRight)
-            
-            
-        }
-    }
+//    struct TeacherCalendar_Previews: PreviewProvider {
+//        static var dateComponents: DateComponents {
+//            
+//            var dateComponents = Calendar.current.dateComponents(
+//                [.month,
+//                 .day,
+//                 .year,
+//                 .hour,
+//                 .minute],
+//                from: Date())
+//            dateComponents.timeZone = TimeZone.current
+//            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
+//            return dateComponents
+//        }
+//        static var previews: some View {
+//            
+//            TeacherCalendar()
+//                .environment(\.layoutDirection, .leftToRight)
+//            
+//            
+//        }
+//    }
     struct EventFormView: View {
         @Binding var showAddEventSheet: Bool
         @Environment(\.dismiss) var dismiss

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TeacherCards: View {
+    var user: User
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -24,7 +25,7 @@ struct TeacherCards: View {
                     
                     Spacer()
                     HStack{
-                        NavigationLink(destination:TeacherProfile()) {
+                        NavigationLink(destination:TeacherProfile(user: user)) {
                             Image("teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
@@ -55,17 +56,16 @@ struct TeacherCards: View {
                 
             }
        
-        }.navigationTitle("")
-            .navigationBarTitleDisplayMode(.inline)
-        
+        }
+            .toolbar(.hidden)
     }
 }
 
-struct TeacherCards_Previews: PreviewProvider {
-    static var previews: some View {
-        TeacherCards().environment(\.layoutDirection, .rightToLeft)
-    }
-}
+//struct TeacherCards_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TeacherCards().environment(\.layoutDirection, .rightToLeft)
+//    }
+//}
 
 struct AppBarView: View {
     var body: some View {
@@ -78,15 +78,15 @@ struct AppBarView: View {
                 .frame(height:99)
             
             Spacer()
-            HStack{
-                NavigationLink(destination:TeacherProfile()) {
-                    Image("teacherProfile")
-                        .resizable()
-                        .frame(width: 64, height: 60)
-                        .overlay(Circle().stroke(Color("title"), lineWidth: 2))
-                } //NavigationLink
-                Spacer()
-            }// hstack
+//            HStack{
+//                NavigationLink(destination:TeacherProfile()) {
+//                    Image("teacherProfile")
+//                        .resizable()
+//                        .frame(width: 64, height: 60)
+//                        .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+//                } //NavigationLink
+//                Spacer()
+//            }// hstack
             .padding()
             VStack{
                 

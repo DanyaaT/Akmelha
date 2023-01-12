@@ -6,26 +6,37 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseCore
+import FirebaseAuth
 
 struct StudentProfile: View {
+    var user: User
+    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var dbUsers: UserDB
     @State var StudentName =  ""
     @State var StudentEmail =  ""
     @State var edit = false
-    @State var userImage = "teacherProfile"
+    @State var userImage = ""
     @State var images = ["girl1","girl2","girl3","boy1","boy2","boy3"]
     @State var selectedImage =  ""
     
-    
+    let columns = [
+           GridItem(.flexible()),
+           GridItem(.flexible()),
+           GridItem(.flexible())
+       ]
     
     
     var body: some View {
+       
         VStack(spacing:10){
             
             Text("الملف الشخصي")
                 .font(.system(size: 30))
                 .foregroundColor(Color("title"))
             
-            Image(userImage)
+            Image(user.studentImage ?? "teacherProfile")
                 .resizable()
                 .scaledToFit()
                 .frame(height: 100, alignment: .center)
@@ -52,7 +63,10 @@ struct StudentProfile: View {
                         
                         HStack{
                             Spacer()
-                            Button(action:{edit.toggle()}){
+                            Button(action:{edit.toggle()
+                                user.userName = StudentName
+                                dbUsers.changeUserName(user)
+                            }){
                                 if !edit{
                                     
                                     Image("edit")
@@ -101,31 +115,35 @@ struct StudentProfile: View {
                 }.padding()
                 
                 HStack{
-                    
-                    ForEach(images, id:\.self){image in
-                        Button(action:{
-                            selectedImage = image
-                            userImage = selectedImage
-                        }){
+                    LazyVGrid(columns: columns, spacing: 4) {
+                        ForEach(images, id:\.self){image in
+                            Button(action:{
+                                selectedImage = image
+                                userImage = selectedImage
+                                user.studentImage = selectedImage
+                                dbUsers.changeUserImage(user)
+                                
+                            }){
+                                
+                                if image == selectedImage{
+                                    Image(image)
+                                        .resizable()
+                                        .frame(width: 67, height: 69, alignment: .center)
+                                        .overlay(Circle().stroke(Color(.red), lineWidth: 2))
+                                    
+                                    
+                                }
+                                else{
+                                    Image(image)
+                                        .resizable()
+                                        .frame(width: 67, height: 69, alignment: .center)
+                                        .overlay(Circle().stroke(Color("title"), lineWidth: 2))
+                                    
+                                }
+                                
+                            }
                             
-                            if image == selectedImage{
-                                Image(image)
-                                    .resizable()
-                                    .frame(width: 67, height: 69, alignment: .center)
-                                    .overlay(Circle().stroke(Color(.red), lineWidth: 2))
-                                
-                                
-                            }
-                            else{
-                                Image(image)
-                                    .resizable()
-                                    .frame(width: 67, height: 69, alignment: .center)
-                                    .overlay(Circle().stroke(Color("title"), lineWidth: 2))
-                                
-                            }
-                                
                         }
-                        
                     }
                 }// h
                 .padding()
@@ -133,7 +151,7 @@ struct StudentProfile: View {
                 Spacer()
 
                 HStack{
-                    //  Button(action:""){
+                    Button(action: {viewModel.signOut()}){
                     Image("logOut")
                         .resizable()
                         .frame(width: 30, height: 30)
@@ -143,13 +161,21 @@ struct StudentProfile: View {
                         .foregroundColor(Color("title"))
                     
                     Spacer()
+                }
                     
                 }// h
              
                 
             }// v
+            Spacer()
+
 
         }// v
+        .onAppear{
+            StudentName = user.userName ?? ""
+            StudentEmail = user.userEmail ?? ""
+           
+        }
         .padding()
         
 
@@ -175,10 +201,10 @@ struct StudentProfile: View {
 
 
 
-struct StudentProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        StudentProfile()
-        .environment(\.layoutDirection,.rightToLeft)
-
-    }
-}
+//struct StudentProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudentProfile()
+//        .environment(\.layoutDirection,.rightToLeft)
+//
+//    }
+//}

@@ -24,7 +24,7 @@ struct StudentTabBar: View {
 
             TabView(selection: $selectedTab){
                 
-                StudentTaskView()
+                StudentTaskView(user: user)
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.portrait")
                         Text("المهام")
@@ -39,14 +39,14 @@ struct StudentTabBar: View {
                     }.tag(StudentTabs.المواد)
                    
                 
-                StudentCalendarView()
+                StudentCalendarView(user: user)
                     .tabItem{
                         Image(systemName: "align.vertical.top")
                         Text("التقويم")
                         
                     }.tag(StudentTabs.التقويم)
                 
-                StudentGameView()
+                StudentGameView(user: user)
                     .tabItem{
                         Image(systemName: "gamecontroller")
                         Text("الألعاب")
@@ -69,9 +69,9 @@ struct StudentTabBar: View {
 }
 
 
-struct StudentTabBar_Previews: PreviewProvider {
-  static var previews: some View {
-    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
-  }
-}
-
+//struct StudentTabBar_Previews: PreviewProvider {
+//  static var previews: some View {
+//    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)
+//  }
+//}
+//

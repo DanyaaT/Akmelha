@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct StudentCalendarView: View {
+    var user: User
     @State var dateSelected: DateComponents?
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
-  //  var course : Course
+    //  var course : Course
     @State private var displayEvents = false
     
     var body: some View {
@@ -50,11 +51,11 @@ struct StudentCalendarView: View {
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .padding(.top, -35.0)
-                /*    ForEach(dbEvent.events.indices, id: \.self) {index in
-                        if(dbEvent.events[index].eventCourse == course.id){
-                            EventListStudent(event : dbEvent.events[index])
-                        }
-                    }*/
+                    /*    ForEach(dbEvent.events.indices, id: \.self) {index in
+                     if(dbEvent.events[index].eventCourse == course.id){
+                     EventListStudent(event : dbEvent.events[index])
+                     }
+                     }*/
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .sheet(isPresented: $displayEvents) {
@@ -67,27 +68,27 @@ struct StudentCalendarView: View {
             }//Vstack
         }//Zstack
     }
-    
-    
-    struct StudentCalendarView_Previews: PreviewProvider {
-        static var dateComponents: DateComponents {
-            
-            var dateComponents = Calendar.current.dateComponents(
-                [.month,
-                 .day,
-                 .year,
-                 .hour,
-                 .minute],
-                from: Date())
-            dateComponents.timeZone = TimeZone.current
-            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
-            return dateComponents
-        }
-   
-        static var previews: some View {
-            StudentCalendarView()
-               .environment(\.layoutDirection, .rightToLeft)
-            
-        }
-    }
 }
+    
+//    struct StudentCalendarView_Previews: PreviewProvider {
+//        static var dateComponents: DateComponents {
+//
+//            var dateComponents = Calendar.current.dateComponents(
+//                [.month,
+//                 .day,
+//                 .year,
+//                 .hour,
+//                 .minute],
+//                from: Date())
+//            dateComponents.timeZone = TimeZone.current
+//            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
+//            return dateComponents
+//        }
+//
+//        static var previews: some View {
+//            StudentCalendarView()
+//               .environment(\.layoutDirection, .rightToLeft)
+//
+//        }
+//    }
+

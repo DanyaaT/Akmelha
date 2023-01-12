@@ -37,7 +37,7 @@ class User: Codable, Identifiable{
         self.userPassword = userPassword
         self.userName = userName
         self.userType = userType
-        self.studentCourses = [""]
+        self.studentCourses = []
      
        
     }

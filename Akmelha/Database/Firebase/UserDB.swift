@@ -66,16 +66,34 @@ class UserDB: ObservableObject {
     
     
     
-    func changeUserName( _ userId :String, userName: String){
+ 
+    func changeUserName( _ user :User){
         do {
-           
-            try dbUsers.collection("Users").document(userId).setData(from: ["userName": userName],merge: true)
+            guard let id = user.id else {return}
+            try dbUsers.collection("Users").document(id).setData(from: ["userName": user.userName],merge: true)
         } catch {
             print("Unable to encode task: \(error.localizedDescription)")
         }
         
         
     }
+    
+    
+    
+    
+    func changeUserImage( _ user :User){
+        do {
+            guard let id = user.id else {return}
+                try dbUsers.collection("Users").document(id).setData(from: ["studentImage": user.studentImage],merge: true)
+            
+        } catch {
+                print("Unable to encode task: \(error.localizedDescription)")
+            }
+        
+        
+    }
+    
+    
     
     func changeStudentCredit( _ user :User){
         do {

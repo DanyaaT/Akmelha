@@ -11,6 +11,7 @@ import SwiftUI
 
 
 struct StudentTaskView: View {
+    var user: User
     @State var selectedSection = "الكل"
     @State var pickerColor = "pink"
     
@@ -26,8 +27,8 @@ struct StudentTaskView: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:test_slider()) {
-                            Image("teacherProfile")
+                        NavigationLink(destination:StudentProfile(user: user)) {
+                            Image(user.studentImage ?? "teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
                                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
@@ -51,7 +52,7 @@ struct StudentTaskView: View {
                                 .scaledToFit()
                                 .frame(width: 80,height: 70 )
                                 .padding([.top, .trailing], -25.0)
-                            Text("٢٠")
+                            Text("\(user.studentCredit ?? 0)")
                                 .padding(.leading, 28)
                             
                         }// zstack
@@ -88,10 +89,10 @@ struct StudentTaskView: View {
     }
     
 }
-struct StudentTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudentTaskView()
-            .environment(\.layoutDirection,.rightToLeft)
-
-    }
-}
+//struct StudentTaskView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudentTaskView()
+//            .environment(\.layoutDirection,.rightToLeft)
+//
+//    }
+//}

@@ -10,6 +10,7 @@ import Neumorphic
 
 
 struct StudentGameView: View {
+    var user: User
     @State var scores = "   20"
 
     var body: some View {
@@ -46,7 +47,7 @@ struct StudentGameView: View {
                             .scaledToFit()
                             .frame(height: 100)
                         .padding([.top, .leading], -25.0)
-                        Text(scores)
+                        Text("   \(user.studentCredit ?? 0)")
                     }
                     
                     
@@ -134,10 +135,10 @@ struct StudentGameView: View {
     }
 }
 
-struct StudentGameView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudentGameView().environment(\.layoutDirection,.rightToLeft)
-    }
-}
+//struct StudentGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StudentGameView().environment(\.layoutDirection,.rightToLeft)
+//    }
+//}
 
 

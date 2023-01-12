@@ -225,9 +225,9 @@ struct logIN: View {
                     
                 }
             
-                NavigationLink("", destination: StudentTabBar(user: user(id: id ?? "", users: dbUsers.users)), isActive: $goToStudent)
-                 
-                 NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
+//                NavigationLink("", destination: StudentTabBar(user: user(id: id ?? "", users: dbUsers.users)), isActive: $goToStudent)
+//
+//                 NavigationLink("", destination: TeacherTabBar(), isActive: $goToTeacher)
             }
            
         }.toolbar(.hidden)

@@ -55,8 +55,8 @@ struct StudentCourseView: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:TeacherProfile()) {
-                            Image("StudentProfile")
+                        NavigationLink(destination:StudentProfile(user: user)) {
+                            Image(user.studentImage ?? "teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
                                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
@@ -79,9 +79,9 @@ struct StudentCourseView: View {
                 
                 ScrollView {
                     VStack{
-                        ForEach(studentCourses(studentCourses: user.studentCourses, courses: dbCourse.courses).indices, id: \.self) {index in
+                        ForEach(studentCourses(studentCourses: user.studentCourses , courses: dbCourse.courses).indices, id: \.self) {index in
                             
-                            subjectCell(course:studentCourses(studentCourses: user.studentCourses, courses: dbCourse.courses)[index])
+                            subjectCell(course:studentCourses(studentCourses: user.studentCourses , courses: dbCourse.courses)[index])
                         }
                       
                             
@@ -132,7 +132,7 @@ struct StudentCourseView: View {
 
 func studentCourses(studentCourses: [String], courses: [Course]) -> [Course]{
  
-    var array : [Course] = [Course()]
+    var array : [Course] = [Course]()
         for i in studentCourses{
             for j in courses{
                 if i == j.id{
@@ -141,7 +141,7 @@ func studentCourses(studentCourses: [String], courses: [Course]) -> [Course]{
                 }
             }
         
-            array.remove(at: 0)
+           
     }
     return array
 }
