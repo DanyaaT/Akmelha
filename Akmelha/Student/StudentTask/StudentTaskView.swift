@@ -12,6 +12,8 @@ import SwiftUI
 
 struct StudentTaskView: View {
     var user: User
+    var courseTasks : [CourseTask]
+    var studentOwnTasks : [StudentOwnTask]
     @State var selectedSection = "الكل"
     @State var pickerColor = "pink"
     
@@ -72,13 +74,13 @@ struct StudentTaskView: View {
                
                 PickerView(characters: ["الكل", "مكتملة","غير مكتملة"], selectedCharacter: $selectedSection).padding(.horizontal                                                    )
                 if selectedSection == "الكل"{
-                 AllTask()
+                    AllTask(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
                 }
                     if selectedSection == "مكتملة"{
-                 completedTasks()
+                 completedTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
                  }
                     if selectedSection == "غير مكتملة"{
-                IncompleteTasks()
+                IncompleteTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
               }
                 
               

@@ -11,22 +11,25 @@ import FirebaseFirestoreSwift
 
 class CourseTask: Codable, Identifiable{
     @DocumentID var id : String?
-    static var counter: Int = 0
-    
     var taskName: String?
     var taskDesc: String?
     var taskCourse: String?
     var taskDeadline: Date?
     var taskScore: Int?
+    var iscompleted: Bool?
+    var taskStudent: String?
     
-    init( taskName: String? = "", taskDesc: String? = "", taskCourse: String? = "", taskDeadline: Date? = Date(), taskScore: Int? = 10) {
+    init( taskName: String? = "", taskDesc: String? = "", taskCourse: String? = "", taskDeadline: Date? = Date(), taskScore: Int? = 10, iscompleted: Bool? = false,taskStudent: String? = "") {
         self.taskName = taskName
         self.taskDesc = taskDesc
         self.taskCourse = taskCourse
         self.taskDeadline = taskDeadline
         self.taskScore = taskScore
- 
+        self.iscompleted = iscompleted
+        self.taskStudent = taskStudent
      
         
     }
 }
+
+

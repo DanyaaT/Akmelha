@@ -34,7 +34,7 @@ struct TeacherTasks: View{
                         }) {
                             ZStack{
                                 Rectangle().frame(width:60 , height:60).cornerRadius(23).foregroundColor(Color("green"))
-                                Image(systemName: "plus").font(.largeTitle).foregroundColor(.white)
+                                Image(systemName: "plus").font(.title).foregroundColor(.white)
                             }
                                 
                         }
@@ -105,7 +105,14 @@ struct AddTeacherTask: View{
                     Spacer()
                     
                     Button {
-                        dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore ))
+                        if !(course.coureseStudents?.isEmpty ?? true){
+                            for student in course.coureseStudents ?? []{
+                                dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student ))}
+                            
+                        }else{
+                            dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: "" ))
+                            
+                        }
                         showAddTaskSheet = false
                         
                     } label: {
@@ -172,7 +179,7 @@ struct TeacherTaskCell: View{
                     HStack{
                         Text(course.courseName ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course.courseColor ?? "pink")))
                         Spacer()
-                        Text(task.taskDeadline ?? Date(), style: .date).foregroundColor(.gray)
+                        Text(getTaskDate(date:task.taskDeadline ?? Date())).foregroundColor(.gray)
                     }
                     HStack{
                         Text(task.taskName ?? "").font(.title3).foregroundColor(.black)
@@ -305,3 +312,15 @@ struct TaecherTaskCard: View{
         }
     }
 }
+
+func getTaskDate(date: Date)-> String{
+    let date = date
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "EE, dd/MM"
+    print("date \(dateFormatter.string(from: date))")
+   
+       let weekDay = dateFormatter.string(from: date)
+       return weekDay
+    }
+    
+

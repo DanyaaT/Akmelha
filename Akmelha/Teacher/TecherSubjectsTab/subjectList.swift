@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct subjectList: View {
+    var user: User
     let course: Course
     var body: some View {
 
                 ZStack{
-                    NavigationLink(destination:InsideTeacherSubject(course: course)) {
+                    NavigationLink(destination:InsideTeacherSubject(user: user,course: course)) {
                                     Rectangle()
                             .foregroundColor(Color(course.courseColor ?? ""))
                             .cornerRadius(50)

@@ -49,6 +49,18 @@ class CourseTaskDB: ObservableObject {
 
     }
     
+    func changeCourseTaskStatus( _ courseTask :CourseTask){
+        do {
+            guard let id = courseTask.id else {return}
+            try dbCourseTasks.collection("CourseTasks").document(id).setData(from: ["iscompleted": courseTask.iscompleted],merge: true)
+        } catch {
+            print("Unable to encode task: \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
+    
     
     
     

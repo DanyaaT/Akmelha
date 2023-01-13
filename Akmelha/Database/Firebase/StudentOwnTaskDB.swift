@@ -60,6 +60,20 @@ class StudentOwnTaskDB: ObservableObject {
 
     }
 
+    
+    func changeTaskStatus( _ studentOwnTask :StudentOwnTask){
+        do {
+            guard let id = studentOwnTask.id else {return}
+            try dbStudentOwnTasks.collection("StudentOwnTasks").document(id).setData(from: ["iscompleted": studentOwnTask.iscompleted],merge: true)
+        } catch {
+            print("Unable to encode task: \(error.localizedDescription)")
+        }
+        
+        
+    }
+    
+    
+    
     func deleteStudentOwnTasks(_ courseTask :StudentOwnTask) {
         guard let id = courseTask.id else {return}
         var _  = dbStudentOwnTasks.collection("StudentOwnTasks").document(id).delete() { err in

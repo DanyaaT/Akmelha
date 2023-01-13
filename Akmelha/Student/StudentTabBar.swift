@@ -16,15 +16,17 @@ enum StudentTabs: String{
 
 struct StudentTabBar: View {
     var user: User
+    @EnvironmentObject var dbCourseTasks: CourseTaskDB
+    @EnvironmentObject var dbStudentOwnTasks: StudentOwnTaskDB
     @State var selectedTab : StudentTabs = .المهام
-        
+   
     var body: some View {
    
         NavigationView{
 
             TabView(selection: $selectedTab){
                 
-                StudentTaskView(user: user)
+                StudentTaskView(user: user, courseTasks: studentOwnCourseTasks(), studentOwnTasks: studentOwnStudentTasks())
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.portrait")
                         Text("المهام")
@@ -53,6 +55,10 @@ struct StudentTabBar: View {
                     }.tag(StudentTabs.الألعاب)
                 
             }
+                
+               
+                
+            
            
             
             .navigationTitle(selectedTab.rawValue)
@@ -66,7 +72,29 @@ struct StudentTabBar: View {
             
 
     }
+    func studentOwnCourseTasks() -> [CourseTask]{
+        var courseTasks = [CourseTask]()
+        for task in dbCourseTasks.tasks{
+            if task.taskStudent == user.id{
+                courseTasks.append(task)
+            }
+        }
+       return courseTasks
+    }
+    
+    func studentOwnStudentTasks() -> [StudentOwnTask]{
+        var studentTask = [StudentOwnTask]()
+        for task in dbStudentOwnTasks.tasks{
+            if task.student == user.id{
+                studentTask.append(task)
+            }
+        }
+       return studentTask
+    }
+    
 }
+
+
 
 
 //struct StudentTabBar_Previews: PreviewProvider {

@@ -15,14 +15,15 @@ class StudentOwnTask: Codable, Identifiable{
     var taskName: String?
     var taskDesc: String?
     var taskScore: Int?
-    var iscomleted: Bool?
+    var iscompleted: Bool?
+    var student: String?
     
-    init( taskName: String? = "", taskDesc: String? = "", taskScore: Int? = 5, iscomleted: Bool? = false) {
+    init( taskName: String? = "", taskDesc: String? = "", taskScore: Int? = 5, iscompleted: Bool? = false, student: String? = "") {
         self.taskName = taskName
         self.taskDesc = taskDesc
         self.taskScore = taskScore
-        self.iscomleted = iscomleted
- 
+        self.iscompleted = iscompleted
+        self.student = student
      
         
     }

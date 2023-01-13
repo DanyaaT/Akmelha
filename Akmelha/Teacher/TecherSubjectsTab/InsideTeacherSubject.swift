@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct InsideTeacherSubject: View {
+    var user: User
     let course : Course
     @State var selectedSection = "المهام"
     @State var pickerColor = "pink"
@@ -32,7 +33,7 @@ struct InsideTeacherSubject: View {
                 TeacherReviews(course: course)
              }
                 if selectedSection == "عن المادة"{
-                    AboutTeacherSubject(subjectDesc: course.courseDesc ?? "", course : course)
+                    AboutTeacherSubject(user: user, subjectDesc: course.courseDesc ?? "", course : course)
           }
                 
             }.padding()

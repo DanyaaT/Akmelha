@@ -81,7 +81,7 @@ struct TeacherSubjects: View {
                         let id = Auth.auth().currentUser?.uid
                         ForEach(dbCourse.courses.indices, id: \.self) {index in
                             if ( dbCourse.courses[index].courseTeacher == id ){
-                                subjectList(course : dbCourse.courses[index])
+                                subjectList(user:user,course : dbCourse.courses[index])
                             }
                         }
                         

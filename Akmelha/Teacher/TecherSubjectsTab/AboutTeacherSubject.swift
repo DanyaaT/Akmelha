@@ -12,6 +12,7 @@ import FirebaseAuth
 
 
 struct AboutTeacherSubject: View {
+    var user: User
     @EnvironmentObject var dbUsers: UserDB
     @State private var showDeleteAlert = false
     @State var subjectDesc =  ""
@@ -45,7 +46,7 @@ struct AboutTeacherSubject: View {
                 Text("معلم المادة")
                 Rectangle().frame(height: 1).foregroundColor(.gray)
             }.padding(.vertical)
-            Text(userName(id:id ?? "" ,users:dbUsers.users)).padding(.vertical)
+            Text(user.userName ?? "").padding(.vertical)
             HStack(spacing: 2){
                 Text("الرقم التعريفي")
                 Rectangle().frame(height: 1).foregroundColor(.gray)
