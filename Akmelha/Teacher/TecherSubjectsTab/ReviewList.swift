@@ -22,7 +22,7 @@ struct ReviewtList: View {
                         Circle()
                             .frame(width: 30, height: 20)
                             .foregroundColor(Color(course.courseColor ?? ""))
-                        Text(review.reviewDate ?? Date(), style: .date).font(.system(size: 15)).foregroundColor(.gray)
+                        Text((getTaskDate(date:review.reviewDate ?? Date()))).font(.system(size: 15)).foregroundColor(.gray)
                     }
                     Spacer()
                     Button(action: {showDeleteAlert = true}){

@@ -335,7 +335,7 @@ func getTaskDate(date: Date)-> String{
     let date = date
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "EE، dd/MM"
-    print("date \(dateFormatter.string(from: date))")
+  
    
        let weekDay = dateFormatter.string(from: date)
        return weekDay
