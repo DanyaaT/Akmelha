@@ -18,8 +18,9 @@ class CourseTask: Codable, Identifiable{
     var taskScore: Int?
     var iscompleted: Bool?
     var taskStudent: String?
+    var taskNumber: Int?
     
-    init( taskName: String? = "", taskDesc: String? = "", taskCourse: String? = "", taskDeadline: Date? = Date(), taskScore: Int? = 10, iscompleted: Bool? = false,taskStudent: String? = "") {
+    init( taskName: String? = "", taskDesc: String? = "", taskCourse: String? = "", taskDeadline: Date? = Date(), taskScore: Int? = 10, iscompleted: Bool? = false,taskStudent: String? = "", taskNumber: Int? = 0) {
         self.taskName = taskName
         self.taskDesc = taskDesc
         self.taskCourse = taskCourse
@@ -27,7 +28,7 @@ class CourseTask: Codable, Identifiable{
         self.taskScore = taskScore
         self.iscompleted = iscompleted
         self.taskStudent = taskStudent
-     
+        self.taskNumber = taskNumber
         
     }
 }

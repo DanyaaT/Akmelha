@@ -20,10 +20,11 @@ struct TeacherTasks: View{
                         
                         ScrollView {
                             VStack{
-                                ForEach(dbCourseTasks.tasks.indices, id: \.self) {index in
-                                    if(dbCourseTasks.tasks[index].taskCourse == course.id){
-                                        TeacherTaskCell(task : dbCourseTasks.tasks[index], course:course)
-                                    }
+                                ForEach(TeacherOwnTask().indices, id: \.self) {index in
+                                    
+                                    
+                                        TeacherTaskCell(task : TeacherOwnTask()[index], course:course)
+                                    
                                 }
                                 
                             }
@@ -49,6 +50,21 @@ struct TeacherTasks: View{
             
         }
     }
+    
+    func TeacherOwnTask() -> [CourseTask]{
+        var courseTasks = [CourseTask]()
+        var taskNumber = 0
+        for task in dbCourseTasks.tasks{
+            if taskNumber != task.taskNumber{
+                taskNumber = task.taskNumber ?? 0
+                if task.taskCourse == course.id{
+                    courseTasks.append(task)
+                }
+            }
+        }
+        return courseTasks
+    }
+    
 }
 
 
@@ -65,6 +81,7 @@ struct TeacherTasks: View{
 
 struct AddTeacherTask: View{
     @EnvironmentObject var dbCourseTasks: CourseTaskDB
+    @EnvironmentObject var dbRandomId: RandomIdGenerator
     var course: Course
     @Binding var showAddTaskSheet: Bool
     @State var taskName = ""
@@ -107,12 +124,13 @@ struct AddTeacherTask: View{
                     Button {
                         if !(course.coureseStudents?.isEmpty ?? true){
                             for student in course.coureseStudents ?? []{
-                                dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student ))}
+                                dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student, taskNumber: dbRandomId.randomIds[0].number  ))}
                             
                         }else{
                             dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: "" ))
                             
                         }
+                        dbRandomId.incrementCounter()
                         showAddTaskSheet = false
                         
                     } label: {
@@ -161,8 +179,9 @@ struct AddTeacherTask: View{
 
 
 struct TeacherTaskCell: View{
+    
     @EnvironmentObject var dbCourseTasks: CourseTaskDB
-   
+
     var task: CourseTask
    
     var course: Course
@@ -187,7 +206,7 @@ struct TeacherTaskCell: View{
                     }
                     VStack(alignment:.trailing){
                         Text("أكمل المهمة").font(.caption).foregroundColor(.black)
-                        ProgressView(value: 50.0, total: 100).progressViewStyle(LinearProgressViewStyle(tint: .green))
+                        ProgressView(value: taskProgress(courseTask: task, tasks: dbCourseTasks.tasks), total: 100).progressViewStyle(LinearProgressViewStyle(tint: .green))
                         
                     }
                 }.padding(.all)
@@ -269,8 +288,7 @@ struct TaecherTaskCard: View{
             }
             
             
-            
-            
+      
             .scrollContentBackground(.hidden)
             .background(Color("sheet"))
             .tint(Color("green"))
@@ -316,7 +334,7 @@ struct TaecherTaskCard: View{
 func getTaskDate(date: Date)-> String{
     let date = date
     let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "EE, dd/MM"
+    dateFormatter.dateFormat = "EE، dd/MM"
     print("date \(dateFormatter.string(from: date))")
    
        let weekDay = dateFormatter.string(from: date)
@@ -324,3 +342,18 @@ func getTaskDate(date: Date)-> String{
     }
     
 
+func taskProgress(courseTask: CourseTask, tasks:[CourseTask]) -> Double{
+    var allCount = 0.0
+    var completedCount = 0.0
+        for task in tasks {
+            if task.taskNumber == courseTask.taskNumber{
+                allCount = allCount + 1
+                if task.iscompleted == true{
+                    completedCount = completedCount + 1
+                }
+                
+            }
+        }
+    
+    return (completedCount/allCount) * 100
+}

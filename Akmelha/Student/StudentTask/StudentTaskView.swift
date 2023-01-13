@@ -32,6 +32,7 @@ struct StudentTaskView: View {
                         NavigationLink(destination:StudentProfile(user: user)) {
                             Image(user.studentImage ?? "teacherProfile")
                                 .resizable()
+                                .cornerRadius(100)
                                 .frame(width: 64, height: 60)
                                 .overlay(Circle().stroke(Color("title"), lineWidth: 2))
                         } //NavigationLink
