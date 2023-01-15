@@ -25,15 +25,15 @@ struct StudentTabBar: View {
         NavigationView{
 
             TabView(selection: $selectedTab){
-                
-                StudentTaskView(user: user, courseTasks: studentOwnCourseTasks(), studentOwnTasks: studentOwnStudentTasks())
+                let cTaskArr = studentOwnCourseTasks()
+                StudentTaskView(user: user, courseTasks: cTaskArr, studentOwnTasks: studentOwnStudentTasks())
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.portrait")
                         Text("المهام")
                         
                     }.tag(StudentTabs.المهام)
                    
-                StudentCourseView(user: user)
+                StudentCourseView(user: user, courseTasks: cTaskArr)
                     .tabItem{
                         Image(systemName: "doc.text.image")
                         Text("المواد")

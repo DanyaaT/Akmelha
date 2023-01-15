@@ -39,6 +39,7 @@ extension View {
 
 struct StudentCourseView: View {
     var user: User
+    var courseTasks : [CourseTask]
     @EnvironmentObject var dbCourse: CourseDB
     @EnvironmentObject var dbUsers: UserDB
     @State private var showSheet = false
@@ -80,9 +81,11 @@ struct StudentCourseView: View {
                 
                 ScrollView {
                     VStack{
-                        ForEach(studentCourses(studentCourses: user.studentCourses , courses: dbCourse.courses).indices, id: \.self) {index in
-                            
-                            subjectCell(course:studentCourses(studentCourses: user.studentCourses , courses: dbCourse.courses)[index])
+                        let studentCourses = studentCourses(studentCourses: user.studentCourses , courses: dbCourse.courses)
+                        ForEach(studentCourses.indices, id: \.self) {index in
+                            NavigationLink(destination: InsideStudentSubject(user: user, course: studentCourses[index], courseTasks: courseTasks)){
+                                subjectCell(course:studentCourses[index])
+                            }
                         }
                       
                             
@@ -245,6 +248,7 @@ struct subjectCell: View {
                     HStack{
                         Text(course.courseName ?? "")
                             .font(.system(size: 25))
+                            .foregroundColor(.black)
                        Text(course.courseLevel ?? "")
                             .foregroundColor(.black)
                             .font(.system(size: 12))

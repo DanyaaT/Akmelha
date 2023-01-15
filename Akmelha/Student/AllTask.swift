@@ -360,7 +360,7 @@ struct StudentTask: View {
     label: {
         ZStack{
             
-            RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 100).background(Color.white).shadow(radius: 0.6)
+            RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
             VStack{
                 Spacer()
                 Spacer()
@@ -382,7 +382,11 @@ struct StudentTask: View {
                                
                             }else{
                                 if var credit = user.studentCredit {
+                                    
                                     credit = credit - (task.taskScore ?? 5)
+                                    if credit < 0 {
+                                        credit = 0
+                                    }
                                     user.studentCredit = credit
                                 }
                                 dbUsers.changeStudentCredit(user)

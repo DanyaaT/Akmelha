@@ -26,6 +26,7 @@
 		07E0992129520C0500BE248A /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E0992029520C0500BE248A /* UserType.swift */; };
 		07F4D5FE295F1A4B00A7B7F1 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */; };
 		1D157DB72970A32E00109A1C /* cardsDetector 1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1D157DB62970A32E00109A1C /* cardsDetector 1.mlmodel */; };
+		1D157DBD297455EC00109A1C /* InsideStudentSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D157DBC297455EC00109A1C /* InsideStudentSubject.swift */; };
 		1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */; };
 		1D33B3B5294575E800D5BD45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B4294575E800D5BD45 /* Assets.xcassets */; };
 		1D33B3B8294575E800D5BD45 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D33B3B7294575E800D5BD45 /* Preview Assets.xcassets */; };
@@ -113,6 +114,7 @@
 		07E0992029520C0500BE248A /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
 		07F4D5FD295F1A4B00A7B7F1 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		1D157DB62970A32E00109A1C /* cardsDetector 1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = "cardsDetector 1.mlmodel"; sourceTree = "<group>"; };
+		1D157DBC297455EC00109A1C /* InsideStudentSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsideStudentSubject.swift; sourceTree = "<group>"; };
 		1D33B3AD294575E500D5BD45 /* Akmelha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Akmelha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D33B3B0294575E500D5BD45 /* AkmelhaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AkmelhaApp.swift; sourceTree = "<group>"; };
 		1D33B3B4294575E800D5BD45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				5B05D71A2950E6DC004BE379 /* StudentCourseView.swift */,
+				1D157DBC297455EC00109A1C /* InsideStudentSubject.swift */,
 			);
 			path = StudentCourse;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				5B23A6CB295B8D1B00BD599E /* StudentOwnTaskDB.swift in Sources */,
 				1D33B3C9294576D500D5BD45 /* InsideTeacherSubject.swift in Sources */,
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
+				1D157DBD297455EC00109A1C /* InsideStudentSubject.swift in Sources */,
 				07243B0F296DFFF200F66F0E /* ImageOverlayViewController.swift in Sources */,
 				5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */,
 				5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */,

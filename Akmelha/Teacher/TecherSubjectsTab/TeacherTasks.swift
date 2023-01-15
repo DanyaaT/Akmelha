@@ -53,15 +53,14 @@ struct TeacherTasks: View{
     
     func TeacherOwnTask() -> [CourseTask]{
         var courseTasks = [CourseTask]()
-        var taskNumber = 0
+       
         for task in dbCourseTasks.tasks{
-            if taskNumber != task.taskNumber{
-                taskNumber = task.taskNumber ?? 0
-                if task.taskCourse == course.id{
+             
+            if task.taskCourse == course.id && task.taskStudent == "" {
                     courseTasks.append(task)
                 }
             }
-        }
+        
         return courseTasks
     }
     
@@ -122,14 +121,16 @@ struct AddTeacherTask: View{
                     Spacer()
                     
                     Button {
-                        if !(course.coureseStudents?.isEmpty ?? true){
+                 
                             for student in course.coureseStudents ?? []{
-                                dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student, taskNumber: dbRandomId.randomIds[0].number  ))}
+                                dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student, taskNumber: dbRandomId.randomIds[0].number  ))
+                                
+                            }
                             
-                        }else{
-                            dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: "" ))
+                        
+                            dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: "" , taskNumber: dbRandomId.randomIds[0].number ))
                             
-                        }
+                        
                         dbRandomId.incrementCounter()
                         showAddTaskSheet = false
                         
@@ -346,7 +347,7 @@ func taskProgress(courseTask: CourseTask, tasks:[CourseTask]) -> Double{
     var allCount = 0.0
     var completedCount = 0.0
         for task in tasks {
-            if task.taskNumber == courseTask.taskNumber{
+            if task.taskNumber == courseTask.taskNumber && task.taskStudent != ""{
                 allCount = allCount + 1
                 if task.iscompleted == true{
                     completedCount = completedCount + 1
