@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-
+import FirebaseAuth
 struct DaysEventsListView: View {
 
     @Binding var dateSelected: DateComponents?
@@ -21,9 +21,12 @@ struct DaysEventsListView: View {
                     let foundEvents = dbEvent.events
                         .filter {$0.eventDate.startOfDay == dateSelected.date!.startOfDay}
                     VStack{
-                        ForEach(foundEvents) { event in
-                            EventList(event: event)
-                        }.environment(\.layoutDirection,.rightToLeft)
+                        let id = Auth.auth().currentUser?.uid
+                        ForEach(dbEvent.events.indices, id: \.self) {index in
+                            if ( dbEvent.events[index].courseTeacher == id ){
+                                EventList(event : dbEvent.events[index])
+                            }
+                        } .environment(\.layoutDirection,.rightToLeft)
                         }
                        
                 }

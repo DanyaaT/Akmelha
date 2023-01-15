@@ -11,11 +11,12 @@ import FirebaseCore
 import FirebaseAuth
 
 struct TeacherCalendar: View {
-    var user: User
+    
     @State var dateSelected: DateComponents?
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
     @State private var displayEvents = false
+    var user:User
     var body: some View {
         
         ZStack{
@@ -30,7 +31,7 @@ struct TeacherCalendar: View {
                         .frame(height:99)
                     Spacer()
                     HStack{
-                        NavigationLink(destination:TeacherProfile(user: user)) {
+                        NavigationLink(destination:TeacherProfile(user:user)) {
                             Image("teacherProfile")
                                 .resizable()
                                 .frame(width: 64, height: 60)
@@ -89,8 +90,11 @@ struct TeacherCalendar: View {
                     //  EventList(event: event)
                     
                     
+                    let id = Auth.auth().currentUser?.uid
                     ForEach(dbEvent.events.indices, id: \.self) {index in
-                        EventList(event : dbEvent.events[index])
+                        if ( dbEvent.events[index].courseTeacher == id ){
+                            EventList(event : dbEvent.events[index])
+                        }
                     }
                     .environment(\.layoutDirection, .rightToLeft)
                     
@@ -104,33 +108,11 @@ struct TeacherCalendar: View {
                 }//scrollView
             }//Vstack
         }//Zstack
-        .toolbar(.hidden)
     }
     
     
     
-//    struct TeacherCalendar_Previews: PreviewProvider {
-//        static var dateComponents: DateComponents {
-//            
-//            var dateComponents = Calendar.current.dateComponents(
-//                [.month,
-//                 .day,
-//                 .year,
-//                 .hour,
-//                 .minute],
-//                from: Date())
-//            dateComponents.timeZone = TimeZone.current
-//            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
-//            return dateComponents
-//        }
-//        static var previews: some View {
-//            
-//            TeacherCalendar()
-//                .environment(\.layoutDirection, .leftToRight)
-//            
-//            
-//        }
-//    }
+
     struct EventFormView: View {
         @Binding var showAddEventSheet: Bool
         @Environment(\.dismiss) var dismiss
@@ -146,6 +128,7 @@ struct TeacherCalendar: View {
         @State var showButtom: Bool
         @EnvironmentObject var dbCourse: CourseDB
         @EnvironmentObject var dbEvent: EventDB
+        let id = Auth.auth().currentUser?.uid
         
         var body: some View {
             NavigationStack {
@@ -204,7 +187,7 @@ struct TeacherCalendar: View {
                                 Button {
                                     // create new event
                                    // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
-                                        dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection ))
+                                        dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ))
                                        // showButtom = true
                                     //}else{
                                        // showButtom = false

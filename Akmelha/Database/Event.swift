@@ -16,6 +16,7 @@ class Event: Codable, Identifiable{
     var eventDesc: String?
     var eventCourse: String?
     var eventSection: String?
+    var courseTeacher: String?
     
     var dateComponents: DateComponents {
         var dateComponents = Calendar.current.dateComponents(
@@ -31,11 +32,12 @@ class Event: Codable, Identifiable{
     }
 
    
-    init(eventName: String? = "", eventDate: Date = Date(), eventDesc: String? = "", eventCourse: String? = "",eventSection: String? = "") {
+    init(eventName: String? = "", eventDate: Date = Date(), eventDesc: String? = "", eventCourse: String? = "",eventSection: String? = "",courseTeacher: String? = "") {
         self.eventName = eventName
         self.eventDate = eventDate
         self.eventDesc = eventDesc
         self.eventCourse = eventCourse
         self.eventSection = eventSection
+        self.courseTeacher = courseTeacher
     }
 }
