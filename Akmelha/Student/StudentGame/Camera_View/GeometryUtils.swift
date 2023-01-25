@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
+
 var cardsName = ""
+// var user: User
+//@EnvironmentObject var dbUsers: UserDB?
+
+
 class GeometryUtils {
     static func boundingBox(forRecognizedRect: CGRect, imageFrame: CGRect) -> CGRect {
         var rect = forRecognizedRect
@@ -72,6 +77,7 @@ class GeometryUtils {
         return cardsName
     }
     
+    
     static func addScore() {
         
             print("inside add score: ",cardsName)
@@ -80,19 +86,27 @@ class GeometryUtils {
                
                             if cardsName == "blue"{
                                 print(cardsName)
+//                                var credit = user.studentCredit
+//                                credit = credit!+20
                             }
         
                             else if cardsName == "orange"{
                                 print(cardsName)
+//                                var credit = user.studentCredit
+//                                credit = credit+10
                             }
         
                             else if cardsName == "purple"{
                                 print("inside purple",cardsName)
+//                                var credit = user.studentCredit
+//                                credit = credit!+15
                                 
                             }
         
                             else if cardsName == "yellow"{
                                 print(cardsName)
+//                                var credit = user.studentCredit
+//                                credit = credit!+30
                             }
                             else{
                                 print("No object detected")
