@@ -58,6 +58,9 @@ class LiveCameraViewController: UIViewController {
     private var queue:DispatchQueue
     private var session:AVCaptureSession?
     private var videoSize:CGSize = .zero
+    public var cardsName = ""
+
+    
     
     /// Configure the preview layer
     /// the layer is added to the cameraView
@@ -115,6 +118,14 @@ class LiveCameraViewController: UIViewController {
     }
     
     
+    public func getCardName(_ objects:[RecognizedObject]) {
+
+        self.cardsName = GeometryUtils.cardName(forRecognizedObjects: objects)
+//        print(self.cardsName)
+//        print("inside the controller")
+                                        
+    }
+    
 }
 
 extension LiveCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -145,6 +156,7 @@ extension LiveCameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate
         objectRecognizer.recognize(fromPixelBuffer: pixelBuffer) { [weak self] objects in
             DispatchQueue.main.async {
                 self?.drawRecognizedObjects(objects)
+                self?.getCardName(objects)
                 self?.isRecognizing = false
             }
         }

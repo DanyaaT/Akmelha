@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+var cardsName = ""
 class GeometryUtils {
     static func boundingBox(forRecognizedRect: CGRect, imageFrame: CGRect) -> CGRect {
         var rect = forRecognizedRect
@@ -47,10 +48,7 @@ class GeometryUtils {
             let layer = GeometryUtils.createRectLayerWithBounds(rect, color: color)
 
             let textLayer = GeometryUtils.createTextLayerWithBounds(layer.bounds,text: object.label)
-//            if textLayer== "blue"{
-//                scores+=10
-//            }
-            
+
             // شلت اسم البطاقة من الكاميرا
 //            layer.addSublayer(textLayer)
             objectsLayer.addSublayer(layer)
@@ -58,6 +56,54 @@ class GeometryUtils {
         
         return objectsLayer
     }
+    
+    static func cardName(forRecognizedObjects objects:[RecognizedObject]) -> String {
+//        let objectsLayer = CALayer()
+//        objectsLayer.frame = frame
+                
+        for object in objects {
+             cardsName = object.label
+            print("inside geo")
+            print(cardsName)
+            
+            
+        }
+        
+        return cardsName
+    }
+    
+    static func addScore() {
+        
+            print("inside add score: ",cardsName)
+            print(cardsName)
+        print("")
+               
+                            if cardsName == "blue"{
+                                print(cardsName)
+                            }
+        
+                            else if cardsName == "orange"{
+                                print(cardsName)
+                            }
+        
+                            else if cardsName == "purple"{
+                                print("inside purple",cardsName)
+                                
+                            }
+        
+                            else if cardsName == "yellow"{
+                                print(cardsName)
+                            }
+                            else{
+                                print("No object detected")
+                            }
+        
+        
+            
+            
+        }
+        
+    
     
     static func createTextLayerWithBounds(_ bounds: CGRect, text: String) -> CATextLayer {
         let textLayer = CATextLayer()
