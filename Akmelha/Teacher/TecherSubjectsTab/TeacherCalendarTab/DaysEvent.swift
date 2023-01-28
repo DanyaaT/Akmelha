@@ -22,9 +22,9 @@ struct DaysEventsListView: View {
                         .filter {$0.eventDate.startOfDay == dateSelected.date!.startOfDay}
                     VStack{
                         let id = Auth.auth().currentUser?.uid
-                        ForEach(dbEvent.events.indices, id: \.self) {index in
-                            if ( dbEvent.events[index].courseTeacher == id ){
-                                EventList(event : dbEvent.events[index])
+                        ForEach(foundEvents.indices, id: \.self) {index in
+                            if ( foundEvents[index].courseTeacher == id){
+                                EventList(event : foundEvents[index])
                             }
                         } .environment(\.layoutDirection,.rightToLeft)
                         }

@@ -30,7 +30,6 @@ struct CalendarView: UIViewRepresentable {
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
 
-
     }
     
     class Coordinator: NSObject, UICalendarSelectionSingleDateDelegate {

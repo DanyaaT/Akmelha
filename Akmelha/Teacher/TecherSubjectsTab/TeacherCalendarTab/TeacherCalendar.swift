@@ -109,6 +109,28 @@ struct TeacherCalendar: View {
             }//Vstack
         }//Zstack
     }
+   /* struct TeacherCalendar_Previews: PreviewProvider {
+        static var dateComponents: DateComponents {
+            
+            var dateComponents = Calendar.current.dateComponents(
+                [.month,
+                 .day,
+                 .year,
+                 .hour,
+                 .minute],
+                from: Date())
+            dateComponents.timeZone = TimeZone.current
+            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
+            return dateComponents
+        }
+        static var previews: some View {
+            
+            TeacherCalendar()
+                .environment(\.layoutDirection, .leftToRight)
+            
+            
+        }
+    }*/
     
     
     
