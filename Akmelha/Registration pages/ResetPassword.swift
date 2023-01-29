@@ -15,11 +15,10 @@ import FirebaseAuth
 struct ResetPassword: View {
     @State var email: String = ""
     @State var Message: String = ""
-
     @State var emailIsValid: Bool = true
-
+    @EnvironmentObject var viewModel: AppViewModel
+    @EnvironmentObject var dbUsers: UserDB
     
-
     public init(email: String = "")
 
     {
@@ -148,7 +147,10 @@ struct ResetPassword: View {
                         HStack{
                             
                             Button("إرسال") {
-                                resetPassword()        }
+                                resetPassword()
+                                print(email)
+                                
+                            }
                             .foregroundColor(Color.gray)
                             .frame(width: 150, height: 50)
                             .background(Color("pickerBG"))
