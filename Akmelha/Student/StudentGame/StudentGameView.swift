@@ -10,9 +10,11 @@ import Neumorphic
 
 
 struct StudentGameView: View {
+    @EnvironmentObject var dbUsers: UserDB
     var user: User
-    @State var scores = "   20"
 
+    @State var scores = "   20"
+    @State var medal = ""
     var body: some View {
     
             ZStack{
@@ -42,12 +44,12 @@ struct StudentGameView: View {
                     .toolbar(.hidden) //end overlay
                     
                     ZStack {
-                        Image("medal")
+                        Image(medalType())
                             .resizable()
                             .scaledToFit()
                             .frame(height: 100)
-                        .padding([.top, .leading], -25.0)
-                        Text("   \(user.studentCredit ?? 0)")
+                        .padding(.top, -25.0)
+                        Text("\n\(user.studentCredit ?? 0)")
                     }
                     
                     
@@ -132,6 +134,24 @@ struct StudentGameView: View {
                 }
             
         } // first z
+    }
+    func medalType()-> String {
+        var medal = "bronze"
+        if user.studentCredit ?? 0 >= 601{
+            medal = "bronze"
+            user.studentCredit = 0
+            dbUsers.changeStudentCredit(user)
+            
+        }else if  user.studentCredit ?? 0 >= 499{
+            medal = "gold"
+        
+        }else if  user.studentCredit ?? 0 >= 199{
+            medal = "silver"
+        }else {
+            medal = "bronze"
+        }
+           return medal
+            
     }
 }
 

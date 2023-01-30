@@ -26,6 +26,7 @@ struct StudentTabBar: View {
 
             TabView(selection: $selectedTab){
                 let cTaskArr = studentOwnCourseTasks()
+                
                 StudentTaskView(user: user, courseTasks: cTaskArr, studentOwnTasks: studentOwnStudentTasks())
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.portrait")

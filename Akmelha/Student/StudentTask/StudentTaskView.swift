@@ -11,12 +11,13 @@ import SwiftUI
 
 
 struct StudentTaskView: View {
+    @EnvironmentObject var dbUsers: UserDB
     var user: User
     var courseTasks : [CourseTask]
     var studentOwnTasks : [StudentOwnTask]
     @State var selectedSection = "الكل"
     @State var pickerColor = "pink"
-    
+    @State var medal = ""
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -41,16 +42,16 @@ struct StudentTaskView: View {
                         Spacer()
                         Spacer()
                         Spacer()
-
-                         
-                        Image("bell")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 25,height: 70 )
-                            .padding([.top, .trailing], -40)
-                            .padding(.trailing)
+                        
+                        
+                        //                        Image("bell")
+                        //                            .resizable()
+                        //                            .scaledToFit()
+                        //                            .frame(width: 25,height: 70 )
+                        //                            .padding([.top, .trailing], -40)
+                        //                            .padding(.trailing)
                         ZStack{
-                            Image("medal")
+                            Image(medalType())
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 80,height: 70 )
@@ -71,27 +72,47 @@ struct StudentTaskView: View {
                     }// Vstack
                 }//Zstac
                 
-
-               
+                
+                
                 PickerView(characters: ["الكل", "مكتملة","غير مكتملة"], selectedCharacter: $selectedSection).padding(.horizontal                                                    )
                 if selectedSection == "الكل"{
                     AllTask(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
                 }
-                    if selectedSection == "مكتملة"{
-                 completedTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
-                 }
-                    if selectedSection == "غير مكتملة"{
-                IncompleteTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
-              }
+                if selectedSection == "مكتملة"{
+                    completedTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
+                }
+                if selectedSection == "غير مكتملة"{
+                    IncompleteTasks(user: user, courseTasks: courseTasks, studentOwnTasks: studentOwnTasks)
+                }
                 
-              
-                    
+                
+                
                 
             }.toolbar(.hidden) //end overlay
         }
     }
     
+    func medalType()-> String {
+        var medal = "bronze"
+        if user.studentCredit ?? 0 >= 601{
+            medal = "bronze"
+            user.studentCredit = 0
+            dbUsers.changeStudentCredit(user)
+            
+        }else if  user.studentCredit ?? 0 >= 499{
+            medal = "gold"
+            
+        }else if  user.studentCredit ?? 0 >= 199{
+            medal = "silver"
+        }else {
+            medal = "bronze"
+        }
+        return medal
+        
+    }
+    
 }
+
 //struct StudentTaskView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        StudentTaskView()
