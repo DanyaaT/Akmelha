@@ -125,9 +125,34 @@ struct StudentCourseTasks: View {
 struct StudentTeacherReview: View {
     var user: User
     var course : Course
+    @EnvironmentObject var dbCourseReviews: CourseReviewDB
     var body: some View{
-        VStack{
-            
+        ScrollView{
+            VStack{
+                ForEach(dbCourseReviews.reviews.indices, id: \.self){index in
+                    if dbCourseReviews.reviews[index].reviewStudent == user.id && dbCourseReviews.reviews[index].reviewCourse == course.id{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 90).background(Color.white).shadow(radius: 0.6)
+                            VStack{
+                                
+                                HStack{
+                                    Circle()
+                                        .frame(width: 30, height: 20)
+                                        .foregroundColor(Color(course.courseColor ?? ""))
+                                    Text((getTaskDate(date:dbCourseReviews.reviews[index].reviewDate ?? Date()))).font(.system(size: 15)).foregroundColor(.gray)
+                                    
+                                    Spacer()
+                                }
+                                HStack{
+                                    Text(dbCourseReviews.reviews[index].reviewDesc ?? "").font(.system(size :19)).foregroundColor(.black)
+                                    Spacer()
+                                }
+                                
+                            }.padding()
+                        }
+                    }
+                }
+            }.padding()
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct insideTeacherReviews: View {
-    @State var student = "ريما محمد"
+    var student : User
     @State var selectedSection = "تقييم الطالب"
  
     @State private var showDeleteAlert = false
@@ -19,7 +19,7 @@ struct insideTeacherReviews: View {
                 Color("bg").ignoresSafeArea()
                 VStack{
                     HStack{
-                        Image("girl")
+                        Image(student.studentImage ?? "")
                             .resizable()
                         
                             .overlay(Circle()
@@ -27,18 +27,18 @@ struct insideTeacherReviews: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 65, height: 65)
                             .clipShape(Circle())
-                        Text(" "+student).font(.system(size: 27))
+                        Text(" "+(student.userName ?? "")).font(.system(size: 27))
                         Spacer()
                     }.padding(.leading)
                     
                     PickerView(characters: ["تقييم الطالب","حالة المهام المسندة"], selectedCharacter: $selectedSection, color: course.courseColor ?? "pink").padding(.vertical)
                     Spacer()
                           if selectedSection == "حالة المهام المسندة" {
-                              TaskStatus()
+                              TaskStatus(student: student, course : course)
                               
                           }
                           if selectedSection == "تقييم الطالب"{
-                              StudentReviews(course : course)
+                              StudentReviews(student: student, course : course)
                          
                       }
                 }
@@ -48,7 +48,8 @@ struct insideTeacherReviews: View {
     }
     
 struct StudentReviews: View {
-    @State var student = "ريما محمد"
+    var student : User
+//    @State var student = "ريما محمد"
     @State var selectedSection = "تقييم الطالب"
     @State var pickerColor = "pink"
     @State private var showDeleteAlert = false
@@ -62,7 +63,7 @@ struct StudentReviews: View {
                 VStack{
                     
                     ForEach(dbCourseReviews.reviews.indices, id: \.self) {index in
-                        if(dbCourseReviews.reviews[index].reviewCourse == course.id){
+                        if(dbCourseReviews.reviews[index].reviewCourse == course.id && dbCourseReviews.reviews[index].reviewStudent == student.id){
                             ReviewtList(course:course, review : dbCourseReviews.reviews[index])
                         }
                     }
@@ -103,15 +104,17 @@ struct StudentReviews: View {
         
         .sheet(isPresented: $showAddReviews){
             
-            AddReviewsSheet(showAddReviews: $showAddReviews , course: course).presentationDetents([.fraction(0.4)])
+            AddReviewsSheet(student: student, showAddReviews: $showAddReviews , course: course).presentationDetents([.fraction(0.4)])
             
         }
         
     }
 }
 struct AddReviewsSheet: View {
+    var student : User
     @Binding var showAddReviews : Bool
     @State var review = ""
+//    @State var student = ""
     @EnvironmentObject var dbCourseReviews: CourseReviewDB
     var course : Course
     var body: some View {
@@ -127,7 +130,7 @@ struct AddReviewsSheet: View {
                         Spacer()
                         Button {
                             //action
-                            dbCourseReviews.addCourseReview(CourseReview (reviewDesc:review , reviewCourse: course.id , reviewDate: Date.now))
+                            dbCourseReviews.addCourseReview(CourseReview (reviewDesc:review , reviewCourse: course.id , reviewDate: Date.now, reviewStudent: student.id))
 
                             showAddReviews = false
                             

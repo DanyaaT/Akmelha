@@ -68,7 +68,7 @@ class AppViewModel: ObservableObject{
     
 }
 
-struct SwiftUIView: View {
+struct MainView: View {
     @EnvironmentObject var viewModel: AppViewModel
     @EnvironmentObject var dbUsers: UserDB
     @State var isActiveSignIn : Bool = false

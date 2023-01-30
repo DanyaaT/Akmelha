@@ -16,11 +16,12 @@ class CourseReview: Codable, Identifiable{
     var reviewDesc: String?
     var reviewCourse: String?
     var reviewDate: Date?
+    var reviewStudent: String?
     
-    init( reviewDesc: String? = "", reviewCourse: String? = "", reviewDate: Date? = Date()) {
+    init( reviewDesc: String? = "", reviewCourse: String? = "", reviewDate: Date? = Date(), reviewStudent: String? = "") {
         self.reviewDesc = reviewDesc
         self.reviewCourse = reviewCourse
         self.reviewDate = reviewDate
-        
+        self.reviewStudent = reviewStudent
     }
 }

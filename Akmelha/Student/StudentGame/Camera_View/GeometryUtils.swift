@@ -16,6 +16,8 @@ var cardsName = ""
 
 
 class GeometryUtils {
+   
+    
     static func boundingBox(forRecognizedRect: CGRect, imageFrame: CGRect) -> CGRect {
         var rect = forRecognizedRect
         
@@ -78,7 +80,9 @@ class GeometryUtils {
     }
     
     
-    static func addScore() {
+    static func addScore() -> String{
+        
+ 
         
             print("inside add score: ",cardsName)
             print(cardsName)
@@ -86,6 +90,7 @@ class GeometryUtils {
                
                             if cardsName == "blue"{
                                 print(cardsName)
+                                
 //                                var credit = user.studentCredit
 //                                credit = credit!+20
                             }
@@ -113,7 +118,7 @@ class GeometryUtils {
                             }
         
         
-            
+            return cardsName
             
         }
         

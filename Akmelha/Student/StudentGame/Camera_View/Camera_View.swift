@@ -3,7 +3,9 @@
 import SwiftUI
 
 struct Camera_View: View {
-   
+    var user: User
+    @EnvironmentObject var dbUsers: UserDB
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color("bg").ignoresSafeArea()
@@ -46,7 +48,54 @@ struct Camera_View: View {
                     
                     Button{
                         
-                        GeometryUtils.addScore()
+                       let cardName = GeometryUtils.addScore()
+                        
+                        if cardsName == "blue"{
+                            if var credit = user.studentCredit {
+                                credit = credit + 20
+                                user.studentCredit = credit
+                            }
+                           
+                            dbUsers.changeStudentCredit(user)
+                            dismiss()
+                            
+
+                        }
+    
+                        else if cardsName == "orange"{
+                      
+                            if var credit = user.studentCredit {
+                                credit = credit + 10
+                                user.studentCredit = credit
+                            }
+                           
+                            dbUsers.changeStudentCredit(user)
+                            dismiss()
+                        }
+    
+                        else if cardsName == "purple"{
+                            if var credit = user.studentCredit {
+                                credit = credit + 15
+                                user.studentCredit = credit
+                            }
+                           
+                            dbUsers.changeStudentCredit(user)
+                            dismiss()
+                            
+                        }
+    
+                        else if cardsName == "yellow"{
+                            if var credit = user.studentCredit {
+                                credit = credit + 30
+                                user.studentCredit = credit
+                            }
+                           
+                            dbUsers.changeStudentCredit(user)
+                            dismiss()
+                            
+                        }
+                       
+                        
                         
                     } label: {
                         HStack{
@@ -70,11 +119,11 @@ struct Camera_View: View {
     
     
     
-    struct Camera_View_Previews: PreviewProvider {
-        static var previews: some View {
-            Camera_View().environment(\.layoutDirection,.rightToLeft)
-        }
-    }
+//    struct Camera_View_Previews: PreviewProvider {
+//        static var previews: some View {
+//            Camera_View().environment(\.layoutDirection,.rightToLeft)
+//        }
+//    }
     
     
     
