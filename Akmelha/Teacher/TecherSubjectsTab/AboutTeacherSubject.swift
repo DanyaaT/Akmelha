@@ -19,6 +19,7 @@ struct AboutTeacherSubject: View {
     @State var edit = false
     var course : Course
     @EnvironmentObject var dbCourse: CourseDB
+    @EnvironmentObject var dbEvent: EventDB
     @Environment(\.dismiss) var dismiss
     let id = Auth.auth().currentUser?.uid
     
@@ -77,6 +78,12 @@ struct AboutTeacherSubject: View {
                         title: Text("حذف المادة؟"),
                         message: Text(""),
                         primaryButton: .destructive(Text("حذف"), action: {
+                            
+                            for event in dbEvent.events {
+                                if (event.eventCourse == course.id){
+                                    dbEvent.deleteEvent(event)
+                                }
+                            }
                             dbCourse.deleteCourse(course)
                             dismiss()
                         }),
