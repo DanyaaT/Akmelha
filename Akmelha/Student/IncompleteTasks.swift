@@ -36,7 +36,7 @@ struct IncompleteTasks: View {
             
                 ForEach(courseTasks.indices, id: \.self){index in
                     if !(courseTasks[index].iscompleted ?? true) {
-                        let CourseNameColor = taskCourseName(id: courseTasks[index].taskCourse ?? "", courses: dbCourse.courses)
+                        let CourseNameColor = CourseNameLevel(id: courseTasks[index].taskCourse ?? "", courses: dbCourse.courses)
                         courseTask(user: user,courseTask: courseTasks[index], courseName: CourseNameColor[0],courseColor: CourseNameColor[1], completedButon:  courseTasks[index].iscompleted ?? false )
                     }
                 }

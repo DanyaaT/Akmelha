@@ -35,7 +35,7 @@ struct EventListStudent: View {
                     HStack{
                         Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                         Spacer()
-                        Text(event.eventSection ?? "").foregroundColor(.gray)
+//                        Text(event.eventSection ?? "").foregroundColor(.gray)
                     }
                         
 
@@ -83,7 +83,7 @@ struct DetailedEventStudent: View{
                             HStack{
                                 Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                                 Spacer()
-                                Text(event.eventSection ?? "").foregroundColor(.gray)
+//                                Text(event.eventSection ?? "").foregroundColor(.gray)
                             }
                             
                             
@@ -115,8 +115,8 @@ struct DetailedEventStudent: View{
                             HStack{
                                 Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                               
-                                Text(event.eventSection ?? "")
-                                    .foregroundColor(.black)
+//                                Text(event.eventSection ?? "")
+//                                    .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                            
