@@ -53,9 +53,12 @@ struct StudentCalendarView: View {
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .padding(.top, -35.0)
-                    ForEach(courseEvents.indices, id: \.self){index in
-                        let CourseNameColor = EventCourseName(id: courseEvents[index].eventCourse ?? "", courses: dbCourse.courses)
-                        EventListStudent(user: user,event: courseEvents[index], courseName: CourseNameColor[0],courseColor: CourseNameColor[1])
+                    ForEach(dbEvent.events.indices, id: \.self){index in
+                        if isStudentEvents(eventCoures: dbEvent.events[index].eventCourse ?? "", student: user){
+                            
+                            let CourseNameColor = CourseNameLevel(id: dbEvent.events[index].eventCourse ?? "", courses: dbCourse.courses)
+                            EventListStudent(user: user,event: dbEvent.events[index], courseName: CourseNameColor[0],courseColor: CourseNameColor[1], courseLevel: CourseNameColor[2])
+                        }
                     }
 
                     .environment(\.layoutDirection, .rightToLeft)
@@ -70,6 +73,10 @@ struct StudentCalendarView: View {
             }//Vstack
         }//Zstack
     }
+    
+  
+    
+    
 }
     
 //    struct StudentCalendarView_Previews: PreviewProvider {
@@ -106,4 +113,14 @@ func EventCourseName(id: String, courses: [Course]) ->[String]{
         }
     }
     return [name, color]
+}
+
+
+func isStudentEvents( eventCoures: String, student: User) -> Bool{
+    for course in student.studentCourses{
+        if course == eventCoures{
+            return true
+        }
+    }
+    return false
 }

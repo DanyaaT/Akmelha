@@ -13,6 +13,7 @@ struct EventListStudent: View {
     let event: Event
     var courseName = ""
     var courseColor = ""
+    var courseLevel = ""
     @State var showDetailedEvent2 = false
 
     var body: some View {
@@ -23,7 +24,7 @@ struct EventListStudent: View {
                 RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                 VStack{
                     HStack{
-                        Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                        Text(courseName).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                         Spacer()
                         Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                             .foregroundColor(.gray)
@@ -35,7 +36,7 @@ struct EventListStudent: View {
                     HStack{
                         Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                         Spacer()
-//                        Text(event.eventSection ?? "").foregroundColor(.gray)
+                        Text(courseLevel).foregroundColor(.gray)
                     }
                         
 
