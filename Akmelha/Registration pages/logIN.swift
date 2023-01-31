@@ -188,7 +188,17 @@ struct logIN: View {
                             }
                             else{
                                 
-                                Message = "المدخلات غير صحيحة"
+                                Auth.auth().signIn(withEmail: email, password: password){
+                                           result, error in if error != nil {
+                                               print(error!.localizedDescription)
+                                               Message = "المدخلات غير صحيحة"
+                                           }
+                                           else{
+                                               Message = ""
+                               
+                                           }
+                                       }
+                                
                             }
                             
                         }
@@ -242,18 +252,18 @@ struct logIN: View {
         
     }
     
-    func login(){
-        Auth.auth().signIn(withEmail: email, password: password){
-            result, error in if error != nil {
-                print(error!.localizedDescription)
-                Message = "المدخلات غير صحيحة"
-            }
-            else{
-                Message = ""
-
-            }
-        }
-    }
+//    func login(){
+//        Auth.auth().signIn(withEmail: email, password: password){
+//            result, error in if error != nil {
+//                print(error!.localizedDescription)
+//                Message = "المدخلات غير صحيحة"
+//            }
+//            else{
+//                Message = ""
+//
+//            }
+//        }
+//    }
 
 }
     
