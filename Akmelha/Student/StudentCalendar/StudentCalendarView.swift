@@ -67,13 +67,9 @@ struct StudentCalendarView: View {
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .sheet(isPresented: $displayEvents) {
-                        ForEach(dbEvent.events.indices, id: \.self){index in
-                            if isStudentEvents(eventCoures: dbEvent.events[index].eventCourse ?? "", student: user){
-                                
-                                let CourseNameColor = CourseNameLevel(id: dbEvent.events[index].eventCourse ?? "", courses: dbCourse.courses)
-                                DaysEventStudent(dateSelected: $dateSelected, user: user, courseName: CourseNameColor[0],courseColor: CourseNameColor[1], courseLevel: CourseNameColor[2])
-                            }
-                        }
+
+                                DaysEventStudent(dateSelected: $dateSelected, user: user, courseName: courseName,courseColor: courseColor, courseLevel: courseLevel)
+                        
                             .presentationDetents([.medium])
                     }
                     
