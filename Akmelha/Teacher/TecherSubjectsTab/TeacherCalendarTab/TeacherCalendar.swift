@@ -150,6 +150,22 @@ struct TeacherCalendar: View {
                                 .tint(Color("purple"))
                             }
 
+
+
+//                            Section{
+//                                Picker(selection: $eventSection, label: Text("الصف الدراسي")){
+//                                    Text("").tag("")
+//                                    let id = Auth.auth().currentUser?.uid
+//                                    ForEach(dbCourse.courses.indices, id: \.self) {index in
+//                                        if ( dbCourse.courses[index].courseTeacher == id ){
+//                                            Text(dbCourse.courses[index].courseLevel ?? "")
+//                                                .tag(dbCourse.courses[index].courseName ?? "")
+//
+//                                        }
+//                                    }
+//                                } // end picker
+//                            }
+
                             Section {
                                 Picker(selection: $eventCourse, label: Text("المادة و الصف الدراسي")){
                                     Text("").tag("")
@@ -158,10 +174,14 @@ struct TeacherCalendar: View {
                                     ForEach(dbCourse.courses.indices, id: \.self) {index in
                                         if ( dbCourse.courses[index].courseTeacher == id ){
                                             let option = (dbCourse.courses[index].courseName ?? "") + ",  \(dbCourse.courses[index].courseLevel ?? "")"
+
                                          
-                                            Text(option)
-                                                .tag(option)
                                                   
+
+                                            Text(option)
+                                                .tag(dbCourse.courses[index].id ?? "")
+                                            
+
                                         }
                                         
                                     }
@@ -178,23 +198,33 @@ struct TeacherCalendar: View {
                                         HStack {
                                 Spacer()
                                 Button {
+
                                     
                                     //for courses in course {
                                     //   if (courses.courseName == eventCourse ){
                                             //for student in courses.coureseStudents ?? []{
                                     
-                                    var indexChar = eventCourse.firstIndex(of: ",")!
-                                    var t = eventCourse.index(before: indexChar)
-                                    var r = eventCourse.index(after: indexChar)
+//                                    var indexChar = eventCourse.firstIndex(of: ",")!
+//                                    var t = eventCourse.index(before: indexChar)
+//                                    var r = eventCourse.index(after: indexChar)
                                     
                                     
                                  
                                     
-                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse:String((eventCourse[...t]) ?? ""), eventSection: String(eventCourse[r...]) , courseTeacher: id ,eventStudent: "" ))
+                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, courseTeacher: id ))
                                            // }
                                      //  }
                                     //}
                                    // dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ,eventStudent: "" ))
+
+                                    // create new event
+                                   // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
+                                  
+                                      
+                                    //}else{
+                                       // showButtom = false
+                                   // }
+
                                     dismiss()
                                     
                                 } label: {

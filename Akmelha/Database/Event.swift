@@ -15,7 +15,7 @@ class Event: Codable, Identifiable{
     var eventDate: Date
     var eventDesc: String?
     var eventCourse: String?
-    var eventSection: String?
+
     var courseTeacher: String?
     var eventStudent: String?
     
@@ -33,13 +33,15 @@ class Event: Codable, Identifiable{
     }
 
    
-    init(eventName: String? = "", eventDate: Date = Date(), eventDesc: String? = "", eventCourse: String? = "",eventSection: String? = "",courseTeacher: String? = "",eventStudent: String? = "" ) {
+
+
+    init(eventName: String? = "", eventDate: Date = Date(), eventDesc: String? = "", eventCourse: String? = "",courseTeacher: String? = "") {
+
         self.eventName = eventName
         self.eventDate = eventDate
         self.eventDesc = eventDesc
         self.eventCourse = eventCourse
-        self.eventSection = eventSection
         self.courseTeacher = courseTeacher
-        self.eventStudent = eventStudent
+        
     }
 }

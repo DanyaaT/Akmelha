@@ -10,6 +10,7 @@ import SwiftUI
 struct EventList: View {
     @State var pickerColor = "pink"
     let event: Event
+    @EnvironmentObject var dbCourse: CourseDB
     //let course: Course
     @State var showDetailedEvent = false
 
@@ -18,11 +19,17 @@ struct EventList: View {
             showDetailedEvent = true
         } label: {
             ZStack{
+                let course = CourseNameLevel(id: event.eventCourse ?? "", courses: dbCourse.courses)
                 RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                 VStack{
                     HStack{
-                        var courseColor = courseColorAndImage(courseName: event.eventCourse ?? "")[0]
-                        Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
+
+                        
+                       
+
+                       
+                        Text(course[0]).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course[1])))
+
                         Spacer()
                         Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                             .foregroundColor(.gray)
@@ -34,7 +41,7 @@ struct EventList: View {
                     HStack{
                         Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                         Spacer()
-                        Text(event.eventSection ?? "").foregroundColor(.gray)
+                        Text(course[2]).foregroundColor(.gray)
                     }
                         
 
@@ -143,7 +150,7 @@ struct DetailedEvent: View{
                             HStack{
                                 Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                                 Spacer()
-                                Text(event.eventSection ?? "").foregroundColor(.gray)
+//                                Text(event.eventSection ?? "").foregroundColor(.gray)
                             }
       
                         }.padding()
@@ -172,7 +179,7 @@ struct DetailedEvent: View{
                             HStack{
                                 Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
-                                Text(event.eventSection ?? "")
+//                                Text(event.eventSection ?? "")
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
