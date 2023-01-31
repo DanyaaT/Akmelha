@@ -18,6 +18,7 @@ struct StudentTabBar: View {
     var user: User
     @EnvironmentObject var dbCourseTasks: CourseTaskDB
     @EnvironmentObject var dbStudentOwnTasks: StudentOwnTaskDB
+    @EnvironmentObject var dbStudentEvents: EventDB
     @State var selectedTab : StudentTabs = .المهام
    
     var body: some View {
@@ -26,7 +27,6 @@ struct StudentTabBar: View {
 
             TabView(selection: $selectedTab){
                 let cTaskArr = studentOwnCourseTasks()
-                
                 StudentTaskView(user: user, courseTasks: cTaskArr, studentOwnTasks: studentOwnStudentTasks())
                     .tabItem{
                         Image(systemName: "list.bullet.rectangle.portrait")
@@ -41,8 +41,8 @@ struct StudentTabBar: View {
                         
                     }.tag(StudentTabs.المواد)
                    
-                
-                StudentCalendarView(user: user)
+                let cEventArr = studentEvent()
+                StudentCalendarView(user: user, courseEvents: cEventArr)
                     .tabItem{
                         Image(systemName: "align.vertical.top")
                         Text("التقويم")
@@ -81,6 +81,16 @@ struct StudentTabBar: View {
             }
         }
        return courseTasks
+    }
+    
+    func studentEvent() -> [Event]{
+        var courseEvents = [Event]()
+        for event in dbStudentEvents.events{
+            if event.eventStudent == user.id{
+                courseEvents.append(event)
+            }
+        }
+       return courseEvents
     }
     
     func studentOwnStudentTasks() -> [StudentOwnTask]{

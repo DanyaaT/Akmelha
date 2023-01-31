@@ -21,7 +21,8 @@ struct EventList: View {
                 RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                 VStack{
                     HStack{
-                        Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                        var courseColor = courseColorAndImage(courseName: event.eventCourse ?? "")[0]
+                        Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                         Spacer()
                         Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                             .foregroundColor(.gray)
@@ -48,6 +49,65 @@ struct EventList: View {
                 .presentationDetents([.medium])
         }
     }
+    func courseColorAndImage(courseName: String) -> [String]{
+        var colorAndImage = [""]
+        var color = ""
+        var image = ""
+        
+        if courseName == "الرياضيات"{
+          color = "math"
+          image = "math"
+        }
+       else if courseName == "العلوم"{
+          color = "science"
+          image = "science"
+        }
+        else if courseName == "لغتي الجميلة"{
+           color = "arabic"
+           image = "arabic"
+         }
+        else if courseName == "لغتي الخالدة"{
+           color = "arabic"
+           image = "arabic"
+         }
+        else if courseName == "الدراسات الإسلامية"{
+           color = "islamic"
+           image = "islamic"
+         }
+        else if courseName == "اللغة الإنجليزية"{
+           color = "english"
+           image = "english"
+         }
+        else if courseName == "الدراسات الاجتماعية"{
+           color = "geo"
+           image = "geo"
+         }
+        else if courseName == "المهارات الرقمية"{
+           color = "computer"
+           image = "computer"
+         }
+        else if courseName == "التربية الأسرية"{
+           color = "family"
+           image = "family"
+         }
+        else if courseName == "التربية الفنية"{
+           color = "art"
+           image = "art"
+         }
+        else if courseName == "التفكير الناقد"{
+           color = "think"
+           image = "think"
+         }
+        else{
+            color = ""
+            image = ""
+        }
+        
+        colorAndImage = [color, image]
+        
+        return colorAndImage
+    }
+
 }
 
 struct DetailedEvent: View{
@@ -65,12 +125,12 @@ struct DetailedEvent: View{
             ZStack{
                 Color("sheet").ignoresSafeArea()
                 VStack {
-                    
+                    var courseColor = courseColorAndImage(courseName: event.eventCourse ?? "")[0]
                     ZStack{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                         VStack{
                             HStack{
-                                Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor1)))
+                                Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                                 Spacer()
                                 //Text(event.eventDate ?? Date().formatted(date: .abbreviated, time: .omitted))
                                   //  .foregroundColor(.gray)
@@ -86,14 +146,16 @@ struct DetailedEvent: View{
                                 Text(event.eventSection ?? "").foregroundColor(.gray)
                             }
       
-                        }.padding()    
+                        }.padding()
                     }.padding(.horizontal)
                      .environment(\.layoutDirection, .rightToLeft)
                     ZStack{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 180).background(Color.white).shadow(radius: 0.6)
                         VStack{
+                            
                             HStack{
-                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                               
+                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
                                 Text(event.eventDesc ?? "")
                                     .foregroundColor(.black)
@@ -101,14 +163,14 @@ struct DetailedEvent: View{
                             }.padding(.vertical)
                     
                             HStack{
-                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
                                 Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                             HStack{
-                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
                                 Text(event.eventSection ?? "")
                                     .foregroundColor(.black)

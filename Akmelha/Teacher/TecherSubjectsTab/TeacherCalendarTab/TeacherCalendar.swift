@@ -17,6 +17,8 @@ struct TeacherCalendar: View {
     @EnvironmentObject var dbEvent: EventDB
     @State private var displayEvents = false
     var user:User
+    var course: [Course]
+    
     var body: some View {
         
         ZStack{
@@ -78,7 +80,8 @@ struct TeacherCalendar: View {
                     } //Hstack
                     
                     .sheet(isPresented: $showAddEventSheet){
-                        EventFormView(showAddEventSheet: $showAddEventSheet, showButtom :false)
+                        
+                        EventFormView(showAddEventSheet: $showAddEventSheet, showButtom :false, course: course)
                             .presentationDetents([.large])
                         
                     }.environment(\.layoutDirection, .rightToLeft)
@@ -109,32 +112,6 @@ struct TeacherCalendar: View {
             }//Vstack
         }//Zstack
     }
-   /* struct TeacherCalendar_Previews: PreviewProvider {
-        static var dateComponents: DateComponents {
-            
-            var dateComponents = Calendar.current.dateComponents(
-                [.month,
-                 .day,
-                 .year,
-                 .hour,
-                 .minute],
-                from: Date())
-            dateComponents.timeZone = TimeZone.current
-            dateComponents.calendar = Calendar(identifier: .islamicUmmAlQura)
-            return dateComponents
-        }
-        static var previews: some View {
-            
-            TeacherCalendar()
-                .environment(\.layoutDirection, .leftToRight)
-            
-            
-        }
-    }*/
-    
-    
-    
-
     struct EventFormView: View {
         @Binding var showAddEventSheet: Bool
         @Environment(\.dismiss) var dismiss
@@ -148,6 +125,7 @@ struct TeacherCalendar: View {
         @State var eventCourse = ""
         @State var selectedCourse = 0
         @State var showButtom: Bool
+        var course: [Course]
         @EnvironmentObject var dbCourse: CourseDB
         @EnvironmentObject var dbEvent: EventDB
         let id = Auth.auth().currentUser?.uid
@@ -171,32 +149,25 @@ struct TeacherCalendar: View {
                                 .environment(\.locale, Locale.init(identifier: "ar_SA"))
                                 .tint(Color("purple"))
                             }
-                            Section{
-                                Picker(selection: $eventSection, label: Text("الصف الدراسي")){
-                                    Text("").tag("")
-                                    let id = Auth.auth().currentUser?.uid
-                                    ForEach(dbCourse.courses.indices, id: \.self) {index in
-                                        if ( dbCourse.courses[index].courseTeacher == id ){
-                                            Text(dbCourse.courses[index].courseLevel ?? "")
-                                                .tag(dbCourse.courses[index].courseName ?? "")
-                                        }
-                                    }
-                                } // end picker
-                            }
+
                             Section {
-                                Picker(selection: $eventCourse, label: Text("اسم المادة")){
+                                Picker(selection: $eventCourse, label: Text("المادة و الصف الدراسي")){
                                     Text("").tag("")
                                     
                                     let id = Auth.auth().currentUser?.uid
                                     ForEach(dbCourse.courses.indices, id: \.self) {index in
                                         if ( dbCourse.courses[index].courseTeacher == id ){
-                                            Text(dbCourse.courses[index].courseName ?? "")
-                                                .tag(dbCourse.courses[index].courseName ?? "")
+                                            let option = (dbCourse.courses[index].courseName ?? "") + ",  \(dbCourse.courses[index].courseLevel ?? "")"
+                                         
+                                            Text(option)
+                                                .tag(option)
+                                                  
                                         }
+                                        
                                     }
                                    // ForEach(courses, id:\.self){ course in
                                        // Text(course)
-                                          //  .tag(course)
+                                    //  .tag(course)
                                  //   }// foreach
                                 } // end picker
                             }
@@ -207,20 +178,32 @@ struct TeacherCalendar: View {
                                         HStack {
                                 Spacer()
                                 Button {
-                                    // create new event
-                                   // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
-                                        dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ))
-                                       // showButtom = true
-                                    //}else{
-                                       // showButtom = false
-                                   // }
+                                    
+                                    //for courses in course {
+                                    //   if (courses.courseName == eventCourse ){
+                                            //for student in courses.coureseStudents ?? []{
+                                    
+                                    var indexChar = eventCourse.firstIndex(of: ",")!
+                                    var t = eventCourse.index(before: indexChar)
+                                    var r = eventCourse.index(after: indexChar)
+                                    
+                                    
+                                 
+                                    
+                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse:String((eventCourse[...t]) ?? ""), eventSection: String(eventCourse[r...]) , courseTeacher: id ,eventStudent: "" ))
+                                           // }
+                                     //  }
+                                    //}
+                                   // dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ,eventStudent: "" ))
                                     dismiss()
+                                    
                                 } label: {
                                     HStack{
                                         Spacer()
                                         Text("اضافة").font(.title2)
                                         Spacer()
                                     }
+                                    
                                 }.tint(Color("green"))
                                 .buttonStyle(.borderedProminent)
                                 .foregroundColor(.white)

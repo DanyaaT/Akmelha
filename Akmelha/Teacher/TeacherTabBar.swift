@@ -15,14 +15,15 @@ enum TeacherTabs: String{
 
 struct TeacherTabBar: View {
     var user: User
+    @EnvironmentObject var dbCourse: CourseDB
     @State var selectedTab : TeacherTabs = .المواد
     
-   
+    
     
     var body: some View {
-   
+        
         NavigationView{
-
+            
             TabView(selection: $selectedTab){
                 
                 TeacherSubjects(user: user)
@@ -31,10 +32,10 @@ struct TeacherTabBar: View {
                         Text("المواد")
                         
                     }.tag(TeacherTabs.المواد)
-         
-                   
                 
-                TeacherCalendar(user: user)
+                
+                let cArr = studentCourse()
+                TeacherCalendar(user: user, course: cArr )
                     .tabItem{
                         Image(systemName: "align.vertical.top")
                         Text("التقويم")
@@ -47,24 +48,32 @@ struct TeacherTabBar: View {
                         Image(systemName: "calendar")
                         Text("البطاقات")
                     }.tag(TeacherTabs.البطاقات)
-                    
+                
                 
             }
-           
+            
             
             .navigationTitle(selectedTab.rawValue)
-           
-        
+            
+            
             
         }         .navigationViewStyle(.stack)
-           
+        
             .tint(Color("purple"))
         
-
+        
+    }
+    
+    func studentCourse() -> [Course]{
+        var courses = [Course]()
+        for course in dbCourse.courses{
+            if course.courseTeacher == user.id{
+                courses.append(course)
+            }
+        }
+        return courses
     }
 }
-
-
 //struct TabBar_Previews: PreviewProvider {
 //  static var previews: some View {
 //    TeacherTabBar().environment(\.layoutDirection, .rightToLeft)

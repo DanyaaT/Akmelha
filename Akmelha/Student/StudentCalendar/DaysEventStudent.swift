@@ -10,7 +10,7 @@ import SwiftUI
 struct DaysEventStudent: View {
     @Binding var dateSelected: DateComponents?
     @EnvironmentObject var dbEvent: EventDB
-    
+    var user : User
     var body: some View {
         
         NavigationStack {
@@ -20,7 +20,7 @@ struct DaysEventStudent: View {
                         .filter {$0.eventDate.startOfDay == dateSelected.date!.startOfDay}
                     VStack{
                         ForEach(foundEvents) { event in
-                            EventListStudent(event: event)
+                            EventListStudent(user:user, event: event)
                         }.environment(\.layoutDirection,.rightToLeft)
                         }
                        
@@ -34,7 +34,7 @@ struct DaysEventStudent: View {
         
 }
 
-struct DaysEventStudent_Previews: PreviewProvider {
+/*struct DaysEventStudent_Previews: PreviewProvider {
     static var dateComponents: DateComponents {
         
         var dateComponents = Calendar.current.dateComponents(
@@ -51,4 +51,4 @@ struct DaysEventStudent_Previews: PreviewProvider {
     static var previews: some View {
         DaysEventStudent(dateSelected: .constant(dateComponents))
     }
-}
+}*/

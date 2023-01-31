@@ -9,9 +9,11 @@ import SwiftUI
 
 struct StudentCalendarView: View {
     var user: User
+    var courseEvents: [Event]
     @State var dateSelected: DateComponents?
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
+    @EnvironmentObject var dbCourse: CourseDB
     //  var course : Course
     @State private var displayEvents = false
     
@@ -51,15 +53,15 @@ struct StudentCalendarView: View {
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .padding(.top, -35.0)
-                    /*    ForEach(dbEvent.events.indices, id: \.self) {index in
-                     if(dbEvent.events[index].eventCourse == course.id){
-                     EventListStudent(event : dbEvent.events[index])
-                     }
-                     }*/
+                    ForEach(courseEvents.indices, id: \.self){index in
+                        let CourseNameColor = EventCourseName(id: courseEvents[index].eventCourse ?? "", courses: dbCourse.courses)
+                        EventListStudent(user: user,event: courseEvents[index], courseName: CourseNameColor[0],courseColor: CourseNameColor[1])
+                    }
+
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .sheet(isPresented: $displayEvents) {
-                        DaysEventStudent(dateSelected: $dateSelected)
+                        DaysEventStudent(dateSelected: $dateSelected, user: user)
                             .presentationDetents([.medium])
                     }
                     
@@ -92,3 +94,16 @@ struct StudentCalendarView: View {
 //        }
 //    }
 
+
+func EventCourseName(id: String, courses: [Course]) ->[String]{
+    var name = ""
+    var color = ""
+    for course in courses{
+        if course.id == id{
+            name = course.courseName ?? ""
+            color = course.courseColor ?? "pink"
+            break
+        }
+    }
+    return [name, color]
+}
