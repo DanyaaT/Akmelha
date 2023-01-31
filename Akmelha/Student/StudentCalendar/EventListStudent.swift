@@ -30,7 +30,7 @@ struct EventListStudent: View {
                             .foregroundColor(.gray)
                     }
                     HStack{
-                        Text(event.eventName ?? "").font(.title3).foregroundColor(.black)
+                        Text(event.eventName ?? "j").font(.title3).foregroundColor(.black)
                         Spacer()
                     }
                     HStack{
@@ -47,7 +47,7 @@ struct EventListStudent: View {
             }.padding(.horizontal)
         }
         .sheet(isPresented: $showDetailedEvent2){
-            DetailedEventStudent(showDetailedEvent2:$showDetailedEvent2, event: event)
+            DetailedEventStudent(showDetailedEvent2:$showDetailedEvent2, event: event, courseName: courseName,courseColor: courseColor, courseLevel: courseLevel)
                 .presentationDetents([.medium])
         }
     }
@@ -61,6 +61,9 @@ struct DetailedEventStudent: View{
     @State var pickerColor1 = "math"
     @State var edit = false
     @State var pickerColor = "arabic"
+    var courseName = ""
+    var courseColor = ""
+    var courseLevel = ""
     var body: some View{
         NavigationView{
             ZStack{
@@ -71,7 +74,7 @@ struct DetailedEventStudent: View{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                         VStack{
                             HStack{
-                                Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor1)))
+                                Text(courseName).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                                 Spacer()
                                 //Text(event.eventDate ?? Date().formatted(date: .abbreviated, time: .omitted))
                                   //  .foregroundColor(.gray)
@@ -82,9 +85,9 @@ struct DetailedEventStudent: View{
                                 Spacer()
                             }
                             HStack{
-                                Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                                 Spacer()
-//                                Text(event.eventSection ?? "").foregroundColor(.gray)
+                               Text(courseLevel).foregroundColor(.gray)
                             }
                             
                             
@@ -99,7 +102,7 @@ struct DetailedEventStudent: View{
                        
                         VStack{
                             HStack{
-                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
                                 Text(event.eventDesc ?? "")
                                     .foregroundColor(.black)
@@ -107,17 +110,17 @@ struct DetailedEventStudent: View{
                             }.padding(.vertical)
                     
                             HStack{
-                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
                                 Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                             HStack{
-                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
+                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
                               
-//                                Text(event.eventSection ?? "")
-//                                    .foregroundColor(.black)
+                               Text(courseLevel)
+                                    .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                            

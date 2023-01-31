@@ -14,6 +14,9 @@ struct StudentCalendarView: View {
     @State var showAddEventSheet = false
     @EnvironmentObject var dbEvent: EventDB
     @EnvironmentObject var dbCourse: CourseDB
+    var courseName = ""
+    var courseColor = ""
+    var courseLevel = ""
     //  var course : Course
     @State private var displayEvents = false
     
@@ -64,7 +67,13 @@ struct StudentCalendarView: View {
                     .environment(\.layoutDirection, .rightToLeft)
                     
                     .sheet(isPresented: $displayEvents) {
-                        DaysEventStudent(dateSelected: $dateSelected, user: user)
+                        ForEach(dbEvent.events.indices, id: \.self){index in
+                            if isStudentEvents(eventCoures: dbEvent.events[index].eventCourse ?? "", student: user){
+                                
+                                let CourseNameColor = CourseNameLevel(id: dbEvent.events[index].eventCourse ?? "", courses: dbCourse.courses)
+                                DaysEventStudent(dateSelected: $dateSelected, user: user, courseName: CourseNameColor[0],courseColor: CourseNameColor[1], courseLevel: CourseNameColor[2])
+                            }
+                        }
                             .presentationDetents([.medium])
                     }
                     

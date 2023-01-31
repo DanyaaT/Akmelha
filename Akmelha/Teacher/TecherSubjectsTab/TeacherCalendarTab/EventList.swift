@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EventList: View {
     @State var pickerColor = "pink"
+    
     let event: Event
     @EnvironmentObject var dbCourse: CourseDB
     //let course: Course
@@ -123,6 +124,7 @@ struct DetailedEvent: View{
     @Binding var showDetailedEvent: Bool
     @Environment(\.dismiss) var dismiss
     let event : Event
+    @EnvironmentObject var dbCourse: CourseDB
     @EnvironmentObject var dbEvent: EventDB
     @State var pickerColor1 = "math"
     @State var edit = false
@@ -132,12 +134,12 @@ struct DetailedEvent: View{
             ZStack{
                 Color("sheet").ignoresSafeArea()
                 VStack {
-                    var courseColor = courseColorAndImage(courseName: event.eventCourse ?? "")[0]
+                    let course = CourseNameLevel(id: event.eventCourse ?? "", courses: dbCourse.courses)
                     ZStack{
                         RoundedRectangle(cornerRadius: 15).stroke(.gray.opacity(0.5), lineWidth: 0.5).frame( height: 85).background(Color.white).shadow(radius: 0.6)
                         VStack{
                             HStack{
-                                Text(event.eventCourse ?? "").foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
+                                Text(course[0]).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course[1])))
                                 Spacer()
                                 //Text(event.eventDate ?? Date().formatted(date: .abbreviated, time: .omitted))
                                   //  .foregroundColor(.gray)
@@ -150,7 +152,7 @@ struct DetailedEvent: View{
                             HStack{
                                 Text("").background(Rectangle().frame( height: 8 ).foregroundColor(Color(pickerColor)))
                                 Spacer()
-//                                Text(event.eventSection ?? "").foregroundColor(.gray)
+                               Text(course[2]).foregroundColor(.gray)
                             }
       
                         }.padding()
@@ -162,7 +164,7 @@ struct DetailedEvent: View{
                             
                             HStack{
                                
-                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
+                                Text("الوصف").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course[1])))
                               
                                 Text(event.eventDesc ?? "")
                                     .foregroundColor(.black)
@@ -170,16 +172,16 @@ struct DetailedEvent: View{
                             }.padding(.vertical)
                     
                             HStack{
-                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
+                                Text("التاريخ").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course[1])))
                               
                                 Text(event.eventDate.formatted(date: .abbreviated, time: .omitted))
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)
                             HStack{
-                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(courseColor)))
+                                Text("الصف الدراسي").font(.system(size: 20)).foregroundColor(.black).background(Rectangle().frame( height: 8 ).foregroundColor(Color(course[1])))
                               
-//                                Text(event.eventSection ?? "")
+                               Text(course[2])
                                     .foregroundColor(.black)
                                 Spacer()
                             }.padding(.vertical)

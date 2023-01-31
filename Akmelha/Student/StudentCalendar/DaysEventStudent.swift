@@ -11,22 +11,31 @@ struct DaysEventStudent: View {
     @Binding var dateSelected: DateComponents?
     @EnvironmentObject var dbEvent: EventDB
     var user : User
+    @EnvironmentObject var dbCourse: CourseDB
+    var courseName = ""
+    var courseColor = ""
+    var courseLevel = ""
     var body: some View {
         
         NavigationStack {
-            Group {
+            ScrollView{
+          
                 if let dateSelected {
                     let foundEvents = dbEvent.events
                         .filter {$0.eventDate.startOfDay == dateSelected.date!.startOfDay}
                     VStack{
-                        ForEach(foundEvents) { event in
-                            EventListStudent(user:user, event: event)
+                        ForEach(foundEvents.indices, id: \.self){index in
+                            if isStudentEvents(eventCoures: foundEvents[index].eventCourse ?? "", student: user){
+                                
+                                let CourseNameColor = CourseNameLevel(id: foundEvents[index].eventCourse ?? "", courses: dbCourse.courses)
+                                EventListStudent(user: user,event: foundEvents[index], courseName: CourseNameColor[0],courseColor: CourseNameColor[1], courseLevel: CourseNameColor[2])
+                            }
                         }.environment(\.layoutDirection,.rightToLeft)
-                        }
-                       
-                }
+                    }
+                    
+                
             }
-           
+        }
             .navigationTitle(dateSelected?.date?.formatted(date: .long, time: .omitted) ?? "")
             .navigationBarTitleDisplayMode(.inline)
         }
@@ -52,3 +61,4 @@ struct DaysEventStudent: View {
         DaysEventStudent(dateSelected: .constant(dateComponents))
     }
 }*/
+
