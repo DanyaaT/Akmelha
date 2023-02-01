@@ -29,13 +29,13 @@ struct ReviewtList: View {
                         Image(systemName: "trash").foregroundColor(.red)
                     } .alert( isPresented: $showDeleteAlert) {
                         Alert(
-                            title: Text("حذف التقييم ؟"),
+                            title: Text("حذف التقييم؟"),
                             message: Text(""),
                             primaryButton: .destructive(Text("حذف"), action: {
                                 dbCourseReviews.deleteCourseReview(review)
                                 
                             }),
-                            secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                            secondaryButton: .cancel(Text("إلغاء"), action: { // 1
                             })
                         )
                     }

@@ -85,6 +85,8 @@ struct AddTeacherTask: View{
     @Binding var showAddTaskSheet: Bool
     @State var taskName = ""
     @State var taskDesc = ""
+    @State var Message = ""
+
     @State var taskDeadline = Date()
     
     @State private var textHeight: CGFloat = 80
@@ -92,7 +94,7 @@ struct AddTeacherTask: View{
     var body: some View{
         NavigationView{
             Form{
-                Section{
+                Section(header:Text(Message).foregroundColor(.red)){
                     TextField("اسم المهمة", text: $taskName)
                     //                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
                     //                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
@@ -108,7 +110,9 @@ struct AddTeacherTask: View{
                                selection: $taskDeadline,
                                displayedComponents: .date)
                     
-                    .accentColor(Color("purple"))
+                    .environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
+                    .environment(\.locale, Locale.init(identifier: "ar_SA"))
+                    .tint(Color("purple"))
                     
                     
                     HStack{
@@ -121,23 +125,28 @@ struct AddTeacherTask: View{
                     Spacer()
                     
                     Button {
-                 
+                        if (taskName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                            Message = "الرجاء إدخال اسم المهمة "
+                        }
+                        
+                        else{
                             for student in course.coureseStudents ?? []{
                                 dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: student, taskNumber: dbRandomId.randomIds[0].number  ))
                                 
                             }
                             
-                        
+                            
                             dbCourseTasks.addCourseTask(CourseTask(taskName: taskName, taskDesc: taskDesc, taskCourse:course.id, taskDeadline: taskDeadline, taskScore: taskScore, iscompleted: false, taskStudent: "" , taskNumber: dbRandomId.randomIds[0].number ))
                             
-                        
-                        dbRandomId.incrementCounter()
-                        showAddTaskSheet = false
+                            
+                            dbRandomId.incrementCounter()
+                            showAddTaskSheet = false
+                        }
                         
                     } label: {
                         HStack{
                             Spacer()
-                            Text("اضافة").font(.title2)
+                            Text("إضافة").font(.title2)
                             Spacer()
                         }
                     }.tint(Color("green"))
@@ -230,12 +239,15 @@ struct TaecherTaskCard: View{
     @State var taskDesc = ""
     @State var taskDeadline = Date()
     @State  var taskScore = 10
+    @State  var Message = ""
+
     @State private var showDeleteAlert = false
     var body: some View{
         
         NavigationView{
             Form{
-                Section{
+
+                    Section(header:Text(Message).foregroundColor(.red)){
                     TextField("اسم المهمة", text: $taskName)
                     //                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
                     //                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
@@ -264,13 +276,17 @@ struct TaecherTaskCard: View{
                     Spacer()
                     
                     Button {
-                        task.taskName = taskName
-                        task.taskDesc = taskDesc
-                        task.taskDeadline = taskDeadline
-                        task.taskScore = taskScore
-                        dbCourseTasks.updateCourseTask(task)
-                        showTaskCardSheet = false
-                        
+                        if (taskName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                            Message = "الرجاء إدخال اسم المهمة "
+                        }
+                        else{
+                            task.taskName = taskName
+                            task.taskDesc = taskDesc
+                            task.taskDeadline = taskDeadline
+                            task.taskScore = taskScore
+                            dbCourseTasks.updateCourseTask(task)
+                            showTaskCardSheet = false
+                        }
                     } label: {
                         HStack{
                             Spacer()
@@ -318,7 +334,7 @@ struct TaecherTaskCard: View{
                             primaryButton: .destructive(Text("حذف"), action: {
                                 dbCourseTasks.deleteCourseTask(task)
                             }),
-                            secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                            secondaryButton: .cancel(Text("إلغاء"), action: { // 1
                                 
                                 
                             })

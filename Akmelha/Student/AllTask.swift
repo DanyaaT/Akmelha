@@ -438,12 +438,14 @@ struct StudentTaskCard: View{
     @State var taskName = ""
     @State var taskDesc = ""
     @State  var taskScore = 5
+    @State  var Message = ""
+
     @State private var showDeleteAlert = false
     var body: some View{
         
         NavigationView{
             Form{
-                Section{
+                Section(header:Text(Message).foregroundColor(.red)){
                     TextField("اسم المهمة", text: $taskName)
                     //                TextView(placeholderText: "الوصف", text: self.$taskDesc, minHeight: self.textHeight,maxHeight: self.textHeight, calculatedHeight: self.$textHeight)
                     //                    .frame(minHeight: self.textHeight, maxHeight: self.textHeight).environment(\.layoutDirection,.rightToLeft)
@@ -464,12 +466,16 @@ struct StudentTaskCard: View{
                     Spacer()
                     
                     Button {
-                        task.taskName = taskName
-                        task.taskDesc = taskDesc
-                        task.taskScore = taskScore
-                        dbStudentOwnTasks.updateStudentOwnTasks(task)
-                        showTaskCardSheet = false
-                        
+                        if (taskName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                            Message = "الرجاء إدخال اسم المهمة "
+                        }
+                        else{
+                            task.taskName = taskName
+                            task.taskDesc = taskDesc
+                            task.taskScore = taskScore
+                            dbStudentOwnTasks.updateStudentOwnTasks(task)
+                            showTaskCardSheet = false
+                        }
                     } label: {
                         HStack{
                             Spacer()

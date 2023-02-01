@@ -145,6 +145,12 @@ struct buttonSheetView:View{
 @State var courseColor = ""
 @State var courseImage = ""
 @State var courseTeacher = ""
+@State var courseMessage = ""
+@State var levelMessage = ""
+
+
+
+
 
 @State var courses = ["الرياضيات", "العلوم","لغتي الجميلة","لغتي الخالدة","الدراسات الإسلامية","اللغة الإنجليزية","المهارات الرقمية","الدراسات الاجتماعية","التربية الأسرية","التربية الفنية","التفكير الناقد",]
 @State var levels = ["الأول ابتدائي", "الثاني ابتدائي","الثالث ابتدائي", "الرابع ابتدائي"," الخامس ابتدائي"," السادس ابتدائي","الأول متوسط","الثاني متوسط","الثالث متوسط"]
@@ -157,20 +163,8 @@ var body: some View{
     VStack{
         NavigationView{
             Form {
-
-                TextField("الوصف", text: $disc, axis: .vertical)
-                    .environment(\.layoutDirection, .rightToLeft)
-
-                Section{
-                    Picker(selection: $selectedLevel, label: Text("الصف الدراسي")){
-                        Text("").tag("")
-                        ForEach(levels, id:\.self){ level in
-                            Text(level)
-                                .tag(level)
-                        } //foreach
-                    } // end picker
-                }
-                Section {
+                
+                Section(header:Text(courseMessage).foregroundColor(.red)){
                     Picker(selection: $selectedCourse, label: Text("اسم المادة")){
                         Text("").tag("")
                         ForEach(courses, id:\.self){ course in
@@ -180,24 +174,64 @@ var body: some View{
                     }// end picker
                 }
                 
+                Section(header:Text(levelMessage).foregroundColor(.red)){
+                    Picker(selection: $selectedLevel, label: Text("الصف الدراسي")){
+                        Text("").tag("")
+                        ForEach(levels, id:\.self){ level in
+                            Text(level)
+                                .tag(level)
+                        } //foreach
+                    } // end picker
+                }
+                
+                
+                Section(){
+                    TextField("وصف المادة", text: $disc)
+                        .environment(\.layoutDirection, .rightToLeft)
+                }
+               
+               
+                
                 
                 
                 Section(footer:
                             HStack {
                     Spacer()
+                    
                     Button {
+                        if selectedCourse.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && selectedLevel.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            courseMessage = "الرجاء اختيار اسم المادة"
+                            levelMessage = "الرجاء اختيار الصف الدراسي"
+
+                        }
                         
-                      courseColor = courseColorAndImage(courseName: selectedCourse)[0]
-                        courseImage = courseColorAndImage(courseName: selectedCourse)[1]
+                        else if selectedCourse.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+                            courseMessage = "الرجاء اختيار اسم المادة"
+                            levelMessage = ""
+
+                        }
                         
-                        dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: id, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel, courseNumber: dbRandomId.randomIds[0].number, coureseStudents : []))
-                        dbRandomId.incrementCounter()
-                        showSheet = false
-                  
+                        else if selectedLevel.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+                            levelMessage = "الرجاء اختيار الصف الدراسي"
+                            courseMessage = ""
+
+                        }
+                        
+                        else{
+                            courseMessage = ""
+                            levelMessage = ""
+                            courseColor = courseColorAndImage(courseName: selectedCourse)[0]
+                            courseImage = courseColorAndImage(courseName: selectedCourse)[1]
+                            
+                            dbCourse.addCourse(Course(courseName: selectedCourse, courseDesc: disc, courseTeacher: id, courseColor: courseColor, courseImage: courseImage, courseLevel: selectedLevel, courseNumber: dbRandomId.randomIds[0].number, coureseStudents : []))
+                            dbRandomId.incrementCounter()
+                            showSheet = false
+                        }
+                        
                     } label: {
                         HStack{
                             Spacer()
-                            Text("اضافة").font(.title2)
+                            Text("إضافة").font(.title2)
                             Spacer()
                         }
                     }.tint(Color("green"))

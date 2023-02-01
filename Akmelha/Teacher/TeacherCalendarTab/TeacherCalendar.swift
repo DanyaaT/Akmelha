@@ -52,7 +52,7 @@ struct TeacherCalendar: View {
                         
                     }// Vstack
                     
-                  
+                    
                 }//end overlay
                 ScrollView{
                     
@@ -124,6 +124,9 @@ struct TeacherCalendar: View {
         @State var eventSection = ""
         @State var eventCourse = ""
         @State var selectedCourse = 0
+        @State var NameMessage = ""
+        @State var courseMessage = ""
+
         @State var showButtom: Bool
         var course: [Course]
         @EnvironmentObject var dbCourse: CourseDB
@@ -136,11 +139,14 @@ struct TeacherCalendar: View {
                 ZStack {
                     VStack {
                         Form {
-                            TextField("العنوان", text: $eventName, axis: .vertical)
-                                .focused($focus, equals: true)
-                                .environment(\.layoutDirection, .rightToLeft)
-                            TextField("الوصف", text: $eventDesc, axis: .vertical)
-                                .environment(\.layoutDirection, .rightToLeft)
+                            Section(header:Text(NameMessage).foregroundColor(.red)){
+                                TextField("العنوان", text: $eventName)
+                                    .focused($focus, equals: true)
+                                    .environment(\.layoutDirection, .rightToLeft)
+                                TextField("الوصف", text: $eventDesc)
+                                    .environment(\.layoutDirection, .rightToLeft)
+                            }
+                            
                             Section {
                                 DatePicker(selection: $eventDate, displayedComponents:[.date])
                                 {
@@ -166,8 +172,8 @@ struct TeacherCalendar: View {
 //                                } // end picker
 //                            }
 
-                            Section {
-                                Picker(selection: $eventCourse, label: Text("المادة و الصف الدراسي")){
+                            Section(header:Text(courseMessage).foregroundColor(.red)){
+                                Picker(selection: $eventCourse, label: Text("المادة ")){
                                     Text("").tag("")
                                     
                                     let id = Auth.auth().currentUser?.uid
@@ -208,29 +214,48 @@ struct TeacherCalendar: View {
 //                                    var t = eventCourse.index(before: indexChar)
 //                                    var r = eventCourse.index(after: indexChar)
                                     
-                                    
-                                 
-                                    
-                                    dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, courseTeacher: id ))
-                                           // }
-                                     //  }
-                                    //}
-                                   // dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ,eventStudent: "" ))
+                                    if eventName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && eventCourse.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                                        NameMessage = "الرجاء إدخال عنوان الحدث"
+                                        courseMessage = "الرجاء اختيار اسم المادة "
 
-                                    // create new event
-                                   // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
-                                  
-                                      
-                                    //}else{
-                                       // showButtom = false
-                                   // }
-
-                                    dismiss()
+                                    }
                                     
+                                    else if eventName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+                                        NameMessage = "الرجاء إدخال عنوان الحدث"
+                                        courseMessage = ""
+
+                                    }
+                                    
+                                    else if eventCourse.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty{
+                                        courseMessage = "الرجاء اختيار اسم المادة "
+                                        NameMessage = ""
+
+                                    }
+                                    
+                                    else{
+                                        courseMessage = ""
+                                        NameMessage = ""
+                                        
+                                        dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, courseTeacher: id ))
+                                        // }
+                                        //  }
+                                        //}
+                                        // dbEvent.addEvent(Event(eventName: eventName, eventDate:eventDate, eventDesc: eventDesc, eventCourse: eventCourse, eventSection: eventSection , courseTeacher: id ,eventStudent: "" ))
+                                        
+                                        // create new event
+                                        // if (!eventName.isEmpty && !eventCourse.isEmpty && //!eventSection.isEmpty){
+                                        
+                                        
+                                        //}else{
+                                        // showButtom = false
+                                        // }
+                                        
+                                        dismiss()
+                                    }
                                 } label: {
                                     HStack{
                                         Spacer()
-                                        Text("اضافة").font(.title2)
+                                        Text("إضافة").font(.title2)
                                         Spacer()
                                     }
                                     
@@ -251,7 +276,7 @@ struct TeacherCalendar: View {
                         .background(Color("sheet"))
                     
                     .environment(\.layoutDirection,.rightToLeft)
-                    .navigationTitle("اضافة حدث جديد")
+                    .navigationTitle("إضافة حدث جديد")
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar{
                         ToolbarItem(placement: .navigationBarTrailing){

@@ -78,7 +78,7 @@ struct StudentReviews: View {
                     .cornerRadius(3)
                     .frame(width: 98,height:29, alignment: .bottomLeading)
                 
-                Text("اضافة تقييم")
+                Text("إضافة تقييم")
                     .font(.system(size: 15))
                 
             } // end Zstack
@@ -114,6 +114,7 @@ struct AddReviewsSheet: View {
     var student : User
     @Binding var showAddReviews : Bool
     @State var review = ""
+    @State var Message = ""
 //    @State var student = ""
     @EnvironmentObject var dbCourseReviews: CourseReviewDB
     var course : Course
@@ -121,23 +122,30 @@ struct AddReviewsSheet: View {
         NavigationView{
             ZStack{
                 Form{
-                    Section{
-                        TextField("التقييم", text: $review,  axis: .vertical)
+                    Section(header:Text(Message).foregroundColor(.red)){
+                        TextField("التقييم", text: $review)
                             .lineLimit(5...10)
-                    }.environment(\.layoutDirection,.rightToLeft)
+                    }
+                    
                     Section(footer:
                                 HStack {
                         Spacer()
                         Button {
                             //action
-                            dbCourseReviews.addCourseReview(CourseReview (reviewDesc:review , reviewCourse: course.id , reviewDate: Date.now, reviewStudent: student.id))
-
-                            showAddReviews = false
+                            if (review.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                                Message = "الرجاء إدخال التقييم "
+                            }
+                            
+                            else{
+                                dbCourseReviews.addCourseReview(CourseReview (reviewDesc:review , reviewCourse: course.id , reviewDate: Date.now, reviewStudent: student.id))
+                                
+                                showAddReviews = false
+                            }
                             
                         } label: {
                             HStack{
                                 Spacer()
-                                Text("اضافة").font(.title2)
+                                Text("إضافة").font(.title2)
                                 Spacer()
                             }
                         }.tint(Color("green"))
@@ -147,8 +155,9 @@ struct AddReviewsSheet: View {
                     }
                     ) { EmptyView()}
                 }.scrollContentBackground(.hidden)
+                    .environment(\.layoutDirection,.rightToLeft)
                     .background(Color("sheet"))
-            }.navigationTitle("اضافة تقييم جديد")
+            }.navigationTitle("إضافة تقييم جديد")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing){
