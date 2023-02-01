@@ -172,7 +172,11 @@ var user: User
                                 dbUsers.addStudentCourse(user)
                                 dbCourse.addCoursesStudents(course)
                                 
-                            }else{
+                            }
+                            else if(number.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                                found = "الرجاء إدخال الرقم التعريفي"
+                            }
+                            else{
                                 found = "الرقم التعريفي غير صحيح"
                                 
                             }
@@ -181,7 +185,7 @@ var user: User
                     } label: {
                         HStack{
                             Spacer()
-                            Text("اضافة").font(.title2)
+                            Text("إضافة").font(.title2)
                             Spacer()
                         }
                     }.tint(Color("green"))

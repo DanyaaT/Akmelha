@@ -272,6 +272,8 @@ struct SheetView:View{
 @EnvironmentObject var dbStudentOwnTasks: StudentOwnTaskDB
 @EnvironmentObject var dbCourse: CourseDB
 @State var taskScore = 5
+@State var Message = ""
+
 var user: User
 
 
@@ -282,34 +284,38 @@ var body: some View{
     VStack{
         NavigationView{
             Form {
-
-                TextField("اسم المهمة", text: $taskName, axis: .vertical)
-                    .environment(\.layoutDirection, .rightToLeft)
-                   .frame(width: 300)
-                   .frame(alignment: .top)
-
-                
-             
-
-                
-                TextField("الوصف", text: $disc, axis: .vertical)
-                    .environment(\.layoutDirection, .rightToLeft)
-                    .frame(width: 300,height: 200,alignment: .top)
-                
-                
+    
+                Section(header:Text(Message).foregroundColor(.red)){
+                    TextField("اسم المهمة", text: $taskName)
+                        .environment(\.layoutDirection, .rightToLeft)
+                        .frame(width: 300)
+                        .frame(alignment: .top)
+                        
+                    
+                    TextField("الوصف", text: $disc)
+                        .environment(\.layoutDirection, .rightToLeft)
+                        .frame(width: 300,height: 160,alignment: .top)
+                        .lineLimit(3)
+                }
                 
                 
                 Section(footer:
                             HStack {
                     Spacer()
                     Button {
+                        if (taskName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+                            Message = "الرجاء إدخال اسم المهمة "
+                        }
+                        
+                        else{
                         dbStudentOwnTasks.addStudentOwnTasks(StudentOwnTask(taskName: taskName, taskDesc: disc,taskScore: taskScore, iscompleted: false, student: user.id ))
-                        showSheet = false
+                            showSheet = false
+                        }
                   
                     } label: {
                         HStack{
                             Spacer()
-                            Text("اضافة").font(.title2)
+                            Text("إضافة").font(.title2)
                             Spacer()
                         }
                     }.tint(Color("green"))
@@ -326,7 +332,7 @@ var body: some View{
             .environment(\.layoutDirection,.rightToLeft)
             .scrollContentBackground(.hidden)
             .background(Color("sheet"))
-            .navigationTitle("اضافة مهمة جديدة")
+            .navigationTitle("إضافة مهمة جديدة")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement:.navigationBarTrailing){
@@ -511,8 +517,9 @@ struct StudentTaskCard: View{
                             message: Text(""),
                             primaryButton: .destructive(Text("حذف"), action: {
                                 dbStudentOwnTasks.deleteStudentOwnTasks(task)
+                                showTaskCardSheet = false
                             }),
-                            secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                            secondaryButton: .cancel(Text("إلغاء"), action: { // 1
                                 
                                 
                             })
