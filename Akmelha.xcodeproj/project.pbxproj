@@ -75,11 +75,6 @@
 		5B59C76029522BC100F33DB0 /* insideTeacherReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */; };
 		5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C761295257D100F33DB0 /* TaskStatus.swift */; };
 		5B9C253A2952767300085157 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9C25392952767300085157 /* Neumorphic */; };
-		5BAB7A2C2989BB20009A11A7 /* PuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A2B2989BB20009A11A7 /* PuzzleView.swift */; };
-		5BAB7A302989C576009A11A7 /* PuanlamaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A2F2989C576009A11A7 /* PuanlamaView.swift */; };
-		5BAB7A322989C5B9009A11A7 /* GameReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A312989C5B9009A11A7 /* GameReport.swift */; };
-		5BAB7A342989C62B009A11A7 /* RePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A332989C62B009A11A7 /* RePlayView.swift */; };
-		5BAB7A362989C6B5009A11A7 /* Array+identefire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A352989C6B5009A11A7 /* Array+identefire.swift */; };
 		5BAB7A392989CA84009A11A7 /* User1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A382989CA84009A11A7 /* User1.swift */; };
 		5BAB7A3B2989CAC7009A11A7 /* YapBozModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A3A2989CAC7009A11A7 /* YapBozModel.swift */; };
 		5BAB7A3F2989CB10009A11A7 /* Zamanlayıcı.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAB7A3E2989CB10009A11A7 /* Zamanlayıcı.swift */; };
@@ -164,11 +159,6 @@
 		5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOwnTaskDB.swift; sourceTree = "<group>"; };
 		5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insideTeacherReviews.swift; sourceTree = "<group>"; };
 		5B59C761295257D100F33DB0 /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
-		5BAB7A2B2989BB20009A11A7 /* PuzzleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleView.swift; sourceTree = "<group>"; };
-		5BAB7A2F2989C576009A11A7 /* PuanlamaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuanlamaView.swift; sourceTree = "<group>"; };
-		5BAB7A312989C5B9009A11A7 /* GameReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameReport.swift; sourceTree = "<group>"; };
-		5BAB7A332989C62B009A11A7 /* RePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RePlayView.swift; sourceTree = "<group>"; };
-		5BAB7A352989C6B5009A11A7 /* Array+identefire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+identefire.swift"; sourceTree = "<group>"; };
 		5BAB7A382989CA84009A11A7 /* User1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User1.swift; sourceTree = "<group>"; };
 		5BAB7A3A2989CAC7009A11A7 /* YapBozModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YapBozModel.swift; sourceTree = "<group>"; };
 		5BAB7A3E2989CB10009A11A7 /* Zamanlayıcı.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Zamanlayıcı.swift"; sourceTree = "<group>"; };
@@ -289,7 +279,6 @@
 				1D33B3D02945773600D5BD45 /* TextView.swift */,
 				1D33B3D22945774200D5BD45 /* PickerView.swift */,
 				5BDEE08E294E62AE006122DB /* Date.swift */,
-				5BAB7A352989C6B5009A11A7 /* Array+identefire.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,10 +420,6 @@
 				95923A1F295B622800385ABA /* XOViewModel.swift */,
 				95923A21295B627700385ABA /* XOView.swift */,
 				95923A23295B62CE00385ABA /* XOalerts.swift */,
-				5BAB7A2B2989BB20009A11A7 /* PuzzleView.swift */,
-				5BAB7A2F2989C576009A11A7 /* PuanlamaView.swift */,
-				5BAB7A312989C5B9009A11A7 /* GameReport.swift */,
-				5BAB7A332989C62B009A11A7 /* RePlayView.swift */,
 			);
 			path = StudentGame;
 			sourceTree = "<group>";
@@ -546,7 +531,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				078453FB2956236100185A93 /* IncompleteTasks.swift in Sources */,
-				5BAB7A2C2989BB20009A11A7 /* PuzzleView.swift in Sources */,
 				07F4D5FE295F1A4B00A7B7F1 /* NotificationView.swift in Sources */,
 				1D33B3CD294576F600D5BD45 /* TeacherReviews.swift in Sources */,
 				07243B05296DFF3900F66F0E /* PhotoLibraryViewModel.swift in Sources */,
@@ -565,7 +549,6 @@
 				078453F92956233E00185A93 /* completedTasks.swift in Sources */,
 				DBB1BF8C2953225F00D447BE /* Card1ContentView.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
-				5BAB7A362989C6B5009A11A7 /* Array+identefire.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
 				07243B11296E006B00F66F0E /* CameraView.swift in Sources */,
@@ -593,7 +576,6 @@
 				1DD94C4D294E28AA00AD8AC0 /* Event.swift in Sources */,
 				1D157DBD297455EC00109A1C /* InsideStudentSubject.swift in Sources */,
 				07243B0F296DFFF200F66F0E /* ImageOverlayViewController.swift in Sources */,
-				5BAB7A342989C62B009A11A7 /* RePlayView.swift in Sources */,
 				5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */,
 				5B05D7112950E3B6004BE379 /* StudentTabBar.swift in Sources */,
 				1DD94C4B294E289200AD8AC0 /* Course.swift in Sources */,
@@ -609,9 +591,7 @@
 				07719D30294C428A0039707A /* logIN.swift in Sources */,
 				5B05D71F2950EF43004BE379 /* TeacherProfile.swift in Sources */,
 				1D33B3C52945767700D5BD45 /* TeacherCalendar.swift in Sources */,
-				5BAB7A322989C5B9009A11A7 /* GameReport.swift in Sources */,
 				078453F72956222200185A93 /* AllTask.swift in Sources */,
-				5BAB7A302989C576009A11A7 /* PuanlamaView.swift in Sources */,
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
 				5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,

@@ -82,12 +82,12 @@ struct StudentGameView: View {
                                         }
                                 }//.disabled(insideGame)
                                
-                                NavigationLink(destination: ResimView()) {
+//                                NavigationLink(destination: ResimView()) {
                                     Image("game2")
                                             .resizable()
                                             .scaledToFit()
                                         .frame(height:300)
-                                }
+//                                }
                                 
                                 
                             }.padding(.horizontal)
