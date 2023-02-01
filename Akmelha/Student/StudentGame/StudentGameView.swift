@@ -12,9 +12,11 @@ import Neumorphic
 struct StudentGameView: View {
     @EnvironmentObject var dbUsers: UserDB
     var user: User
+    @State var insideGame = false
 
     @State var scores = "   20"
     @State var medal = ""
+    
     var body: some View {
     
             ZStack{
@@ -57,22 +59,36 @@ struct StudentGameView: View {
                         
                         VStack(spacing:-90){
                             HStack(spacing:-30){
-                                
-                                NavigationLink(destination:XOView()) {
-                                    
+                                NavigationLink(destination:XOView() , isActive: $insideGame) {
+                                    Button(action: {
+                                        if var credit = user.studentCredit {
+                                            if credit >= 30 {
+                                                credit = credit - (30)
+                                                user.studentCredit = credit
+                                                insideGame = true
+                                            }else {
+                                                insideGame = false
+                                            }
+                                        }
+                                        dbUsers.changeStudentCredit(user)
+                                    })
+                                    {
+                                       
                                         Image("game1")
                                             .resizable()
                                             .scaledToFit()
                                             .frame(height:300)
-                                    
-                                }
-                                
-                                Button(action: {}){
+            
+                                        }
+                                }//.disabled(insideGame)
+                               
+                                NavigationLink(destination: ResimView()) {
                                     Image("game2")
-                                        .resizable()
-                                        .scaledToFit()
+                                            .resizable()
+                                            .scaledToFit()
                                         .frame(height:300)
                                 }
+                                
                                 
                             }.padding(.horizontal)
                             
