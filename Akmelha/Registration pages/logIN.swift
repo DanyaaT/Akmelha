@@ -118,7 +118,7 @@ struct logIN: View {
                                 .font(.system(size: 20))
                                 .frame(width: 350, alignment: .leading)
                             
-                            Text(emailIsValid ? "" : "* الإيميل غير صحيح")
+                            Text(emailIsValid ? "" : "* البريد الإلكتروني غير صحيح")
                                 .foregroundColor(Color.red)
                                 .font(.system(size: 15))
                                 .frame(width: 350, alignment: .trailing)
