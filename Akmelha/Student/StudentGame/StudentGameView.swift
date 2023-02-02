@@ -13,7 +13,8 @@ struct StudentGameView: View {
     @EnvironmentObject var dbUsers: UserDB
     var user: User
     @State var insideGame = false
-
+    @State var showeAlert = false
+    @State var showeAlertNotEnough = false
     @State var scores = "   20"
     @State var medal = ""
     
@@ -61,16 +62,8 @@ struct StudentGameView: View {
                             HStack(spacing:-30){
                                 NavigationLink(destination:XOView() , isActive: $insideGame) {
                                     Button(action: {
-                                        if var credit = user.studentCredit {
-                                            if credit >= 30 {
-                                                credit = credit - (30)
-                                                user.studentCredit = credit
-                                                insideGame = true
-                                            }else {
-                                                insideGame = false
-                                            }
-                                        }
-                                        dbUsers.changeStudentCredit(user)
+                                        showeAlert = true
+  
                                     })
                                     {
                                        
@@ -79,6 +72,33 @@ struct StudentGameView: View {
                                             .scaledToFit()
                                             .frame(height:300)
             
+                                        }.alert( isPresented: $showeAlert) {
+                                            
+                                            Alert(
+                                                title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ٣٠ ؟"),
+                                                message: Text(""),
+                                                primaryButton: .destructive(Text("موافق"), action: {
+                                                    if var credit = user.studentCredit {
+                                                        if credit >= 30 {
+                                                            credit = credit - (30)
+                                                            user.studentCredit = credit
+                                                            insideGame = true
+                                                        }else {
+                                                            insideGame = false
+                                                            showeAlertNotEnough = true
+                                                        }
+                                                    }
+                                                    dbUsers.changeStudentCredit(user)
+                                                }),
+                                                secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                                                    
+                                                    
+                                                })
+                                            )
+                                            
+                                        }
+                                        .alert("نقاطك لا تكفي ، سارع لكسب المزيد من النقاط!", isPresented: $showeAlertNotEnough) {
+                                            Button("موافق", role: .cancel) { }
                                         }
                                 }//.disabled(insideGame)
                                
