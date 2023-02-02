@@ -110,6 +110,8 @@ struct WelcomePage: View {
             }
         }
         .toolbar(.hidden)
+        .tint(Color("purple"))
+       
         
     }
     }
