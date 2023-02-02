@@ -50,11 +50,7 @@ struct UserType: View {
                             
                                 .padding(.all, 10.0)
                         
-                        
-                          
-                        
-                        
-                        
+                    
                         NavigationLink("معلم",destination: SignUP(userType: "T"))
                             .foregroundColor(Color(red: 0.552, green: 0.557, blue: 0.574))
                             .frame(width: 160, height: 220)
