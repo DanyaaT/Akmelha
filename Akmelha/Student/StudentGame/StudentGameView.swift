@@ -75,7 +75,7 @@ struct StudentGameView: View {
                                         }.alert( isPresented: $showeAlert) {
                                             
                                             Alert(
-                                                title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ٣٠ ؟"),
+                                                title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ٣٠ نقطة؟"),
                                                 message: Text(""),
                                                 primaryButton: .destructive(Text("موافق"), action: {
                                                     if var credit = user.studentCredit {
@@ -90,7 +90,7 @@ struct StudentGameView: View {
                                                     }
                                                     dbUsers.changeStudentCredit(user)
                                                 }),
-                                                secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                                                secondaryButton: .cancel(Text("إلغاء"), action: { // 1
                                                     
                                                     
                                                 })
