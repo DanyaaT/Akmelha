@@ -72,6 +72,10 @@
 		5B05D7252950F9E2004BE379 /* DaysEventStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B05D7242950F9E2004BE379 /* DaysEventStudent.swift */; };
 		5B23A6C9295B8C7300BD599E /* StudentOwnTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23A6C8295B8C7300BD599E /* StudentOwnTask.swift */; };
 		5B23A6CB295B8D1B00BD599E /* StudentOwnTaskDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */; };
+		5B548822298D1A20008F92B5 /* PuanlamaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B548821298D1A20008F92B5 /* PuanlamaView.swift */; };
+		5B548824298D1A42008F92B5 /* ResimView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B548823298D1A42008F92B5 /* ResimView.swift */; };
+		5B548828298D1A78008F92B5 /* ImageDetile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B548827298D1A78008F92B5 /* ImageDetile.swift */; };
+		5B54882A298D1B2B008F92B5 /* Array+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B548829298D1B2B008F92B5 /* Array+id.swift */; };
 		5B59C76029522BC100F33DB0 /* insideTeacherReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */; };
 		5B59C762295257D100F33DB0 /* TaskStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B59C761295257D100F33DB0 /* TaskStatus.swift */; };
 		5B9C253A2952767300085157 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 5B9C25392952767300085157 /* Neumorphic */; };
@@ -157,6 +161,10 @@
 		5B05D7242950F9E2004BE379 /* DaysEventStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysEventStudent.swift; sourceTree = "<group>"; };
 		5B23A6C8295B8C7300BD599E /* StudentOwnTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOwnTask.swift; sourceTree = "<group>"; };
 		5B23A6CA295B8D1B00BD599E /* StudentOwnTaskDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentOwnTaskDB.swift; sourceTree = "<group>"; };
+		5B548821298D1A20008F92B5 /* PuanlamaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuanlamaView.swift; sourceTree = "<group>"; };
+		5B548823298D1A42008F92B5 /* ResimView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResimView.swift; sourceTree = "<group>"; };
+		5B548827298D1A78008F92B5 /* ImageDetile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetile.swift; sourceTree = "<group>"; };
+		5B548829298D1B2B008F92B5 /* Array+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+id.swift"; sourceTree = "<group>"; };
 		5B59C75F29522BC100F33DB0 /* insideTeacherReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = insideTeacherReviews.swift; sourceTree = "<group>"; };
 		5B59C761295257D100F33DB0 /* TaskStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatus.swift; sourceTree = "<group>"; };
 		5BAB7A382989CA84009A11A7 /* User1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User1.swift; sourceTree = "<group>"; };
@@ -279,6 +287,7 @@
 				1D33B3D02945773600D5BD45 /* TextView.swift */,
 				1D33B3D22945774200D5BD45 /* PickerView.swift */,
 				5BDEE08E294E62AE006122DB /* Date.swift */,
+				5B548829298D1B2B008F92B5 /* Array+id.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -420,6 +429,9 @@
 				95923A1F295B622800385ABA /* XOViewModel.swift */,
 				95923A21295B627700385ABA /* XOView.swift */,
 				95923A23295B62CE00385ABA /* XOalerts.swift */,
+				5B548821298D1A20008F92B5 /* PuanlamaView.swift */,
+				5B548823298D1A42008F92B5 /* ResimView.swift */,
+				5B548827298D1A78008F92B5 /* ImageDetile.swift */,
 			);
 			path = StudentGame;
 			sourceTree = "<group>";
@@ -536,6 +548,7 @@
 				07243B05296DFF3900F66F0E /* PhotoLibraryViewModel.swift in Sources */,
 				5BAB7A412989CB92009A11A7 /* YapBozViewModel.swift in Sources */,
 				07719D32294C42B20039707A /* SignUP.swift in Sources */,
+				5B548828298D1A78008F92B5 /* ImageDetile.swift in Sources */,
 				1DD94C6D294E346400AD8AC0 /* MainView.swift in Sources */,
 				5BAB7A432989CC09009A11A7 /* RekorlarViewModel.swift in Sources */,
 				DBB1BF902953227E00D447BE /* Card3ContentView.swift in Sources */,
@@ -548,6 +561,7 @@
 				1D33B3C12945765000D5BD45 /* TeacherTabBar.swift in Sources */,
 				078453F92956233E00185A93 /* completedTasks.swift in Sources */,
 				DBB1BF8C2953225F00D447BE /* Card1ContentView.swift in Sources */,
+				5B548824298D1A42008F92B5 /* ResimView.swift in Sources */,
 				1DD94C56294E293300AD8AC0 /* EventDB.swift in Sources */,
 				5BDEE08F294E62AE006122DB /* Date.swift in Sources */,
 				5B05D71D2950E6F6004BE379 /* StudentTaskView.swift in Sources */,
@@ -583,6 +597,7 @@
 				5BDEE099294E63AB006122DB /* EventList.swift in Sources */,
 				07243B13296E008500F66F0E /* LiveCameraViewController.swift in Sources */,
 				5B05D7172950E683004BE379 /* StudentGameView.swift in Sources */,
+				5B548822298D1A20008F92B5 /* PuanlamaView.swift in Sources */,
 				5B23A6C9295B8C7300BD599E /* StudentOwnTask.swift in Sources */,
 				1DD94C52294E28FB00AD8AC0 /* CourseTaskDB.swift in Sources */,
 				1DD94C4F294E28C200AD8AC0 /* CardScore.swift in Sources */,
@@ -595,6 +610,7 @@
 				1D7337C62955C22A00581328 /* UserDB.swift in Sources */,
 				5BFEFD1D295A521700B79135 /* ReviewList.swift in Sources */,
 				5BDEE09B294E63CF006122DB /* DaysEvent.swift in Sources */,
+				5B54882A298D1B2B008F92B5 /* Array+id.swift in Sources */,
 				95923A24295B62CE00385ABA /* XOalerts.swift in Sources */,
 				1D33B3B1294575E500D5BD45 /* AkmelhaApp.swift in Sources */,
 				1DD94C49294E287100AD8AC0 /* CourseTask.swift in Sources */,
@@ -737,7 +753,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = QFQWU866QR;
+				DEVELOPMENT_TEAM = J4WSZ6DBDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -753,7 +769,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyyaaa.Akmelha;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyyyaaaa.Akmelha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -769,7 +785,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Akmelha/Preview Content\"";
-				DEVELOPMENT_TEAM = QFQWU866QR;
+				DEVELOPMENT_TEAM = J4WSZ6DBDK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
@@ -785,7 +801,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyyaaa.Akmelha;
+				PRODUCT_BUNDLE_IDENTIFIER = sa.edu.com.Danyyyaaaa.Akmelha;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
