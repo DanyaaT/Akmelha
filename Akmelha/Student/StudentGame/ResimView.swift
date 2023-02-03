@@ -15,6 +15,8 @@ struct ResimView: View {
     @State private var oyunBitti = false
     @State  var showSheet = false
     @State var rekorSahibi : String = ""
+    @EnvironmentObject var dbUsers: UserDB
+    var user: User
     
     var body: some View {
         ZStack{
@@ -33,7 +35,13 @@ struct ResimView: View {
                     
                 }
                 Spacer()
-                PuanlamaView(geçenSüre: zamanlayıcı.geçenSaniye, hareketSayacı: yapBozVM.hareketSayacı)
+//                HStack{
+//                   Spacer()
+//                    Text(String(format: "الرقم القياسي : %.2f", geçenSüre))
+//                    Spacer()
+//                }
+
+                PuanlamaView(geçenSüre: zamanlayıcı.geçenSaniye, hareketSayacı: yapBozVM.hareketSayacı, heighestScore: user.heighestScore ?? 0.0)
                 
                 let dörtlüKolon = [GridItem(.flexible(),spacing: 0),
                                    GridItem(.flexible(),spacing: 0),
@@ -60,7 +68,14 @@ struct ResimView: View {
                                 }
                                
                             } .alert( String(format: "رائع! لقد انهيتها في %.2f ثانية", zamanlayıcı.geçenSaniye), isPresented: $oyunBitti) {
-                              Button("موافق", role: .cancel) { }
+                        
+                                
+                              Button("موافق", role: .cancel) {
+                                  if (user.heighestScore ?? 0.0 > zamanlayıcı.geçenSaniye){
+                                      user.heighestScore = zamanlayıcı.geçenSaniye
+                                      dbUsers.changeStudentScore(user)
+                                  }
+                              }
                             }
 
                     }
@@ -119,8 +134,8 @@ struct ResimYapBozView : View{
 }
 
 
-struct ResimView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResimView()
-    }
-}
+//struct ResimView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ResimView()
+//    }
+//}

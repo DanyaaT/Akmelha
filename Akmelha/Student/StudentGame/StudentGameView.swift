@@ -104,7 +104,7 @@ struct StudentGameView: View {
                                         }
                                 }//.disabled(insideGame)
                                
-                                NavigationLink(destination: ResimView(), isActive: $insideGameP) {
+                                NavigationLink(destination: ResimView(user:user), isActive: $insideGameP) {
                                     Button(action: {
                                         showeAlertP = true
                                         
