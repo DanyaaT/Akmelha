@@ -13,7 +13,9 @@ struct StudentGameView: View {
     @EnvironmentObject var dbUsers: UserDB
     var user: User
     @State var insideGame = false
+    @State var insideGameP = false
     @State var showeAlert = false
+    @State var showeAlertP = false
     @State var showeAlertNotEnough = false
     @State var scores = "   20"
     @State var medal = ""
@@ -75,7 +77,7 @@ struct StudentGameView: View {
                                         }.alert( isPresented: $showeAlert) {
                                             
                                             Alert(
-                                                title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ٣٠ ؟"),
+                                                title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ٣٠ نقطة ؟"),
                                                 message: Text(""),
                                                 primaryButton: .destructive(Text("موافق"), action: {
                                                     if var credit = user.studentCredit {
@@ -102,14 +104,43 @@ struct StudentGameView: View {
                                         }
                                 }//.disabled(insideGame)
                                
-                              NavigationLink(destination: ResimView()) {
-                                    Image("game2")
+                                NavigationLink(destination: ResimView(), isActive: $insideGameP) {
+                                    Button(action: {
+                                        showeAlertP = true
+                                        
+                                    })
+                                    {
+                                        Image("game2")
                                             .resizable()
                                             .scaledToFit()
-                                        .frame(height:300)
+                                            .frame(height:300)
+                                    }.alert( isPresented: $showeAlertP) {
+                                        
+                                        Alert(
+                                            title: Text("هل أنت متأكد من انضمامك إلى اللعبة بمقابل ١٠٠ نقطة ؟"),
+                                            message: Text(""),
+                                            primaryButton: .destructive(Text("موافق"), action: {
+                                                if var credit = user.studentCredit {
+                                                    if credit >= 100 {
+                                                        credit = credit - (100)
+                                                        user.studentCredit = credit
+                                                        insideGameP = true
+                                                    }else {
+                                                        insideGameP = false
+                                                        showeAlertNotEnough = true
+                                                    }
+                                                }
+                                                dbUsers.changeStudentCredit(user)
+                                            }),
+                                            secondaryButton: .cancel(Text("الغاء"), action: { // 1
+                                                
+                                                
+                                            })
+                                        )
+                                        
+                                    }
+                                    
                                 }
-                                
-                                
                             }.padding(.horizontal)
                             
                             HStack(spacing:-30){
