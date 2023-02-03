@@ -184,10 +184,10 @@ struct ResetPassword: View {
     func resetPassword(){
         Auth.auth().sendPasswordReset(withEmail: email) { error
             in if error != nil {
-                Message = " البريد الالكتروني غير مسجل مسبقًا"
+                Message = " البريدالإلكتروني غير مسجل مسبقًا"
                 print(error!.localizedDescription)
             } else{
-                Message = "تم ارسال رابط إعادة التعيين على الايميل"
+                Message = "تم إرسال رابط إعادة التعيين بريد الإلكتروني"
             }        }
     }
 }
