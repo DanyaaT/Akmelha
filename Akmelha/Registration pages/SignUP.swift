@@ -19,6 +19,9 @@ struct SignUP: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var Message: String = ""
+    @State var Message_name: String = ""
+    @State var Message_pass: String = ""
+    @State var Message_email: String = ""
     @State var goToStudent = false
     @State var goToTeacher = false
     var new = true
@@ -119,8 +122,10 @@ struct SignUP: View {
                             .background(Color.black.opacity(0.05))
                             .cornerRadius(20)
                             .frame(width: 350,alignment: .leading)
-                        
-                        
+                        Text(Message_name)
+                            .foregroundColor(Color.red)
+                            .font(.system(size: 15))
+                            .frame(width: 350, alignment: .trailing)
                         
                         
                         HStack(spacing: -350.0){
@@ -162,6 +167,12 @@ struct SignUP: View {
                                 }
 
                             }
+                        Text(Message_email)
+                            .foregroundColor(Color.red)
+                            .font(.system(size: 15))
+                            .padding(.bottom, -10.0)
+                            .frame(width: 350, alignment: .trailing)
+                  
                         
                         Text("كلمة المرور")
                             .foregroundColor(Color.gray)
@@ -176,31 +187,68 @@ struct SignUP: View {
                             .cornerRadius(20)
                             .frame(width: 350, alignment: .center)
                         
-                        Text(Message)
-                            .foregroundColor(Color.red)
-                            .font(.system(size: 15))
-                            .frame(width: 350, alignment: .leading)
-                        
+                   
                         
                     }
                     .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                    .frame(width: 0.0, height: 570)
+                    .frame(width: 0.0, height: 590)
                     
+                    Text(Message_pass)
+                        .foregroundColor(Color.red)
+                        .font(.system(size: 15))
+                        .padding(.top, -23.0)
+                        .frame(width: 350, alignment: .trailing)
+                    Text(Message)
+                        .foregroundColor(Color.red)
+                        .font(.system(size: 15))
+                        .padding(.top, -5.0)
+                        .frame(width: 350, alignment: .leading)
                     VStack{
                         
                         Spacer()
                         
                         Button("تسجيل") {
-                            
-                            viewModel.signUp(email: email, password: password, name:name, userType: userType)
+                           
+                            if(password.count < 8) || (name == "") || (email == ""){
+                                Message_name = ""
+                                Message_pass = ""
+                                Message_email = ""
+                                if name == ""{
+                                 Message_name = "ادخل الاسم"
+                                }
+                                if email == ""{
+                                 Message_email = "ادخل البريد الإلكتروني"
+                                }
+                                if(password.count < 8){
+                                    Message_pass = "يجب أن تكون كلمة المرور من ٨ أحرف أو أكثر"
+                                }
+                            }
+                            else{
+                                Message_name = ""
+                                Message_email = ""
+                                Message_pass = ""
+                                viewModel.signUp(email: email, password: password, name:name, userType: userType)
+                                
+                                Auth.auth().signIn(withEmail: email, password: password){
+                                           result, error in if error != nil {
+                                               print(error!.localizedDescription)
+                                               Message = "البريد الالكتروني موجود مسبقًا"
+                                           }
+                                           else{
+                                               Message = ""
+                               
+                                           }
+                                       }
                                 if userType == "S"{
                                     goToStudent = true
                                     
-                            }
-                           
-                                if userType == "T"{
+                                }
+                                
+                               else if userType == "T"{
                                     goToTeacher = true
-                               
+                                    
+                                }
+                             
                             }
                         }
                         .foregroundColor(Color.gray)
@@ -235,17 +283,16 @@ struct SignUP: View {
         }.toolbar(.hidden)
     }
     
-    private func createUser() {
-           Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in if error != nil  {
-                   Message = "المدخلات غير صحيحة"
-
-                   return
-               }
-               print("Successfully created account with ID: \(result?.user.uid ?? "")")
-               Message = ""
-
-           })
-       }
+//    private func createUser() {
+//           Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in if error != nil  {
+//                   Message = "المدخلات غير صحيحة"
+//                   return
+//               }
+//               print("Successfully created account with ID: \(result?.user.uid ?? "")")
+//               Message = ""
+//
+//           })
+//       }
    
    
 }
