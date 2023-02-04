@@ -176,6 +176,7 @@ var user: User
                             else if(number.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
                                 found = "الرجاء إدخال الرقم التعريفي"
                             }
+                            
                             else{
                                 found = "الرقم التعريفي غير صحيح"
                                 

@@ -187,7 +187,7 @@ struct ResetPassword: View {
                 Message = " البريدالإلكتروني غير مسجل مسبقًا"
                 print(error!.localizedDescription)
             } else{
-                Message = "تم إرسال رابط إعادة التعيين بريد الإلكتروني"
+                Message = "تم إرسال رابط إعادة التعيين على بريدك الإلكتروني"
             }        }
     }
 }

@@ -314,7 +314,7 @@ struct TaecherTaskCard: View{
             
             
             .environment(\.layoutDirection,.rightToLeft)
-            .navigationTitle("إضافة مهمة جديدة")
+            .navigationTitle("معلومات المهمة")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing){
