@@ -286,6 +286,16 @@ struct TaecherTaskCard: View{
                             task.taskScore = taskScore
                             dbCourseTasks.updateCourseTask(task)
                             showTaskCardSheet = false
+                            for i in dbCourseTasks.tasks{
+                                if i.taskNumber == task.taskNumber{
+                                    i.taskName = taskName
+                                    i.taskDesc = taskDesc
+                                    i.taskDeadline = taskDeadline
+                                    i.taskScore = taskScore
+                                    dbCourseTasks.updateCourseTask(i)
+                                }
+                            }
+                            
                         }
                     } label: {
                         HStack{
@@ -333,6 +343,12 @@ struct TaecherTaskCard: View{
                             message: Text(""),
                             primaryButton: .destructive(Text("حذف"), action: {
                                 dbCourseTasks.deleteCourseTask(task)
+                                for i in dbCourseTasks.tasks{
+                                    if i.taskNumber == task.taskNumber{
+                                        dbCourseTasks.deleteCourseTask(i)
+                                    }
+                                }
+                                
                             }),
                             secondaryButton: .cancel(Text("إلغاء"), action: { // 1
                                 

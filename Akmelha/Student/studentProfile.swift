@@ -64,8 +64,12 @@ struct StudentProfile: View {
                         HStack{
                             Spacer()
                             Button(action:{edit.toggle()
-                                user.userName = StudentName
-                                dbUsers.changeUserName(user)
+                                if (StudentName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
+                                    StudentName = user.userName ?? ""
+                                }else{
+                                    user.userName = StudentName
+                                    dbUsers.changeUserName(user)
+                                }
                             }){
                                 if !edit{
                                     
