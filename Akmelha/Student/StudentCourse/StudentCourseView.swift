@@ -164,13 +164,20 @@ var user: User
                             HStack {
                     Spacer()
                     Button {
+                        
                         for course in dbCourse.courses{
                             if course.courseNumber?.description == number{
-                                course.coureseStudents?.append(user.id ?? "")
-                                user.studentCourses.append(course.id ?? "")
-                                showSheet=false
-                                dbUsers.addStudentCourse(user)
-                                dbCourse.addCoursesStudents(course)
+                                if isCourseExist(id: course.id ?? ""){
+                                    found = "المادة مسجلة مسبقاً"
+                                    break
+                                }else{
+                                    course.coureseStudents?.append(user.id ?? "")
+                                    user.studentCourses.append(course.id ?? "")
+                                    showSheet=false
+                                    dbUsers.addStudentCourse(user)
+                                    dbCourse.addCoursesStudents(course)
+                                    
+                                }
                                 
                             }
                             else if(number.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
@@ -220,6 +227,14 @@ var user: User
         
         
         
+    }
+    func isCourseExist(id: String) -> Bool{
+        for i in user.studentCourses{
+            if i == id {
+               return true
+            }
+        }
+        return false
     }
 }
     
