@@ -58,7 +58,7 @@ struct Camera_View: View {
                            
                             dbUsers.changeStudentCredit(user)
                             dismiss()
-                            
+                            cardsName = ""
 
                         }
     
@@ -71,6 +71,7 @@ struct Camera_View: View {
                            
                             dbUsers.changeStudentCredit(user)
                             dismiss()
+                            cardsName = ""
                         }
     
                         else if cardsName == "purple"{
@@ -81,6 +82,7 @@ struct Camera_View: View {
                            
                             dbUsers.changeStudentCredit(user)
                             dismiss()
+                            cardsName = ""
                             
                         }
     
@@ -92,6 +94,7 @@ struct Camera_View: View {
                            
                             dbUsers.changeStudentCredit(user)
                             dismiss()
+                            cardsName = ""
                             
                         }
                        
