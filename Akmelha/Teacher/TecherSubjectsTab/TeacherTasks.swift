@@ -110,7 +110,7 @@ struct AddTeacherTask: View{
                                selection: $taskDeadline,
                                displayedComponents: .date)
                     
-                    .environment(\.calendar, Calendar(identifier: .islamicUmmAlQura))
+                    .environment(\.calendar, Calendar(identifier: .gregorian))
                     .environment(\.locale, Locale.init(identifier: "ar_SA"))
                     .tint(Color("purple"))
                     
