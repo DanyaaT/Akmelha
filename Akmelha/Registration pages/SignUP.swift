@@ -214,13 +214,13 @@ struct SignUP: View {
                                 Message_pass = ""
                                 Message_email = ""
                                 if name == ""{
-                                 Message_name = "ادخل الاسم"
+                                 Message_name = " أدخل الاسم"
                                 }
                                 if email == ""{
-                                 Message_email = "ادخل البريد الإلكتروني"
+                                 Message_email = "أدخل البريد الإلكتروني"
                                 }
                                 if(password.count < 8){
-                                    Message_pass = "يجب أن تكون كلمة المرور من ٨ أحرف أو أكثر"
+                                    Message_pass = "يجب أن تكون كلمة المرور مكونة من ٨ خانات فأكثر"
                                 }
                             }
                             else{

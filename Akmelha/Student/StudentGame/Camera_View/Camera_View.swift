@@ -48,7 +48,7 @@ struct Camera_View: View {
                     
                     Button{
                         
-                       let cardName = GeometryUtils.addScore()
+//                       let cardName = GeometryUtils.addScore()
                         
                         if cardsName == "blue"{
                             if var credit = user.studentCredit {
@@ -64,7 +64,7 @@ struct Camera_View: View {
                         }
     
                         else if cardsName == "orange"{
-                      
+                      print("inside button")
                             if var credit = user.studentCredit {
                                 credit = credit + 10
                                 user.studentCredit = credit

@@ -80,47 +80,47 @@ class GeometryUtils {
     }
     
     
-    static func addScore() -> String{
-        
- 
-        
-            print("inside add score: ",cardsName)
-            print(cardsName)
-        print("")
-               
-                            if cardsName == "blue"{
-                                print(cardsName)
-                                
-//                                var credit = user.studentCredit
-//                                credit = credit!+20
-                            }
-        
-                            else if cardsName == "orange"{
-                                print(cardsName)
-//                                var credit = user.studentCredit
-//                                credit = credit+10
-                            }
-        
-                            else if cardsName == "purple"{
-                                print("inside purple",cardsName)
-//                                var credit = user.studentCredit
-//                                credit = credit!+15
-                                
-                            }
-        
-                            else if cardsName == "yellow"{
-                                print(cardsName)
-//                                var credit = user.studentCredit
-//                                credit = credit!+30
-                            }
-                            else{
-                                print("No object detected")
-                            }
-        
-        
-            return cardsName
-            
-        }
+//    static func addScore() -> String{
+//        
+// 
+//        
+//            print("inside add score: ",cardsName)
+//            print(cardsName)
+//        print("")
+//               
+//                            if cardsName == "blue"{
+//                                print(cardsName)
+//                                
+////                                var credit = user.studentCredit
+////                                credit = credit!+20
+//                            }
+//        
+//                            else if cardsName == "orange"{
+//                                print(cardsName)
+////                                var credit = user.studentCredit
+////                                credit = credit+10
+//                            }
+//        
+//                            else if cardsName == "purple"{
+//                                print("inside purple",cardsName)
+////                                var credit = user.studentCredit
+////                                credit = credit!+15
+//                                
+//                            }
+//        
+//                            else if cardsName == "yellow"{
+//                                print(cardsName)
+////                                var credit = user.studentCredit
+////                                credit = credit!+30
+//                            }
+//                            else{
+//                                print("No object detected")
+//                            }
+//        
+//        
+//            return cardsName
+//            
+//        }
         
     
     
