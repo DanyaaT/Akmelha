@@ -41,6 +41,21 @@ struct CalendarView: UIViewRepresentable {
         }
         
         @MainActor
+//        func calendarView(_ calendarView: UICalendarView,
+//                          decorationFor dateComponents: DateComponents) -> UICalendarView.Decoration? {
+//            let foundEvents = dbEvent.events
+//                .filter {$0.eventDate.startOfDay == dateComponents.date?.startOfDay}
+//            if foundEvents.isEmpty { return nil }
+//
+//            if foundEvents.count > 1 {
+//                return .default(color: .tintColor ,size: .small)
+////                image(UIImage(systemName: "doc.on.doc.fill"),
+////                              color: .red,
+////                              size: .large)
+//            }
+//            return .default(color: .tintColor ,size: .small)
+//        }
+        
         func dateSelection(_ selection: UICalendarSelectionSingleDate,
                            didSelectDate dateComponents: DateComponents?) {
             parent.dateSelected = dateComponents
