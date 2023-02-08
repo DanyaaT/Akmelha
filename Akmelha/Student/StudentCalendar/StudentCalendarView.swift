@@ -41,6 +41,7 @@ struct StudentCalendarView: View {
                                  dbEvent: dbEvent,
                                  dateSelected: $dateSelected,
                                  displayEvents: $displayEvents)
+                    .environment(\.layoutDirection,.leftToRight)
                     
                     HStack {
                         Text("الأحداث المهمة")
