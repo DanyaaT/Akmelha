@@ -171,11 +171,13 @@ var user: User
                                     found = "المادة مسجلة مسبقاً"
                                     break
                                 }else{
+                                    found = ""
                                     course.coureseStudents?.append(user.id ?? "")
                                     user.studentCourses.append(course.id ?? "")
                                     showSheet=false
                                     dbUsers.addStudentCourse(user)
                                     dbCourse.addCoursesStudents(course)
+                                    break
                                     
                                 }
                                 
