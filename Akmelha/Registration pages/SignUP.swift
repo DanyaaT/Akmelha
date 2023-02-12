@@ -227,18 +227,7 @@ struct SignUP: View {
                                 Message_name = ""
                                 Message_email = ""
                                 Message_pass = ""
-                                viewModel.signUp(email: email, password: password, name:name, userType: userType)
-                                
-                                Auth.auth().signIn(withEmail: email, password: password){
-                                           result, error in if error != nil {
-                                               print(error!.localizedDescription)
-                                               Message = "البريد الالكتروني موجود مسبقًا"
-                                           }
-                                           else{
-                                               Message = ""
-                               
-                                           }
-                                       }
+                                    viewModel.signUp(email: email, password: password, name:name, userType: userType)
                                 if userType == "S"{
                                     goToStudent = true
                                     
@@ -248,6 +237,12 @@ struct SignUP: View {
                                     goToTeacher = true
                                     
                                 }
+                                Message = viewModel.signedUp
+                                
+//                                                   Message = "البريد الالكتروني موجود مسبقًا"
+
+                                
+                          
                              
                             }
                         }
@@ -305,3 +300,13 @@ struct SignUP_Previews: PreviewProvider {
 
 
 
+//Auth.auth().signIn(withEmail: email, password: password){
+//           result, error in if error != nil {
+//               print(error!.localizedDescription)
+//               Message = "البريد الالكتروني موجود مسبقًا"
+//           }
+//           else{
+//               Message = ""
+//
+//           }
+//       }

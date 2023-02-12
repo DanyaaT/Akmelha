@@ -11,7 +11,6 @@ import FirebaseCore
 import FirebaseAuth
 
 
-
 struct ResetPassword: View {
     @State var email: String = ""
     @State var Message: String = ""

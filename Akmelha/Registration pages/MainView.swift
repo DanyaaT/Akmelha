@@ -16,7 +16,8 @@ class AppViewModel: ObservableObject{
     let auth = Auth.auth()
     @ObservedObject var dbUsers: UserDB = UserDB()
     @Published var signedIn = false
-    
+    @Published var signedUp = ""
+
     var isSignedIn: Bool{
         return auth.currentUser != nil
     }
@@ -35,13 +36,17 @@ class AppViewModel: ObservableObject{
         
     }
     
+    
     func signUp(email: String, password: String, name:String , userType: String){
         auth.createUser(withEmail: email, password: password) {[weak self] result, error in
             guard result != nil, error == nil else{
+                self?.signedUp = "البريد الالكتروني موجود مسبقًا"
+
                 print(error)
                 return
             }
             DispatchQueue.main.async { [self] in
+                self?.signedUp = ""
                 self?.signedIn = true
                 if userType == "S"{
                     
