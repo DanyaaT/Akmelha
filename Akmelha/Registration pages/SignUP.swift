@@ -25,6 +25,7 @@ struct SignUP: View {
     @State var goToStudent = false
     @State var goToTeacher = false
     var new = true
+    
 
     @State var emailIsValid: Bool = true
 
@@ -40,7 +41,7 @@ struct SignUP: View {
     
     var body: some View {
         NavigationView{
-
+           
             ZStack{
                     Color("bg").ignoresSafeArea()
                     
@@ -225,7 +226,7 @@ struct SignUP: View {
                             }
                             else{
                                 Message_name = ""
-                                Message_email = ""
+                                Message_email = viewModel.signedUp
                                 Message_pass = ""
                                     viewModel.signUp(email: email, password: password, name:name, userType: userType)
                                 if userType == "S"{
@@ -237,8 +238,7 @@ struct SignUP: View {
                                     goToTeacher = true
                                     
                                 }
-                                Message = viewModel.signedUp
-                                
+                               
 //                                                   Message = "البريد الالكتروني موجود مسبقًا"
 
                                 
