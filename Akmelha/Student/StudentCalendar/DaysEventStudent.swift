@@ -38,7 +38,7 @@ struct DaysEventStudent: View {
         }
             .navigationTitle(dateSelected?.date?.formatted(date: .long, time: .omitted) ?? "")
             .navigationBarTitleDisplayMode(.inline)
-        }
+        }.colorScheme(.light)
     }
         
 }

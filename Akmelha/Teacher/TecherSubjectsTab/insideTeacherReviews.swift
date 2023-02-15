@@ -167,7 +167,7 @@ struct AddReviewsSheet: View {
                     } // end button
                 } // end toolbar item
             }
-        }
+        }.colorScheme(.light)
     }
     
 }
