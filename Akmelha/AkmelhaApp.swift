@@ -46,7 +46,7 @@ struct AkmelhaApp: App {
     var body: some Scene {
         WindowGroup {
           
-            MainView().environment(\.layoutDirection, .rightToLeft)
+            MainView().environment(\.layoutDirection, .rightToLeft).colorScheme(.light)
                     .environmentObject(viewModel)
                     .environmentObject(dbCourseTasks)
                     .environmentObject(dbCourses)
