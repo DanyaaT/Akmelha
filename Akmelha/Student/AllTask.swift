@@ -251,7 +251,7 @@ struct courseTaskCard: View{
                         }
                     }
                 }
-        }
+        }.colorScheme(.light)
     }
 }
 
@@ -344,6 +344,7 @@ var body: some View{
                 
             }//end toolbar
         }// end NavigationView
+        .colorScheme(.light)
 
     } // end first Vstack
     
@@ -535,7 +536,7 @@ struct StudentTaskCard: View{
                 }
                 
             }
-        }
+        }.colorScheme(.light)
     }
 }
 

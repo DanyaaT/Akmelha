@@ -144,6 +144,6 @@ struct DetailedEventStudent: View{
                     
                 }
             }
-        }
+        }.colorScheme(.light)
     }
     }

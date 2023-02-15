@@ -292,7 +292,7 @@ struct TeacherCalendar: View {
                         focus = true
                     }
                 }
-            }
+            }.colorScheme(.light)
         }
     }
     

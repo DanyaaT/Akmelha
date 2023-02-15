@@ -223,6 +223,6 @@ struct DetailedEvent: View{
                     
                 }
             }
-        }
+        }.colorScheme(.light)
     }
     }

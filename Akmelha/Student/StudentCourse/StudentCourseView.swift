@@ -230,7 +230,7 @@ var user: User
                 }// end toolbar item
             }//end toolbar
             
-        }
+        }.colorScheme(.light)
         
         
         
