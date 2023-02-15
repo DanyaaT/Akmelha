@@ -211,6 +211,11 @@ var user: User
                 
                 
             }
+            
+            
+          
+            
+            
             .environment(\.layoutDirection,.rightToLeft)
             .scrollContentBackground(.hidden)
             .background(Color("sheet"))
